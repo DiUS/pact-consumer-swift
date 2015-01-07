@@ -7,4 +7,17 @@
    <FileRef
       location = "group:iOS Swift Example/iOS Swift Example.xcodeproj">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "Vendor">
+      <FileRef
+         location = "group:Vendor/Nimble/Nimble.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Vendor/Quick/Quick.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Vendor/Alamofire/Alamofire.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

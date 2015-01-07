@@ -12,6 +12,11 @@
 		A11F1A7E1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1A7D1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift */; };
 		A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEE1A5CF84600DAB9CE /* MockService.swift */; };
 		A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */; };
+		A11F1AF31A5CFFD900DAB9CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */; };
+		A11F1AF61A5D00AC00DAB9CE /* HelloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */; };
+		A11F1AF71A5D00AC00DAB9CE /* PactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */; };
+		A11F1AFA1A5D05B200DAB9CE /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF81A5D05B200DAB9CE /* Nimble.framework */; };
+		A11F1AFB1A5D05B200DAB9CE /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF91A5D05B200DAB9CE /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +38,11 @@
 		A11F1A7D1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactConsumerSwiftTests.swift; sourceTree = "<group>"; };
 		A11F1AEE1A5CF84600DAB9CE /* MockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
+		A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloClient.swift; sourceTree = "<group>"; };
+		A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactTest.swift; sourceTree = "<group>"; };
+		A11F1AF81A5D05B200DAB9CE /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		A11F1AF91A5D05B200DAB9CE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11F1AF31A5CFFD900DAB9CE /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11F1AFA1A5D05B200DAB9CE /* Nimble.framework in Frameworks */,
+				A11F1AFB1A5D05B200DAB9CE /* Quick.framework in Frameworks */,
 				A11F1A771A5C890E00DAB9CE /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +70,9 @@
 		A11F1A611A5C890D00DAB9CE = {
 			isa = PBXGroup;
 			children = (
+				A11F1AF81A5D05B200DAB9CE /* Nimble.framework */,
+				A11F1AF91A5D05B200DAB9CE /* Quick.framework */,
+				A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */,
 				A11F1A6D1A5C890D00DAB9CE /* PactConsumerSwift */,
 				A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */,
 				A11F1A6C1A5C890D00DAB9CE /* Products */,
@@ -94,6 +110,8 @@
 		A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */,
+				A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */,
 				A11F1A7D1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift */,
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 			);
@@ -224,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11F1AF71A5D00AC00DAB9CE /* PactTest.swift in Sources */,
 				A11F1A7E1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift in Sources */,
+				A11F1AF61A5D00AC00DAB9CE /* HelloClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +351,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Alamofire/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -346,6 +370,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Alamofire/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -360,6 +388,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/Nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -377,6 +407,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/Nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = PactConsumerSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

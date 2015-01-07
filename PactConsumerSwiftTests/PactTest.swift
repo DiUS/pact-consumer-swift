@@ -2,7 +2,6 @@
 import Quick
 import Nimble
 import PactConsumerSwift
-import Pods_PactConsumerSwift
 
 class HelloClientSpec: QuickSpec {
     override func spec() {
