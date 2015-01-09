@@ -1,10 +1,10 @@
 import Alamofire
 
 public class Interaction {
-  private var providerState: String?
-  private var description: String?
-  private var request: Dictionary<String, Any>?
-  private var response: Dictionary<String, AnyObject>?
+  private var providerState: String = ""
+  private var description: String = ""
+    public var request: Dictionary<String, AnyObject> = [:]
+    public var response: Dictionary<String, AnyObject> = [:]
 
   public init() {
   }
@@ -22,12 +22,16 @@ public class Interaction {
   // TODO: Implement own Method struct
   public func withRequest(method: Alamofire.Method, path: String) -> Interaction {
     //public func withRequest(method: Alamofire.Method, path: String, headers: Dictionary<String, String>?, body: String? = nil) -> Interaction {
-    request = ["method": method, "path": path]
+    request = ["method": "get", "path": path]
     return self
   }
 
-  public func willRespondWith(status: Int, headers: Dictionary<String, String>, body: String) -> Interaction {
-    request = ["status": status, "headers": headers, "body": body]
+  public func willRespondWith(status: Int, headers: Dictionary<String, String>, body: Dictionary<String, AnyObject>) -> Interaction {
+    response = ["status": status, "headers": headers, "body": body]
     return self
   }
+    
+    public func asDictionary() -> [String: AnyObject] {
+        return [ "providerState": providerState, "description": description, "request": request, "response": response ]
+    }
 }

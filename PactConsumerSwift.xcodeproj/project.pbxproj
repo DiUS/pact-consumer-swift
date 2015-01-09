@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A11F1A711A5C890D00DAB9CE /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A11F1A771A5C890E00DAB9CE /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1A6B1A5C890D00DAB9CE /* PactConsumerSwift.framework */; };
-		A11F1A7E1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1A7D1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift */; };
 		A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEE1A5CF84600DAB9CE /* MockService.swift */; };
 		A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */; };
 		A11F1AF31A5CFFD900DAB9CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */; };
@@ -35,7 +34,6 @@
 		A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PactConsumerSwift.h; sourceTree = "<group>"; };
 		A11F1A761A5C890E00DAB9CE /* PactConsumerSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PactConsumerSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11F1A7C1A5C890E00DAB9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A11F1A7D1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactConsumerSwiftTests.swift; sourceTree = "<group>"; };
 		A11F1AEE1A5CF84600DAB9CE /* MockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			children = (
 				A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */,
 				A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */,
-				A11F1A7D1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift */,
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 			);
 			path = PactConsumerSwiftTests;
@@ -243,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11F1AF71A5D00AC00DAB9CE /* PactTest.swift in Sources */,
-				A11F1A7E1A5C890E00DAB9CE /* PactConsumerSwiftTests.swift in Sources */,
 				A11F1AF61A5D00AC00DAB9CE /* HelloClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

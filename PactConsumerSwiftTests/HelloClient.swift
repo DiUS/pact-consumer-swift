@@ -2,19 +2,21 @@ import Foundation
 import Alamofire
 
 public class HelloClient {
-  private let baseUrl = "http://google.com"
+    private let baseUrl: String
 
-  public init() {
-
+  public init(baseUrl : String) {
+    self.baseUrl = baseUrl
   }
 
   public func sayHello(helloResponse: (String) -> Void) {
-    Alamofire.request(.GET, baseUrl)
-             .response { (request, response, json, error) in
+    Alamofire.request(.GET, "\(baseUrl)/sayHello")
+             .responseJSON { (request, response, json, error) in
       println(request)
       println(response)
       println(error)
-      helloResponse("hello")
+      if let jsonResult = json as? Dictionary<String, AnyObject> {
+        helloResponse(jsonResult["reply"] as String)
+      }
     }
   }
 }
