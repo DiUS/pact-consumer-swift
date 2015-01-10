@@ -1,6 +1,11 @@
 import Foundation
 import Alamofire
 
+public enum VerificationResult {
+  case PASSED
+  case FAILED
+}
+
 public class MockService {
   private let provider: String
   private let consumer: String
@@ -12,6 +17,8 @@ public class MockService {
         return "\(url):\(port)"
     }
   }
+  
+
   
   enum Router: URLRequestConvertible {
     static var baseURLString = "http://example.com"
@@ -84,15 +91,21 @@ public class MockService {
     return interaction
   }
 
-  public func run(testFunction: (cleanup:() -> Request) -> Void) {
+  public func run(testFunction: (complete: () -> Request) -> Void, result: (VerificationResult) -> Void) -> Void{
     clean().response { (_, _, _, error) in
       println(error)
       self.setup().response { (_, _, _, error) in
         println(error)
         testFunction { () in
-          self.verify().response { (_, _, _, error) in
+          self.verify().responseString { (_, _, response, error) in
             println(error)
+            println(response)
             self.write()
+            if let error = error {
+              result(VerificationResult.FAILED)
+            } else {
+              result(VerificationResult.PASSED)
+            }
           }
         }
       }
@@ -104,6 +117,7 @@ public class MockService {
   }
   
   func setup () -> Request {
+    // TODO allow multiple interactions
 //    for interaction in interactions {
 //      Alamofire.request(Router.Setup(interaction.asDictionary())).validate().response { (_, _, _, error) in
 //        println(error)
