@@ -12,10 +12,9 @@
 		A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEE1A5CF84600DAB9CE /* MockService.swift */; };
 		A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */; };
 		A11F1AF31A5CFFD900DAB9CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */; };
-		A11F1AF61A5D00AC00DAB9CE /* HelloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */; };
-		A11F1AF71A5D00AC00DAB9CE /* PactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */; };
 		A11F1AFA1A5D05B200DAB9CE /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF81A5D05B200DAB9CE /* Nimble.framework */; };
 		A11F1AFB1A5D05B200DAB9CE /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF91A5D05B200DAB9CE /* Quick.framework */; };
+		A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CD31A6200C100DCD05E /* InteractionSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +36,9 @@
 		A11F1AEE1A5CF84600DAB9CE /* MockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloClient.swift; sourceTree = "<group>"; };
-		A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactTest.swift; sourceTree = "<group>"; };
 		A11F1AF81A5D05B200DAB9CE /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		A11F1AF91A5D05B200DAB9CE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
+		A1343CD31A6200C100DCD05E /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +106,8 @@
 		A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				A11F1AF41A5D00AC00DAB9CE /* HelloClient.swift */,
-				A11F1AF51A5D00AC00DAB9CE /* PactTest.swift */,
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
+				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
 			);
 			path = PactConsumerSwiftTests;
 			sourceTree = "<group>";
@@ -239,8 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11F1AF71A5D00AC00DAB9CE /* PactTest.swift in Sources */,
-				A11F1AF61A5D00AC00DAB9CE /* HelloClient.swift in Sources */,
+				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

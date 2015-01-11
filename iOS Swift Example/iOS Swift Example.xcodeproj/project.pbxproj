@@ -14,6 +14,10 @@
 		A11F1AD71A5CEEDD00DAB9CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A11F1AD51A5CEEDD00DAB9CE /* LaunchScreen.xib */; };
 		A11F1AE31A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AE21A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift */; };
 		A11F1AED1A5CF2F300DAB9CE /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AEC1A5CF2F300DAB9CE /* PactConsumerSwift.framework */; };
+		A1343CDB1A62776500DCD05E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1343CD91A62776500DCD05E /* Nimble.framework */; };
+		A1343CDC1A62776500DCD05E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1343CDA1A62776500DCD05E /* Quick.framework */; };
+		A1343CDE1A62787F00DCD05E /* HelloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CDD1A62787F00DCD05E /* HelloClient.swift */; };
+		A1343CE01A62788A00DCD05E /* PactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CDF1A62788A00DCD05E /* PactTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		A11F1AE11A5CEEDD00DAB9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11F1AE21A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Swift_ExampleTests.swift; sourceTree = "<group>"; };
 		A11F1AEC1A5CF2F300DAB9CE /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
+		A1343CD91A62776500DCD05E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Vendor/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
+		A1343CDA1A62776500DCD05E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
+		A1343CDD1A62787F00DCD05E /* HelloClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloClient.swift; sourceTree = "<group>"; };
+		A1343CDF1A62788A00DCD05E /* PactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1343CDB1A62776500DCD05E /* Nimble.framework in Frameworks */,
+				A1343CDC1A62776500DCD05E /* Quick.framework in Frameworks */,
 				A11F1AED1A5CF2F300DAB9CE /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +72,8 @@
 		A11F1ABE1A5CEEDD00DAB9CE = {
 			isa = PBXGroup;
 			children = (
+				A1343CD91A62776500DCD05E /* Nimble.framework */,
+				A1343CDA1A62776500DCD05E /* Quick.framework */,
 				A11F1AEC1A5CF2F300DAB9CE /* PactConsumerSwift.framework */,
 				A11F1AC91A5CEEDD00DAB9CE /* iOS Swift Example */,
 				A11F1ADF1A5CEEDD00DAB9CE /* iOS Swift ExampleTests */,
@@ -81,6 +93,7 @@
 		A11F1AC91A5CEEDD00DAB9CE /* iOS Swift Example */ = {
 			isa = PBXGroup;
 			children = (
+				A1343CDD1A62787F00DCD05E /* HelloClient.swift */,
 				A11F1ACC1A5CEEDD00DAB9CE /* AppDelegate.swift */,
 				A11F1ACE1A5CEEDD00DAB9CE /* ViewController.swift */,
 				A11F1AD01A5CEEDD00DAB9CE /* Main.storyboard */,
@@ -102,6 +115,7 @@
 		A11F1ADF1A5CEEDD00DAB9CE /* iOS Swift ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1343CDF1A62788A00DCD05E /* PactTest.swift */,
 				A11F1AE21A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift */,
 				A11F1AE01A5CEEDD00DAB9CE /* Supporting Files */,
 			);
@@ -217,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11F1ACF1A5CEEDD00DAB9CE /* ViewController.swift in Sources */,
+				A1343CDE1A62787F00DCD05E /* HelloClient.swift in Sources */,
 				A11F1ACD1A5CEEDD00DAB9CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11F1AE31A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift in Sources */,
+				A1343CE01A62788A00DCD05E /* PactTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +382,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
+					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -386,6 +404,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
+					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Nimble/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = "iOS Swift ExampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -413,6 +433,7 @@
 				A11F1AE81A5CEEDD00DAB9CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A11F1AE91A5CEEDD00DAB9CE /* Build configuration list for PBXNativeTarget "iOS Swift ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +442,7 @@
 				A11F1AEB1A5CEEDD00DAB9CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

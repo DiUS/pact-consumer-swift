@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import PactConsumerSwift
-import Alamofire
+import iOS_Swift_Example
 
 class HelloClientSpec: QuickSpec {
   override func spec() {
@@ -37,8 +37,6 @@ class HelloClientSpec: QuickSpec {
       
       //Run the tests
       helloProvider.run ( { (complete) -> Void in
-        // TODO: Should not need to have any code in here other than complete()!
-        HelloClient(baseUrl: helloProvider.baseUrl)
         complete()
       }, result: { (verification) -> Void in
         verificationResult = verification

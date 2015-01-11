@@ -91,22 +91,25 @@ public class MockService {
     return interaction
   }
 
-  public func run(testFunction: (complete: () -> Request) -> Void, result: (VerificationResult) -> Void) -> Void{
+  public func run(testFunction: (complete: () -> Void) -> Void, result: (VerificationResult) -> Void) -> Void{
     clean().response { (_, _, _, error) in
       println(error)
       self.setup().response { (_, _, _, error) in
         println(error)
         testFunction { () in
           self.verify().responseString { (_, _, response, error) in
-            println(error)
-            println(response)
             self.write()
-            if let error = error {
+            if let errorValue = error {
+              println(errorValue)
               result(VerificationResult.FAILED)
             } else {
+              if let responseValue = response {
+                println(responseValue)
+              }
               result(VerificationResult.PASSED)
             }
           }
+          return
         }
       }
     }
@@ -125,7 +128,7 @@ public class MockService {
 //    }
 
 //    interactions.removeAll()
-    return Alamofire.request(Router.Setup(interactions[0].asDictionary())).validate()
+    return Alamofire.request(Router.Setup(interactions[0].payload())).validate()
   }
   
   func verify() -> Request {
