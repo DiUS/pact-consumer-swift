@@ -36,7 +36,7 @@ public class Interaction {
     if let headersValue = headers {
       request["headers"] = headersValue
     }
-    if let bodyValue = body {
+    if let bodyValue: AnyObject = body {
       request["body"] = bodyValue
     }
     return self
@@ -44,7 +44,7 @@ public class Interaction {
 
   public func willRespondWith(status: Int, headers: Dictionary<String, String>, body: AnyObject? = nil) -> Interaction {
     response = ["status": status, "headers": headers]
-    if let bodyValue = body {
+    if let bodyValue: AnyObject = body {
       response["body"] = bodyValue
     }
     return self

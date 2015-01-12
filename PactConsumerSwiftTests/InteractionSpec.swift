@@ -12,9 +12,6 @@ class InteractionSpec: QuickSpec {
         expect(interaction?.given("some state").providerState).to(equal("some state"))
       }
       
-      it("it initialises the interaction description") {
-        expect(interaction?.uponReceiving("some interaction").description).to(equal("some interaction"))
-      }
     }
 
     describe("json payload"){

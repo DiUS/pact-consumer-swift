@@ -15,6 +15,8 @@
 		A11F1AFA1A5D05B200DAB9CE /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF81A5D05B200DAB9CE /* Nimble.framework */; };
 		A11F1AFB1A5D05B200DAB9CE /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AF91A5D05B200DAB9CE /* Quick.framework */; };
 		A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CD31A6200C100DCD05E /* InteractionSpec.swift */; };
+		A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */; };
+		A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE31A63869500DCD05E /* PactVerificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		A11F1AF81A5D05B200DAB9CE /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Vendor/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		A11F1AF91A5D05B200DAB9CE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
 		A1343CD31A6200C100DCD05E /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
+		A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
+		A1343CE31A63869500DCD05E /* PactVerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactVerificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		A11F1A6D1A5C890D00DAB9CE /* PactConsumerSwift */ = {
 			isa = PBXGroup;
 			children = (
+				A1343CE31A63869500DCD05E /* PactVerificationService.swift */,
 				A11F1AEE1A5CF84600DAB9CE /* MockService.swift */,
 				A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */,
 				A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */,
@@ -108,6 +113,7 @@
 			children = (
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
+				A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */,
 			);
 			path = PactConsumerSwiftTests;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */,
+				A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */,
 				A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */,
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
