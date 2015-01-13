@@ -45,6 +45,8 @@
 		A1343CD31A6200C100DCD05E /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
 		A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
 		A1343CE31A63869500DCD05E /* PactVerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactVerificationService.swift; sourceTree = "<group>"; };
+		A1343CEB1A64D59E00DCD05E /* start_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_server.sh; sourceTree = "<group>"; };
+		A1343CEC1A64D59E00DCD05E /* stop_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = stop_server.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		A11F1A611A5C890D00DAB9CE = {
 			isa = PBXGroup;
 			children = (
+				A1343CE61A64D59E00DCD05E /* script */,
 				A11F1AF81A5D05B200DAB9CE /* Nimble.framework */,
 				A11F1AF91A5D05B200DAB9CE /* Quick.framework */,
 				A11F1AF21A5CFFD900DAB9CE /* Alamofire.framework */,
@@ -128,6 +131,15 @@
 				A11F1A7C1A5C890E00DAB9CE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1343CE61A64D59E00DCD05E /* script */ = {
+			isa = PBXGroup;
+			children = (
+				A1343CEB1A64D59E00DCD05E /* start_server.sh */,
+				A1343CEC1A64D59E00DCD05E /* stop_server.sh */,
+			);
+			path = script;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

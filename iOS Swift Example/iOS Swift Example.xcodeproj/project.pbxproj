@@ -12,7 +12,6 @@
 		A11F1AD21A5CEEDD00DAB9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11F1AD01A5CEEDD00DAB9CE /* Main.storyboard */; };
 		A11F1AD41A5CEEDD00DAB9CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11F1AD31A5CEEDD00DAB9CE /* Images.xcassets */; };
 		A11F1AD71A5CEEDD00DAB9CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A11F1AD51A5CEEDD00DAB9CE /* LaunchScreen.xib */; };
-		A11F1AE31A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AE21A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift */; };
 		A11F1AED1A5CF2F300DAB9CE /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1AEC1A5CF2F300DAB9CE /* PactConsumerSwift.framework */; };
 		A1343CDB1A62776500DCD05E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1343CD91A62776500DCD05E /* Nimble.framework */; };
 		A1343CDC1A62776500DCD05E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1343CDA1A62776500DCD05E /* Quick.framework */; };
@@ -40,7 +39,6 @@
 		A11F1AD61A5CEEDD00DAB9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A11F1ADC1A5CEEDD00DAB9CE /* iOS Swift ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Swift ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11F1AE11A5CEEDD00DAB9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A11F1AE21A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Swift_ExampleTests.swift; sourceTree = "<group>"; };
 		A11F1AEC1A5CF2F300DAB9CE /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
 		A1343CD91A62776500DCD05E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../Vendor/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
 		A1343CDA1A62776500DCD05E /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug/Quick.framework"; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				A1343CDF1A62788A00DCD05E /* PactTest.swift */,
-				A11F1AE21A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift */,
 				A11F1AE01A5CEEDD00DAB9CE /* Supporting Files */,
 			);
 			path = "iOS Swift ExampleTests";
@@ -240,7 +237,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11F1AE31A5CEEDD00DAB9CE /* iOS_Swift_ExampleTests.swift in Sources */,
 				A1343CE01A62788A00DCD05E /* PactTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
