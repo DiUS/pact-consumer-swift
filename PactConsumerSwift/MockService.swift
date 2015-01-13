@@ -35,7 +35,7 @@ public class MockService {
     return interaction
   }
 
-  public func run(testFunction: (complete: () -> Void) -> Void, result: (VerificationResult) -> Void) -> Void{
+  public func run(testFunction: (complete: () -> Void) -> Void, result: (VerificationResult) -> Void) -> Void {
     self.pactVerificationService.clean(success: { () in
       self.pactVerificationService.setup(self.interactions, success: { () in
         testFunction { () in
