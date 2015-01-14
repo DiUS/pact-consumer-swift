@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-public class PactVerificationService {
+@objc public class PactVerificationService {
   public let url: String
   public let port: Int
   public var baseUrl: String {

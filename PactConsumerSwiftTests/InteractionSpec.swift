@@ -25,7 +25,7 @@ class InteractionSpec: QuickSpec {
       }
 
       context("request") {
-        var method = Method.PUT
+        var method: PactHTTPMethod = .Put
         var path = "/path"
         var headers = ["header": "value"]
         var body = "blah"

@@ -5,6 +5,9 @@
       location = "group:PactConsumerSwift.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:iOS ObjectiveC Example/iOS ObjectiveC Example.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:iOS Swift Example/iOS Swift Example.xcodeproj">
    </FileRef>
    <Group

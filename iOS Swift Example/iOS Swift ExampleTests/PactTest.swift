@@ -10,7 +10,7 @@ class HelloClientSpec: QuickSpec {
       var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
 
       helloProvider.uponReceiving("a request for hello")
-                   .withRequest(.GET, path: "/sayHello")
+                   .withRequest(PactHTTPMethod.Get, path: "/sayHello")
                    .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
 
       //Run the tests
@@ -20,19 +20,19 @@ class HelloClientSpec: QuickSpec {
           complete()
         }
       }, result: { (verification) -> Void in
-        expect(verification).to(equal(VerificationResult.PASSED))
+        // Important! This ensures all expected HTTP requests were actually made.
+        expect(verification).to(equal(PactVerificationResult.Passed))
       })
-      
 
       expect(hello).toEventually(contain("Hello"))
     }
 
     it("it fails tests when verification fails") {
-      var verificationResult = VerificationResult.PASSED
+      var verificationResult = PactVerificationResult.Passed
       var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
       
       helloProvider.uponReceiving("a request for hello")
-        .withRequest(.GET, path: "/sayHello")
+        .withRequest(PactHTTPMethod.Get, path: "/sayHello")
         .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
       
       //Run the tests
@@ -42,7 +42,7 @@ class HelloClientSpec: QuickSpec {
         verificationResult = verification
       })
 
-      expect(verificationResult).toEventually(equal(VerificationResult.FAILED))
+      expect(verificationResult).toEventually(equal(PactVerificationResult.Failed))
     }
   }
 }

@@ -1,12 +1,8 @@
 import Foundation
 import Alamofire
 
-public enum VerificationResult {
-  case PASSED
-  case FAILED
-}
 
-public class MockService {
+@objc public class MockService : NSObject {
   private let provider: String
   private let consumer: String
   public let pactVerificationService: PactVerificationService
@@ -17,10 +13,15 @@ public class MockService {
     }
   }
 
-  public init(provider: String, consumer: String, pactVerificationService: PactVerificationService = PactVerificationService()) {
+  public init(provider: String, consumer: String, pactVerificationService: PactVerificationService) {
     self.provider = provider
     self.consumer = consumer
     self.pactVerificationService = pactVerificationService
+  }
+
+  @objc(initWithProvider: consumer:)
+  public convenience init(provider: String, consumer: String) {
+    self.init(provider: provider, consumer: consumer, pactVerificationService: PactVerificationService())
   }
 
   public func given(providerState: String) -> Interaction {
@@ -29,29 +30,30 @@ public class MockService {
     return interaction
   }
 
+  @objc(uponReceiving:)
   public func uponReceiving(description: String) -> Interaction {
     var interaction = Interaction().uponReceiving(description)
     interactions.append(interaction)
     return interaction
   }
 
-  public func run(testFunction: (complete: () -> Void) -> Void, result: (VerificationResult) -> Void) -> Void {
+  @objc public func run(testFunction: (complete: () -> Void) -> Void, result: (PactVerificationResult) -> Void) -> Void {
     self.pactVerificationService.clean(success: { () in
       self.pactVerificationService.setup(self.interactions, success: { () in
         testFunction { () in
           self.pactVerificationService.verify(success: { () in
             self.pactVerificationService.write(provider: self.provider, consumer: self.consumer, success: { () in
-              result(VerificationResult.PASSED)
+              result(PactVerificationResult.Passed)
               return
-            }, failure: { result(VerificationResult.FAILED) })
+            }, failure: { result(PactVerificationResult.Failed) })
             return
-          }, failure: { result(VerificationResult.FAILED) })
+          }, failure: { result(PactVerificationResult.Failed) })
           return
         }
         return
-      }, failure: { result(VerificationResult.FAILED) })
+      }, failure: { result(PactVerificationResult.Failed) })
       return
-    }, failure: { result(VerificationResult.FAILED) } )
+    }, failure: { result(PactVerificationResult.Failed) } )
   }
   
 }

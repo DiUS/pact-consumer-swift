@@ -1,18 +1,6 @@
 import Alamofire
 
-public enum Method: String {
-  case OPTIONS = "options"
-  case GET = "get"
-  case HEAD = "head"
-  case POST = "post"
-  case PUT = "put"
-  case PATCH = "patch"
-  case DELETE = "delete"
-  case TRACE = "trace"
-  case CONNECT = "connect"
-}
-
-public class Interaction {
+@objc public class Interaction {
   public var providerState: String = ""
   public var description: String = ""
   public var request: Dictionary<String, AnyObject> = [:]
@@ -31,8 +19,8 @@ public class Interaction {
     return self
   }
 
-  public func withRequest(method: Method, path: String, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
-    request = ["method": method.rawValue, "path": path]
+  @objc public func withRequest(method: PactHTTPMethod, path: String, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+    request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
     }
@@ -42,7 +30,7 @@ public class Interaction {
     return self
   }
 
-  public func willRespondWith(status: Int, headers: Dictionary<String, String>, body: AnyObject? = nil) -> Interaction {
+  @objc public func willRespondWith(status: Int, headers: Dictionary<String, String>, body: AnyObject? = nil) -> Interaction {
     response = ["status": status, "headers": headers]
     if let bodyValue: AnyObject = body {
       response["body"] = bodyValue
@@ -52,5 +40,28 @@ public class Interaction {
     
   public func payload() -> [String: AnyObject] {
     return [ "providerState": providerState, "description": description, "request": request, "response": response ]
+  }
+  
+  private func httpMethod(method: PactHTTPMethod) -> String {
+    switch method {
+      case .Get:
+        return "get"
+      case .Head:
+        return "head"
+      case .Post:
+        return "post"
+      case .Put:
+        return "put"
+      case .Patch:
+        return "patch"
+      case .Delete:
+        return "delete"
+      case .Trace:
+        return "trace"
+      case .Connect:
+        return "connect"
+      default:
+        return "get"
+    }
   }
 }
