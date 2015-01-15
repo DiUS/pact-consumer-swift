@@ -19,6 +19,7 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
   mkdir Vendor # you can keep your submodules in their own directory
   git submodule add git@github.com:DiUS/pact-consumer-swift.git Vendor/pact-consumer-swift
   git submodule update --init --recursive
+  ```
 
   2. Add `PactConsumerSwift.xcodeproj` to your test target
 
