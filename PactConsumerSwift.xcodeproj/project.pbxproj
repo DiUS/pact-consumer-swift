@@ -17,7 +17,6 @@
 		A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CD31A6200C100DCD05E /* InteractionSpec.swift */; };
 		A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */; };
 		A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE31A63869500DCD05E /* PactVerificationService.swift */; };
-		A1554E661A663FFE0057EF50 /* PactTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1554E651A663FFE0057EF50 /* PactTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +47,6 @@
 		A1343CE31A63869500DCD05E /* PactVerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactVerificationService.swift; sourceTree = "<group>"; };
 		A1343CEB1A64D59E00DCD05E /* start_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_server.sh; sourceTree = "<group>"; };
 		A1343CEC1A64D59E00DCD05E /* stop_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = stop_server.sh; sourceTree = "<group>"; };
-		A1554E651A663FFE0057EF50 /* PactTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PactTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,6 @@
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
 				A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */,
-				A1554E651A663FFE0057EF50 /* PactTest.m */,
 			);
 			path = PactConsumerSwiftTests;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 			files = (
 				A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */,
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
-				A1554E661A663FFE0057EF50 /* PactTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

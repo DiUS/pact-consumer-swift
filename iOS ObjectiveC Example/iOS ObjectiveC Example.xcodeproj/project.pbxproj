@@ -13,7 +13,11 @@
 		A1335DDC1A65C895005CDE5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1335DDA1A65C895005CDE5B /* Main.storyboard */; };
 		A1335DDE1A65C895005CDE5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1335DDD1A65C895005CDE5B /* Images.xcassets */; };
 		A1335DE11A65C895005CDE5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1335DDF1A65C895005CDE5B /* LaunchScreen.xib */; };
-		A1335DED1A65C895005CDE5B /* iOS_ObjectiveC_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1335DEC1A65C895005CDE5B /* iOS_ObjectiveC_ExampleTests.m */; };
+		A1335DED1A65C895005CDE5B /* PactTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1335DEC1A65C895005CDE5B /* PactTest.m */; };
+		A13542171A67BEE8003E867A /* HelloClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A13542161A67BEE8003E867A /* HelloClient.m */; };
+		A13542181A67BEE8003E867A /* HelloClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A13542161A67BEE8003E867A /* HelloClient.m */; };
+		A1554E9B1A679AB10057EF50 /* BlankClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1554E9A1A679AB10057EF50 /* BlankClass.swift */; };
+		A1554E9F1A679BD80057EF50 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1554E9E1A679BD80057EF50 /* PactConsumerSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,12 @@
 		A1335DE01A65C895005CDE5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A1335DE61A65C895005CDE5B /* iOS ObjectiveC ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS ObjectiveC ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1335DEB1A65C895005CDE5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1335DEC1A65C895005CDE5B /* iOS_ObjectiveC_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_ObjectiveC_ExampleTests.m; sourceTree = "<group>"; };
-		A1335DF61A65C8D3005CDE5B /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
+		A1335DEC1A65C895005CDE5B /* PactTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PactTest.m; sourceTree = "<group>"; };
+		A13542151A67BEE8003E867A /* HelloClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloClient.h; sourceTree = "<group>"; };
+		A13542161A67BEE8003E867A /* HelloClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloClient.m; sourceTree = "<group>"; };
+		A1554E991A679AB00057EF50 /* iOS ObjectiveC ExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS ObjectiveC ExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		A1554E9A1A679AB10057EF50 /* BlankClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankClass.swift; sourceTree = "<group>"; };
+		A1554E9E1A679BD80057EF50 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1554E9F1A679BD80057EF50 /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +73,7 @@
 		A1335DC41A65C895005CDE5B = {
 			isa = PBXGroup;
 			children = (
-				A1335DF61A65C8D3005CDE5B /* PactConsumerSwift.framework */,
+				A1554E9E1A679BD80057EF50 /* PactConsumerSwift.framework */,
 				A1335DCF1A65C895005CDE5B /* iOS ObjectiveC Example */,
 				A1335DE91A65C895005CDE5B /* iOS ObjectiveC ExampleTests */,
 				A1335DCE1A65C895005CDE5B /* Products */,
@@ -91,6 +100,8 @@
 				A1335DDD1A65C895005CDE5B /* Images.xcassets */,
 				A1335DDF1A65C895005CDE5B /* LaunchScreen.xib */,
 				A1335DD01A65C895005CDE5B /* Supporting Files */,
+				A13542151A67BEE8003E867A /* HelloClient.h */,
+				A13542161A67BEE8003E867A /* HelloClient.m */,
 			);
 			path = "iOS ObjectiveC Example";
 			sourceTree = "<group>";
@@ -107,8 +118,10 @@
 		A1335DE91A65C895005CDE5B /* iOS ObjectiveC ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1335DEC1A65C895005CDE5B /* iOS_ObjectiveC_ExampleTests.m */,
+				A1335DEC1A65C895005CDE5B /* PactTest.m */,
 				A1335DEA1A65C895005CDE5B /* Supporting Files */,
+				A1554E9A1A679AB10057EF50 /* BlankClass.swift */,
+				A1554E991A679AB00057EF50 /* iOS ObjectiveC ExampleTests-Bridging-Header.h */,
 			);
 			path = "iOS ObjectiveC ExampleTests";
 			sourceTree = "<group>";
@@ -224,6 +237,7 @@
 				A1335DD91A65C895005CDE5B /* ViewController.m in Sources */,
 				A1335DD61A65C895005CDE5B /* AppDelegate.m in Sources */,
 				A1335DD31A65C895005CDE5B /* main.m in Sources */,
+				A13542171A67BEE8003E867A /* HelloClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1335DED1A65C895005CDE5B /* iOS_ObjectiveC_ExampleTests.m in Sources */,
+				A1335DED1A65C895005CDE5B /* PactTest.m in Sources */,
+				A1554E9B1A679AB10057EF50 /* BlankClass.swift in Sources */,
+				A13542181A67BEE8003E867A /* HelloClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -380,6 +397,8 @@
 				INFOPLIST_FILE = "iOS ObjectiveC ExampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS ObjectiveC ExampleTests/iOS ObjectiveC ExampleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS ObjectiveC Example.app/iOS ObjectiveC Example";
 			};
 			name = Debug;
@@ -388,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -397,6 +417,7 @@
 				INFOPLIST_FILE = "iOS ObjectiveC ExampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOS ObjectiveC ExampleTests/iOS ObjectiveC ExampleTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS ObjectiveC Example.app/iOS ObjectiveC Example";
 			};
 			name = Release;
@@ -420,6 +441,7 @@
 				A1335DF21A65C895005CDE5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1335DF31A65C895005CDE5B /* Build configuration list for PBXNativeTarget "iOS ObjectiveC ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +450,7 @@
 				A1335DF51A65C895005CDE5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
