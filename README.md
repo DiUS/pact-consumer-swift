@@ -8,12 +8,12 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 
 ## Installation
 
-### 1. Install the [pact-mock_service][pact-mock-service]
+### Install the [pact-mock_service][pact-mock-service]
   _NB: to run from within XCode, the mock server binary needs to be accessible on the path that XCode loads with. The easiest way to achieve this is to install the gem using the system ruby with sudo._
 
   `sudo gem install pact-mock_service -v 0.2.3.pre.rc2`
 
-### 1. Add the PactConsumerSwift library to your project
+### Add the PactConsumerSwift library to your project
 #### Including PactConsumerSwift in a Git Repository Using Submodules
 
 ```sh
@@ -21,6 +21,7 @@ mkdir Vendor # you can keep your submodules in their own directory
 git submodule add git@github.com:DiUS/pact-consumer-swift.git Vendor/pact-consumer-swift
 git submodule update --init --recursive
 ```
+_NB: I will be looking at better ways of integrating the project in the future._
 
 #### Add `PactConsumerSwift.xcodeproj` and dependencies to your test target
 
@@ -30,14 +31,13 @@ select `Add Files To YourApp...`.
 Next, select `PactConsumerSwift.xcodeproj`, from `Vendor/pact-consumer-swift`
 
 Do the same process for the following dependencies:
-Next, select `Alamofire.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Alamofire/`
-Next, select `Quick.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Quick/`
-Next, select `Nimble.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Nimble/`
+* `Alamofire.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Alamofire/`
+* `Quick.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Quick/`
+* `Nimble.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Nimble/`
 
-Once you've added the PactConsumerSwift project, you should see it in Xcode's project
-navigator, grouped with your tests.
+Once you've added the dependent projects, you should see it in Xcode's project navigator, grouped with your tests.
 
-![](http://i.imgur.com/cqSVMVs.png)
+![](http://i.imgur.com/s6uBK1j.png)
 
 #### Link `PactConsumerSwift.framework`
 
@@ -52,17 +52,17 @@ navigator, grouped with your tests.
     - Edit your test Scheme
   * Under Test, Pre-actions add a Run Script Action
     - "$SRCROOT"/Vendor/pact-consumer-swift/script/start_server.sh
-    - make sure you provide the build settings from your project, otherwise SRCROOT will not be set
+    - Make sure you select your project under `Provide the build settings from`, otherwise SRCROOT will not be set which the scripts depend on
 
   ![](http://i.imgur.com/asn8G1P.png)
   * Under Test, Post-actions add a Run Script Action
     - "$SRCROOT"/Vendor/pact-consumer-swift/script/stop_server.sh
-    - make sure you provide the build settings from your project, otherwise SRCROOT will not be set
+    - Make sure you select your project under `Provide the build settings from`, otherwise SRCROOT will not be set which the scripts depend on
 
 ## Writing Pact Tests
 
 ### Testing with Swift
-  Write a Unit test similar to the following [Quick](https://github.com/Quick/Quick),
+  Write a Unit test similar to the following (NB: this is using [Quick](https://github.com/Quick/Quick) test runner)
 
 ```swift
 import PactConsumerSwift
@@ -92,8 +92,8 @@ it("it says Hello") {
 ```
   See the specs in the iOS Swift Example directory for examples of asynchronous callbacks, how to expect error responses, and how to use query params.
 
-### Testing with Objective C
-  Write a Unit test similar to the following [XCTest],
+### Testing with Objective-C
+  Write a Unit test similar to the following
 ```objc
 @import PactConsumerSwift;
 ...
@@ -122,7 +122,7 @@ it("it says Hello") {
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 ```
-#### Caveat: Your Test Target Must Include At Least One Swift File
+#### Objective-C Caveat: Your Test Target Must Include At Least One Swift File
 
 The Swift stdlib will not be linked into your test target, and thus
 PactConsumerSwift will fail to execute properly, if you test target does not contain
