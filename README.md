@@ -6,14 +6,15 @@ This codebase provides a iOS DSL for creating pacts. If you are new to Pact, ple
 
 This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the iOS tests.
 
-### Getting Started
+#### Installation
 
-1. Install the [pact-mock_service][pact-mock-service]
+### 1. Install the [pact-mock_service][pact-mock-service]
+  _NB: to run from within XCode, the mock server binary needs to be accessible on the path that XCode loads with. The easiest way to achieve this is to install the gem using the system ruby with sudo._
 
   `sudo gem install pact-mock_service -v 0.2.3.pre.rc2`
 
-1. Add the PactConsumerSwift library to your project
-  1. Including PactConsumerSwift in a Git Repository Using Submodules
+### 1. Add the PactConsumerSwift library to your project
+  ## Including PactConsumerSwift in a Git Repository Using Submodules
 
   ```sh
   mkdir Vendor # you can keep your submodules in their own directory
@@ -21,93 +22,108 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
   git submodule update --init --recursive
   ```
 
-  2. Add `PactConsumerSwift.xcodeproj` to your test target
+  ## Add `PactConsumerSwift.xcodeproj` and dependencies to your test target
 
   Right-click on the group containing your application's tests and
   select `Add Files To YourApp...`.
 
-  Next, select `PactConsumerSwift.xcodeproj`, from Vendor/pact-consumer-swift.
+  Next, select `PactConsumerSwift.xcodeproj`, from `Vendor/pact-consumer-swift`
+
+  Do the same process for the following dependencies:
+  Next, select `Alamofire.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Alamofire/`
+  Next, select `Quick.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Quick/`
+  Next, select `Nimble.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Nimble/`
 
   Once you've added the PactConsumerSwift project, you should see it in Xcode's project
   navigator, grouped with your tests.
 
-  ### 3. Link `PactConsumerSwift.framework`
+  ![](http://imgur.com/cqSVMVs)
+
+  ## Link `PactConsumerSwift.framework`
 
    Link the `PactConsumerSwift.framework` during your test target's
-  `Link Binary with Libraries` build phase. You should see the `PactConsumerSwift.framework`
+  `Link Binary with Libraries` build phase.
 
-  1. Setup your Test Target to run the pact server
-    * Product -> Scheme -> Edit Scheme
+  ![](http://imgur.com/Qrif7eo)
+
+  ## Setup your Test Target to run the pact server before the tests are run
+    Modify the Test Target's scheme to add scripts to start and stop the pact server when tests are run.
+    * From the menu `Product` -> `Scheme` -> `Edit Scheme`
       - Edit your test Scheme
     * Under Test, Pre-actions add a Run Script Action
       - "$SRCROOT"/Vendor/pact-consumer-swift/script/start_server.sh
       - make sure you provide the build settings from your project, otherwise SRCROOT will not be set
+
+    ![](http://imgur.com/asn8G1P)
+
     * Under Test, Post-actions add a Run Script Action
       - "$SRCROOT"/Vendor/pact-consumer-swift/script/stop_server.sh
       - make sure you provide the build settings from your project, otherwise SRCROOT will not be set
 
-1. Testing with Swift
-  1. Write a Unit test similar to the following [Quick](https://github.com/Quick/Quick),
+#### Writing Pact Tests
+
+### Testing with Swift
+  Write a Unit test similar to the following [Quick](https://github.com/Quick/Quick),
 
 ```swift
-          import PactConsumerSwift
+import PactConsumerSwift
 
-          ...
+...
 
-          it("it says Hello") {
-              var hello = "not Goodbye"
-              var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
+it("it says Hello") {
+    var hello = "not Goodbye"
+    var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
 
-              helloProvider.uponReceiving("a request for hello")
-                           .withRequest(.GET, path: "/sayHello")
-                           .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
+    helloProvider.uponReceiving("a request for hello")
+                 .withRequest(.GET, path: "/sayHello")
+                 .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
 
-              //Run the tests
-              helloProvider.run ( { (complete) -> Void in
-                HelloClient(baseUrl: helloProvider.baseUrl).sayHello { (response) in
-                  hello = response
-                  complete()
-                }
-              }, result: { (verification) -> Void in
-                expect(verification).to(equal(VerificationResult.PASSED))
-              })
+    //Run the tests
+    helloProvider.run ( { (complete) -> Void in
+      HelloClient(baseUrl: helloProvider.baseUrl).sayHello { (response) in
+        hello = response
+        complete()
+      }
+    }, result: { (verification) -> Void in
+      expect(verification).to(equal(VerificationResult.PASSED))
+    })
 
-              expect(hello).toEventually(contain("Hello"))
-            }
+    expect(hello).toEventually(contain("Hello"))
+  }
 ```
-      See the specs in the iOS Swift Example directory for examples of asynchronous callbacks, how to expect error responses, and how to use query params.
+  See the specs in the iOS Swift Example directory for examples of asynchronous callbacks, how to expect error responses, and how to use query params.
 
-1. Testing with Objective C
-  1. Write a Unit test similar to the following [XCTest],
+### Testing with Objective C
+  Write a Unit test similar to the following [XCTest],
 ```objc
-    @import PactConsumerSwift;
-    ...
-    - (void)testPact {
-      typedef void (^CompleteBlock)();
-      XCTestExpectation *exp = [self expectationWithDescription:@"Responds with hello"];
+@import PactConsumerSwift;
+...
+- (void)testPact {
+  typedef void (^CompleteBlock)();
+  XCTestExpectation *exp = [self expectationWithDescription:@"Responds with hello"];
 
-      MockService *mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer"];
+  MockService *mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer"];
 
-      [[[mockService uponReceiving:@"a request for hello"]
-                     withRequest:1 path:@"/sayHello" headers:nil body: nil]
-                     willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
+  [[[mockService uponReceiving:@"a request for hello"]
+                 withRequest:1 path:@"/sayHello" headers:nil body: nil]
+                 willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
 
-      HelloClient *helloClient = [[HelloClient alloc] initWithBaseUrl:mockService.baseUrl];
+  HelloClient *helloClient = [[HelloClient alloc] initWithBaseUrl:mockService.baseUrl];
 
-      [mockService run:^(CompleteBlock complete) {
-                         NSString *requestReply = [helloClient sayHello];
-                         XCTAssertEqualObjects(requestReply, @"Hello");
-                         complete();
-                       }
-                       result:^(PactVerificationResult result) {
-                         XCTAssert(result == PactVerificationResultPassed);
-                         [exp fulfill];
-                       }];
+  [mockService run:^(CompleteBlock complete) {
+                     NSString *requestReply = [helloClient sayHello];
+                     XCTAssertEqualObjects(requestReply, @"Hello");
+                     complete();
+                   }
+                   result:^(PactVerificationResult result) {
+                     XCTAssert(result == PactVerificationResultPassed);
+                     [exp fulfill];
+                   }];
 
-      [self waitForExpectationsWithTimeout:5 handler:nil];
-    }
+  [self waitForExpectationsWithTimeout:5 handler:nil];
+}
 ```
-### Caveat: Your Test Target Must Include At Least One Swift File
+## Caveat: Your Test Target Must Include At Least One Swift File
 
 The Swift stdlib will not be linked into your test target, and thus
 PactConsumerSwift will fail to execute properly, if you test target does not contain
@@ -128,7 +144,10 @@ To fix the problem, add a blank file called `PactFix.swift` to your test target:
 import PactConsumerSwift
 ```
 
-1. Verifying your client against the service you are integrating with
+#### Verifying your iOS client against the service you are integrating with
+
+`$YOUR_PROJECT/tmp/pact.log`
+`$YOUR_PROJECT/tmp/pacts/...`
 
 # Contributing
 
