@@ -389,6 +389,7 @@
 					"$(inherited)",
 					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
 					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Alamofire/build/Debug-iphoneos",
+					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -413,6 +414,7 @@
 					"$(inherited)",
 					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
 					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Alamofire/build/Debug-iphoneos",
+					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
 				);
 				INFOPLIST_FILE = "iOS ObjectiveC ExampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
