@@ -3,4 +3,6 @@ language: objective-c
 before_install: git submodule update --init --recursive
 script:
     - xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean build
-    - xctool -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
+    - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
+    - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme 'iOS Swift Example' test -sdk iphonesimulator8.1
+    - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme 'iOS ObjectiveC Example' test -sdk iphonesimulator8.1
