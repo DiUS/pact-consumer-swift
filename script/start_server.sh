@@ -4,10 +4,13 @@ mkdir "${SRCROOT}/tmp"
 which pact-mock-service
 
 nohup pact-mock-service execute --log "${SRCROOT}/tmp/pact.log" --pact-dir "${SRCROOT}/tmp/pacts" -p 1234 > ~/nohup.out 2>&1 &
+PID=$!
+
+sleep 3
+cat ~/nohup.out
 
 echo "Started pact server on pid: ${PID}"
 
-PID=$!
 if [ -z $PID ]; then
 	echo "Could not start pact server"
 	exit 0
