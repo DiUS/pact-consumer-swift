@@ -1,6 +1,8 @@
 language: objective-c
 
-before_install: git submodule update --init --recursive
+before_install:
+    - git submodule update --init --recursive
+    - gem install pact-mock_service -v 0.2.3.pre.rc2
 script:
     - xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean build
     - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
