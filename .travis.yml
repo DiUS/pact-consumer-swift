@@ -2,5 +2,5 @@ language: objective-c
 
 before_install: git submodule update --init --recursive
 script:
-    - xcodebuild -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean build
-    - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
+    - xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean build
+    - xctool -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
