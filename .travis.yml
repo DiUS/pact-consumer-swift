@@ -6,5 +6,4 @@ before_install:
 script:
     - xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean build
     - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
-    - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme 'iOS Swift Example' test -sdk iphonesimulator8.1
     - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme 'iOS ObjectiveC Example' test -sdk iphonesimulator8.1
