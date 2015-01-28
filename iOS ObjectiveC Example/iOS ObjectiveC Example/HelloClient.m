@@ -31,4 +31,24 @@
   
   return requestReply;
 }
+
+- (NSString *)findFriendsByAgeAndChild {
+  NSString *url = [NSString stringWithFormat:@"%@/%@", self.baseUrl, @"friends?age=30&child=Mary"];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
+                                                         cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                     timeoutInterval:10];
+  
+  [request setHTTPMethod: @"GET"];
+  NSError *requestError;
+  NSURLResponse *urlResponse = nil;
+  
+  NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+  
+  NSString *requestReply = [[NSString alloc] initWithBytes:[response bytes] length:[response length] encoding:NSASCIIStringEncoding];
+  NSLog(@"requestReply: %@", requestReply);
+  
+  return requestReply;
+}
+
+
 @end

@@ -26,7 +26,7 @@
   MockService *mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer"];
   
   [[[mockService uponReceiving:@"a request for hello"]
-                 withRequest:1 path:@"/sayHello" headers:nil body: nil]
+                 withRequest:1 path:@"/sayHello" query:nil headers:nil body: nil]
                  willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
   
   HelloClient *helloClient = [[HelloClient alloc] initWithBaseUrl:mockService.baseUrl];
@@ -40,6 +40,31 @@
                      XCTAssert(result == PactVerificationResultPassed);
                      [exp fulfill];
                    }];
+  
+  [self waitForExpectationsWithTimeout:5 handler:nil];
+}
+
+- (void)testWithQueryParams {
+  typedef void (^CompleteBlock)();
+  XCTestExpectation *exp = [self expectationWithDescription:@"Responds with matching friends"];
+  
+  MockService *mockService = [[MockService alloc] initWithProvider:@"Hello Provider" consumer:@"Hello consumer"];
+  
+  [[[mockService uponReceiving:@"a request friends"]
+    withRequest:1 path:@"/friends" query: @{ @"age" : @"30", @"child" : @"Mary" } headers:nil body: nil]
+   willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @{ @"friends": @[ @"Sue" ] } ];
+  
+  HelloClient *helloClient = [[HelloClient alloc] initWithBaseUrl:mockService.baseUrl];
+  
+  [mockService run:^(CompleteBlock complete) {
+    NSString *response = [helloClient findFriendsByAgeAndChild];
+    XCTAssertEqualObjects(response, @"{\"friends\":[\"Sue\"]}");
+    complete();
+  }
+            result:^(PactVerificationResult result) {
+              XCTAssert(result == PactVerificationResultPassed);
+              [exp fulfill];
+            }];
   
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }

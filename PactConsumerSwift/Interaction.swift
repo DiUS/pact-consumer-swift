@@ -19,13 +19,16 @@ import Alamofire
     return self
   }
 
-  @objc public func withRequest(method: PactHTTPMethod, path: String, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  @objc public func withRequest(method: PactHTTPMethod, path: String, query: Dictionary<String, AnyObject>? = nil, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
     }
     if let bodyValue: AnyObject = body {
       request["body"] = bodyValue
+    }
+    if let queryValue: AnyObject = query {
+      request["query"] = queryValue
     }
     return self
   }
