@@ -55,5 +55,4 @@ import Alamofire
       return
     }, failure: { result(PactVerificationResult.Failed) } )
   }
-  
 }

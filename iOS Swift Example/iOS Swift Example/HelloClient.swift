@@ -32,4 +32,19 @@ public class HelloClient {
       }
     }
   }
+  
+  public func unfriendMe(successResponse: (Dictionary<String, String>) -> Void, errorResponse: (Int) -> Void) {
+    Alamofire.request(.PUT, "\(baseUrl)/unfriendMe" )
+      .responseJSON { (request, response, json, error) in
+        println(request)
+        println(response)
+        println(error)
+        if let errorVal = error {
+          errorResponse(response!.statusCode)
+        }
+        if let jsonResult = json as? Dictionary<String, AnyObject> {
+          successResponse(jsonResult as Dictionary<String, String>)
+        }
+    }
+  }
 }

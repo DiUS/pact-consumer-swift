@@ -33,8 +33,11 @@ import Alamofire
     return self
   }
 
-  @objc public func willRespondWith(status: Int, headers: Dictionary<String, String>, body: AnyObject? = nil) -> Interaction {
-    response = ["status": status, "headers": headers]
+  @objc public func willRespondWith(status: Int, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+    response = ["status": status]
+    if let headersValue = headers {
+      response["headers"] = headersValue
+    }
     if let bodyValue: AnyObject = body {
       response["body"] = bodyValue
     }

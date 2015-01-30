@@ -5,17 +5,24 @@ import iOS_Swift_Example
 
 class HelloClientSpec: QuickSpec {
   override func spec() {
+    var helloProvider : MockService?
+    var helloClient : HelloClient?
+    
+    beforeEach {
+      helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
+      helloClient = HelloClient(baseUrl: helloProvider!.baseUrl)
+    }
+    
     it("it says Hello") {
       var hello = "not Goodbye"
-      var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
 
-      helloProvider.uponReceiving("a request for hello")
+      helloProvider!.uponReceiving("a request for hello")
                    .withRequest(PactHTTPMethod.Get, path: "/sayHello")
                    .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
 
       //Run the tests
-      helloProvider.run ( { (complete) -> Void in
-        HelloClient(baseUrl: helloProvider.baseUrl).sayHello { (response) in
+      helloProvider!.run ( { (complete) -> Void in
+        helloClient!.sayHello { (response) in
           hello = response
           complete()
         }
@@ -57,7 +64,7 @@ class HelloClientSpec: QuickSpec {
         //Run the tests
         helloProvider.run({
           (complete) -> Void in
-          HelloClient(baseUrl: helloProvider.baseUrl).findFriendsByAgeAndChild {
+          helloClient!.findFriendsByAgeAndChild {
             (response) in
             friends = response
             complete()
@@ -69,6 +76,69 @@ class HelloClientSpec: QuickSpec {
         })
 
         expect(friends).toEventually(contain("Sue"))
+      }
+    }
+    
+    describe("unfriendMe") {
+      it("should unfriend me") {
+        var responseValue: Dictionary<String, String> = [:]
+        
+        helloProvider!.given("I am friends with Fred")
+          .uponReceiving("a request to unfriend")
+          .withRequest(PactHTTPMethod.Put, path: "/unfriendMe")
+          .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Bye" ])
+        
+        //Run the tests
+        helloProvider!.run({
+          (complete) -> Void in
+          helloClient!.unfriendMe( {
+            (response) in
+            responseValue = response
+            complete()
+            }, errorResponse: {
+              (error) in
+              expect(true).to(equal(false))
+              complete()
+          })
+          }, result: {
+            (verification) -> Void in
+            // Important! This ensures all expected HTTP requests were actually made.
+            expect(verification).to(equal(PactVerificationResult.Passed))
+        })
+        
+        expect(responseValue["reply"]).toEventually(contain("Bye"))
+      }
+    }
+    
+    
+    describe("when there are no friends") {
+      it("returns an error message") {
+        var errorCode: Int? = nil
+        
+        helloProvider!.given("I have no friends")
+          .uponReceiving("a request to unfriend")
+          .withRequest(PactHTTPMethod.Put, path: "/unfriendMe")
+          .willRespondWith(404, body: "No friends")
+        
+        //Run the tests
+        helloProvider!.run({
+          (complete) -> Void in
+          helloClient!.unfriendMe({
+            (response) in
+              expect(true).to(equal(false))
+              complete()
+            }, errorResponse: {
+              (error) in
+              errorCode = error
+              complete()
+          })
+          }, result: {
+            (verification) -> Void in
+            // Important! This ensures all expected HTTP requests were actually made.
+            expect(verification).to(equal(PactVerificationResult.Passed))
+        })
+        
+        expect(errorCode).toEventually(equal(404))
       }
     }
   }

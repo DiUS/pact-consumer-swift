@@ -50,5 +50,25 @@
   return requestReply;
 }
 
+- (void) unfriend:(void (^)(NSString *response))success failure:(void (^)(NSInteger errorCode))failure {
+  NSString *url = [NSString stringWithFormat:@"%@/%@", self.baseUrl, @"unfriendMe"];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
+                                                         cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                     timeoutInterval:10];
+  
+  [request setHTTPMethod: @"PUT"];
+  NSError *requestError;
+  NSHTTPURLResponse *urlResponse = nil;
+  
+  NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+  
+  if(urlResponse.statusCode > 299) {
+    failure(urlResponse.statusCode);
+  } else {
+    NSString *requestReply = [[NSString alloc] initWithBytes:[response bytes] length:[response length] encoding:NSASCIIStringEncoding];
+    NSLog(@"requestReply: %@", requestReply);
+    success(requestReply);
+  }
+}
 
 @end
