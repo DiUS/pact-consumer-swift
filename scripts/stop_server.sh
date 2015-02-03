@@ -1,2 +1,2 @@
 
-kill $(cat "${SRCROOT}/tmp/pact-server.pid")
+pact-mock-service stop

@@ -12,7 +12,7 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 ### Install the [pact-mock_service][pact-mock-service]
   _NB: to run from within XCode, the mock server binary needs to be accessible on the path that XCode loads with. The easiest way to achieve this is to install the gem using the system ruby with sudo._
 
-  `sudo gem install pact-mock_service -v 0.2.3.pre.rc2`
+  `sudo gem install pact-mock_service -v 0.2.4`
 
 ### Add the PactConsumerSwift library to your project
 #### Including PactConsumerSwift in a Git Repository Using Submodules

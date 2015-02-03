@@ -5,7 +5,7 @@ before_install:
 - brew update
 - brew install carthage
 - carthage bootstrap
-- gem install pact-mock_service -v 0.2.3.pre.rc2
+- gem install pact-mock_service -v 0.2.4
 - gem instal xcpretty
 script:
 - set -o pipefail
