@@ -398,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
+					"$(SRCROOT)/../Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "iOS Swift Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -412,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
+					"$(SRCROOT)/../Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "iOS Swift Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,12 +425,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Nimble/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug",
-					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(SRCROOT)/../Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -448,12 +445,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Nimble/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PactConsumerSwift-fkqiygucojndrvhhfbokuorqlbeq/Build/Products/Debug",
-					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(SRCROOT)/../Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "iOS Swift ExampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -381,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "iOS ObjectiveC Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "iOS ObjectiveC Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -403,11 +405,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Alamofire/build/Debug-iphoneos",
-					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(SRCROOT)/../Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -428,11 +428,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/build/Debug-iphoneos",
-					"/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Vendor/Alamofire/build/Debug-iphoneos",
-					/Users/andy/Projects/dius/ios/pact/PactConsumerSwift/Carthage/Build/iOS,
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(SRCROOT)/../Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "iOS ObjectiveC ExampleTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
