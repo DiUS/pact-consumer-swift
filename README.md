@@ -52,12 +52,12 @@ Once you've added the dependent projects, you should see it in Xcode's project n
   * From the menu `Product` -> `Scheme` -> `Edit Scheme`
     - Edit your test Scheme
   * Under Test, Pre-actions add a Run Script Action
-    - "$SRCROOT"/Vendor/pact-consumer-swift/script/start_server.sh
+    - "$SRCROOT"/Vendor/pact-consumer-swift/scripts/start_server.sh
     - Make sure you select your project under `Provide the build settings from`, otherwise SRCROOT will not be set which the scripts depend on
 
   ![](http://i.imgur.com/asn8G1P.png)
   * Under Test, Post-actions add a Run Script Action
-    - "$SRCROOT"/Vendor/pact-consumer-swift/script/stop_server.sh
+    - "$SRCROOT"/Vendor/pact-consumer-swift/scripts/stop_server.sh
     - Make sure you select your project under `Provide the build settings from`, otherwise SRCROOT will not be set which the scripts depend on
 
 ## Writing Pact Tests

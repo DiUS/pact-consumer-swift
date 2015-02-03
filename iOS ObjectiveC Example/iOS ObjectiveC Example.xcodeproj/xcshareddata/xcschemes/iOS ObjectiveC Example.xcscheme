@@ -46,7 +46,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "&quot;$SRCROOT&quot;/../script/start_server.sh">
+               scriptText = "&quot;$SRCROOT&quot;/../scripts/start_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -64,7 +64,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "&quot;$SRCROOT&quot;/../script/stop_server.sh">
+               scriptText = "&quot;$SRCROOT&quot;/../scripts/stop_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
