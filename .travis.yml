@@ -1,8 +1,19 @@
 language: objective-c
-
+osx_image: xcode611
 before_install:
-    - git submodule update --init --recursive
-    - gem install pact-mock_service -v 0.2.3.pre.rc2
+- scripts/import_keychain.sh
+- brew update
+- brew install carthage
+- git submodule update --init --recursive
+- gem install pact-mock_service -v 0.2.3.pre.rc2
+- gem instal xcpretty
 script:
-    - xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean build
-    - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean test -sdk iphonesimulator8.1
+- set -o pipefail
+- xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean
+  build
+- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean
+  test -sdk iphonesimulator8.1 | xcpretty -c
+after_script: scripts/delete_keychain.sh
+env:
+  global:
+    secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
