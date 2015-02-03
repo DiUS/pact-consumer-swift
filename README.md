@@ -32,9 +32,9 @@ select `Add Files To YourApp...`.
 Next, select `PactConsumerSwift.xcodeproj`, from `Vendor/pact-consumer-swift`
 
 Do the same process for the following dependencies:
-* `Alamofire.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Alamofire/`
-* `Quick.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Quick/`
-* `Nimble.xcodeproj`, from `Vendor/pact-consumer-swift/Vendor/Nimble/`
+* `Alamofire.xcodeproj`, from `Vendor/pact-consumer-swift/Carthage/Checkout/Alamofire/`
+* `Quick.xcodeproj`, from `Vendor/pact-consumer-swift/Carthage/Checkout/Quick/`
+* `Nimble.xcodeproj`, from `Vendor/pact-consumer-swift/Carthage/Checkout/Nimble/`
 
 Once you've added the dependent projects, you should see it in Xcode's project navigator, grouped with your tests.
 

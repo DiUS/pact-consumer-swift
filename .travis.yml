@@ -4,13 +4,11 @@ before_install:
 - scripts/import_keychain.sh
 - brew update
 - brew install carthage
-- git submodule update --init --recursive
+- carthage bootstrap
 - gem install pact-mock_service -v 0.2.3.pre.rc2
 - gem instal xcpretty
 script:
 - set -o pipefail
-- xctool -workspace Vendor/Alamofire/Alamofire.xcworkspace -scheme Alamofire clean
-  build
 - xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean
   test -sdk iphonesimulator8.1 | xcpretty -c
 after_script: scripts/delete_keychain.sh

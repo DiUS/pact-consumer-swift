@@ -17,7 +17,7 @@
 		A13542171A67BEE8003E867A /* HelloClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A13542161A67BEE8003E867A /* HelloClient.m */; };
 		A13542181A67BEE8003E867A /* HelloClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A13542161A67BEE8003E867A /* HelloClient.m */; };
 		A1554E9B1A679AB10057EF50 /* BlankClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1554E9A1A679AB10057EF50 /* BlankClass.swift */; };
-		A1554E9F1A679BD80057EF50 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1554E9E1A679BD80057EF50 /* PactConsumerSwift.framework */; };
+		A1E04E9B1A80978A006721F8 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E9A1A80978A006721F8 /* PactConsumerSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		A13542161A67BEE8003E867A /* HelloClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloClient.m; sourceTree = "<group>"; };
 		A1554E991A679AB00057EF50 /* iOS ObjectiveC ExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS ObjectiveC ExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1554E9A1A679AB10057EF50 /* BlankClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankClass.swift; sourceTree = "<group>"; };
-		A1554E9E1A679BD80057EF50 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
+		A1E04E9A1A80978A006721F8 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1554E9F1A679BD80057EF50 /* PactConsumerSwift.framework in Frameworks */,
+				A1E04E9B1A80978A006721F8 /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 		A1335DC41A65C895005CDE5B = {
 			isa = PBXGroup;
 			children = (
-				A1554E9E1A679BD80057EF50 /* PactConsumerSwift.framework */,
+				A1E04E9A1A80978A006721F8 /* PactConsumerSwift.framework */,
 				A1335DCF1A65C895005CDE5B /* iOS ObjectiveC Example */,
 				A1335DE91A65C895005CDE5B /* iOS ObjectiveC ExampleTests */,
 				A1335DCE1A65C895005CDE5B /* Products */,
