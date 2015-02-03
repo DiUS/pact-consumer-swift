@@ -18,7 +18,6 @@
 		A13542181A67BEE8003E867A /* HelloClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A13542161A67BEE8003E867A /* HelloClient.m */; };
 		A1554E9B1A679AB10057EF50 /* BlankClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1554E9A1A679AB10057EF50 /* BlankClass.swift */; };
 		A1859DBD1A80AB36000A14C5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1859DBC1A80AB36000A14C5 /* Alamofire.framework */; };
-		A1E04E9B1A80978A006721F8 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E9A1A80978A006721F8 /* PactConsumerSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		A1554E991A679AB00057EF50 /* iOS ObjectiveC ExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS ObjectiveC ExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1554E9A1A679AB10057EF50 /* BlankClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankClass.swift; sourceTree = "<group>"; };
 		A1859DBC1A80AB36000A14C5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		A1E04E9A1A80978A006721F8 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = "../build/Debug-iphoneos/PactConsumerSwift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +64,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1859DBD1A80AB36000A14C5 /* Alamofire.framework in Frameworks */,
-				A1E04E9B1A80978A006721F8 /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				A1859DBC1A80AB36000A14C5 /* Alamofire.framework */,
-				A1E04E9A1A80978A006721F8 /* PactConsumerSwift.framework */,
 				A1335DCF1A65C895005CDE5B /* iOS ObjectiveC Example */,
 				A1335DE91A65C895005CDE5B /* iOS ObjectiveC ExampleTests */,
 				A1335DCE1A65C895005CDE5B /* Products */,

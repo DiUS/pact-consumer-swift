@@ -4,13 +4,14 @@ before_install:
 - scripts/import_keychain.sh
 - brew update
 - brew install carthage
-- carthage bootstrap
+- carthage checkout
 - gem install pact-mock_service -v 0.2.4
 - gem instal xcpretty
 script:
 - set -o pipefail
-- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift clean
-  test -sdk iphonesimulator8.1 | xcpretty -c
+- carthage build --no-skip-current
+- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift test -sdk iphonesimulator8.1 | xcpretty -c
+- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme 'iOS Swift Example' test -sdk iphonesimulator8.1 | xcpretty -c
 after_script: scripts/delete_keychain.sh
 env:
   global:

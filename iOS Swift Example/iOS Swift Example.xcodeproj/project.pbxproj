@@ -14,6 +14,7 @@
 		A11F1AD71A5CEEDD00DAB9CE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A11F1AD51A5CEEDD00DAB9CE /* LaunchScreen.xib */; };
 		A1343CDE1A62787F00DCD05E /* HelloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CDD1A62787F00DCD05E /* HelloClient.swift */; };
 		A1343CE01A62788A00DCD05E /* PactTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CDF1A62788A00DCD05E /* PactTest.swift */; };
+		A19F8EDA1A80B8B500BFEBD8 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19F8ED91A80B8B500BFEBD8 /* PactConsumerSwift.framework */; };
 		A1E04E9D1A8097B9006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E9C1A8097B9006721F8 /* Alamofire.framework */; };
 		A1E04EA01A80981A006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E9C1A8097B9006721F8 /* Alamofire.framework */; };
 		A1E04EA31A80981A006721F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA11A80981A006721F8 /* Quick.framework */; };
@@ -42,6 +43,7 @@
 		A11F1AE11A5CEEDD00DAB9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1343CDD1A62787F00DCD05E /* HelloClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloClient.swift; sourceTree = "<group>"; };
 		A1343CDF1A62788A00DCD05E /* PactTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactTest.swift; sourceTree = "<group>"; };
+		A19F8ED91A80B8B500BFEBD8 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = ../Carthage/Build/iOS/PactConsumerSwift.framework; sourceTree = "<group>"; };
 		A1E04E9C1A8097B9006721F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		A1E04EA11A80981A006721F8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		A1E04EA21A80981A006721F8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19F8EDA1A80B8B500BFEBD8 /* PactConsumerSwift.framework in Frameworks */,
 				A1E04EA31A80981A006721F8 /* Quick.framework in Frameworks */,
 				A1E04EA41A80981A006721F8 /* Nimble.framework in Frameworks */,
 				A1E04EA01A80981A006721F8 /* Alamofire.framework in Frameworks */,
@@ -72,6 +75,7 @@
 		A11F1ABE1A5CEEDD00DAB9CE = {
 			isa = PBXGroup;
 			children = (
+				A19F8ED91A80B8B500BFEBD8 /* PactConsumerSwift.framework */,
 				A1E04EA11A80981A006721F8 /* Quick.framework */,
 				A1E04EA21A80981A006721F8 /* Nimble.framework */,
 				A1E04E9C1A8097B9006721F8 /* Alamofire.framework */,
@@ -250,6 +254,7 @@
 				"$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/PactConsumerSwift.framework",
 			);
 			outputPaths = (
 			);
