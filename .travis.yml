@@ -4,13 +4,16 @@ before_install:
 - scripts/import_keychain.sh
 - brew update
 - brew install carthage
+- bundle install
 - carthage bootstrap
-- gem instal xcpretty
 script:
 - set -o pipefail
 - carthage build --no-skip-current
-- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift test -sdk iphonesimulator8.1 | xcpretty -c
+- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift test
+  -sdk iphonesimulator8.1 | xcpretty -c
 after_script: scripts/delete_keychain.sh
+after_success: scripts/build_children.sh
 env:
   global:
-    secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
+  - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
+  - secure: FpfacekFs93LkX9gerQUxQKIDTjBl2abp7ZQ/8L3DiJo4nMF7xEwUGeSDQMR+2hRqRWr/SdU59Lll5k10JBqWxAaLXDTUq3Lh3aamc4nc2PAN7yp+0aq9RQG5+PaLkfx+SLs5B/CjDiRRotZg/H/uMTRRFbkqydVtxiqGv94JOg=
