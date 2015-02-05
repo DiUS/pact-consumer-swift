@@ -1,6 +1,8 @@
 # Pact Consumer Swift
 [![Build Status](https://travis-ci.org/DiUS/pact-consumer-swift.svg)](https://travis-ci.org/DiUS/pact-consumer-swift)
 
+[![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
+
 _This DSL is in very early stages of development, please bear with us as we give it some polish. Please raise any problems you have in the github issues._
 
 This codebase provides a iOS DSL for creating pacts. If you are new to Pact, please read the Pact [README][pact-readme] first.
@@ -10,12 +12,14 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 ## Installation
 
 ### Install the [pact-mock_service][pact-mock-service]
-  _NB: to run from within XCode, the mock server binary needs to be accessible on the path that XCode loads with. The easiest way to achieve this is to install the gem using the system ruby with sudo._
-
-  `sudo gem install pact-mock_service -v 0.2.4`
+  `gem install pact-mock_service -v 0.2.4`
 
 ### Add the PactConsumerSwift library to your project
-#### Including PactConsumerSwift in a Git Repository Using Submodules
+
+#### Using [Carthage](https://github.com/Carthage/Carthage) library manager
+- See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) for an example project using the library with Carthage.
+
+#### Using Git Submodules
 
 ```sh
 mkdir Vendor # you can keep your submodules in their own directory
@@ -52,12 +56,18 @@ Once you've added the dependent projects, you should see it in Xcode's project n
   * From the menu `Product` -> `Scheme` -> `Edit Scheme`
     - Edit your test Scheme
   * Under Test, Pre-actions add a Run Script Action
-    - "$SRCROOT"/Vendor/pact-consumer-swift/scripts/start_server.sh
+    ```bash
+    PATH=/path/to/pact-mock-service/binary:$PATH
+    "$SRCROOT"/Vendor/pact-consumer-swift/scripts/start_server.sh
+    ```
     - Make sure you select your project under `Provide the build settings from`, otherwise SRCROOT will not be set which the scripts depend on
 
   ![](http://i.imgur.com/asn8G1P.png)
   * Under Test, Post-actions add a Run Script Action
-    - "$SRCROOT"/Vendor/pact-consumer-swift/scripts/stop_server.sh
+    ```bash
+    PATH=/path/to/pact-mock-service/binary:$PATH
+    "$SRCROOT"/Vendor/pact-consumer-swift/scripts/stop_server.sh
+    ```
     - Make sure you select your project under `Provide the build settings from`, otherwise SRCROOT will not be set which the scripts depend on
 
 ## Writing Pact Tests
