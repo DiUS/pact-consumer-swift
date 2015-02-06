@@ -260,8 +260,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:/opt/boxen/homebrew/bin:$PATH\ncarthage copy-frameworks";
+			shellPath = /bin/bash;
+			shellScript = "PATH=/usr/local/bin:/opt/boxen/homebrew/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/iOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi";
 		};
 		A1E04E991A809747006721F8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
