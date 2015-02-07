@@ -8,3 +8,6 @@
 [submodule "Carthage/Checkouts/Quick"]
 	path = Carthage/Checkouts/Quick
 	url = https://github.com/Quick/Quick.git
+[submodule "Carthage/Checkouts/BrightFutures"]
+	path = Carthage/Checkouts/BrightFutures
+	url = https://github.com/Thomvis/BrightFutures.git

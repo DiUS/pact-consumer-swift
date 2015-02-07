@@ -1,1 +1,2 @@
 github "Alamofire/Alamofire"
+github "Thomvis/BrightFutures" "1.0.0-beta.2"

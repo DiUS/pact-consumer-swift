@@ -1,5 +1,6 @@
 import Foundation
 import Alamofire
+import BrightFutures
 
 @objc public class PactVerificationService {
   public let url: String
@@ -67,13 +68,17 @@ import Alamofire
     Router.baseURLString = baseUrl
   }
   
-  func clean(#success: () -> Void, failure: () -> Void) -> Void {
+  func clean() -> Future<String> {
+    let promise = Promise<String>()
+    
     Alamofire.request(Router.Clean())
               .validate()
-              .responseString(RequestHandler(success: success, failure: failure).requestHandler())
+              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    
+    return promise.future
   }
   
-  func setup (interactions: [Interaction], success: () -> Void, failure: () -> Void) -> Void {
+  func setup (interactions: [Interaction]) -> Future<String> {
     // TODO allow multiple interactions
     //    for interaction in interactions {
     //      Alamofire.request(Router.Setup(interaction.asDictionary())).validate().response { (_, _, _, error) in
@@ -82,21 +87,47 @@ import Alamofire
     //    }
     
     //    interactions.removeAll()
+    let promise = Promise<String>()
     Alamofire.request(Router.Setup(interactions[0].payload()))
               .validate()
-              .responseString(RequestHandler(success: success, failure: failure).requestHandler())
+              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    
+    return promise.future
   }
   
-  func verify(#success: () -> Void, failure: () -> Void) -> Void {
+  func verify() -> Future<String> {
+    let promise = Promise<String>()
     Alamofire.request(Router.Verify())
               .validate()
-              .responseString(RequestHandler(success: success, failure: failure).requestHandler())
+              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    return promise.future
   }
   
-  func write(#provider: String, consumer: String, success: () -> Void, failure: () -> Void) -> Void {
+  func write(#provider: String, consumer: String) -> Future<String> {
+    let promise = Promise<String>()
+    
     Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
               .validate()
-              .responseString(RequestHandler(success: success, failure: failure).requestHandler())
+              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    
+    return promise.future
+  }
+  
+  private struct RequestHandlerPromise {
+    let promise: Promise<String>
+    
+    func requestHandler() -> (NSURLRequest, NSHTTPURLResponse?, String?, NSError?) -> Void {
+      return {
+        (_, _, response, error) in
+        if let error = error {
+          println(error)
+          self.promise.failure(error)
+        } else {
+          println(response)
+          self.promise.success(response!)
+        }
+      }
+    }
   }
 
   private struct RequestHandler {
