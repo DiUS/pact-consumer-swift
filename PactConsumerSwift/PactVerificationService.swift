@@ -129,22 +129,4 @@ import BrightFutures
       }
     }
   }
-
-  private struct RequestHandler {
-    let success: () -> Void
-    let failure: () -> Void
-
-    func requestHandler() -> (NSURLRequest, NSHTTPURLResponse?, String?, NSError?) -> Void {
-      return {
-        (_, _, response, error) in
-        if let error = error {
-          println(error)
-          self.failure()
-        } else {
-          println(response)
-          self.success()
-        }
-      }
-    }
-  }
 }

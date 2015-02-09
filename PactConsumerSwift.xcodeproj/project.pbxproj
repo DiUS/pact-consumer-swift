@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A10AC5AE1A85EFCF00F4524C /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */; };
 		A10AC5AF1A86105B00F4524C /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */; };
+		A10AC5B41A87087B00F4524C /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC5B21A87087B00F4524C /* PactSpecs.swift */; };
+		A10AC5B51A87087B00F4524C /* HelloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC5B31A87087B00F4524C /* HelloClient.swift */; };
 		A11F1A711A5C890D00DAB9CE /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A11F1A771A5C890E00DAB9CE /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1A6B1A5C890D00DAB9CE /* PactConsumerSwift.framework */; };
 		A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEE1A5CF84600DAB9CE /* MockService.swift */; };
@@ -36,6 +38,8 @@
 		2DC1894F534D68C7B712D1DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		2DC189C6CB7BB21E0063D70C /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
+		A10AC5B21A87087B00F4524C /* PactSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactSpecs.swift; sourceTree = "<group>"; };
+		A10AC5B31A87087B00F4524C /* HelloClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloClient.swift; sourceTree = "<group>"; };
 		A11F1A6B1A5C890D00DAB9CE /* PactConsumerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PactConsumerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11F1A6F1A5C890D00DAB9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PactConsumerSwift.h; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				A10AC5B21A87087B00F4524C /* PactSpecs.swift */,
+				A10AC5B31A87087B00F4524C /* HelloClient.swift */,
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
 				A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */,
@@ -306,6 +312,8 @@
 			files = (
 				A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */,
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
+				A10AC5B41A87087B00F4524C /* PactSpecs.swift in Sources */,
+				A10AC5B51A87087B00F4524C /* HelloClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

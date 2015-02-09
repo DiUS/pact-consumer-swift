@@ -37,24 +37,28 @@ import Alamofire
     return interaction
   }
 
-  @objc public func run(testFunction: (complete: () -> Void) -> Void, result: (PactVerificationResult) -> Void) -> Void {
-    self.pactVerificationService.clean().andThen { result in
-      self.pactVerificationService.setup(self.interactions).andThen {
+  @objc public func run(testFunction: (complete: () -> Void) -> Void, verification: (PactVerificationResult) -> Void) -> Void {
+    self.pactVerificationService.clean().onSuccess { result in
+      self.pactVerificationService.setup(self.interactions).onSuccess {
         result in
         testFunction { () in
-          self.pactVerificationService.verify().andThen { result in
+          self.pactVerificationService.verify().onSuccess { result in
             self.pactVerificationService.write(provider: self.provider, consumer: self.consumer)
             return
+          }.onSuccess { response in
+            verification(PactVerificationResult.Passed)
+          }.onFailure { error in
+            verification(PactVerificationResult.Failed)
           }
           return
         }
         return
+      }.onFailure { error in
+        verification(PactVerificationResult.Failed)
       }
       return
-    }.onSuccess { response in
-      result(PactVerificationResult.Passed)
     }.onFailure { error in
-      result(PactVerificationResult.Failed)
+      verification(PactVerificationResult.Failed)
     }
   }
 }
