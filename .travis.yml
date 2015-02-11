@@ -4,8 +4,9 @@ before_install:
 - scripts/import_keychain.sh
 - brew update
 - brew install carthage
+- gem install pact-mock_service -v 0.3.0
 - bundle install
-- carthage bootstrap
+- carthage checkout
 script:
 - set -o pipefail
 - carthage build --no-skip-current
