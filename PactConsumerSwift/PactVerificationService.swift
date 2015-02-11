@@ -24,7 +24,7 @@ import BrightFutures
       case .Clean:
         return .DELETE
       case .Setup:
-        return .POST
+        return .PUT
       case .Verify:
         return .GET
       case .Write:
@@ -88,7 +88,8 @@ import BrightFutures
     
     //    interactions.removeAll()
     let promise = Promise<String>()
-    Alamofire.request(Router.Setup(interactions[0].payload()))
+    let payload = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"] as [ String : AnyObject ]
+    Alamofire.request(Router.Setup(payload))
               .validate()
               .responseString(RequestHandlerPromise(promise: promise).requestHandler())
     

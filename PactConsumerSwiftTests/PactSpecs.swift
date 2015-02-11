@@ -140,5 +140,39 @@ class HelloClientSpec: QuickSpec {
         expect(errorCode).toEventually(equal(404))
       }
     }
+
+    describe("multiple interactions") {
+      it("should allow multiple interactions in test setup") {
+        var friends: Array<Dictionary<String, String>> = []
+        var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
+
+        helloProvider.given("'s got no friends")
+                      .uponReceiving("a friend request")
+                      .withRequest(PactHTTPMethod.Post, path: "/friends", body: [ "id" : "12341" ])
+                      .willRespondWith(200, headers: ["Content-Type": "application/json"])
+        helloProvider.uponReceiving("request's friends")
+                    .withRequest(PactHTTPMethod.Get, path: "/friends")
+                    .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "friends": [ ["id" : "12341"] ] ])
+
+        //Run the tests
+        helloProvider.run({
+          (complete) -> Void in
+          helloClient!.requestFriend("12341") {
+            () in
+            helloClient!.findFriends {
+              (response) in
+              friends = response
+              complete()
+            }
+          }
+        }, verification: {
+          (verification) -> Void in
+          // Important! This ensures all expected HTTP requests were actually made.
+          expect(verification).to(equal(PactVerificationResult.Passed))
+        })
+
+        expect(friends).toEventually(contain(["id": "12341"]))
+      }
+    }
   }
 }

@@ -47,4 +47,28 @@ public class HelloClient {
         }
     }
   }
+
+  public func requestFriend(id: String, friendsResponse: () -> Void) {
+    Alamofire.request(.POST, "\(baseUrl)/friends", parameters: [ "id" : id ], encoding: .JSON)
+    .responseJSON { (request, response, json, error) in
+      println(request)
+      println(response)
+      println(error)
+      if error == nil {
+        friendsResponse()
+      }
+    }
+  }
+
+  public func findFriends(friendsResponse: (Array<Dictionary<String, String>>) -> Void) {
+    Alamofire.request(.GET, "\(baseUrl)/friends" )
+    .responseJSON { (request, response, json, error) in
+      println(request)
+      println(response)
+      println(error)
+      if let jsonResult = json as? Dictionary<String, AnyObject> {
+        friendsResponse(jsonResult["friends"] as Array)
+      }
+    }
+  }
 }
