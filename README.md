@@ -32,26 +32,33 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 import PactConsumerSwift
 
 ...
+  override func setUp() {
+    super.setUp()
+    helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
+    helloClient = HelloClient(baseUrl: helloProvider!.baseUrl)
+  }
 
-it("it says Hello") {
+  func testItSaysHello() {
     var hello = "not Goodbye"
-    var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer")
+    let expectation = expectationWithDescription("Responds with hello")
 
-    helloProvider.uponReceiving("a request for hello")
-                 .withRequest(.GET, path: "/sayHello")
-                 .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
+    helloProvider!.uponReceiving("a request for hello")
+                  .withRequest(PactHTTPMethod.Get, path: "/sayHello")
+                  .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
 
     //Run the tests
-    helloProvider.run ( { (complete) -> Void in
-      HelloClient(baseUrl: helloProvider.baseUrl).sayHello { (response) in
-        hello = response
-        complete()
+    helloProvider!.run({ (testComplete) -> Void in
+        self.helloClient!.sayHello { (response) in
+          XCTAssertEqual(response, "Hello")
+          testComplete()
+        }
       }
-    }, result: { (verification) -> Void in
-      expect(verification).to(equal(VerificationResult.PASSED))
-    })
+    ).onComplete { result in
+      XCTAssertEqual(result, PactVerificationResult.Passed)
+      expectation.fulfill()
+    }
 
-    expect(hello).toEventually(contain("Hello"))
+    waitForExpectationsWithTimeout(10) { (error) in }
   }
 ```
   See the specs in the iOS Swift Example directory for examples of asynchronous callbacks, how to expect error responses, and how to use query params.
@@ -61,27 +68,30 @@ it("it says Hello") {
 ```objc
 @import PactConsumerSwift;
 ...
-- (void)testPact {
+- (void)setUp {
+  [super setUp];
+  self.mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer"];
+  self.helloClient = [[HelloClient alloc] initWithBaseUrl:self.mockService.baseUrl];
+}
+
+- (void)testItSaysHello {
   typedef void (^CompleteBlock)();
   XCTestExpectation *exp = [self expectationWithDescription:@"Responds with hello"];
 
-  MockService *mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer"];
-
-  [[[mockService uponReceiving:@"a request for hello"]
-                 withRequest:1 path:@"/sayHello" headers:nil body: nil]
+  [[[self.mockService uponReceiving:@"a request for hello"]
+                 withRequest:1 path:@"/sayHello" query:nil headers:nil body: nil]
                  willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
 
-  HelloClient *helloClient = [[HelloClient alloc] initWithBaseUrl:mockService.baseUrl];
-
-  [mockService run:^(CompleteBlock complete) {
-                     NSString *requestReply = [helloClient sayHello];
-                     XCTAssertEqualObjects(requestReply, @"Hello");
-                     complete();
-                   }
-                   result:^(PactVerificationResult result) {
-                     XCTAssert(result == PactVerificationResultPassed);
-                     [exp fulfill];
-                   }];
+  [[self.mockService run:^(CompleteBlock testComplete) {
+      NSString *requestReply = [self.helloClient sayHello];
+      XCTAssertEqualObjects(requestReply, @"Hello");
+      testComplete();
+    }
+  ] onComplete:^(PactVerificationResult result) {
+     XCTAssert(result == PactVerificationResultPassed);
+     [exp fulfill];
+    }
+  ];
 
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
