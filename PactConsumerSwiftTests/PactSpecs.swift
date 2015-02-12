@@ -20,15 +20,15 @@ class HelloClientSpec: QuickSpec {
                     .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
       
       //Run the tests
-      helloProvider!.run ( { (complete) -> Void in
-        helloClient!.sayHello { (response) in
-          hello = response
-          complete()
+      helloProvider!.run ( { (testComplete) -> Void in
+          helloClient!.sayHello { (response) in
+            hello = response
+            testComplete()
+          }
         }
-        }, verification: { (verification) -> Void in
-          // Important! This ensures all expected HTTP requests were actually made.
-          expect(verification).to(equal(PactVerificationResult.Passed))
-      })
+      ).onComplete { result in
+        expect(result).to(equal(PactVerificationResult.Passed))
+      }
       
       expect(hello).toEventually(contain("Hello"))
     }
@@ -42,11 +42,10 @@ class HelloClientSpec: QuickSpec {
                     .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
       
       //Run the tests
-      helloProvider.run ( { (complete) -> Void in
-        complete()
-        }, verification: { (verification) -> Void in
-          verificationResult = verification
-      })
+      helloProvider.run ( { (testComplete) -> Void in
+          testComplete()
+        }
+      ).onComplete { verificationResult = $0 }
       
       expect(verificationResult).toEventually(equal(PactVerificationResult.Failed))
     }
@@ -62,17 +61,15 @@ class HelloClientSpec: QuickSpec {
         
         //Run the tests
         helloProvider.run({
-          (complete) -> Void in
-          helloClient!.findFriendsByAgeAndChild {
-            (response) in
-            friends = response
-            complete()
+          (testComplete) -> Void in
+            helloClient!.findFriendsByAgeAndChild { (response) in
+              friends = response
+              testComplete()
+            }
           }
-          }, verification: {
-            (verification) -> Void in
-            // Important! This ensures all expected HTTP requests were actually made.
-            expect(verification).to(equal(PactVerificationResult.Passed))
-        })
+        ).onComplete { result in
+          expect(result).to(equal(PactVerificationResult.Passed))
+        }
         
         expect(friends).toEventually(contain("Sue"))
       }
@@ -88,22 +85,18 @@ class HelloClientSpec: QuickSpec {
                       .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Bye" ])
         
         //Run the tests
-        helloProvider!.run({
-          (complete) -> Void in
-          helloClient!.unfriendMe( {
-            (response) in
-            responseValue = response
-            complete()
-            }, errorResponse: {
-              (error) in
+        helloProvider!.run({ (testComplete) -> Void in
+          helloClient!.unfriendMe( { (response) in
+              responseValue = response
+              testComplete()
+            }, errorResponse: { (error) in
               expect(true).to(equal(false))
-              complete()
-          })
-          }, verification: {
-            (verification) -> Void in
-            // Important! This ensures all expected HTTP requests were actually made.
-            expect(verification).to(equal(PactVerificationResult.Passed))
-        })
+              testComplete()
+            })
+          }
+        ).onComplete { result in
+          expect(result).to(equal(PactVerificationResult.Passed))
+        }
         
         expect(responseValue["reply"]).toEventually(contain("Bye"))
       }
@@ -120,22 +113,18 @@ class HelloClientSpec: QuickSpec {
                       .willRespondWith(404, body: "No friends")
         
         //Run the tests
-        helloProvider!.run({
-          (complete) -> Void in
-          helloClient!.unfriendMe({
-            (response) in
-            expect(true).to(equal(false))
-            complete()
-            }, errorResponse: {
-              (error) in
+        helloProvider!.run({ (testComplete) -> Void in
+          helloClient!.unfriendMe({ (response) in
+              expect(true).to(equal(false))
+              testComplete()
+            }, errorResponse: { (error) in
               errorCode = error
-              complete()
-          })
-          }, verification: {
-            (verification) -> Void in
-            // Important! This ensures all expected HTTP requests were actually made.
-            expect(verification).to(equal(PactVerificationResult.Passed))
-        })
+              testComplete()
+            })
+          }
+        ).onComplete { result in
+          expect(result).to(equal(PactVerificationResult.Passed))
+        }
         
         expect(errorCode).toEventually(equal(404))
       }
@@ -155,21 +144,17 @@ class HelloClientSpec: QuickSpec {
                     .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "friends": [ ["id" : "12341"] ] ])
 
         //Run the tests
-        helloProvider.run({
-          (complete) -> Void in
-          helloClient!.requestFriend("12341") {
-            () in
-            helloClient!.findFriends {
-              (response) in
-              friends = response
-              complete()
+        helloProvider.run({ (testComplete) -> Void in
+          helloClient!.requestFriend("12341") { () in
+              helloClient!.findFriends { (response) in
+                friends = response
+                testComplete()
+              }
             }
           }
-        }, verification: {
-          (verification) -> Void in
-          // Important! This ensures all expected HTTP requests were actually made.
-          expect(verification).to(equal(PactVerificationResult.Passed))
-        })
+        ).onComplete { result in
+          expect(result).to(equal(PactVerificationResult.Passed))
+        }
 
         expect(friends).toEventually(contain(["id": "12341"]))
       }

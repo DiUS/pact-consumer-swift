@@ -1,6 +1,6 @@
 import Foundation
 import Alamofire
-
+import BrightFutures
 
 @objc public class MockService : NSObject {
   private let provider: String
@@ -37,20 +37,18 @@ import Alamofire
     return interaction
   }
 
-  @objc public func run(testFunction: (complete: () -> Void) -> Void, verification: (PactVerificationResult) -> Void) -> Void {
-    self.pactVerificationService.setup(self.interactions).onSuccess {
-      result in
+  @objc public func run(testFunction: (testComplete: () -> Void) -> Void) -> PactResult {
+    let pactResult = PactResult()
+    self.pactVerificationService.setup(self.interactions).onSuccess { result in
       testFunction { () in
-        self.pactVerificationService.verify(provider: self.provider, consumer: self.consumer).onSuccess { response in
-          verification(PactVerificationResult.Passed)
-        }.onFailure { error in
-          verification(PactVerificationResult.Failed)
-        }
+        self.pactVerificationService.verify(provider: self.provider, consumer: self.consumer).onSuccess {
+          pactResult.passed($0)
+        }.onFailure { pactResult.failed($0) }
         return
       }
       return
-    }.onFailure { error in
-      verification(PactVerificationResult.Failed)
-    }
+    }.onFailure { pactResult.failed($0) }
+
+    return pactResult;
   }
 }
