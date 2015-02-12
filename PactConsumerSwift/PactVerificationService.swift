@@ -68,49 +68,65 @@ import BrightFutures
     Router.baseURLString = baseUrl
   }
   
-  func clean() -> Future<String> {
+  func setup (interactions: [Interaction]) -> Future<String> {
     let promise = Promise<String>()
-    
-    Alamofire.request(Router.Clean())
-              .validate()
-              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    self.clean().onSuccess {
+      result in
+        promise.completeWith(self.setupInteractions(interactions))
+    }.onFailure { error in
+      promise.failure(error)
+    }
     
     return promise.future
   }
   
-  func setup (interactions: [Interaction]) -> Future<String> {
-    // TODO allow multiple interactions
-    //    for interaction in interactions {
-    //      Alamofire.request(Router.Setup(interaction.asDictionary())).validate().response { (_, _, _, error) in
-    //        println(error)
-    //      }
-    //    }
-    
-    //    interactions.removeAll()
+  func verify(#provider: String, consumer: String) -> Future<String> {
+    let promise = Promise<String>()
+    self.verifyInteractions().onSuccess {
+      result in
+      promise.completeWith(self.write(provider: provider, consumer: consumer))
+    }.onFailure { error in
+      promise.failure(error)
+    }
+
+    return promise.future
+  }
+
+  private func verifyInteractions() -> Future<String> {
+    let promise = Promise<String>()
+    Alamofire.request(Router.Verify())
+    .validate()
+    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    return promise.future
+  }
+
+  private func write(#provider: String, consumer: String) -> Future<String> {
+    let promise = Promise<String>()
+
+    Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
+    .validate()
+    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+
+    return promise.future
+  }
+
+  private func clean() -> Future<String> {
+    let promise = Promise<String>()
+
+    Alamofire.request(Router.Clean())
+    .validate()
+    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+
+    return promise.future
+  }
+
+  private func setupInteractions (interactions: [Interaction]) -> Future<String> {
     let promise = Promise<String>()
     let payload = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"] as [ String : AnyObject ]
     Alamofire.request(Router.Setup(payload))
-              .validate()
-              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
-    
-    return promise.future
-  }
-  
-  func verify() -> Future<String> {
-    let promise = Promise<String>()
-    Alamofire.request(Router.Verify())
-              .validate()
-              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
-    return promise.future
-  }
-  
-  func write(#provider: String, consumer: String) -> Future<String> {
-    let promise = Promise<String>()
-    
-    Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
-              .validate()
-              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
-    
+    .validate()
+    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+
     return promise.future
   }
   
