@@ -16,11 +16,19 @@ class InteractionSpec: QuickSpec {
 
     describe("json payload"){
       context("pact state") {
-        it("includes pact state in the payload") {
+        it("includes provider state in the payload") {
           var payload = interaction!.given("state of awesomeness").uponReceiving("an important request is received").payload()
 
           expect(payload["providerState"] as String?) == "state of awesomeness"
           expect(payload["description"] as String?) == "an important request is received"
+        }
+      }
+
+      context("no provider state") {
+        it("doesn not include provider state when not included") {
+          var payload = interaction!.uponReceiving("an important request is received").payload()
+
+          expect(payload["providerState"]).to(beNil())
         }
       }
 

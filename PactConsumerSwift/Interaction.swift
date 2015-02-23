@@ -1,7 +1,7 @@
 import Alamofire
 
 @objc public class Interaction {
-  public var providerState: String = ""
+  public var providerState: String? = nil
   public var description: String = ""
   public var request: Dictionary<String, AnyObject> = [:]
   public var response: Dictionary<String, AnyObject> = [:]
@@ -45,7 +45,11 @@ import Alamofire
   }
     
   public func payload() -> [String: AnyObject] {
-    return [ "providerState": providerState, "description": description, "request": request, "response": response ]
+    var payload: [String: AnyObject] = ["description": description, "request": request, "response": response ]
+    if let providerState = providerState {
+      payload["providerState"] = providerState
+    }
+    return payload
   }
   
   private func httpMethod(method: PactHTTPMethod) -> String {

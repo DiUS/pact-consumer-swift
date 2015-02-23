@@ -7,8 +7,9 @@ import BrightFutures
   private let provider: String
   private let consumer: String
   private let done: PactDoneCallback
-  public let pactVerificationService: PactVerificationService
+  private let pactVerificationService: PactVerificationService
   private var interactions: [Interaction] = []
+
   public var baseUrl: String {
     get {
         return pactVerificationService.baseUrl
