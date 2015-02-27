@@ -9,7 +9,7 @@ class HelloClientSpec: QuickSpec {
 
     describe("tests fulfilling all expected interactions") {
       beforeEach {
-        helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer", done: { result in
+        helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer Swift", done: { result in
           expect(result).to(equal(PactVerificationResult.Passed))
         })
         helloClient = HelloClient(baseUrl: helloProvider!.baseUrl)
