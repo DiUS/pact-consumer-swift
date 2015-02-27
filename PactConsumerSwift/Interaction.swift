@@ -19,7 +19,8 @@ import Alamofire
     return self
   }
 
-  @objc public func withRequest(method: PactHTTPMethod, path: String, query: Dictionary<String, AnyObject>? = nil, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  @objc(withRequestHTTPMethod: path: query: headers: body:)
+  public func withRequest(#method: PactHTTPMethod, path: String, query: Dictionary<String, AnyObject>? = nil, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
@@ -33,7 +34,8 @@ import Alamofire
     return self
   }
 
-  @objc public func willRespondWith(status: Int, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  @objc(willRespondWithHTTPStatus: headers: body:)
+  public func willRespondWith(#status: Int, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
     response = ["status": status]
     if let headersValue = headers {
       response["headers"] = headersValue

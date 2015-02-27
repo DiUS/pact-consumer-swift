@@ -31,9 +31,10 @@
 
 - (void)testPact {
   typedef void (^CompleteBlock)();
+  
   [[[self.mockService uponReceiving:@"oc a request for hello"]
-                      withRequest:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body:nil]
-                      willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
+                      withRequestHTTPMethod:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body:nil]
+                      willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
   
   [self.mockService run:^(CompleteBlock testComplete) {
       NSString *requestReply = [self.helloClient sayHello];
@@ -48,8 +49,8 @@
   typedef void (^CompleteBlock)();
   
   [[[self.mockService uponReceiving:@"oc a request friends"]
-                      withRequest:PactHTTPMethodGET path:@"/friends" query: @{ @"age" : @"30", @"child" : @"Mary" } headers:nil body: nil]
-                      willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @{ @"friends": @[ @"Sue" ] } ];
+                      withRequestHTTPMethod:PactHTTPMethodGET path:@"/friends" query: @{ @"age" : @"30", @"child" : @"Mary" } headers:nil body: nil]
+                      willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @{ @"friends": @[ @"Sue" ] } ];
   
   [self.mockService run:^(CompleteBlock testComplete) {
       NSString *response = [self.helloClient findFriendsByAgeAndChild];
@@ -65,8 +66,8 @@
   
   [[[[self.mockService given: @"I have no friends" ]
                        uponReceiving:@"oc a request to unfriend"]
-                       withRequest:PactHTTPMethodPUT path:@"/unfriendMe" query: nil headers:nil body: nil]
-                       willRespondWith:404 headers:nil body: nil ];
+                       withRequestHTTPMethod:PactHTTPMethodPUT path:@"/unfriendMe" query: nil headers:nil body: nil]
+                       willRespondWithHTTPStatus:404 headers:nil body: nil ];
   
   [self.mockService run:^(CompleteBlock testComplete) {
     [self.helloClient unfriend:^(NSString *response) {

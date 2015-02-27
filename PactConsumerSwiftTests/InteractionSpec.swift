@@ -39,7 +39,7 @@ class InteractionSpec: QuickSpec {
         var body = "blah"
 
         it("returns expected request with specific headers and body") {
-          var payload = interaction!.withRequest(method, path: path, headers: headers, body: body).payload()
+          var payload = interaction!.withRequest(method: method, path: path, headers: headers, body: body).payload()
 
           var request = payload["request"] as [String: AnyObject]
           expect(request["path"] as String?) == path
@@ -49,7 +49,7 @@ class InteractionSpec: QuickSpec {
         }
 
         it("returns expected request without body and headers") {
-          var payload = interaction!.withRequest(method, path: path).payload()
+          var payload = interaction!.withRequest(method:method, path: path).payload()
 
           var request = payload["request"] as [String: AnyObject]
           expect(request["path"] as String?) == path
@@ -65,7 +65,7 @@ class InteractionSpec: QuickSpec {
         var body = "body"
 
         it("returns expected response with specific headers and body") {
-          var payload = interaction!.willRespondWith(statusCode, headers: headers, body: body).payload()
+          var payload = interaction!.willRespondWith(status: statusCode, headers: headers, body: body).payload()
 
           var request = payload["response"] as [String: AnyObject]
           expect(request["status"] as Int?) == statusCode

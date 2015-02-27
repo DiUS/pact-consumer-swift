@@ -45,8 +45,8 @@ import PactConsumerSwift
   func testItSaysHello() {
     var hello = "not Goodbye"
     helloProvider!.uponReceiving("a request for hello")
-                  .withRequest(.GET, path: "/sayHello")
-                  .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
+                  .withRequest(method: .GET, path: "/sayHello")
+                  .willRespondWith(status: 200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
 
     //Run the tests
     helloProvider!.run{ (testComplete) -> Void in
@@ -79,8 +79,8 @@ import PactConsumerSwift
 - (void)testItSaysHello {
   typedef void (^CompleteBlock)();
   [[[self.mockService uponReceiving:@"a request for hello"]
-                 withRequest:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body: nil]
-                 willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
+                 withRequestHTTPMethod:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body: nil]
+                 willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
 
   [self.mockService run:^(CompleteBlock testComplete) {
       NSString *requestReply = [self.helloClient sayHello];
