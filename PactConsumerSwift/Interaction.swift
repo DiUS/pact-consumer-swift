@@ -54,21 +54,21 @@ import Alamofire
   
   private func httpMethod(method: PactHTTPMethod) -> String {
     switch method {
-      case .Get:
+      case .GET:
         return "get"
-      case .Head:
+      case .HEAD:
         return "head"
-      case .Post:
+      case .POST:
         return "post"
-      case .Put:
+      case .PUT:
         return "put"
-      case .Patch:
+      case .PATCH:
         return "patch"
-      case .Delete:
+      case .DELETE:
         return "delete"
-      case .Trace:
+      case .TRACE:
         return "trace"
-      case .Connect:
+      case .CONNECT:
         return "connect"
       default:
         return "get"

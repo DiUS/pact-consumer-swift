@@ -32,7 +32,7 @@
 - (void)testPact {
   typedef void (^CompleteBlock)();
   [[[self.mockService uponReceiving:@"oc a request for hello"]
-                      withRequest:PactHTTPMethodGet path:@"/sayHello" query:nil headers:nil body:nil]
+                      withRequest:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body:nil]
                       willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
   
   [self.mockService run:^(CompleteBlock testComplete) {
@@ -48,7 +48,7 @@
   typedef void (^CompleteBlock)();
   
   [[[self.mockService uponReceiving:@"oc a request friends"]
-                      withRequest:PactHTTPMethodGet path:@"/friends" query: @{ @"age" : @"30", @"child" : @"Mary" } headers:nil body: nil]
+                      withRequest:PactHTTPMethodGET path:@"/friends" query: @{ @"age" : @"30", @"child" : @"Mary" } headers:nil body: nil]
                       willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @{ @"friends": @[ @"Sue" ] } ];
   
   [self.mockService run:^(CompleteBlock testComplete) {
@@ -65,7 +65,7 @@
   
   [[[[self.mockService given: @"I have no friends" ]
                        uponReceiving:@"oc a request to unfriend"]
-                       withRequest:PactHTTPMethodPut path:@"/unfriendMe" query: nil headers:nil body: nil]
+                       withRequest:PactHTTPMethodPUT path:@"/unfriendMe" query: nil headers:nil body: nil]
                        willRespondWith:404 headers:nil body: nil ];
   
   [self.mockService run:^(CompleteBlock testComplete) {

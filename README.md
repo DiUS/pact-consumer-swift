@@ -45,7 +45,7 @@ import PactConsumerSwift
   func testItSaysHello() {
     var hello = "not Goodbye"
     helloProvider!.uponReceiving("a request for hello")
-                  .withRequest(PactHTTPMethod.Get, path: "/sayHello")
+                  .withRequest(.GET, path: "/sayHello")
                   .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
 
     //Run the tests
@@ -79,7 +79,7 @@ import PactConsumerSwift
 - (void)testItSaysHello {
   typedef void (^CompleteBlock)();
   [[[self.mockService uponReceiving:@"a request for hello"]
-                 withRequest:1 path:@"/sayHello" query:nil headers:nil body: nil]
+                 withRequest:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body: nil]
                  willRespondWith:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
 
   [self.mockService run:^(CompleteBlock testComplete) {

@@ -19,7 +19,7 @@ class HelloClientSpec: QuickSpec {
         var hello = "not Goodbye"
 
         helloProvider!.uponReceiving("a request for hello")
-                      .withRequest(PactHTTPMethod.Get, path: "/sayHello")
+                      .withRequest(.GET, path: "/sayHello")
                       .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
 
         //Run the tests
@@ -38,7 +38,7 @@ class HelloClientSpec: QuickSpec {
           var friends: Array<String> = []
 
           helloProvider!.uponReceiving("a request friends")
-                        .withRequest(PactHTTPMethod.Get, path: "/friends", query: ["age": "30", "child": "Mary"])
+                        .withRequest(.GET, path: "/friends", query: ["age": "30", "child": "Mary"])
                         .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["friends": ["Sue"]])
 
           //Run the tests
@@ -60,7 +60,7 @@ class HelloClientSpec: QuickSpec {
 
           helloProvider!.given("I am friends with Fred")
                         .uponReceiving("a request to unfriend")
-                        .withRequest(PactHTTPMethod.Put, path: "/unfriendMe")
+                        .withRequest(.PUT, path: "/unfriendMe")
                         .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["reply": "Bye"])
 
           //Run the tests
@@ -85,7 +85,7 @@ class HelloClientSpec: QuickSpec {
 
           helloProvider!.given("I have no friends")
                         .uponReceiving("a request to unfriend")
-                        .withRequest(PactHTTPMethod.Put, path: "/unfriendMe")
+                        .withRequest(.PUT, path: "/unfriendMe")
                         .willRespondWith(404, body: "No friends")
 
           //Run the tests
@@ -109,10 +109,10 @@ class HelloClientSpec: QuickSpec {
 
           helloProvider!.given("'s got no friends")
                         .uponReceiving("a friend request")
-                        .withRequest(PactHTTPMethod.Post, path: "/friends", body: ["id": "12341"])
+                        .withRequest(.POST, path: "/friends", body: ["id": "12341"])
                         .willRespondWith(200, headers: ["Content-Type": "application/json"])
           helloProvider!.uponReceiving("request's friends")
-                        .withRequest(PactHTTPMethod.Get, path: "/friends")
+                        .withRequest(.GET, path: "/friends")
                         .willRespondWith(200, headers: ["Content-Type": "application/json"], body: ["friends": [["id": "12341"]]])
 
           //Run the tests
@@ -140,7 +140,7 @@ class HelloClientSpec: QuickSpec {
         })
 
         helloProvider.uponReceiving("a request for hello")
-                      .withRequest(PactHTTPMethod.Get, path: "/sayHello")
+                      .withRequest(.GET, path: "/sayHello")
                       .willRespondWith(200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
 
         helloProvider.run { (testComplete) -> Void in
