@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DC18322E8B1922183994215 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */; };
+		2DC18CE75C65FEDED5B6B69D /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1855727137D1A61E22336 /* Matcher.swift */; };
 		A10AC5AE1A85EFCF00F4524C /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */; };
 		A10AC5AF1A86105B00F4524C /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */; };
 		A10AC5B51A87087B00F4524C /* HelloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC5B31A87087B00F4524C /* HelloClient.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherSpec.swift; sourceTree = "<group>"; };
+		2DC1855727137D1A61E22336 /* Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
 		2DC1894F534D68C7B712D1DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		2DC189C6CB7BB21E0063D70C /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */,
 				A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */,
 				A11F1A6E1A5C890D00DAB9CE /* Supporting Files */,
+				2DC1855727137D1A61E22336 /* Matcher.swift */,
 			);
 			path = PactConsumerSwift;
 			sourceTree = "<group>";
@@ -136,11 +141,12 @@
 		A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1EE18A51AA00A68008B0E8C /* Pacts */,
+				A1EE18A51AA00A68008B0E8C /* PactTests */,
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
 				A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */,
 				A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */,
+				2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */,
 			);
 			path = PactConsumerSwiftTests;
 			sourceTree = "<group>";
@@ -162,7 +168,7 @@
 			path = script;
 			sourceTree = "<group>";
 		};
-		A1EE18A51AA00A68008B0E8C /* Pacts */ = {
+		A1EE18A51AA00A68008B0E8C /* PactTests */ = {
 			isa = PBXGroup;
 			children = (
 				A10AC5B31A87087B00F4524C /* HelloClient.swift */,
@@ -171,7 +177,7 @@
 				A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */,
 				A10AC5B21A87087B00F4524C /* PactSpecs.swift */,
 			);
-			name = Pacts;
+			name = PactTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +327,7 @@
 				A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */,
 				A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */,
 				A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */,
+				2DC18CE75C65FEDED5B6B69D /* Matcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +341,7 @@
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
 				A1EE189E1AA00498008B0E8C /* PactObjectiveCTests.m in Sources */,
 				A10AC5B51A87087B00F4524C /* HelloClient.swift in Sources */,
+				2DC18322E8B1922183994215 /* MatcherSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

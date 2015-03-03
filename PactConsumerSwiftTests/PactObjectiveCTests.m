@@ -6,12 +6,12 @@
 
 @import PactConsumerSwift;
 
-@interface PactTest : XCTestCase
+@interface PactObjectiveCTests : XCTestCase
 @property (strong, nonatomic) MockService *mockService;
 @property (strong, nonatomic) OCHelloClient *helloClient;
 @end
 
-@implementation PactTest
+@implementation PactObjectiveCTests
 
 - (void)setUp {
   [super setUp];
