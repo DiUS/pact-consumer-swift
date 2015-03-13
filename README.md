@@ -59,7 +59,7 @@ import PactConsumerSwift
     waitForExpectationsWithTimeout(10) { (error) in }
   }
 ```
-  See the specs in the iOS Swift Example directory for examples of asynchronous callbacks, how to expect error responses, and how to use query params.
+  See the PactSpecs.swift for examples on how to expect error responses, how to use query params, etc.
 
 ### Testing with Objective-C
   Write a Unit test similar to the following
@@ -98,6 +98,14 @@ If your setup is correct and your tests run against the pack mock server, then y
 `$YOUR_PROJECT/tmp/pact.log`
 And the generated pacts, here:
 `$YOUR_PROJECT/tmp/pacts/...`
+
+For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso)
+
+# More reading
+* [Swift Pact library](https://github.com/DiUS/pact-consumer-swift)
+* The original pact library, with lots of background and guidelines [Pact](https://github.com/realestate-com-au/pact)
+* The pact mock server that the Swift library uses under the hood [Pact mock service](https://github.com/bethesque/pact-mock_service)
+* A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker](https://github.com/bethesque/pact_broker)
 
 # Contributing
 
