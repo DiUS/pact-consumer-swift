@@ -16,7 +16,7 @@ public class HelloClient {
       println(response)
       println(error)
       if let jsonResult = json as? Dictionary<String, AnyObject> {
-        helloResponse(jsonResult["reply"] as String)
+        helloResponse(jsonResult["reply"] as! String)
       }
     }
   }
@@ -28,7 +28,7 @@ public class HelloClient {
       println(response)
       println(error)
       if let jsonResult = json as? Dictionary<String, AnyObject> {
-        friendsResponse(jsonResult["friends"] as Array)
+        friendsResponse(jsonResult["friends"] as! Array)
       }
     }
   }
@@ -43,7 +43,7 @@ public class HelloClient {
           errorResponse(response!.statusCode)
         }
         if let jsonResult = json as? Dictionary<String, AnyObject> {
-          successResponse(jsonResult as Dictionary<String, String>)
+          successResponse(jsonResult as! Dictionary<String, String>)
         }
     }
   }
@@ -67,7 +67,7 @@ public class HelloClient {
       println(response)
       println(error)
       if let jsonResult = json as? Dictionary<String, AnyObject> {
-        friendsResponse(jsonResult["friends"] as Array)
+        friendsResponse(jsonResult["friends"] as! Array)
       }
     }
   }

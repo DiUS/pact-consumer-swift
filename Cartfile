@@ -1,2 +1,2 @@
-github "Alamofire/Alamofire"
-github "Thomvis/BrightFutures" "1.0.0-beta.2"
+github "Alamofire/Alamofire" "xcode-6.3"
+github "Thomvis/BrightFutures" "swift1.2"

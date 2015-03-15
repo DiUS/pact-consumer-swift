@@ -19,8 +19,8 @@ class InteractionSpec: QuickSpec {
         it("includes provider state in the payload") {
           var payload = interaction!.given("state of awesomeness").uponReceiving("an important request is received").payload()
 
-          expect(payload["providerState"] as String?) == "state of awesomeness"
-          expect(payload["description"] as String?) == "an important request is received"
+          expect(payload["providerState"] as! String?) == "state of awesomeness"
+          expect(payload["description"] as! String?) == "an important request is received"
         }
       }
 
@@ -41,21 +41,21 @@ class InteractionSpec: QuickSpec {
         it("returns expected request with specific headers and body") {
           var payload = interaction!.withRequest(method: method, path: path, headers: headers, body: body).payload()
 
-          var request = payload["request"] as [String: AnyObject]
-          expect(request["path"] as String?) == path
-          expect(request["method"] as String?).to(equal("put"))
-          expect(request["headers"] as [String: String]?).to(equal(headers))
-          expect(request["body"] as String?).to(equal(body))
+          var request = payload["request"] as! [String: AnyObject]
+          expect(request["path"] as! String?) == path
+          expect(request["method"] as! String?).to(equal("put"))
+          expect(request["headers"] as! [String: String]?).to(equal(headers))
+          expect(request["body"] as! String?).to(equal(body))
         }
 
         it("returns expected request without body and headers") {
           var payload = interaction!.withRequest(method:method, path: path).payload()
 
-          var request = payload["request"] as [String: AnyObject]
-          expect(request["path"] as String?) == path
-          expect(request["method"] as String?).to(equal("put"))
-          expect(request["headers"] as [String: String]?).to(beNil())
-          expect(request["body"] as String?).to(beNil())
+          var request = payload["request"] as! [String: AnyObject]
+          expect(request["path"] as! String?) == path
+          expect(request["method"] as! String?).to(equal("put"))
+          expect(request["headers"] as! [String: String]?).to(beNil())
+          expect(request["body"] as! String?).to(beNil())
         }
       }
 
@@ -67,10 +67,10 @@ class InteractionSpec: QuickSpec {
         it("returns expected response with specific headers and body") {
           var payload = interaction!.willRespondWith(status: statusCode, headers: headers, body: body).payload()
 
-          var request = payload["response"] as [String: AnyObject]
-          expect(request["status"] as Int?) == statusCode
-          expect(request["headers"] as [String: String]?).to(equal(headers))
-          expect(request["body"] as String?).to(equal(body))
+          var request = payload["response"] as! [String: AnyObject]
+          expect(request["status"] as! Int?) == statusCode
+          expect(request["headers"] as! [String: String]?).to(equal(headers))
+          expect(request["body"] as! String?).to(equal(body))
         }
       }
     }

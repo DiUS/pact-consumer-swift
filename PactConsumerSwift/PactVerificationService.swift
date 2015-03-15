@@ -122,10 +122,10 @@ import BrightFutures
 
   private func setupInteractions (interactions: [Interaction]) -> Future<String> {
     let promise = Promise<String>()
-    let payload = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"] as [ String : AnyObject ]
+    let payload: [ String : AnyObject ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
     Alamofire.request(Router.Setup(payload))
-    .validate()
-    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+              .validate()
+              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
 
     return promise.future
   }

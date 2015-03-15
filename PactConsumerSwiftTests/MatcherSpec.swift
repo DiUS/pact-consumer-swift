@@ -20,7 +20,7 @@ class MatcherSpec: QuickSpec {
           var matcherRegex = ""
           if let data = matcher["data"] as? [String: AnyObject] {
             if let matcher = data["matcher"] as? [String: AnyObject] {
-              matcherRegex = matcher["s"] as String
+              matcherRegex = matcher["s"] as! String
             }
           }
           expect(matcherRegex).to(equal(regex))
@@ -32,7 +32,7 @@ class MatcherSpec: QuickSpec {
 
           var generate = ""
           if let data = matcher["data"] as? [String: AnyObject] {
-            generate = data["generate"] as String
+            generate = data["generate"] as! String
           }
           expect(generate).to(equal(placeholder))
         }
