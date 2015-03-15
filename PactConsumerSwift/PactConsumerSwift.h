@@ -16,19 +16,3 @@ FOUNDATION_EXPORT const unsigned char PactConsumerSwiftVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PactConsumerSwift/PublicHeader.h>
 
-typedef NS_ENUM(NSInteger, PactHTTPMethod) {
-  PactHTTPMethodOPTIONS,
-  PactHTTPMethodGET,
-  PactHTTPMethodHEAD,
-  PactHTTPMethodPOST,
-  PactHTTPMethodPUT,
-  PactHTTPMethodPATCH,
-  PactHTTPMethodDELETE,
-  PactHTTPMethodTRACE,
-  PactHTTPMethodCONNECT
-};
-
-typedef NS_ENUM(NSInteger, PactVerificationResult) {
-  PactVerificationResultPassed,
-  PactVerificationResultFailed
-};

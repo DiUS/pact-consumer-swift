@@ -2,6 +2,10 @@ import Foundation
 import Alamofire
 import BrightFutures
 
+@objc public enum PactVerificationResult: Int {
+  case Passed, Failed
+}
+
 @objc public class MockService : NSObject {
   public typealias PactDoneCallback = (PactVerificationResult) -> ()
   private let provider: String

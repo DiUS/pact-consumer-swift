@@ -1,5 +1,9 @@
 import Alamofire
 
+@objc public enum PactHTTPMethod: Int {
+  case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
+}
+
 @objc public class Interaction {
   public var providerState: String? = nil
   public var description: String = ""
