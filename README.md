@@ -72,26 +72,33 @@ import PactConsumerSwift
 - (void)setUp {
   [super setUp];
   XCTestExpectation *exp = [self expectationWithDescription:@"Pacts all verified"];
-  self.mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer" done:^(PactVerificationResult result) {
+  self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
+                                                        consumer:@"Animal Service Client Objective-C"
+                                                            done:^(PactVerificationResult result) {
     XCTAssert(result == PactVerificationResultPassed);
     [exp fulfill];
   }];
-  self.helloClient = [[HelloClient alloc] initWithBaseUrl:self.mockService.baseUrl];
+  self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
-- (void)testItSaysHello {
+- (void)testGetAlligator {
   typedef void (^CompleteBlock)();
-  [[[self.mockService uponReceiving:@"a request for hello"]
-                 withRequestHTTPMethod:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body: nil]
-                 willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
-
-  [self.mockService run:^(CompleteBlock testComplete) {
-      NSString *requestReply = [self.helloClient sayHello];
-      XCTAssertEqualObjects(requestReply, @"Hello");
+  
+  [[[[self.animalMockService given:@"an alligator exists"]
+                             uponReceiving:@"oc a request for an alligator"]
+                             withRequestHTTPMethod:PactHTTPMethodGET
+                                              path:@"/alligator"
+                                             query:nil headers:nil body:nil]
+                             willRespondWithHTTPStatus:200
+                                               headers:@{@"Content-Type": @"application/json"}
+                                                  body: @"{ \"name\": \"Mary\"}" ];
+  
+  [self.animalMockService run:^(CompleteBlock testComplete) {
+      Animal *animal = [self.animalServiceClient getAlligator];
+      XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
-    }
-  ];
-
+  }];
+  
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 ```

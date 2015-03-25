@@ -24,7 +24,7 @@
 		A1E04EA81A809828006721F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA61A809828006721F8 /* Quick.framework */; };
 		A1E04EA91A809828006721F8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA71A809828006721F8 /* Nimble.framework */; };
 		A1EE189E1AA00498008B0E8C /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */; };
-		A1EE18A41AA009A9008B0E8C /* OCHelloClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE18A31AA009A9008B0E8C /* OCHelloClient.m */; };
+		A1EE18A41AA009A9008B0E8C /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */; };
 		A1EE18A61AA00FC7008B0E8C /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC5B21A87087B00F4524C /* PactSpecs.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +63,8 @@
 		A1E04EA71A809828006721F8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PactConsumerSwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
-		A1EE18A21AA009A9008B0E8C /* OCHelloClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHelloClient.h; sourceTree = "<group>"; };
-		A1EE18A31AA009A9008B0E8C /* OCHelloClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHelloClient.m; sourceTree = "<group>"; };
+		A1EE18A21AA009A9008B0E8C /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
+		A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				A10AC5B31A87087B00F4524C /* AnimalServiceClient.swift */,
-				A1EE18A21AA009A9008B0E8C /* OCHelloClient.h */,
-				A1EE18A31AA009A9008B0E8C /* OCHelloClient.m */,
+				A1EE18A21AA009A9008B0E8C /* OCAnimalServiceClient.h */,
+				A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */,
 				A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */,
 				A10AC5B21A87087B00F4524C /* PactSpecs.swift */,
 			);
@@ -336,7 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */,
-				A1EE18A41AA009A9008B0E8C /* OCHelloClient.m in Sources */,
+				A1EE18A41AA009A9008B0E8C /* OCAnimalServiceClient.m in Sources */,
 				A1EE18A61AA00FC7008B0E8C /* PactSpecs.swift in Sources */,
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
 				A1EE189E1AA00498008B0E8C /* PactObjectiveCTests.m in Sources */,

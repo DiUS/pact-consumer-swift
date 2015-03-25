@@ -2,13 +2,13 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "OCHelloClient.h"
+#import "OCAnimalServiceClient.h"
 
 @import PactConsumerSwift;
 
 @interface PactObjectiveCTests : XCTestCase
-@property (strong, nonatomic) MockService *mockService;
-@property (strong, nonatomic) OCHelloClient *helloClient;
+@property (strong, nonatomic) MockService *animalMockService;
+@property (strong, nonatomic) OCAnimalServiceClient *animalServiceClient;
 @end
 
 @implementation PactObjectiveCTests
@@ -16,31 +16,36 @@
 - (void)setUp {
   [super setUp];
   XCTestExpectation *exp = [self expectationWithDescription:@"Pacts all verified"];
-  self.mockService = [[MockService alloc] initWithProvider:@"Hello Provider"
-                                                  consumer:@"Hello Client Objective-C"
+  self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
+                                                  consumer:@"Animal Service Client Objective-C"
                                                       done:^(PactVerificationResult result) {
     XCTAssert(result == PactVerificationResultPassed);
     [exp fulfill];
   }];
-  self.helloClient = [[OCHelloClient alloc] initWithBaseUrl:self.mockService.baseUrl];
+  self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
 - (void)tearDown {
   [super tearDown];
 }
 
-- (void)testPact {
+- (void)testGetAlligator {
   typedef void (^CompleteBlock)();
   
-  [[[self.mockService uponReceiving:@"oc a request for hello"]
-                      withRequestHTTPMethod:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body:nil]
-                      willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
+  [[[[self.animalMockService given:@"an alligator exists"]
+                             uponReceiving:@"oc a request for an alligator"]
+                             withRequestHTTPMethod:PactHTTPMethodGET
+                                              path:@"/alligator"
+                                             query:nil headers:nil body:nil]
+                             willRespondWithHTTPStatus:200
+                                               headers:@{@"Content-Type": @"application/json"}
+                                                  body: @"{ \"name\": \"Mary\"}" ];
   
-  [self.mockService run:^(CompleteBlock testComplete) {
-      NSString *requestReply = [self.helloClient sayHello];
-      XCTAssertEqualObjects(requestReply, @"Hello");
+  [self.animalMockService run:^(CompleteBlock testComplete) {
+      Animal *animal = [self.animalServiceClient getAlligator];
+      XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
-  } ];
+  }];
   
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
@@ -48,35 +53,24 @@
 - (void)testWithQueryParams {
   typedef void (^CompleteBlock)();
   
-  [[[self.mockService uponReceiving:@"oc a request friends"]
-                      withRequestHTTPMethod:PactHTTPMethodGET path:@"/friends" query: @{ @"age" : @"30", @"child" : @"Mary" } headers:nil body: nil]
-                      willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @{ @"friends": @[ @"Sue" ] } ];
+  [[[[self.animalMockService given:@"an alligator exists"]
+                             uponReceiving:@"oc a request for animals living in water"]
+                             withRequestHTTPMethod:PactHTTPMethodGET
+                                              path:@"/animals"
+                                             query: @{ @"live" : @"water" }
+                                           headers:nil body: nil]
+                             willRespondWithHTTPStatus:200
+                                               headers:@{@"Content-Type": @"application/json"}
+                                                  body: @[ @{ @"name": @"Mary" } ] ];
   
-  [self.mockService run:^(CompleteBlock testComplete) {
-      NSString *response = [self.helloClient findFriendsByAgeAndChild];
-      XCTAssertEqualObjects(response, @"{\"friends\":[\"Sue\"]}");
-      testComplete();
-  } ];
-  
-  [self waitForExpectationsWithTimeout:5 handler:nil];
-}
+  [self.animalMockService run:^(CompleteBlock testComplete) {
+      NSArray *animals = [self.animalServiceClient findAnimalsLiving:@"water"];
 
-- (void)testExpectedError {
-  typedef void (^CompleteBlock)();
-  
-  [[[[self.mockService given: @"I have no friends" ]
-                       uponReceiving:@"oc a request to unfriend"]
-                       withRequestHTTPMethod:PactHTTPMethodPUT path:@"/unfriendMe" query: nil headers:nil body: nil]
-                       willRespondWithHTTPStatus:404 headers:nil body: nil ];
-  
-  [self.mockService run:^(CompleteBlock testComplete) {
-    [self.helloClient unfriend:^(NSString *response) {
-      XCTAssertFalse(true);
-    } failure:^(NSInteger errorCode) {
-      XCTAssertEqual(errorCode, 404);
-    }];
-    testComplete();
-  } ];
+      XCTAssertEqual(animals.count, 1);
+      Animal *animal = animals[0];
+      XCTAssertEqualObjects(animal.name, @"Mary");
+      testComplete();
+  }];
   
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
