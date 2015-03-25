@@ -2,130 +2,148 @@ import Quick
 import Nimble
 import PactConsumerSwift
 
-class HelloClientSpec: QuickSpec {
+class AnimalClientSpec: QuickSpec {
   override func spec() {
-    var helloProvider: MockService?
-    var helloClient: HelloClient?
+    var animalMockService: MockService?
+    var animalServiceClient: AnimalServiceClient?
 
     describe("tests fulfilling all expected interactions") {
       beforeEach {
-        helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer Swift", done: { result in
+        animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", done: { result in
           expect(result).to(equal(PactVerificationResult.Passed))
         })
-        helloClient = HelloClient(baseUrl: helloProvider!.baseUrl)
+        animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
       }
 
-      it("it says Hello") {
-        var hello = "not Goodbye"
+      it("gets an alligator") {
+        var complete: Bool = false
 
-        helloProvider!.uponReceiving("a request for hello")
-                      .withRequest(method:.GET, path: "/sayHello")
-                      .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
+        animalMockService!.given("an alligator exists")
+                          .uponReceiving("a request for an alligator")
+                          .withRequest(method:.GET, path: "/alligator")
+                          .willRespondWith(status: 200,
+                                           headers: ["Content-Type": "application/json"],
+                                           body: ["name": "Mary", "type": "alligator"])
 
         //Run the tests
-        helloProvider!.run { (testComplete) -> Void in
-          helloClient!.sayHello { (response) in
-            hello = response
+        animalMockService!.run { (testComplete) -> Void in
+          animalServiceClient!.getAlligator { (alligator) in
+            expect(alligator.name).to(equal("Mary"))
+            complete = true
             testComplete()
           }
         }
 
-        expect(hello).toEventually(contain("Hello"))
+        // Wait for asynch HTTP requests to finish
+        expect(complete).toEventually(beTrue())
       }
 
-      describe("findFriendsByAgeAndChildren") {
-        it("should return some friends") {
-          var friends: Array<String> = []
+      describe("findAnimals") {
+        it("should return animals living in water") {
+          var complete: Bool = false
 
-          helloProvider!.uponReceiving("a request friends")
-                        .withRequest(method:.GET, path: "/friends", query: ["age": "30", "child": "Mary"])
-                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: ["friends": ["Sue"]])
+          animalMockService!.given("an alligator exists")
+                            .uponReceiving("a request for animals living in water")
+                            .withRequest(method:.GET, path: "/animals", query: ["live": "water"])
+                            .willRespondWith(status: 200,
+                                             headers: ["Content-Type": "application/json"],
+                                             body: [ ["name": "Mary", "type": "alligator"] ] )
 
           //Run the tests
-          helloProvider!.run { (testComplete) -> Void in
-            helloClient!.findFriendsByAgeAndChild {
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.findAnimals(live: "water", {
               (response) in
-              friends = response
+              expect(response.count).to(equal(1))
+              expect(response[0].name).to(equal("Mary"))
+              complete = true
               testComplete()
-            }
+            })
           }
 
-          expect(friends).toEventually(contain("Sue"))
+          // Wait for asynch HTTP requests to finish
+          expect(complete).toEventually(beTrue())
         }
       }
 
-      describe("unfriendMe") {
+      describe("eats") {
         it("should unfriend me") {
-          var responseValue: Dictionary<String, String> = [:]
+          var complete: Bool = false
 
-          helloProvider!.given("I am friends with Fred")
-                        .uponReceiving("a request to unfriend")
-                        .withRequest(method:.PUT, path: "/unfriendMe")
-                        .willRespondWith(status: 200, headers: ["Content-Type": "application/json"], body: ["reply": "Bye"])
+          animalMockService!.given("Alligators and pidgeons exist")
+                        .uponReceiving("a request eat a pidgeon")
+                        .withRequest(method:.PATCH, path: "/alligator/eat", body: [ "type": "pidgeon" ])
+                        .willRespondWith(status: 204, headers: ["Content-Type": "application/json"])
 
           //Run the tests
-          helloProvider!.run{ (testComplete) -> Void in
-            helloClient!.unfriendMe({ (response) in
-              responseValue = response
+          animalMockService!.run{ (testComplete) -> Void in
+            animalServiceClient!.eat(animal: "pidgeon", success: { () in
+              complete = true
               testComplete()
-            }, errorResponse: { (error) in
+            }, error: { (error) in
               expect(true).to(equal(false))
               testComplete()
             })
           }
 
-          expect(responseValue["reply"]).toEventually(contain("Bye"))
+          expect(complete).toEventually(beTrue())
         }
       }
 
 
-      describe("when there are no friends") {
-        it("returns an error message") {
-          var errorCode: Int? = nil
+      describe("when eats nothing") {
+        it("returns an error") {
+          var complete: Bool = false
 
-          helloProvider!.given("I have no friends")
-                        .uponReceiving("a request to unfriend")
-                        .withRequest(method:.PUT, path: "/unfriendMe")
-                        .willRespondWith(status:404, body: "No friends")
+          animalMockService!.given("Alligators don't eat pidgeons")
+                        .uponReceiving("a request to no longer eat pidgeons")
+                        .withRequest(method:.DELETE, path: "/alligator/eat", body: [ "type": "pidgeon" ])
+                        .willRespondWith(status:404, body: "No relationship")
 
           //Run the tests
-          helloProvider!.run { (testComplete) -> Void in
-            helloClient!.unfriendMe({ (response) in
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.wontEat(animal: "pidgeon", success: { (response) in
+              // We are expecting this test to fail - the error handler should be called
               expect(true).to(equal(false))
               testComplete()
-            }, errorResponse: { (error) in
-              errorCode = error
+            }, error: { (error) in
+              complete = true
               testComplete()
             })
           }
 
-          expect(errorCode).toEventually(equal(404))
+          expect(complete).toEventually(beTrue())
         }
       }
 
       describe("multiple interactions") {
         it("should allow multiple interactions in test setup") {
-          var friends: Array<Dictionary<String, String>> = []
+          var complete: Bool = false
 
-          helloProvider!.given("'s got no friends")
-                        .uponReceiving("a friend request")
-                        .withRequest(method:.POST, path: "/friends", body: ["id": "12341"])
-                        .willRespondWith(status: 200, headers: ["Content-Type": "application/json"])
-          helloProvider!.uponReceiving("request's friends")
-                        .withRequest(method:.GET, path: "/friends")
-                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: ["friends": [["id": "12341"]]])
+          animalMockService!.given("alligators don't each pidgeons")
+                        .uponReceiving("a request to eat")
+                        .withRequest(method:.PATCH, path: "/alligator/eat", body: ["type": "pidgeon"])
+                        .willRespondWith(status: 204, headers: ["Content-Type": "application/json"])
+          animalMockService!.uponReceiving("what alligators eat")
+                        .withRequest(method:.GET, path: "/alligator/eat")
+                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": "pidgeon"]])
 
           //Run the tests
-          helloProvider!.run { (testComplete) -> Void in
-            helloClient!.requestFriend("12341") { () in
-              helloClient!.findFriends { (response) in
-                friends = response
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.eat(animal: "pidgeon", success: { () in
+              animalServiceClient!.eats { (response) in
+                expect(response.count).to(equal(1))
+                expect(response[0].name).to(equal("Joseph"))
+                expect(response[0].type).to(equal("pidgeon"))
+                complete = true
                 testComplete()
               }
-            }
+            }, error: { (error) in
+              expect(true).to(equal(false))
+              testComplete()
+            })
           }
 
-          expect(friends).toEventually(contain(["id": "12341"]))
+          expect(complete).toEventually(beTrue())
         }
       }
     }
@@ -133,17 +151,16 @@ class HelloClientSpec: QuickSpec {
     describe("when not all expected interactions are not fulfilled") {
       it("it fails tests when verification fails") {
         var verificationResult = PactVerificationResult.Passed
-        var helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer", done: {
-          result in
+        var animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", done: { result in
           // expected interactions not performed
           verificationResult = result
         })
 
-        helloProvider.uponReceiving("a request for hello")
-                      .withRequest(method:.GET, path: "/sayHello")
-                      .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ "reply": "Hello"])
+        animalMockService.uponReceiving("a request for hello")
+                      .withRequest(method:.GET, path: "/alligator")
+                      .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ "name": "Mary"])
 
-        helloProvider.run { (testComplete) -> Void in
+        animalMockService.run { (testComplete) -> Void in
           testComplete()
         }
 
