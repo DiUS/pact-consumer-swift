@@ -137,11 +137,16 @@ import BrightFutures
       return {
         (_, _, response, error) in
         if let error = error {
-          println(error)
-          self.promise.failure(error)
+          var uInfo : [String: String]? = nil
+          if let response = response {
+            uInfo = [ "response" : response]
+          }
+          let pactError = NSError(domain: error.domain, code: error.code, userInfo: uInfo)
+          self.promise.failure(pactError)
         } else {
-          println(response)
-          self.promise.success(response!)
+          if let response = response {
+            self.promise.success(response)
+          }
         }
       }
     }

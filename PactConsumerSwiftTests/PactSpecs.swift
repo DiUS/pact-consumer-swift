@@ -27,11 +27,14 @@ class AnimalClientSpec: QuickSpec {
 
         //Run the tests
         animalMockService!.run { (testComplete) -> Void in
-          animalServiceClient!.getAlligator { (alligator) in
-            expect(alligator.name).to(equal("Mary"))
-            complete = true
-            testComplete()
-          }
+          animalServiceClient!.getAlligator( { (alligator) in
+              expect(alligator.name).to(equal("Mary"))
+              complete = true
+              testComplete()
+            }, failure: { (error) in
+              complete = true
+              testComplete()
+          })
         }
 
         // Wait for asynch HTTP requests to finish
