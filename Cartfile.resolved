@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "2ff5749ffc0425f05a1411b5b6fd2c25241b5b14"
-github "Thomvis/BrightFutures" "6e4ca98b3f324a609e20267e76fe152397bbe469"
-github "Quick/Nimble" "6a679cbf20da3fe570c26296b3029dd168b72c00"
-github "Quick/Quick" "v0.3.0"
+github "Alamofire/Alamofire" "1.2.1"
+github "Thomvis/BrightFutures" "13cfdef88a7e2e0d9f26a6eb61598919890c5a1c"
+github "Quick/Nimble" "v0.4.2"
+github "Quick/Quick" "v0.3.1"

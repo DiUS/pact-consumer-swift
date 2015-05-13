@@ -96,7 +96,7 @@ import BrightFutures
     let promise = Promise<String>()
     Alamofire.request(Router.Verify())
     .validate()
-    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
     return promise.future
   }
 
@@ -105,7 +105,7 @@ import BrightFutures
 
     Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
     .validate()
-    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
 
     return promise.future
   }
@@ -115,7 +115,7 @@ import BrightFutures
 
     Alamofire.request(Router.Clean())
     .validate()
-    .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+    .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
 
     return promise.future
   }
@@ -125,7 +125,7 @@ import BrightFutures
     let payload: [ String : AnyObject ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
     Alamofire.request(Router.Setup(payload))
               .validate()
-              .responseString(RequestHandlerPromise(promise: promise).requestHandler())
+      .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
 
     return promise.future
   }
