@@ -26,37 +26,40 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 ## Writing Pact Tests
 
 ### Testing with Swift
-  Write a Unit test similar to the following
+  Write a Unit test similar to the following (NB: this example is using the [Quick](https://github.com/Quick/Quick) test framework)
 
 ```swift
 import PactConsumerSwift
 
 ...
-  override func setUp() {
-    super.setUp()
-    let expectation = expectationWithDescription("Pacts are verified")
-    helloProvider = MockService(provider: "Hello Provider", consumer: "Hello Consumer", done: { result in
-      XCTAssertEqual(result, PactVerificationResult.Passed)
-      expectation!.fulfill()
+  beforeEach {
+    animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", done: { result in
+      expect(result).to(equal(PactVerificationResult.Passed))
     })
-    helloClient = HelloClient(baseUrl: helloProvider!.baseUrl)
+    animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
   }
 
-  func testItSaysHello() {
-    var hello = "not Goodbye"
-    helloProvider!.uponReceiving("a request for hello")
-                  .withRequest(method: .GET, path: "/sayHello")
-                  .willRespondWith(status: 200, headers: ["Content-Type": "application/json"], body: ["reply": "Hello"])
+  it("gets an alligator") {
+    var complete: Bool = false
+
+    animalMockService!.given("an alligator exists")
+                      .uponReceiving("a request for an alligator")
+                      .withRequest(method:.GET, path: "/alligator")
+                      .willRespondWith(status:200,
+                                       headers: ["Content-Type": "application/json"],
+                                       body: ["name": "Mary"])
 
     //Run the tests
-    helloProvider!.run{ (testComplete) -> Void in
-      self.helloClient!.sayHello { (response) in
-        XCTAssertEqual(response, "Hello")
+    animalMockService!.run { (testComplete) -> Void in
+      animalServiceClient!.getAlligator { (alligator) in
+        expect(alligator.name).to(equal("Mary"))
+        complete = true
         testComplete()
       }
     }
 
-    waitForExpectationsWithTimeout(10) { (error) in }
+    // Wait for asynch HTTP requests to finish
+    expect(complete).toEventually(beTrue())
   }
 ```
   See the PactSpecs.swift for examples on how to expect error responses, how to use query params, etc.
@@ -69,26 +72,33 @@ import PactConsumerSwift
 - (void)setUp {
   [super setUp];
   XCTestExpectation *exp = [self expectationWithDescription:@"Pacts all verified"];
-  self.mockService = [[MockService alloc] initWithProvider:@"Provider" consumer:@"consumer" done:^(PactVerificationResult result) {
+  self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
+                                                        consumer:@"Animal Service Client Objective-C"
+                                                            done:^(PactVerificationResult result) {
     XCTAssert(result == PactVerificationResultPassed);
     [exp fulfill];
   }];
-  self.helloClient = [[HelloClient alloc] initWithBaseUrl:self.mockService.baseUrl];
+  self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
-- (void)testItSaysHello {
+- (void)testGetAlligator {
   typedef void (^CompleteBlock)();
-  [[[self.mockService uponReceiving:@"a request for hello"]
-                 withRequestHTTPMethod:PactHTTPMethodGET path:@"/sayHello" query:nil headers:nil body: nil]
-                 willRespondWithHTTPStatus:200 headers:@{@"Content-Type": @"application/json"} body: @"Hello" ];
-
-  [self.mockService run:^(CompleteBlock testComplete) {
-      NSString *requestReply = [self.helloClient sayHello];
-      XCTAssertEqualObjects(requestReply, @"Hello");
+  
+  [[[[self.animalMockService given:@"an alligator exists"]
+                             uponReceiving:@"oc a request for an alligator"]
+                             withRequestHTTPMethod:PactHTTPMethodGET
+                                              path:@"/alligator"
+                                             query:nil headers:nil body:nil]
+                             willRespondWithHTTPStatus:200
+                                               headers:@{@"Content-Type": @"application/json"}
+                                                  body: @"{ \"name\": \"Mary\"}" ];
+  
+  [self.animalMockService run:^(CompleteBlock testComplete) {
+      Animal *animal = [self.animalServiceClient getAlligator];
+      XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
-    }
-  ];
-
+  }];
+  
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 ```

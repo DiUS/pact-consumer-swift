@@ -50,7 +50,12 @@ import BrightFutures
       testFunction { () in
         self.pactVerificationService.verify(provider: self.provider, consumer: self.consumer).onSuccess { result in
           self.done(PactVerificationResult.Passed)
-        }.onFailure { error in self.done(PactVerificationResult.Failed) }
+        }.onFailure { error in
+          if let verificationError = error.userInfo {
+            println(verificationError["response"])
+          }
+          self.done(PactVerificationResult.Failed)
+        }
         return
       }
       return
