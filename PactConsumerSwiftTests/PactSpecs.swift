@@ -54,7 +54,7 @@ class AnimalClientSpec: QuickSpec {
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
-            animalServiceClient!.findAnimals(live: "water", {
+            animalServiceClient!.findAnimals(live: "water", response: {
               (response) in
               expect(response.count).to(equal(1))
               expect(response[0].name).to(equal("Mary"))
