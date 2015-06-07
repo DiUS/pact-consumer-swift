@@ -16,7 +16,7 @@ then
 fi
 
 echo "*** Setting up code signing..."
-local password=cibuild
+password=cibuild
 
 # Create a temporary keychain for code signing.
 security create-keychain -p "$password" "$KEYCHAIN"
@@ -26,7 +26,7 @@ security set-keychain-settings -t 3600 -l "$KEYCHAIN"
 
 # Download the certificate for the Apple Worldwide Developer Relations
 # Certificate Authority.
-local certpath="$SCRIPT_DIR/apple_wwdr.cer"
+certpath="$SCRIPT_DIR/apple_wwdr.cer"
 curl 'https://developer.apple.com/certificationauthority/AppleWWDRCA.cer' > "$certpath"
 security import "$certpath" -k "$KEYCHAIN" -T /usr/bin/codesign
 
