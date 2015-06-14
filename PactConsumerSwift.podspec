@@ -11,13 +11,17 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/DiUS/pact-consumer-swift"
 
-  s.author       = { "andrewspinks" => "<your email>" }
+  s.author       = { "andrewspinks" => "andrewspinks@gmail.com" }
 
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => s.version }
   s.source_files = 'PactConsumerSwift/**/*.swift'
   s.requires_arc = true
   s.frameworks   = 'Foundation', 'UIKit'
 
+  s.requires_arc = true
+
+  s.dependency 'Alamofire'
+  s.dependency 'BrightFutures'
 end
