@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => s.version }
-  s.source_files = 'PactConsumerSwift/**/*.swift', 'scripts/start_server.sh', 'scripts/stop_server.sh'
+  s.source_files = 'PactConsumerSwift/**/*.swift'
+  s.resources = 'scripts/start_server.sh', 'scripts/stop_server.sh'
   s.requires_arc = true
   s.frameworks   = 'Foundation', 'UIKit'
 

@@ -12,7 +12,7 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 ## Installation
 
 ### Install the [pact-mock_service][pact-mock-service]
-  `gem install pact-mock_service -v 0.3.0`
+  `gem install pact-mock_service -v 0.5.1`
 
 ### Add the PactConsumerSwift library to your project
 
@@ -21,7 +21,7 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 
 #### Using Git Submodules
 
-- See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using the library with git submodules.
+- See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using the library with CocoaPods.
 
 ## Writing Pact Tests
 
@@ -83,7 +83,7 @@ import PactConsumerSwift
 
 - (void)testGetAlligator {
   typedef void (^CompleteBlock)();
-  
+
   [[[[self.animalMockService given:@"an alligator exists"]
                              uponReceiving:@"oc a request for an alligator"]
                              withRequestHTTPMethod:PactHTTPMethodGET
@@ -92,13 +92,13 @@ import PactConsumerSwift
                              willRespondWithHTTPStatus:200
                                                headers:@{@"Content-Type": @"application/json"}
                                                   body: @"{ \"name\": \"Mary\"}" ];
-  
+
   [self.animalMockService run:^(CompleteBlock testComplete) {
       Animal *animal = [self.animalServiceClient getAlligator];
       XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
   }];
-  
+
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 ```
