@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (1.2.3)
+  - BrightFutures (1.0.1)
+  - Nimble (0.4.2)
+  - Quick (0.3.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - BrightFutures
+  - Nimble
+  - Quick (~> 0.3.1)
+
+SPEC CHECKSUMS:
+  Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
+  BrightFutures: 76c1b0f2ff9694959c8359dad80f42c6e60c4a59
+  Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
+  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
+
+COCOAPODS: 0.37.2

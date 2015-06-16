@@ -3,14 +3,13 @@ osx_image: beta-xcode6.3
 before_install:
 - scripts/import_keychain.sh
 - brew update
-- brew install carthage
-- gem install pact-mock_service -v 0.5.1
+- gem install pact-mock_service -v 0.5.5
 - bundle install
-- carthage checkout
+- gem install cocoapods
+- pod install
 script:
 - set -o pipefail
-- carthage build --no-skip-current
-- xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test
+- xcodebuild -workspace PactConsumerSwift.xcworkspace -scheme PactConsumerSwift test
   -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" ONLY_ACTIVE_ARCH=NO | xcpretty -c
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
