@@ -21,8 +21,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks   = 'Foundation', 'UIKit', 'XCTest'
 
-  s.requires_arc = true
-
   s.dependency 'Alamofire'
   s.dependency 'BrightFutures'
 end
