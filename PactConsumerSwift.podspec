@@ -19,9 +19,7 @@ Pod::Spec.new do |s|
   s.source_files = 'PactConsumerSwift/**/*.swift'
   s.resources = 'scripts/start_server.sh', 'scripts/stop_server.sh'
   s.requires_arc = true
-  s.frameworks   = 'Foundation', 'UIKit'
-
-  s.requires_arc = true
+  s.frameworks   = 'Foundation', 'UIKit', 'XCTest'
 
   s.dependency 'Alamofire'
   s.dependency 'BrightFutures'
