@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2DC18322E8B1922183994215 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */; };
 		2DC18CE75C65FEDED5B6B69D /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1855727137D1A61E22336 /* Matcher.swift */; };
+		A10AC5AE1A85EFCF00F4524C /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */; };
+		A10AC5AF1A86105B00F4524C /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */; };
 		A10AC5B51A87087B00F4524C /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC5B31A87087B00F4524C /* AnimalServiceClient.swift */; };
 		A11F1A711A5C890D00DAB9CE /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A11F1A771A5C890E00DAB9CE /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11F1A6B1A5C890D00DAB9CE /* PactConsumerSwift.framework */; };
@@ -17,11 +19,13 @@
 		A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CD31A6200C100DCD05E /* InteractionSpec.swift */; };
 		A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */; };
 		A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE31A63869500DCD05E /* PactVerificationService.swift */; };
-		A1C053C31B318460006A6E3D /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */; };
-		A1C053C41B318463006A6E3D /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */; };
+		A1E04E971A80971A006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E961A80971A006721F8 /* Alamofire.framework */; };
+		A1E04EA51A809828006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E961A80971A006721F8 /* Alamofire.framework */; };
+		A1E04EA81A809828006721F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA61A809828006721F8 /* Quick.framework */; };
+		A1E04EA91A809828006721F8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA71A809828006721F8 /* Nimble.framework */; };
+		A1EE189E1AA00498008B0E8C /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */; };
+		A1EE18A41AA009A9008B0E8C /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */; };
 		A1EE18A61AA00FC7008B0E8C /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10AC5B21A87087B00F4524C /* PactSpecs.swift */; };
-		A4B7AF263F5D2E4B14FC4BA8 /* Pods_PactConsumerSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8F070482FCDB468862F64C /* Pods_PactConsumerSwiftTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		A6004F1B1BC57949162DB525 /* Pods_PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EBCBE73E99B2D4A7A99F02 /* Pods_PactConsumerSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +43,7 @@
 		2DC1855727137D1A61E22336 /* Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
 		2DC1894F534D68C7B712D1DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		2DC189C6CB7BB21E0063D70C /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = CONTRIBUTING.md; sourceTree = "<group>"; };
-		61170888916A76DB2834D51D /* Pods-PactConsumerSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PactConsumerSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PactConsumerSwift/Pods-PactConsumerSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		7D8F070482FCDB468862F64C /* Pods_PactConsumerSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PactConsumerSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84EBCBE73E99B2D4A7A99F02 /* Pods_PactConsumerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PactConsumerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
 		A10AC5B21A87087B00F4524C /* PactSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactSpecs.swift; sourceTree = "<group>"; };
 		A10AC5B31A87087B00F4524C /* AnimalServiceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimalServiceClient.swift; sourceTree = "<group>"; };
 		A11F1A6B1A5C890D00DAB9CE /* PactConsumerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PactConsumerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,12 +58,13 @@
 		A1343CE31A63869500DCD05E /* PactVerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactVerificationService.swift; sourceTree = "<group>"; };
 		A1343CEB1A64D59E00DCD05E /* start_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_server.sh; sourceTree = "<group>"; };
 		A1343CEC1A64D59E00DCD05E /* stop_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = stop_server.sh; sourceTree = "<group>"; };
+		A1E04E961A80971A006721F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		A1E04EA61A809828006721F8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		A1E04EA71A809828006721F8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PactConsumerSwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
 		A1EE18A21AA009A9008B0E8C /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
 		A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
-		AD0EE86D83F7C22CF1001F24 /* Pods-PactConsumerSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PactConsumerSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-PactConsumerSwift/Pods-PactConsumerSwift.release.xcconfig"; sourceTree = "<group>"; };
-		C143BEC475A3248AD300109D /* Pods-PactConsumerSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PactConsumerSwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PactConsumerSwiftTests/Pods-PactConsumerSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
-		F8E63376FB744F731D4B60AE /* Pods-PactConsumerSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PactConsumerSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PactConsumerSwiftTests/Pods-PactConsumerSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6004F1B1BC57949162DB525 /* Pods_PactConsumerSwift.framework in Frameworks */,
+				A10AC5AE1A85EFCF00F4524C /* BrightFutures.framework in Frameworks */,
+				A1E04E971A80971A006721F8 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,45 +81,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10AC5AF1A86105B00F4524C /* BrightFutures.framework in Frameworks */,
+				A1E04EA81A809828006721F8 /* Quick.framework in Frameworks */,
+				A1E04EA91A809828006721F8 /* Nimble.framework in Frameworks */,
+				A1E04EA51A809828006721F8 /* Alamofire.framework in Frameworks */,
 				A11F1A771A5C890E00DAB9CE /* PactConsumerSwift.framework in Frameworks */,
-				A4B7AF263F5D2E4B14FC4BA8 /* Pods_PactConsumerSwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88A5FF614197972EAA559B60 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				84EBCBE73E99B2D4A7A99F02 /* Pods_PactConsumerSwift.framework */,
-				7D8F070482FCDB468862F64C /* Pods_PactConsumerSwiftTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		91243BA751A5487F26573256 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				61170888916A76DB2834D51D /* Pods-PactConsumerSwift.debug.xcconfig */,
-				AD0EE86D83F7C22CF1001F24 /* Pods-PactConsumerSwift.release.xcconfig */,
-				F8E63376FB744F731D4B60AE /* Pods-PactConsumerSwiftTests.debug.xcconfig */,
-				C143BEC475A3248AD300109D /* Pods-PactConsumerSwiftTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A11F1A611A5C890D00DAB9CE = {
 			isa = PBXGroup;
 			children = (
+				A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */,
+				A1E04EA61A809828006721F8 /* Quick.framework */,
+				A1E04EA71A809828006721F8 /* Nimble.framework */,
+				A1E04E961A80971A006721F8 /* Alamofire.framework */,
 				A1343CE61A64D59E00DCD05E /* script */,
 				A11F1A6D1A5C890D00DAB9CE /* PactConsumerSwift */,
 				A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */,
 				A11F1A6C1A5C890D00DAB9CE /* Products */,
 				2DC1894F534D68C7B712D1DF /* README.md */,
 				2DC189C6CB7BB21E0063D70C /* CONTRIBUTING.md */,
-				91243BA751A5487F26573256 /* Pods */,
-				88A5FF614197972EAA559B60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +145,7 @@
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
 				A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */,
+				A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */,
 				2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */,
 			);
 			path = PactConsumerSwiftTests;
@@ -208,12 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11F1A811A5C890E00DAB9CE /* Build configuration list for PBXNativeTarget "PactConsumerSwift" */;
 			buildPhases = (
-				28E2C5354376DFF8B79CDB44 /* Check Pods Manifest.lock */,
 				A11F1A661A5C890D00DAB9CE /* Sources */,
 				A11F1A671A5C890D00DAB9CE /* Frameworks */,
 				A11F1A681A5C890D00DAB9CE /* Headers */,
 				A11F1A691A5C890D00DAB9CE /* Resources */,
-				E4B4BA397D886176DA240471 /* Copy Pods Resources */,
+				A1E04E981A809724006721F8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -228,12 +217,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11F1A841A5C890E00DAB9CE /* Build configuration list for PBXNativeTarget "PactConsumerSwiftTests" */;
 			buildPhases = (
-				07D3AD6777B290197C053D28 /* Check Pods Manifest.lock */,
 				A11F1A721A5C890E00DAB9CE /* Sources */,
 				A11F1A731A5C890E00DAB9CE /* Frameworks */,
 				A11F1A741A5C890E00DAB9CE /* Resources */,
-				8451CA0D8BFE02C544369C3C /* Embed Pods Frameworks */,
-				BDB14151E874908AE63437E2 /* Copy Pods Resources */,
+				A1E04E991A809747006721F8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -298,80 +285,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07D3AD6777B290197C053D28 /* Check Pods Manifest.lock */ = {
+		A1E04E981A809724006721F8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 			);
-			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
+			shellPath = /bin/bash;
+			shellScript = "PATH=/usr/local/bin:/opt/boxen/homebrew/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/iOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi";
 		};
-		28E2C5354376DFF8B79CDB44 /* Check Pods Manifest.lock */ = {
+		A1E04E991A809747006721F8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 			);
-			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8451CA0D8BFE02C544369C3C /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PactConsumerSwiftTests/Pods-PactConsumerSwiftTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BDB14151E874908AE63437E2 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PactConsumerSwiftTests/Pods-PactConsumerSwiftTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4B4BA397D886176DA240471 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PactConsumerSwift/Pods-PactConsumerSwift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "PATH=/usr/local/bin:/opt/boxen/homebrew/bin:$PATH\ncarthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -391,11 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C053C41B318463006A6E3D /* PactObjectiveCTests.m in Sources */,
 				A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */,
+				A1EE18A41AA009A9008B0E8C /* OCAnimalServiceClient.m in Sources */,
 				A1EE18A61AA00FC7008B0E8C /* PactSpecs.swift in Sources */,
-				A1C053C31B318460006A6E3D /* OCAnimalServiceClient.m in Sources */,
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
+				A1EE189E1AA00498008B0E8C /* PactObjectiveCTests.m in Sources */,
 				A10AC5B51A87087B00F4524C /* AnimalServiceClient.swift in Sources */,
 				2DC18322E8B1922183994215 /* MatcherSpec.swift in Sources */,
 			);
@@ -499,13 +443,15 @@
 		};
 		A11F1A821A5C890E00DAB9CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61170888916A76DB2834D51D /* Pods-PactConsumerSwift.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -516,13 +462,15 @@
 		};
 		A11F1A831A5C890E00DAB9CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD0EE86D83F7C22CF1001F24 /* Pods-PactConsumerSwift.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -533,12 +481,12 @@
 		};
 		A11F1A851A5C890E00DAB9CE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8E63376FB744F731D4B60AE /* Pods-PactConsumerSwiftTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -547,24 +495,24 @@
 				INFOPLIST_FILE = PactConsumerSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PactConsumerSwiftTests/PactConsumerSwiftTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A11F1A861A5C890E00DAB9CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C143BEC475A3248AD300109D /* Pods-PactConsumerSwiftTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PactConsumerSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PactConsumerSwiftTests/PactConsumerSwiftTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
