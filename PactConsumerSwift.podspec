@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
 
   s.description  = <<-DESC
