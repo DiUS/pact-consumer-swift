@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
   s.version      = "0.1.3"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
+  s.license      = { :type => 'MIT' }
 
   s.description  = <<-DESC
                    This codebase provides a iOS DSL for creating pacts. If you are new to Pact, please read the Pact README first.
