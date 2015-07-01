@@ -16,12 +16,12 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "8.0"
 
-  s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => "v#{s.version}" }
   s.source_files = 'PactConsumerSwift/**/*.swift'
   s.resources = 'scripts/start_server.sh', 'scripts/stop_server.sh'
   s.requires_arc = true
   s.frameworks   = 'Foundation', 'UIKit', 'XCTest'
 
-  s.dependency 'Alamofire'
-  s.dependency 'BrightFutures'
+  s.dependency 'Alamofire', '~> 1.2'
+  s.dependency 'BrightFutures', '~> 1.0'
 end
