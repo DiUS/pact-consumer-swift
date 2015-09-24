@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 import BrightFutures
 
-@objc public class PactVerificationService {
+public class PactVerificationService {
   public let url: String
   public let port: Int
   public var baseUrl: String {
@@ -45,7 +45,7 @@ import BrightFutures
       }
     }
     
-    var URLRequest: NSURLRequest {
+    var URLRequest: NSMutableURLRequest {
       let URL = NSURL(string: Router.baseURLString)!
       let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
       mutableURLRequest.HTTPMethod = method.rawValue
@@ -68,8 +68,8 @@ import BrightFutures
     Router.baseURLString = baseUrl
   }
   
-  func setup (interactions: [Interaction]) -> Future<String> {
-    let promise = Promise<String>()
+  func setup (interactions: [Interaction]) -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
     self.clean().onSuccess {
       result in
         promise.completeWith(self.setupInteractions(interactions))
@@ -80,8 +80,8 @@ import BrightFutures
     return promise.future
   }
   
-  func verify(#provider: String, consumer: String) -> Future<String> {
-    let promise = Promise<String>()
+  func verify(provider provider: String, consumer: String) -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
     self.verifyInteractions().onSuccess {
       result in
       promise.completeWith(self.write(provider: provider, consumer: consumer))
@@ -92,16 +92,16 @@ import BrightFutures
     return promise.future
   }
 
-  private func verifyInteractions() -> Future<String> {
-    let promise = Promise<String>()
+  private func verifyInteractions() -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
     Alamofire.request(Router.Verify())
     .validate()
     .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
     return promise.future
   }
 
-  private func write(#provider: String, consumer: String) -> Future<String> {
-    let promise = Promise<String>()
+  private func write(provider provider: String, consumer: String) -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
 
     Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
     .validate()
@@ -110,8 +110,8 @@ import BrightFutures
     return promise.future
   }
 
-  private func clean() -> Future<String> {
-    let promise = Promise<String>()
+  private func clean() -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
 
     Alamofire.request(Router.Clean())
     .validate()
@@ -120,8 +120,8 @@ import BrightFutures
     return promise.future
   }
 
-  private func setupInteractions (interactions: [Interaction]) -> Future<String> {
-    let promise = Promise<String>()
+  private func setupInteractions (interactions: [Interaction]) -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
     let payload: [ String : AnyObject ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
     Alamofire.request(Router.Setup(payload))
               .validate()
@@ -131,21 +131,21 @@ import BrightFutures
   }
   
   private struct RequestHandlerPromise {
-    let promise: Promise<String>
+    let promise: Promise<String, NSError>
     
-    func requestHandler() -> (NSURLRequest, NSHTTPURLResponse?, String?, NSError?) -> Void {
+    func requestHandler() -> (NSURLRequest?, NSHTTPURLResponse?, Result<String>) -> Void {
       return {
-        (_, _, response, error) in
-        if let error = error {
+        (_, _, response) in
+        if response.isFailure {
           var uInfo : [String: String]? = nil
-          if let response = response {
-            uInfo = [ "response" : response]
+          if let responseValue = response.value {
+            uInfo = [ "response" : responseValue ]
           }
-          let pactError = NSError(domain: error.domain, code: error.code, userInfo: uInfo)
+          let pactError = NSError(domain: "pact", code: 0, userInfo: uInfo)
           self.promise.failure(pactError)
         } else {
-          if let response = response {
-            self.promise.success(response)
+          if let responseValue = response.value {
+            self.promise.success(responseValue)
           }
         }
       }
