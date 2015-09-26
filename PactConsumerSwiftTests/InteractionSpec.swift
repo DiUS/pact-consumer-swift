@@ -33,10 +33,10 @@ class InteractionSpec: QuickSpec {
       }
 
       context("request") {
-        var method: PactHTTPMethod = .PUT
-        var path = "/path"
-        var headers = ["header": "value"]
-        var body = "blah"
+        let method: PactHTTPMethod = .PUT
+        let path = "/path"
+        let headers = ["header": "value"]
+        let body = "blah"
 
         it("returns expected request with specific headers and body") {
           var payload = interaction!.withRequest(method: method, path: path, headers: headers, body: body).payload()
@@ -60,9 +60,9 @@ class InteractionSpec: QuickSpec {
       }
 
       context("response") {
-        var statusCode = 200
-        var headers = ["header": "value"]
-        var body = "body"
+        let statusCode = 200
+        let headers = ["header": "value"]
+        let body = "body"
 
         it("returns expected response with specific headers and body") {
           var payload = interaction!.willRespondWith(status: statusCode, headers: headers, body: body).payload()

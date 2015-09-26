@@ -10,8 +10,7 @@ class MockServiceSpec: QuickSpec {
     }
 
     describe("") {
-      var service: MockService?
-      beforeEach { service = MockService(provider: "test provider", consumer: "ios client", done: { result in }) }
+      beforeEach { MockService(provider: "test provider", consumer: "ios client", done: { result in }) }
 
       describe("interaction state setup") {
         it("it initialises the provider state") {
