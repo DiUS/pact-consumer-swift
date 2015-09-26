@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: beta-xcode6.3
+osx_image: xcode7
 before_install:
 - scripts/import_keychain.sh
 - brew update
@@ -11,7 +11,7 @@ script:
 - set -o pipefail
 - carthage build --no-skip-current
 - xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test
-  -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+  -sdk iphonesimulator | xcpretty -c
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
 env:
