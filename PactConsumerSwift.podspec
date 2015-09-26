@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.frameworks   = 'Foundation', 'UIKit', 'XCTest'
 
   s.dependency 'Alamofire', '~> 2.0'
-  s.dependency 'BrightFutures', '~> 3.0'
+  s.dependency 'BrightFutures', '~> 3.0.0-beta'
 end
