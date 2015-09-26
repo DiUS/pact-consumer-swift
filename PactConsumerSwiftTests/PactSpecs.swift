@@ -57,7 +57,8 @@ class AnimalClientSpec: QuickSpec {
             animalServiceClient!.findAnimals(live: "water", response: {
               (response) in
               expect(response.count).to(equal(1))
-//              expect(response[0].name).to(equal("Mary"))
+              let name = response[0].name
+              expect(name).to(equal("Mary"))
               complete = true
               testComplete()
             })
@@ -135,8 +136,10 @@ class AnimalClientSpec: QuickSpec {
             animalServiceClient!.eat(animal: "pidgeon", success: { () in
               animalServiceClient!.eats { (response) in
                 expect(response.count).to(equal(1))
-//                expect(response[0].name).to(equal("Joseph"))
-//                expect(response[0].type).to(equal("pidgeon"))
+                let name = response[0].name
+                let type = response[0].type
+                expect(name).to(equal("Joseph"))
+                expect(type).to(equal("pidgeon"))
                 complete = true
                 testComplete()
               }
