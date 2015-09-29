@@ -1,6 +1,6 @@
 import Foundation
 
-public class Matcher {
+@objc public class Matcher: NSObject {
 
   /*
     NB: This is a Pact version 1 matcher. It is ruby specific, so it will only work when verifying agains a server with the

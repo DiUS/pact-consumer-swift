@@ -129,7 +129,7 @@ class AnimalClientSpec: QuickSpec {
                         .willRespondWith(status: 204, headers: ["Content-Type": "application/json"])
           animalMockService!.uponReceiving("what alligators eat")
                         .withRequest(method:.GET, path: "/alligator/eat")
-                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": "pidgeon"]])
+                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": Matcher.somethingLike("pidgeon")]])
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
