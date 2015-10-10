@@ -1,5 +1,5 @@
 github "Alamofire/Alamofire" "2.0.2"
-github "Quick/Nimble" "v2.0.0-rc.3"
+github "Quick/Nimble" "v2.0.0"
 github "Quick/Quick" "v0.6.0"
-github "antitypical/Result" "0.6.0-beta.3"
-github "Thomvis/BrightFutures" "v3.0.0-beta.4"
+github "antitypical/Result" "0.6.0-beta.4"
+github "Thomvis/BrightFutures" "9358eae556470b0f3ead2ab8e7cfb3d82291e72b"
