@@ -1,7 +1,6 @@
 language: objective-c
 osx_image: xcode7
 before_install:
-- scripts/import_keychain.sh
 - brew update
 - gem install pact-mock_service -v 0.5.1
 - bundle install
@@ -9,7 +8,7 @@ before_install:
 - sudo installer -pkg Carthage.pkg -target /
 script:
 - set -o pipefail
-- carthage bootstrap --verbose
+- carthage bootstrap
 - xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test
   -sdk iphonesimulator | xcpretty -c
 after_script: scripts/delete_keychain.sh
