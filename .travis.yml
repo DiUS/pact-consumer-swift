@@ -8,7 +8,7 @@ before_install:
 - sudo installer -pkg Carthage.pkg -target /
 script:
 - set -o pipefail
-- carthage bootstrap
+- carthage bootstrap --platform iOS
 - xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test  -destination 'platform=iOS Simulator,OS=9.2,name=iPhone 6'
   -sdk iphonesimulator | xcpretty -c
 after_script: scripts/delete_keychain.sh
