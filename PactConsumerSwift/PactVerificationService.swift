@@ -96,7 +96,8 @@ public class PactVerificationService {
     let promise = Promise<String, NSError>()
     Alamofire.request(Router.Verify())
     .validate()
-    .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
+    .responseString { response in self.requestHandler(promise)(response) }
+    
     return promise.future
   }
 
@@ -105,7 +106,7 @@ public class PactVerificationService {
 
     Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
     .validate()
-    .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
+    .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }
@@ -115,7 +116,7 @@ public class PactVerificationService {
 
     Alamofire.request(Router.Clean())
     .validate()
-    .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
+    .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }
@@ -125,30 +126,30 @@ public class PactVerificationService {
     let payload: [ String : AnyObject ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
     Alamofire.request(Router.Setup(payload))
               .validate()
-      .responseString(completionHandler: RequestHandlerPromise(promise: promise).requestHandler())
+              .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }
-  
-  private struct RequestHandlerPromise {
-    let promise: Promise<String, NSError>
     
-    func requestHandler() -> (NSURLRequest?, NSHTTPURLResponse?, Result<String>) -> Void {
+  func requestHandler(promise: Promise<String, NSError>) -> (Response<String, NSError>) -> Void {
+      
       return {
-        (_, _, response) in
-        if response.isFailure {
-          var uInfo : [String: String]? = nil
-          if let responseValue = response.value {
-            uInfo = [ "response" : responseValue ]
+          response in
+          
+          if response.result.isFailure {
+              var uInfo : [String: String]? = nil
+              //what is the correct way to get NSError
+              if let responseValue = response.result.value {
+                  uInfo = [ "response" : responseValue ]
+              }
+              let pactError = NSError(domain: "pact", code: 0, userInfo: uInfo)
+              promise.failure(pactError)
+          } else {
+              if let responseValue = response.result.value {
+                  promise.success(responseValue)
+              }
           }
-          let pactError = NSError(domain: "pact", code: 0, userInfo: uInfo)
-          self.promise.failure(pactError)
-        } else {
-          if let responseValue = response.value {
-            self.promise.success(responseValue)
-          }
-        }
       }
-    }
   }
+ 
 }
