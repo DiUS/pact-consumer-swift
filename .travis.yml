@@ -9,7 +9,7 @@ before_install:
 script:
 - set -o pipefail
 - carthage bootstrap
-- xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test
+- xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test  -destination 'platform=iOS Simulator,OS=9.2,name=iPhone 6'
   -sdk iphonesimulator | xcpretty -c
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
