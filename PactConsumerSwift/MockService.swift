@@ -1,6 +1,7 @@
 import Foundation
 import Alamofire
 import BrightFutures
+import Result
 
 @objc public enum PactVerificationResult: Int {
   case Passed, Failed
@@ -33,14 +34,14 @@ import BrightFutures
   }
 
   public func given(providerState: String) -> Interaction {
-    var interaction = Interaction().given(providerState)
+    let interaction = Interaction().given(providerState)
     interactions.append(interaction)
     return interaction
   }
 
   @objc(uponReceiving:)
   public func uponReceiving(description: String) -> Interaction {
-    var interaction = Interaction().uponReceiving(description)
+    let interaction = Interaction().uponReceiving(description)
     interactions.append(interaction)
     return interaction
   }
@@ -51,9 +52,7 @@ import BrightFutures
         self.pactVerificationService.verify(provider: self.provider, consumer: self.consumer).onSuccess { result in
           self.done(PactVerificationResult.Passed)
         }.onFailure { error in
-          if let verificationError = error.userInfo {
-            println(verificationError["response"])
-          }
+          print(error)
           self.done(PactVerificationResult.Failed)
         }
         return

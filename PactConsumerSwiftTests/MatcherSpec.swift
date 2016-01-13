@@ -14,7 +14,7 @@ class MatcherSpec: QuickSpec {
       describe("regex matcher") {
 
         it("sets the regular expressiont to match against") {
-          var regex = "\\d{16}"
+          let regex = "\\d{16}"
           var matcher = Matcher.term(matcher: regex, generate: "1111222233334444")
 
           var matcherRegex = ""
@@ -27,7 +27,7 @@ class MatcherSpec: QuickSpec {
         }
 
         it("sets the default value to returnt") {
-          var placeholder = "1111222233334444"
+          let placeholder = "1111222233334444"
           var matcher = Matcher.term(matcher: "\\d{16}", generate: placeholder)
 
           var generate = ""
@@ -44,7 +44,7 @@ class MatcherSpec: QuickSpec {
       it("sets the regular expressiont to match against") {
         var matcher = Matcher.somethingLike(1234)
 
-        var likeThis = matcher["contents"] as? Int
+        let likeThis = matcher["contents"] as? Int
         expect(likeThis).to(equal(1234))
       }
 

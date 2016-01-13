@@ -57,7 +57,8 @@ class AnimalClientSpec: QuickSpec {
             animalServiceClient!.findAnimals(live: "water", response: {
               (response) in
               expect(response.count).to(equal(1))
-              expect(response[0].name).to(equal("Mary"))
+              let name = response[0].name
+              expect(name).to(equal("Mary"))
               complete = true
               testComplete()
             })
@@ -128,15 +129,17 @@ class AnimalClientSpec: QuickSpec {
                         .willRespondWith(status: 204, headers: ["Content-Type": "application/json"])
           animalMockService!.uponReceiving("what alligators eat")
                         .withRequest(method:.GET, path: "/alligator/eat")
-                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": "pidgeon"]])
+                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": Matcher.somethingLike("pidgeon")]])
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
             animalServiceClient!.eat(animal: "pidgeon", success: { () in
               animalServiceClient!.eats { (response) in
                 expect(response.count).to(equal(1))
-                expect(response[0].name).to(equal("Joseph"))
-                expect(response[0].type).to(equal("pidgeon"))
+                let name = response[0].name
+                let type = response[0].type
+                expect(name).to(equal("Joseph"))
+                expect(type).to(equal("pidgeon"))
                 complete = true
                 testComplete()
               }
@@ -154,7 +157,7 @@ class AnimalClientSpec: QuickSpec {
     describe("when not all expected interactions are not fulfilled") {
       it("it fails tests when verification fails") {
         var verificationResult = PactVerificationResult.Passed
-        var animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", done: { result in
+        let animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", done: { result in
           // expected interactions not performed
           verificationResult = result
         })

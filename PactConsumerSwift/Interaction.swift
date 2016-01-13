@@ -4,27 +4,25 @@ import Alamofire
   case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
 }
 
-@objc public class Interaction {
+@objc public class Interaction: NSObject {
   public var providerState: String? = nil
-  public var description: String = ""
+  public var testDescription: String = ""
   public var request: Dictionary<String, AnyObject> = [:]
   public var response: Dictionary<String, AnyObject> = [:]
 
-  public init() {
-  }
 
   public func given(providerState: String) -> Interaction {
     self.providerState = providerState
     return self
   }
 
-  public func uponReceiving(description: String) -> Interaction {
-    self.description = description
+  public func uponReceiving(testDescription: String) -> Interaction {
+    self.testDescription = testDescription
     return self
   }
 
   @objc(withRequestHTTPMethod: path: query: headers: body:)
-  public func withRequest(#method: PactHTTPMethod, path: String, query: Dictionary<String, AnyObject>? = nil, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  public func withRequest(method method: PactHTTPMethod, path: String, query: Dictionary<String, AnyObject>? = nil, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
@@ -39,7 +37,7 @@ import Alamofire
   }
 
   @objc(willRespondWithHTTPStatus: headers: body:)
-  public func willRespondWith(#status: Int, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  public func willRespondWith(status status: Int, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
     response = ["status": status]
     if let headersValue = headers {
       response["headers"] = headersValue
@@ -49,15 +47,15 @@ import Alamofire
     }
     return self
   }
-    
+
   public func payload() -> [String: AnyObject] {
-    var payload: [String: AnyObject] = ["description": description, "request": request, "response": response ]
+    var payload: [String: AnyObject] = ["description": testDescription, "request": request, "response": response ]
     if let providerState = providerState {
       payload["providerState"] = providerState
     }
     return payload
   }
-  
+
   private func httpMethod(method: PactHTTPMethod) -> String {
     switch method {
       case .GET:

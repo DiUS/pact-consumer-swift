@@ -1,20 +1,22 @@
 language: objective-c
-osx_image: beta-xcode6.3
+osx_image: xcode7.2
 before_install:
-- scripts/import_keychain.sh
 - brew update
-- brew install carthage
 - gem install pact-mock_service -v 0.5.1
 - bundle install
-- carthage checkout
+- curl -L -O https://github.com/Carthage/Carthage/releases/download/0.9.3/Carthage.pkg
+- sudo installer -pkg Carthage.pkg -target /
 script:
 - set -o pipefail
-- carthage build --no-skip-current
-- xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test
-  -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- carthage bootstrap --platform iOS --no-use-binaries
+- xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift test  -destination 'platform=iOS Simulator,OS=9.2,name=iPhone 6'
+  -sdk iphonesimulator | xcpretty -c
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
 env:
   global:
   - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
   - secure: FpfacekFs93LkX9gerQUxQKIDTjBl2abp7ZQ/8L3DiJo4nMF7xEwUGeSDQMR+2hRqRWr/SdU59Lll5k10JBqWxAaLXDTUq3Lh3aamc4nc2PAN7yp+0aq9RQG5+PaLkfx+SLs5B/CjDiRRotZg/H/uMTRRFbkqydVtxiqGv94JOg=
+  - CODE_SIGNING_REQUIRED=NO
+  - CODE_SIGN_IDENTITY=""
+  - PROVISIONING_PROFILE=""
