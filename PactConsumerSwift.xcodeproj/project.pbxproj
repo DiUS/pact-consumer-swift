@@ -296,7 +296,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Box.framework",
 			);
 			outputPaths = (
 			);
@@ -315,7 +314,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Box.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
