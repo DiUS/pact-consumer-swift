@@ -1,5 +1,5 @@
 # Pact Consumer Swift
-<a href='https://app.ship.io/dashboard#/jobs/8534/history' target='_blank'><img src='https://app.ship.io/jobs/jbiCgtlfQ4Jf7IJO/build_status.png' style='width:160px' /></a>
+* Core Library build: [![Build Status](https://travis-ci.org/DiUS/pact-consumer-swift.svg)](https://travis-ci.org/DiUS/pact-consumer-swift)
 * Swift, Carthage Example build: [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
 * ObjeciveC, Git Submodules Example build: [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
 
