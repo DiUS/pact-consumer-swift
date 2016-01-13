@@ -17,7 +17,6 @@
 		A11F1AF01A5CF84600DAB9CE /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEE1A5CF84600DAB9CE /* MockService.swift */; };
 		A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */; };
 		A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CD31A6200C100DCD05E /* InteractionSpec.swift */; };
-		A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */; };
 		A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE31A63869500DCD05E /* PactVerificationService.swift */; };
 		A1E04E971A80971A006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E961A80971A006721F8 /* Alamofire.framework */; };
 		A1E04EA51A809828006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E961A80971A006721F8 /* Alamofire.framework */; };
@@ -54,7 +53,6 @@
 		A11F1AEE1A5CF84600DAB9CE /* MockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		A1343CD31A6200C100DCD05E /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
-		A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
 		A1343CE31A63869500DCD05E /* PactVerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactVerificationService.swift; sourceTree = "<group>"; };
 		A1343CEB1A64D59E00DCD05E /* start_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_server.sh; sourceTree = "<group>"; };
 		A1343CEC1A64D59E00DCD05E /* stop_server.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = stop_server.sh; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				A1EE18A51AA00A68008B0E8C /* PactTests */,
 				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
 				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
-				A1343CE11A627E3400DCD05E /* MockServiceSpec.swift */,
 				A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */,
 				2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */,
 			);
@@ -340,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1343CE21A627E3400DCD05E /* MockServiceSpec.swift in Sources */,
 				A1EE18A41AA009A9008B0E8C /* OCAnimalServiceClient.m in Sources */,
 				A1EE18A61AA00FC7008B0E8C /* PactSpecs.swift in Sources */,
 				A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */,
@@ -492,7 +488,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
@@ -514,7 +509,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
