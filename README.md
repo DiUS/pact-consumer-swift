@@ -19,7 +19,7 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 #### Using [Carthage](https://github.com/Carthage/Carthage) library manager
 - See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) for an example project using the library with Carthage.
 
-#### Using Git Submodules
+#### Using CocoaPods
 
 - See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using the library with CocoaPods.
 
