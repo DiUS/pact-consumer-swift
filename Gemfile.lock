@@ -5,17 +5,17 @@ GEM
     diff-lcs (1.2.5)
     find_a_port (1.0.1)
     json (1.8.3)
-    pact-mock_service (0.8.2)
+    pact-mock_service (0.5.5)
       find_a_port (~> 1.0.1)
       json
-      pact-support (~> 0.5.3)
+      pact-support (~> 0.4.0)
       rack
       rack-test (~> 0.6.2)
       rspec (>= 2.14)
       term-ansicolor (~> 1.0)
       thor
       webrick
-    pact-support (0.5.7)
+    pact-support (0.4.4)
       awesome_print (~> 1.1)
       find_a_port (~> 1.0.1)
       json
@@ -52,5 +52,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  pact-mock_service (~> 0.8.2)
+  pact-mock_service (~> 0.5.1)
   xcpretty
