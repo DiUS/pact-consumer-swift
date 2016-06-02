@@ -12,7 +12,7 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 ## Installation
 
 ### Install the [pact-mock_service][pact-mock-service]
-  `gem install pact-mock_service -v 0.5.1`
+  `gem install pact-mock_service -v 0.9.0`
 
 ### Add the PactConsumerSwift library to your project
 
