@@ -4,6 +4,8 @@ import Alamofire
 public struct Animal {
   public let name: String
   public let type: String
+  public let dob: String?
+  public let legs: Int?
 }
 
 public class AnimalServiceClient {
@@ -18,8 +20,12 @@ public class AnimalServiceClient {
     .responseJSON {
       (result) in
       if result.result.isSuccess {
-        if let jsonResult = result.result.value as? Dictionary<String, String> {
-          let alligator = Animal(name: jsonResult["name"]!, type: jsonResult["type"]!)
+        if let jsonResult = result.result.value as? Dictionary<String, AnyObject> {
+          let alligator = Animal(
+              name: jsonResult["name"] as! String, 
+              type: jsonResult["type"] as! String, 
+              dob: jsonResult["dateOfBirth"] as? String,
+              legs: jsonResult["legs"] as? Int)
           success(alligator)
         } else {
           failure(result.result.value as? NSError)
@@ -33,10 +39,14 @@ public class AnimalServiceClient {
     .responseJSON {
       (result) in
       if result.result.isSuccess {
-        if let jsonResult = result.result.value as? Array<Dictionary<String, String>> {
+        if let jsonResult = result.result.value as? Array<Dictionary<String, AnyObject>> {
           var alligators : [Animal] = []
           for alligator in jsonResult {
-            alligators.append(Animal(name: alligator["name"]!, type: alligator["type"]!))
+            alligators.append(Animal(
+              name: alligator["name"] as! String, 
+              type: alligator["type"] as! String, 
+              dob: alligator["dateOfBirth"] as? String,
+              legs: alligator["legs"] as? Int))
           }
           response(alligators)
         }
@@ -70,10 +80,14 @@ public class AnimalServiceClient {
     Alamofire.request(.GET, "\(baseUrl)/alligator/eat")
     .responseJSON { (response) in
       if response.result.isSuccess {
-        if let jsonResult = response.result.value as? Array<Dictionary<String, String>> {
+        if let jsonResult = response.result.value as? Array<Dictionary<String, AnyObject>> {
           var animals: [Animal] = []
           for alligator in jsonResult {
-            animals.append(Animal(name: alligator["name"]!, type: alligator["type"]!))
+            animals.append(Animal(
+              name: alligator["name"] as! String, 
+              type: alligator["type"] as! String, 
+              dob: alligator["dateOfBirth"] as? String,
+              legs: alligator["legs"] as? Int))
           }
           success(animals)
         }

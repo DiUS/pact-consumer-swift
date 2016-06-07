@@ -41,7 +41,7 @@ class AnimalClientSpec: QuickSpec {
         expect(complete).toEventually(beTrue())
       }
 
-      describe("findAnimals") {
+      describe("With query params") {
         it("should return animals living in water") {
           var complete: Bool = false
 
@@ -69,7 +69,7 @@ class AnimalClientSpec: QuickSpec {
         }
       }
 
-      describe("eats") {
+      describe("PATCH request") {
         it("should unfriend me") {
           var complete: Bool = false
 
@@ -94,7 +94,7 @@ class AnimalClientSpec: QuickSpec {
       }
 
 
-      describe("when eats nothing") {
+      describe("Expecting an error response") {
         it("returns an error") {
           var complete: Bool = false
 
@@ -149,6 +149,101 @@ class AnimalClientSpec: QuickSpec {
             })
           }
 
+          expect(complete).toEventually(beTrue())
+        }
+      }
+      
+      describe("Matchers") {
+        it("Can match date based on regex") {
+          var complete: Bool = false
+          
+          animalMockService!.given("an alligator exists with a birthdate")
+            .uponReceiving("a request for alligator with birthdate")
+            .withRequest(method:.GET, path: "/alligator")
+            .willRespondWith(
+              status: 200,
+              headers: ["Content-Type": "application/json"],
+              body: [
+                "name": "Mary",
+                "type": "alligator",
+                "dateOfBirth": Matcher.term(
+                    matcher: "\\d{2}\\/\\d{2}\\/\\d{4}", 
+                    generate: "02/02/1999"
+                  )
+              ])
+          
+          //Run the tests
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.getAlligator({ (alligator) in
+                expect(alligator.name).to(equal("Mary"))
+                expect(alligator.dob).to(equal("02/02/1999"))
+                complete = true
+                testComplete()
+              }, failure: { (error) in
+                expect(true).to(equal(false))
+                testComplete()
+            })
+          }
+          
+          expect(complete).toEventually(beTrue())
+        }
+
+        it("Can match legs based on type") {
+          var complete: Bool = false
+          
+          animalMockService!.given("an alligator exists with legs")
+            .uponReceiving("a request for alligator with legs")
+            .withRequest(method:.GET, path: "/alligator")
+            .willRespondWith(
+              status: 200,
+              headers: ["Content-Type": "application/json"],
+              body: [
+                "name": "Mary",
+                "type": "alligator",
+                "legs": Matcher.somethingLike(4)
+              ])
+          
+          //Run the tests
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.getAlligator({ (alligator) in
+                expect(alligator.legs).to(equal(4))
+                complete = true
+                testComplete()
+              }, failure: { (error) in
+                expect(true).to(equal(false))
+                testComplete()
+            })
+          }
+          
+          expect(complete).toEventually(beTrue())
+        }
+
+        it("Can match based on flexible length array") {
+          var complete: Bool = false
+          
+          animalMockService!.given("multiple land based animals exist")
+                            .uponReceiving("a request for animals living on land")
+                            .withRequest(
+                              method:.GET, 
+                              path: "/animals", 
+                              query: ["live": "land"])
+                            .willRespondWith(
+                              status: 200,
+                              headers: ["Content-Type": "application/json"],
+                              body: Matcher.eachLike(["name": "Bruce", "type": "wombat"]))
+
+          //Run the tests
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.findAnimals(live: "land", response: {
+              (response) in
+              expect(response.count).to(equal(1))
+              expect(response[0].name).to(equal("Bruce"))
+              complete = true
+              testComplete()
+            })
+          }
+
+          // Wait for asynch HTTP requests to finish
           expect(complete).toEventually(beTrue())
         }
       }
