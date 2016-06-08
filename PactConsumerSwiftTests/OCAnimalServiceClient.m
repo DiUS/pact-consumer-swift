@@ -35,6 +35,8 @@
 
   Animal * animal = [[Animal alloc] init];
   animal.name = dic[@"name"];
+  animal.dob = dic[@"dateOfBirth"];
+  animal.legs = dic[@"legs"];
   
   return animal;
 }
@@ -60,6 +62,7 @@
   for(NSDictionary *dic in array) {
     Animal * animal = [[Animal alloc] init];
     animal.name = dic[@"name"];
+    animal.legs = dic[@"legs"];
     [animals addObject:animal];
   }
 
