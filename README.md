@@ -3,7 +3,7 @@
 * Swift, Carthage Example build: [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
 * ObjeciveC, Git Submodules Example build: [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
 
-This codebase provides a Swift / Objective C DSL for creating Consumer Pacts. [Pact](http://pact.io) 
+This codebase provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io).
 
 Implements [Pact Specification v2](https://github.com/pact-foundation/pact-specification/tree/version-2),
 including [flexible matching](http://docs.pact.io/documentation/matching.html).
@@ -121,8 +121,9 @@ be a valid JSON value: e.g. strings, numbers and objects.
 [regular expressions](http://ruby-doc.org/core-2.1.5/Regexp.html) and double
 escape backslashes.
 
-  See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect error responses, how to use query params, and the Matchers.
-  For more on request / response matching, see [Matching](http://docs.pact.io/documentation/matching.html).
+See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect error responses, how to use query params, and the Matchers.
+
+For more on request / response matching, see [Matching](http://docs.pact.io/documentation/matching.html).
 
 ### Verifying your iOS client against the service you are integrating with
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
@@ -135,7 +136,7 @@ And the generated pacts, here:
 For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso)
 
 # More reading
-* The original pact library, with lots of background and guidelines [Pact](https://github.com/realestate-com-au/pact)
+* The Pact website [Pact](http://pact.io)
 * The pact mock server that the Swift library uses under the hood [Pact mock service](https://github.com/bethesque/pact-mock_service)
 * A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker](https://github.com/bethesque/pact_broker)
 
