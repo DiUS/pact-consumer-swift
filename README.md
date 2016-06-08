@@ -3,7 +3,7 @@
 * Swift, Carthage Example build: [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
 * ObjeciveC, Git Submodules Example build: [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
 
-This codebase provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io).
+This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io).
 
 Implements [Pact Specification v2](https://github.com/pact-foundation/pact-specification/tree/version-2),
 including [flexible matching](http://docs.pact.io/documentation/matching.html).

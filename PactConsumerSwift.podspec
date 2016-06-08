@@ -1,13 +1,14 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
-  s.version      = "0.1.5"
+  s.version      = "0.2.0"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
   s.description  = <<-DESC
-                   This codebase provides a iOS DSL for creating pacts. If you are new to Pact, please read the Pact README first.
-
-                   This DSL relies on the Ruby pact-mock_service gem to provide the mock service for the iOS tests.
+                    This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io).
+                    
+                    Implements [Pact Specification v2](https://github.com/pact-foundation/pact-specification/tree/version-2),
+                    including [flexible matching](http://docs.pact.io/documentation/matching.html).
                    DESC
 
   s.homepage     = "https://github.com/DiUS/pact-consumer-swift"
