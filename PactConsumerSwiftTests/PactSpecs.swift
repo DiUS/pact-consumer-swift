@@ -2,7 +2,7 @@ import Quick
 import Nimble
 import PactConsumerSwift
 
-class AnimalClientSpec: QuickSpec {
+class PactSwiftSpec: QuickSpec {
   override func spec() {
     var animalMockService: MockService?
     var animalServiceClient: AnimalServiceClient?

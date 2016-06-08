@@ -3,11 +3,12 @@
 * Swift, Carthage Example build: [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
 * ObjeciveC, Git Submodules Example build: [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
 
-_This DSL is in very early stages of development, please bear with us as we give it some polish. Please raise any problems you have in the github issues._
+This codebase provides a Swift / Objective C DSL for creating Consumer Pacts. [Pact](http://pact.io) 
 
-This codebase provides a iOS DSL for creating pacts. If you are new to Pact, please read the Pact [README][pact-readme] first.
+Implements [Pact Specification v2](https://github.com/pact-foundation/pact-specification/tree/version-2),
+including [flexible matching](http://docs.pact.io/documentation/matching.html).
 
-This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the iOS tests.
+This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the tests.
 
 ## Installation
 
@@ -62,7 +63,6 @@ import PactConsumerSwift
     expect(complete).toEventually(beTrue())
   }
 ```
-  See the PactSpecs.swift for examples on how to expect error responses, how to use query params, etc.
 
 ### Testing with Objective-C
   Write a Unit test similar to the following
@@ -102,12 +102,35 @@ import PactConsumerSwift
   [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 ```
+### Matching
+
+In addition to verbatim value matching, you have 3 useful matching functions
+in the `Matcher` class that can increase expressiveness and reduce brittle test
+cases.
+
+* `Matcher.term(matcher, generate)` - tells Pact that the value should match using
+a given regular expression, using `generate` in mock responses. `generate` must be
+a string.
+* `Matcher.somethingLike(content)` - tells Pact that the value itself is not important, as long
+as the element _type_ (valid JSON number, string, object etc.) itself matches.
+* `Matcher.eachLike(content, min)` - tells Pact that the value should be an array type,
+consisting of elements like those passed in. `min` must be >= 1. `content` may
+be a valid JSON value: e.g. strings, numbers and objects.
+
+*NOTE*: One caveat to note, is that you will need to use valid Ruby
+[regular expressions](http://ruby-doc.org/core-2.1.5/Regexp.html) and double
+escape backslashes.
+
+  See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect error responses, how to use query params, and the Matchers.
+  For more on request / response matching, see [Matching](http://docs.pact.io/documentation/matching.html).
 
 ### Verifying your iOS client against the service you are integrating with
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
 `$YOUR_PROJECT/tmp/pact.log`
 And the generated pacts, here:
 `$YOUR_PROJECT/tmp/pacts/...`
+
+  See [Verifying pacts](http://docs.pact.io/documentation/verifying_pacts.html) for more information.
 
 For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso)
 
