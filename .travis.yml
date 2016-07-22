@@ -9,7 +9,7 @@ before_install:
 script:
 - set -o pipefail
 - carthage build --no-skip-current --platform iOS
-- scripts/build.sh 
+- bundle exec scan
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
 env:
