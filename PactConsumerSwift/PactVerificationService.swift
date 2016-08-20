@@ -132,24 +132,20 @@ public class PactVerificationService {
   }
     
   func requestHandler(promise: Promise<String, NSError>) -> (Response<String, NSError>) -> Void {
-      
-      return {
-          response in
-          
-          if response.result.isFailure {
-              var uInfo : [String: String]? = nil
-              //what is the correct way to get NSError
-              if let responseValue = response.result.value {
-                  uInfo = [ "response" : responseValue ]
-              }
-              let pactError = NSError(domain: "pact", code: 0, userInfo: uInfo)
-              promise.failure(pactError)
-          } else {
-              if let responseValue = response.result.value {
-                  promise.success(responseValue)
-              }
-          }
+    return { response in
+      switch response.result {
+      case .Success(let responseValue):
+        promise.success(responseValue)
+      case .Failure(let error):
+        let errorMessage : String;
+        if let errorBody = response.data {
+          errorMessage = "\(NSString(data: errorBody, encoding: NSUTF8StringEncoding)!)"
+        } else {
+          errorMessage = error.localizedDescription
+        }
+        let userInfo = [ NSLocalizedDescriptionKey :  NSLocalizedString("Unauthorized", value: errorMessage, comment: "")]
+        promise.failure(NSError(domain: error.domain, code: error.code, userInfo: userInfo))
       }
+    }
   }
- 
 }
