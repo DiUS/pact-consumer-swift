@@ -15,13 +15,8 @@
 
 - (void)setUp {
   [super setUp];
-  XCTestExpectation *exp = [self expectationWithDescription:@"Pacts all verified"];
   self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
-                                                  consumer:@"Animal Service Client Objective-C"
-                                                      done:^(PactVerificationResult result) {
-    XCTAssert(result == PactVerificationResultPassed);
-    [exp fulfill];
-  }];
+                                                  consumer:@"Animal Service Client Objective-C"];
   self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
@@ -46,8 +41,6 @@
       XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
   }];
-  
-  [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 - (void)testWithQueryParams {
@@ -71,8 +64,6 @@
       XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
   }];
-  
-  [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 #pragma mark - Mather tests
@@ -98,8 +89,6 @@
     XCTAssertEqualObjects(animal.dob, @"02/02/1999");
     testComplete();
   }];
-  
-  [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 - (void)testMatchingType {
@@ -123,8 +112,6 @@
     XCTAssertEqualObjects(animal.legs, @4);
     testComplete();
   }];
-  
-  [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 
@@ -150,8 +137,6 @@
     XCTAssertEqualObjects(animal.legs, @4);
     testComplete();
   }];
-  
-  [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 @end

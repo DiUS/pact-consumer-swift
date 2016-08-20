@@ -18,6 +18,7 @@
 		A11F1AF11A5CF84600DAB9CE /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */; };
 		A1343CD41A6200C100DCD05E /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CD31A6200C100DCD05E /* InteractionSpec.swift */; };
 		A1343CE41A63869500DCD05E /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1343CE31A63869500DCD05E /* PactVerificationService.swift */; };
+		A1C3413C1D681FB90067567A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA71A809828006721F8 /* Nimble.framework */; };
 		A1E04E971A80971A006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E961A80971A006721F8 /* Alamofire.framework */; };
 		A1E04EA51A809828006721F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04E961A80971A006721F8 /* Alamofire.framework */; };
 		A1E04EA81A809828006721F8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E04EA61A809828006721F8 /* Quick.framework */; };
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C3413C1D681FB90067567A /* Nimble.framework in Frameworks */,
 				A10AC5AE1A85EFCF00F4524C /* BrightFutures.framework in Frameworks */,
 				A1E04E971A80971A006721F8 /* Alamofire.framework in Frameworks */,
 			);
@@ -293,6 +295,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 			);
 			outputPaths = (
 			);
@@ -450,13 +453,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "spinks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -470,13 +479,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "spinks.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
