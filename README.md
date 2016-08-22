@@ -130,6 +130,7 @@ For an end to end example with a ruby back end service, have a look at the [KatK
 
 Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 
+[upgrading]: https://github.com/DiUS/pact-consumer-swift/wiki/Upgrading
 [pact-readme]: https://github.com/realestate-com-au/pact
 [pact-mock-service]: https://github.com/bethesque/pact-mock_service
 [pact-mock-service-without-ruby]: https://github.com/DiUS/pact-consumer-js-dsl/wiki/Using-the-Pact-Mock-Service-without-Ruby
