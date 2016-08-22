@@ -11,6 +11,7 @@ including [flexible matching](http://docs.pact.io/documentation/matching.html).
 This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the tests.
 
 ## Installation
+Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
 ### Install the [pact-mock_service][pact-mock-service]
   `gem install pact-mock_service -v 0.9.0`
@@ -34,15 +35,11 @@ import PactConsumerSwift
 
 ...
   beforeEach {
-    animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", done: { result in
-      expect(result).to(equal(PactVerificationResult.Passed))
-    })
+    animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift")
     animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
   }
 
   it("gets an alligator") {
-    var complete: Bool = false
-
     animalMockService!.given("an alligator exists")
                       .uponReceiving("a request for an alligator")
                       .withRequest(method:.GET, path: "/alligator")
@@ -54,13 +51,9 @@ import PactConsumerSwift
     animalMockService!.run { (testComplete) -> Void in
       animalServiceClient!.getAlligator { (alligator) in
         expect(alligator.name).to(equal("Mary"))
-        complete = true
         testComplete()
       }
     }
-
-    // Wait for asynch HTTP requests to finish
-    expect(complete).toEventually(beTrue())
   }
 ```
 
@@ -71,13 +64,8 @@ import PactConsumerSwift
 ...
 - (void)setUp {
   [super setUp];
-  XCTestExpectation *exp = [self expectationWithDescription:@"Pacts all verified"];
   self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
-                                                        consumer:@"Animal Service Client Objective-C"
-                                                            done:^(PactVerificationResult result) {
-    XCTAssert(result == PactVerificationResultPassed);
-    [exp fulfill];
-  }];
+                                                        consumer:@"Animal Service Client Objective-C"];
   self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
@@ -98,8 +86,6 @@ import PactConsumerSwift
       XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
   }];
-
-  [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 ```
 ### Matching
