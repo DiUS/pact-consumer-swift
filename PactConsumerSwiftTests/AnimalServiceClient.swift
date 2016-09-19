@@ -8,15 +8,15 @@ public struct Animal {
   public let legs: Int?
 }
 
-public class AnimalServiceClient {
-    private let baseUrl: String
+open class AnimalServiceClient {
+    fileprivate let baseUrl: String
 
   public init(baseUrl : String) {
     self.baseUrl = baseUrl
   }
 
-  public func getAlligator(success: (Animal) -> Void, failure: (NSError?) -> Void) {
-    Alamofire.request(.GET, "\(baseUrl)/alligator")
+  open func getAlligator(_ success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
+    Alamofire.request("\(baseUrl)/alligator")
     .responseJSON {
       (result) in
       if result.result.isSuccess {
@@ -34,8 +34,8 @@ public class AnimalServiceClient {
     }
   }
 
-  public func findAnimals(live live: String, response: ([Animal]) -> Void) {
-    Alamofire.request(.GET, "\(baseUrl)/animals", parameters: [ "live": live])
+  open func findAnimals(live: String, response: @escaping ([Animal]) -> Void) {
+    Alamofire.request("\(baseUrl)/animals", parameters: [ "live": live])
     .responseJSON {
       (result) in
       if result.result.isSuccess {
@@ -54,8 +54,8 @@ public class AnimalServiceClient {
     }
   }
 
-  public func eat(animal animal: String, success: () -> Void, error: (Int) -> Void) {
-    Alamofire.request(.PATCH, "\(baseUrl)/alligator/eat", parameters: [ "type" : animal ], encoding: .JSON)
+  open func eat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
+    Alamofire.request("\(baseUrl)/alligator/eat", method: .patch, parameters: [ "type" : animal ], encoding: JSONEncoding.default)
     .responseString { (response) in
       if response.result.isFailure {
         error(response.response!.statusCode)
@@ -65,8 +65,8 @@ public class AnimalServiceClient {
     }
   }
 
-  public func wontEat(animal animal: String, success: () -> Void, error: (Int) -> Void) {
-    Alamofire.request(.DELETE, "\(baseUrl)/alligator/eat", parameters: [ "type" : animal ], encoding: .JSON)
+  open func wontEat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
+    Alamofire.request("\(baseUrl)/alligator/eat", method: .delete, parameters: [ "type" : animal ], encoding: JSONEncoding.default)
     .responseJSON { (response) in
       if response.result.isFailure {
         error(response.response!.statusCode)
@@ -76,8 +76,8 @@ public class AnimalServiceClient {
     }
   }
 
-  public func eats(success: ([Animal]) -> Void) {
-    Alamofire.request(.GET, "\(baseUrl)/alligator/eat")
+  open func eats(_ success: @escaping ([Animal]) -> Void) {
+    Alamofire.request("\(baseUrl)/alligator/eat")
     .responseJSON { (response) in
       if response.result.isSuccess {
         if let jsonResult = response.result.value as? Array<Dictionary<String, AnyObject>> {

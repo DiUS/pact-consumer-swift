@@ -2,73 +2,75 @@ import Foundation
 import Alamofire
 import BrightFutures
 
-public class PactVerificationService {
-  public let url: String
-  public let port: Int
-  public var baseUrl: String {
+open class PactVerificationService {
+  open let url: String
+  open let port: Int
+  open var baseUrl: String {
     get {
       return "\(url):\(port)"
     }
   }
-  
+
   enum Router: URLRequestConvertible {
     static var baseURLString = "http://example.com"
-    
-    case Clean()
-    case Setup([String: AnyObject])
-    case Verify()
-    case Write([String: AnyObject])
-    
-    var method: Alamofire.Method {
+
+    case clean()
+    case setup([String: Any])
+    case verify()
+    case write([String: [String: String]])
+
+    var method: HTTPMethod {
       switch self {
-      case .Clean:
-        return .DELETE
-      case .Setup:
-        return .PUT
-      case .Verify:
-        return .GET
-      case .Write:
-        return .POST
+      case .clean:
+        return .delete
+      case .setup:
+        return .put
+      case .verify:
+        return .get
+      case .write:
+        return .post
       }
     }
-    
+
     var path: String {
       switch self {
-      case .Clean:
+      case .clean:
         return "/interactions"
-      case .Setup:
+      case .setup:
         return "/interactions"
-      case .Verify:
+      case .verify:
         return "/interactions/verification"
-      case .Write:
+      case .write:
         return "/pact"
       }
     }
-    
-    var URLRequest: NSMutableURLRequest {
-      let URL = NSURL(string: Router.baseURLString)!
-      let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path)!)
-      mutableURLRequest.HTTPMethod = method.rawValue
-      mutableURLRequest.setValue("true", forHTTPHeaderField: "X-Pact-Mock-Service")
-      
+
+    // MARK: URLRequestConvertible
+
+    func asURLRequest() throws -> URLRequest {
+      let url = try Router.baseURLString.asURL()
+      var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+      urlRequest.httpMethod = method.rawValue
+      urlRequest.setValue("true", forHTTPHeaderField: "X-Pact-Mock-Service")
+
       switch self {
-      case .Setup(let parameters):
-        return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-      case .Write(let parameters):
-        return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+      case .setup(let parameters):
+        return try JSONEncoding.default.encode(urlRequest, with: parameters)
+      case .write(let parameters):
+        return try JSONEncoding.default.encode(urlRequest, with: parameters)
       default:
-        return mutableURLRequest
+        return urlRequest
       }
     }
   }
-  
+
   public init(url: String = "http://localhost", port: Int = 1234) {
     self.url = url
     self.port = port
     Router.baseURLString = baseUrl
   }
-  
-  func setup (interactions: [Interaction]) -> Future<String, NSError> {
+
+  func setup (_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
     self.clean().onSuccess {
       result in
@@ -76,11 +78,11 @@ public class PactVerificationService {
     }.onFailure { error in
       promise.failure(error)
     }
-    
+
     return promise.future
   }
-  
-  func verify(provider provider: String, consumer: String) -> Future<String, NSError> {
+
+  func verify(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
     self.verifyInteractions().onSuccess {
       result in
@@ -92,59 +94,59 @@ public class PactVerificationService {
     return promise.future
   }
 
-  private func verifyInteractions() -> Future<String, NSError> {
+  fileprivate func verifyInteractions() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    Alamofire.request(Router.Verify())
-    .validate()
-    .responseString { response in self.requestHandler(promise)(response) }
-    
-    return promise.future
-  }
-
-  private func write(provider provider: String, consumer: String) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
-    Alamofire.request(Router.Write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
+    Alamofire.request(Router.verify())
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }
 
-  private func clean() -> Future<String, NSError> {
+  fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
-    Alamofire.request(Router.Clean())
+    Alamofire.request(Router.write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }
 
-  private func setupInteractions (interactions: [Interaction]) -> Future<String, NSError> {
+  fileprivate func clean() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    let payload: [ String : AnyObject ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
-    Alamofire.request(Router.Setup(payload))
+
+    Alamofire.request(Router.clean())
+    .validate()
+    .responseString { response in self.requestHandler(promise)(response) }
+
+    return promise.future
+  }
+
+  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
+    let promise = Promise<String, NSError>()
+    let payload: [ String : Any ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
+    Alamofire.request(Router.setup(payload))
               .validate()
               .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }
-    
-  func requestHandler(promise: Promise<String, NSError>) -> (Response<String, NSError>) -> Void {
+
+  func requestHandler(_ promise: Promise<String, NSError>) -> (DataResponse<String>) -> Void {
     return { response in
       switch response.result {
-      case .Success(let responseValue):
+      case .success(let responseValue):
         promise.success(responseValue)
-      case .Failure(let error):
+      case .failure(let error):
         let errorMessage : String;
         if let errorBody = response.data {
-          errorMessage = "\(NSString(data: errorBody, encoding: NSUTF8StringEncoding)!)"
+          errorMessage = "\(String(data: errorBody, encoding: String.Encoding.utf8)!)"
         } else {
           errorMessage = error.localizedDescription
         }
-        let userInfo = [ NSLocalizedDescriptionKey :  NSLocalizedString("Unauthorized", value: errorMessage, comment: "")]
-        promise.failure(NSError(domain: error.domain, code: error.code, userInfo: userInfo))
+        let userInfo = [ NSLocalizedDescriptionKey :  NSLocalizedString("Error", value: errorMessage, comment: "")]
+        promise.failure(NSError(domain: "" , code: 0, userInfo: userInfo))
       }
     }
   }

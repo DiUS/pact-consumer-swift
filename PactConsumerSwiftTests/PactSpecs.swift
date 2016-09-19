@@ -182,7 +182,7 @@ class PactSwiftSpec: QuickSpec {
           animalMockService!.given("multiple land based animals exist")
                             .uponReceiving("a request for animals living on land")
                             .withRequest(
-                              method:.GET, 
+                              method:.GET,
                               path: "/animals", 
                               query: ["live": "land"])
                             .willRespondWith(

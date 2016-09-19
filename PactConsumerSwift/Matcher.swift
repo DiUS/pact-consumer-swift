@@ -1,8 +1,8 @@
 import Foundation
 
-@objc public class Matcher: NSObject {
+@objc open class Matcher: NSObject {
 
-  @objc public class func term(matcher matcher: String, generate: String) -> [String: AnyObject] {
+  @objc open class func term(matcher: String, generate: String) -> [String: Any] {
     return [ "json_class": "Pact::Term",
       "data": [
         "generate": generate,
@@ -13,14 +13,14 @@ import Foundation
       ] ]
   }
 
-  @objc public class func somethingLike(value: AnyObject) -> [String: AnyObject] {
+  @objc open class func somethingLike(_ value: Any) -> [String: Any] {
     return [
       "json_class": "Pact::SomethingLike",
       "contents" : value
     ]
   }
 
-  @objc public class func eachLike(value: AnyObject, min: Int = 1) -> [String: AnyObject] {
+  @objc open class func eachLike(_ value: Any, min: Int = 1) -> [String: Any] {
     return [
       "json_class": "Pact::ArrayLike",
       "contents" : value,

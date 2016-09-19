@@ -4,59 +4,62 @@ import Alamofire
   case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
 }
 
-@objc public class Interaction: NSObject {
-  public var providerState: String? = nil
-  public var testDescription: String = ""
-  public var request: Dictionary<String, AnyObject> = [:]
-  public var response: Dictionary<String, AnyObject> = [:]
+@objc open class Interaction: NSObject {
+  open var providerState: String? = nil
+  open var testDescription: String = ""
+  open var request: Dictionary<String, Any> = [:]
+  open var response: Dictionary<String, Any> = [:]
 
-
-  public func given(providerState: String) -> Interaction {
+  @discardableResult
+  open func given(_ providerState: String) -> Interaction {
     self.providerState = providerState
     return self
   }
 
-  public func uponReceiving(testDescription: String) -> Interaction {
+  @discardableResult
+  open func uponReceiving(_ testDescription: String) -> Interaction {
     self.testDescription = testDescription
     return self
   }
 
   @objc(withRequestHTTPMethod: path: query: headers: body:)
-  public func withRequest(method method: PactHTTPMethod, path: String, query: Dictionary<String, AnyObject>? = nil, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  @discardableResult
+  open func withRequest(method: PactHTTPMethod, path: String, query: Dictionary<String, Any>? = nil, headers: Dictionary<String, String>? = nil, body: Any? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
     }
-    if let bodyValue: AnyObject = body {
+    if let bodyValue = body {
       request["body"] = bodyValue
     }
-    if let queryValue: AnyObject = query {
+    if let queryValue = query {
       request["query"] = queryValue
     }
     return self
   }
 
   @objc(willRespondWithHTTPStatus: headers: body:)
-  public func willRespondWith(status status: Int, headers: Dictionary<String, String>? = nil, body: AnyObject? = nil) -> Interaction {
+  @discardableResult
+  open func willRespondWith(status: Int, headers: Dictionary<String, String>? = nil, body: Any? = nil) -> Interaction {
     response = ["status": status]
     if let headersValue = headers {
       response["headers"] = headersValue
     }
-    if let bodyValue: AnyObject = body {
+    if let bodyValue = body {
       response["body"] = bodyValue
     }
     return self
   }
 
-  public func payload() -> [String: AnyObject] {
-    var payload: [String: AnyObject] = ["description": testDescription, "request": request, "response": response ]
+  open func payload() -> [String: Any] {
+    var payload: [String: Any] = ["description": testDescription, "request": request, "response": response ]
     if let providerState = providerState {
       payload["providerState"] = providerState
     }
     return payload
   }
 
-  private func httpMethod(method: PactHTTPMethod) -> String {
+  fileprivate func httpMethod(_ method: PactHTTPMethod) -> String {
     switch method {
       case .GET:
         return "get"
