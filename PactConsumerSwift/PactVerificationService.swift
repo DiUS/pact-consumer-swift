@@ -47,7 +47,7 @@ public class PactVerificationService {
     
     var URLRequest: NSMutableURLRequest {
       let URL = NSURL(string: Router.baseURLString)!
-      let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+      let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path)!)
       mutableURLRequest.HTTPMethod = method.rawValue
       mutableURLRequest.setValue("true", forHTTPHeaderField: "X-Pact-Mock-Service")
       

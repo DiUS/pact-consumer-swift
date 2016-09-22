@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
-  s.version      = "0.3.0"
+  s.version      = "0.3.1"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
