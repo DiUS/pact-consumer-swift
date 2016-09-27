@@ -1,0 +1,4 @@
+clean true
+code_coverage false
+skip_slack true
+device "iPhone 7"
