@@ -1,1 +1,1 @@
-github "Quick/Quick" "master"
+github "Quick/Quick" ~> 0.10.0

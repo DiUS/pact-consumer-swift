@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'pact-mock_service', '~> 0.9.0'
-gem 'xcpretty'
+gem 'scan', '~> 0.13.0'
+gem 'pact-mock_service', '~> 0.10.2'
