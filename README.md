@@ -22,7 +22,6 @@ Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 - See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) for an example project using the library with Carthage.
 
 #### Using CocoaPods
-
 - See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using the library with CocoaPods.
 
 ## Writing Pact Tests
@@ -119,7 +118,8 @@ And the generated pacts, here:
 
   See [Verifying pacts](http://docs.pact.io/documentation/verifying_pacts.html) for more information.
 
-For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso)
+For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso).
+[Here](https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk) is an article using a dockerized nodejs service which uses provider states.
 
 # More reading
 * The Pact website [Pact](http://pact.io)
