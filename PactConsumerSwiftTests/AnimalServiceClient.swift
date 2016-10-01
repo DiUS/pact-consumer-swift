@@ -15,8 +15,28 @@ open class AnimalServiceClient {
     self.baseUrl = baseUrl
   }
 
-  open func getAlligator(_ success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
-    Alamofire.request("\(baseUrl)/alligator")
+  open func getAlligators(_ success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
+    Alamofire.request("\(baseUrl)/alligators")
+            .responseJSON {
+              (result) in
+              if result.result.isSuccess {
+                if let jsonArray = result.result.value as? Array<[String: AnyObject]> {
+                  success(jsonArray.map { animal -> Animal in
+                    return Animal(
+                            name: animal["name"] as! String,
+                            type: animal["type"] as! String,
+                            dob: animal["dateOfBirth"] as? String,
+                            legs: animal["legs"] as? Int)
+                  })
+                } else {
+                  failure(result.result.value as? NSError)
+                }
+              }
+            }
+  }
+
+  open func getAlligator(_ id: Int, success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
+    Alamofire.request("\(baseUrl)/alligators/\(id)")
     .responseJSON {
       (result) in
       if result.result.isSuccess {

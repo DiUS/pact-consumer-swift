@@ -24,7 +24,7 @@ import Alamofire
 
   @objc(withRequestHTTPMethod: path: query: headers: body:)
   @discardableResult
-  open func withRequest(method: PactHTTPMethod, path: String, query: Dictionary<String, Any>? = nil, headers: Dictionary<String, String>? = nil, body: Any? = nil) -> Interaction {
+  open func withRequest(method: PactHTTPMethod, path: Any, query: Dictionary<String, Any>? = nil, headers: Dictionary<String, String>? = nil, body: Any? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
