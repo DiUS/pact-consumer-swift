@@ -15,19 +15,41 @@ class PactSwiftSpec: QuickSpec {
 
       it("gets an alligator") {
         animalMockService!.given("an alligator exists")
-                          .uponReceiving("a request for an alligator")
-                          .withRequest(method:.GET, path: "/alligator")
+                          .uponReceiving("a request for all alligators")
+                          .withRequest(method:.GET, path: "/alligators")
                           .willRespondWith(status: 200,
                                            headers: ["Content-Type": "application/json"],
-                                           body: ["name": "Mary", "type": "alligator"])
+                                           body: [ ["name": "Mary", "type": "alligator"] ])
 
         //Run the tests
         animalMockService!.run { (testComplete) -> Void in
-          animalServiceClient!.getAlligator( { (alligator) in
-              expect(alligator.name).to(equal("Mary"))
+          animalServiceClient!.getAlligators( { (alligators) in
+              expect(alligators[0].name).to(equal("Mary"))
               testComplete()
             }, failure: { (error) in
               testComplete()
+          })
+        }
+      }
+
+      it("gets an alligator with path matcher") {
+        let pathMatcher = Matcher.term(matcher: "^\\/alligators\\/[0-9]{4}",
+                                  generate: "/alligators/1234")
+
+        animalMockService!.given("an alligator exists")
+                .uponReceiving("a request for an alligator with path matcher")
+                .withRequest(method:.GET, path: pathMatcher)
+                .willRespondWith(status: 200,
+                                 headers: ["Content-Type": "application/json"],
+                                 body: ["name": "Mary", "type": "alligator"])
+
+        //Run the tests
+        animalMockService!.run { (testComplete) -> Void in
+          animalServiceClient!.getAlligator(1234, success: { (alligator) in
+                                               expect(alligator.name).to(equal("Mary"))
+                                               testComplete()
+                                             }, failure: { (error) in
+            testComplete()
           })
         }
       }
@@ -127,7 +149,7 @@ class PactSwiftSpec: QuickSpec {
         it("Can match date based on regex") {
           animalMockService!.given("an alligator exists with a birthdate")
             .uponReceiving("a request for alligator with birthdate")
-            .withRequest(method:.GET, path: "/alligator")
+            .withRequest(method:.GET, path: "/alligators/123")
             .willRespondWith(
               status: 200,
               headers: ["Content-Type": "application/json"],
@@ -142,7 +164,7 @@ class PactSwiftSpec: QuickSpec {
           
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
-            animalServiceClient!.getAlligator({ (alligator) in
+            animalServiceClient!.getAlligator(123, success: { (alligator) in
                 expect(alligator.name).to(equal("Mary"))
                 expect(alligator.dob).to(equal("02/02/1999"))
                 testComplete()
@@ -156,7 +178,7 @@ class PactSwiftSpec: QuickSpec {
         it("Can match legs based on type") {
           animalMockService!.given("an alligator exists with legs")
             .uponReceiving("a request for alligator with legs")
-            .withRequest(method:.GET, path: "/alligator")
+            .withRequest(method:.GET, path: "/alligators/1")
             .willRespondWith(
               status: 200,
               headers: ["Content-Type": "application/json"],
@@ -168,7 +190,7 @@ class PactSwiftSpec: QuickSpec {
           
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
-            animalServiceClient!.getAlligator({ (alligator) in
+            animalServiceClient!.getAlligator(1, success: { (alligator) in
                 expect(alligator.legs).to(equal(4))
                 testComplete()
               }, failure: { (error) in
