@@ -40,7 +40,7 @@
       Animal *animal = [self.animalServiceClient getAlligator];
       XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
-  }];
+  } withTimeout: 10];
 }
 
 - (void)testWithQueryParams {
