@@ -40,12 +40,18 @@ import Nimble
     return interaction
   }
 
+
   @objc(run:)
   public func objcRun(testFunction: (testComplete: () -> Void) -> Void) -> Void {
-    self.run(nil, line: nil, testFunction: testFunction)
+    self.run(nil, line: nil, timeout: 1, testFunction: testFunction)
   }
 
-  public func run(file: String? = #file, line: UInt? = #line, testFunction: (testComplete: () -> Void) -> Void) -> Void {
+  @objc(run: withTimeout:)
+  public func objcRun(testFunction: (testComplete: () -> Void) -> Void, timeout: NSTimeInterval) -> Void {
+    self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
+  }
+
+  public func run(file: String? = #file, line: UInt? = #line, timeout: NSTimeInterval = 1, testFunction: (testComplete: () -> Void) -> Void) -> Void {
     var complete = false
     self.pactVerificationService.setup(self.interactions).onSuccess { result in
       testFunction { () in
@@ -67,7 +73,7 @@ import Nimble
     if let fileName = file, lineNumber = line {
       expect(fileName, line: lineNumber, expression: { complete} ).toEventually(beTrue())
     } else {
-      expect(complete).toEventually(beTrue())
+      expect(complete).toEventually(beTrue(), timeout: timeout)
     }
   }
 }
