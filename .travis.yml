@@ -1,9 +1,9 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.2
 before_install:
 - scripts/import_keychain.sh
 - security find-identity -v -p codesigning
-- gem install pact-mock_service -v 0.5.1
+- gem install pact-mock_service -v 0.12.0
 - bundle install
 - carthage checkout
 script:
