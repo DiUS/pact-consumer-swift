@@ -56,8 +56,21 @@ import PactConsumerSwift
   }
 ```
 
+  An optional `timeout` (seconds) parameter can be included on the run function. This defaults to 30 seconds.
+
+```swift
+...
+    animalMockService!.run(timeout: 60) { (testComplete) -> Void in
+      animalServiceClient!.getAlligator { (alligator) in
+        expect(alligator.name).to(equal("Mary"))
+        testComplete()
+      }
+    }
+```
+
 ### Testing with Objective-C
   Write a Unit test similar to the following
+  
 ```objc
 @import PactConsumerSwift;
 ...
@@ -85,6 +98,18 @@ import PactConsumerSwift
       XCTAssertEqualObjects(animal.name, @"Mary");
       testComplete();
   }];
+}
+```
+
+  An optional `timeout` (seconds) parameter can be included on the run function. This defaults to 30 seconds.
+
+```objc
+...
+  [self.animalMockService run:^(CompleteBlock testComplete) {
+      Animal *animal = [self.animalServiceClient getAlligator];
+      XCTAssertEqualObjects(animal.name, @"Mary");
+      testComplete();
+  } timeout:60];
 }
 ```
 ### Matching

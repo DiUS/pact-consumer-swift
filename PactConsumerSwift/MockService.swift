@@ -44,7 +44,7 @@ import Nimble
 
   @objc(run:)
   open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) -> Void {
-    self.run(nil, line: nil, timeout: 1, testFunction: testFunction)
+    self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
   @objc(run: withTimeout:)
@@ -52,7 +52,7 @@ import Nimble
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
 
-  open func run(_ file: String? = #file, line: UInt? = #line, timeout: TimeInterval = 1, testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) -> Void {
+  open func run(_ file: String? = #file, line: UInt? = #line, timeout: TimeInterval = 30, testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) -> Void {
     var complete = false
     self.pactVerificationService.setup(self.interactions).onSuccess { result in
       testFunction { () in
