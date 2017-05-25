@@ -1,0 +1,45 @@
+excluded:
+    - scripts
+    - Carthage
+    - certificates
+    - PactConsumerSwiftTests/
+    - Products/
+    - Source/ExcludedFolder
+    - Source/ExcludedFile.swift
+
+included:
+    - PactConsumerSwift/
+
+force_cast: warning # implicitly
+force_try:
+    severity: warning # explicitly
+line_length: 128
+
+type_body_length:
+    - 300 # warning
+    - 400 # error
+
+file_length:
+    warning: 500
+    error: 1200
+
+type_name:
+    min_length: 4 # only warning
+    max_length: # warning and error
+        warning: 40
+        error: 50
+
+identifier_name:
+    min_length: # only min_length
+        error: 4 # only error
+    excluded: # excluded via string array
+        - id
+        - URL
+        - url
+        - GET
+        - PUT
+        - GlobalAPIKey
+        - min
+        - max
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
