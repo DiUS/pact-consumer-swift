@@ -101,7 +101,7 @@ open class PactVerificationService {
   fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
-    Alamofire.request(Router.write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
+    Alamofire.request(Router.write(["consumer": [ "name": consumer ], "provider": ["name": provider]]))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
@@ -120,7 +120,8 @@ open class PactVerificationService {
 
   fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }), "example_description": "description"]
+    let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
+                                  "example_description": "description"]
     Alamofire.request(Router.setup(payload))
               .validate()
               .responseString { response in self.requestHandler(promise)(response) }
