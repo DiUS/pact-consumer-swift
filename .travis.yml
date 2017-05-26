@@ -5,13 +5,12 @@ before_install:
 - security find-identity -v -p codesigning
 - gem install pact-mock_service -v 0.12.0
 - bundle install
-- carthage checkout
-install:
 - scripts/install_swiftlint.sh
+- carthage checkout
 script:
+- swiftlint
 - set -o pipefail
 - carthage build --no-skip-current --platform iOS
-- swiftlint
 - scripts/build.sh
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
