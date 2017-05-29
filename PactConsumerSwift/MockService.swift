@@ -19,6 +19,8 @@ import Nimble
     self.consumer = consumer
 
     self.pactVerificationService = pactVerificationService
+    
+    
   }
 
   @objc(initWithProvider: consumer:)
