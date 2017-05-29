@@ -66,7 +66,7 @@ class MatcherSpec: QuickSpec {
       }
 
       it("allows min to be specified") {
-        subject = Matcher.eachLike(arrayItem, minValue: 4)
+        subject = Matcher.eachLike(arrayItem, min: 4)
 
         let min = subject["min"] as? Int
         expect(min).to(equal(4))

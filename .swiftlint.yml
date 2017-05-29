@@ -41,5 +41,7 @@ identifier_name:
     - url
     - GET
     - PUT
+    - min
+    - max
 
 reporter: "xcode"

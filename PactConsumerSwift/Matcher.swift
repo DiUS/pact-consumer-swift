@@ -20,11 +20,11 @@ import Foundation
     ]
   }
 
-  @objc open class func eachLike(_ value: Any, minValue: Int = 1) -> [String: Any] {
+  @objc open class func eachLike(_ value: Any, min: Int = 1) -> [String: Any] {
     return [
       "json_class": "Pact::ArrayLike",
       "contents": value,
-      "min": minValue
+      "min": min
     ]
   }
 }
