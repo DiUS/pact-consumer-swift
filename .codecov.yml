@@ -12,6 +12,10 @@ coverage:
     patch: yes
     changes: no
 
+  ignore:
+    - PactConsumerSwiftTests/*
+    -
+
 parsers:
   gcov:
     branch_detection:

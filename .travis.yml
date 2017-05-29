@@ -13,7 +13,7 @@ script:
   - swiftlint
   - carthage build --no-skip-current --platform iOS
   - scripts/build.sh
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
 after_script: scripts/delete_keychain.sh
 after_success:
   - scripts/build_children.sh
