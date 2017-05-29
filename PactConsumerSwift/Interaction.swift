@@ -58,7 +58,9 @@ import Alamofire
   }
 
   open func payload() -> [String: Any] {
-    var payload: [String: Any] = ["description": testDescription, "request": request, "response": response ]
+    var payload: [String: Any] = ["description": testDescription,
+                                  "request": request,
+                                  "response": response ]
     if let providerState = providerState {
       payload["providerState"] = providerState
     }

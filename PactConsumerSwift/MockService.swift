@@ -14,7 +14,9 @@ import Nimble
     return pactVerificationService.baseUrl
   }
 
-  public init(provider: String, consumer: String, pactVerificationService: PactVerificationService) {
+  public init(provider: String,
+              consumer: String,
+              pactVerificationService: PactVerificationService) {
     self.provider = provider
     self.consumer = consumer
 
@@ -23,7 +25,9 @@ import Nimble
 
   @objc(initWithProvider: consumer:)
   public convenience init(provider: String, consumer: String) {
-    self.init(provider: provider, consumer: consumer, pactVerificationService: PactVerificationService())
+    self.init(provider: provider,
+              consumer: consumer,
+              pactVerificationService: PactVerificationService())
   }
 
   open func given(_ providerState: String) -> Interaction {
@@ -45,7 +49,8 @@ import Nimble
   }
 
   @objc(run: withTimeout:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void, timeout: TimeInterval) {
+  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
+                    timeout: TimeInterval) {
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
 
@@ -54,11 +59,13 @@ import Nimble
     var complete = false
     self.pactVerificationService.setup(self.interactions).onSuccess { _ in
       testFunction { () in
-        self.pactVerificationService.verify(provider: self.provider, consumer: self.consumer).onSuccess { _ in
+        self.pactVerificationService.verify(provider: self.provider,
+                                            consumer: self.consumer).onSuccess { _ in
           complete = true
         }.onFailure { error in
           if let fileName = file, let lineNumber = line {
-            fail("Error verifying pact: \(error.localizedDescription)", file: fileName, line: lineNumber)
+            fail("Error verifying pact: \(error.localizedDescription)", file: fileName,
+                 line: lineNumber)
           } else {
             fail("Error verifying pact: \(error.localizedDescription)")
           }
