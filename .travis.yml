@@ -17,7 +17,7 @@ script:
 after_script: scripts/delete_keychain.sh
 after_success:
   - scripts/build_children.sh
-  - bash <(curl -s https://codecov.io/bash) -J 'pact-consumer-swift' -t 75136073-1e91-4b4a-8359-e51e2d30b3f9
+  - bash <(curl -s https://codecov.io/bash) -J 'pact-consumer-swift' -t 75136073-1e91-4b4a-8359-e51e2d30b3f9 -cF ios
 env:
   global:
     - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
