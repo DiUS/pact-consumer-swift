@@ -5,7 +5,7 @@ before_install:
   - security find-identity -v -p codesigning
   - gem install pact-mock_service -v 0.12.0
   - bundle install
-  - scripts/install_swiftlint.sh
+  - brew install swiftlint
   - carthage checkout
 script:
   - set -o pipefail
