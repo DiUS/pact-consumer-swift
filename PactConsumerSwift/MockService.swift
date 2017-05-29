@@ -18,11 +18,11 @@ import Nimble
     self.provider = provider
     self.consumer = consumer
 
-    let someCounter: Int = []
-    if someCounter > 0 {
+    let someCounter: [Any] = []
+    if (someCounter.count > 0) {
       print("some counter swiftlint test")
     }
-    
+
     self.pactVerificationService = pactVerificationService
   }
 

@@ -8,6 +8,10 @@ excluded:
 included:
   - PactConsumerSwift/
 
+opt_in_rules:
+- empty_count
+- missing_docs
+
 force_cast:
   severity:
     warning # implicitly
@@ -37,6 +41,5 @@ identifier_name:
     - url
     - GET
     - PUT
-    - GlobalAPIKey
 
 reporter: "xcode"
