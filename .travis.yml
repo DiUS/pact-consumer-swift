@@ -1,18 +1,21 @@
 language: objective-c
 osx_image: xcode8.2
 before_install:
-- scripts/import_keychain.sh
-- security find-identity -v -p codesigning
-- gem install pact-mock_service -v 0.12.0
-- bundle install
-- carthage checkout
+  - scripts/import_keychain.sh
+  - security find-identity -v -p codesigning
+  - gem install pact-mock_service -v 0.12.0
+  - bundle install
+  - brew update
+  - brew upgrade swiftlint
+  - carthage checkout
 script:
-- set -o pipefail
-- carthage build --no-skip-current --platform iOS
-- scripts/build.sh
+  - set -o pipefail
+  - swiftlint
+  - carthage build --no-skip-current --platform iOS
+  - scripts/build.sh
 after_script: scripts/delete_keychain.sh
 after_success: scripts/build_children.sh
 env:
   global:
-  - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
-  - secure: FpfacekFs93LkX9gerQUxQKIDTjBl2abp7ZQ/8L3DiJo4nMF7xEwUGeSDQMR+2hRqRWr/SdU59Lll5k10JBqWxAaLXDTUq3Lh3aamc4nc2PAN7yp+0aq9RQG5+PaLkfx+SLs5B/CjDiRRotZg/H/uMTRRFbkqydVtxiqGv94JOg=
+    - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
+    - secure: FpfacekFs93LkX9gerQUxQKIDTjBl2abp7ZQ/8L3DiJo4nMF7xEwUGeSDQMR+2hRqRWr/SdU59Lll5k10JBqWxAaLXDTUq3Lh3aamc4nc2PAN7yp+0aq9RQG5+PaLkfx+SLs5B/CjDiRRotZg/H/uMTRRFbkqydVtxiqGv94JOg=

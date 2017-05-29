@@ -6,9 +6,7 @@ open class PactVerificationService {
   open let url: String
   open let port: Int
   open var baseUrl: String {
-    get {
-      return "\(url):\(port)"
-    }
+    return "\(url):\(port)"
   }
 
   enum Router: URLRequestConvertible {
@@ -46,7 +44,6 @@ open class PactVerificationService {
     }
 
     // MARK: URLRequestConvertible
-
     func asURLRequest() throws -> URLRequest {
       let url = try Router.baseURLString.asURL()
       var urlRequest = URLRequest(url: url.appendingPathComponent(path))
@@ -72,8 +69,7 @@ open class PactVerificationService {
 
   func setup (_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    self.clean().onSuccess {
-      result in
+    self.clean().onSuccess { _ in
         promise.completeWith(self.setupInteractions(interactions))
     }.onFailure { error in
       promise.failure(error)
@@ -84,8 +80,7 @@ open class PactVerificationService {
 
   func verify(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    self.verifyInteractions().onSuccess {
-      result in
+    self.verifyInteractions().onSuccess { _ in
       promise.completeWith(self.write(provider: provider, consumer: consumer))
     }.onFailure { error in
       promise.failure(error)
@@ -106,7 +101,8 @@ open class PactVerificationService {
   fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
-    Alamofire.request(Router.write([ "consumer": [ "name": consumer ], "provider": [ "name": provider ] ]))
+    Alamofire.request(Router.write(["consumer": [ "name": consumer ],
+                                    "provider": ["name": provider]]))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
@@ -125,7 +121,8 @@ open class PactVerificationService {
 
   fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    let payload: [ String : Any ] = [ "interactions" : interactions.map({ $0.payload() }), "example_description" : "description"]
+    let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
+                                  "example_description": "description"]
     Alamofire.request(Router.setup(payload))
               .validate()
               .responseString { response in self.requestHandler(promise)(response) }
@@ -139,14 +136,16 @@ open class PactVerificationService {
       case .success(let responseValue):
         promise.success(responseValue)
       case .failure(let error):
-        let errorMessage : String;
+        let errorMessage: String
         if let errorBody = response.data {
           errorMessage = "\(String(data: errorBody, encoding: String.Encoding.utf8)!)"
         } else {
           errorMessage = error.localizedDescription
         }
-        let userInfo = [ NSLocalizedDescriptionKey :  NSLocalizedString("Error", value: errorMessage, comment: "")]
-        promise.failure(NSError(domain: "" , code: 0, userInfo: userInfo))
+        let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error",
+                                                                     value: errorMessage,
+                                                                     comment: "")]
+        promise.failure(NSError(domain: "", code: 0, userInfo: userInfo))
       }
     }
   }

@@ -64,6 +64,7 @@
 		A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
 		A1EE18A21AA009A9008B0E8C /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
 		A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
+		AD0FCC4C1ED6A85300E94B33 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,16 +96,17 @@
 		A11F1A611A5C890D00DAB9CE = {
 			isa = PBXGroup;
 			children = (
-				A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */,
-				A1E04EA61A809828006721F8 /* Quick.framework */,
-				A1E04EA71A809828006721F8 /* Nimble.framework */,
-				A1E04E961A80971A006721F8 /* Alamofire.framework */,
+				AD0FCC4C1ED6A85300E94B33 /* .swiftlint.yml */,
 				A1343CE61A64D59E00DCD05E /* script */,
 				A11F1A6D1A5C890D00DAB9CE /* PactConsumerSwift */,
 				A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */,
 				A11F1A6C1A5C890D00DAB9CE /* Products */,
 				2DC1894F534D68C7B712D1DF /* README.md */,
 				2DC189C6CB7BB21E0063D70C /* CONTRIBUTING.md */,
+				A10AC5AD1A85EFCF00F4524C /* BrightFutures.framework */,
+				A1E04EA61A809828006721F8 /* Quick.framework */,
+				A1E04EA71A809828006721F8 /* Nimble.framework */,
+				A1E04E961A80971A006721F8 /* Alamofire.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,7 +203,8 @@
 				A11F1A671A5C890D00DAB9CE /* Frameworks */,
 				A11F1A681A5C890D00DAB9CE /* Headers */,
 				A11F1A691A5C890D00DAB9CE /* Resources */,
-				A1E04E981A809724006721F8 /* ShellScript */,
+				A1E04E981A809724006721F8 /* Include Carthage Frameworks */,
+				AD0FCC4B1ED6A78800E94B33 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -288,7 +291,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A1E04E981A809724006721F8 /* ShellScript */ = {
+		A1E04E981A809724006721F8 /* Include Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,6 +302,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 			);
+			name = "Include Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +327,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "PATH=/usr/local/bin:/opt/boxen/homebrew/bin:$PATH\ncarthage copy-frameworks";
+		};
+		AD0FCC4B1ED6A78800E94B33 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

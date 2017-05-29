@@ -1,0 +1,38 @@
+excluded:
+  - scripts
+  - Carthage
+  - certificates
+  - PactConsumerSwiftTests/
+  - Products/
+included:
+  - PactConsumerSwift/
+opt_in_rules:
+  - empty_count
+force_cast:
+  severity:
+    warning
+force_try:
+  severity: warning
+type_body_length:
+  - 300 # warning
+  - 400 # error
+file_length:
+  warning: 500
+  error: 1200
+type_name:
+  min_length: 4
+  max_length:
+    warning: 40
+    error: 50
+identifier_name:
+  min_length:
+    error: 4
+  excluded:
+    - id
+    - URL
+    - url
+    - GET
+    - PUT
+    - min
+    - max
+reporter: "xcode"

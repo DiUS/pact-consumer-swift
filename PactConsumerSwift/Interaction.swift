@@ -5,10 +5,10 @@ import Alamofire
 }
 
 @objc open class Interaction: NSObject {
-  open var providerState: String? = nil
+  open var providerState: String?
   open var testDescription: String = ""
-  open var request: Dictionary<String, Any> = [:]
-  open var response: Dictionary<String, Any> = [:]
+  open var request: [String: Any] = [:]
+  open var response: [String: Any] = [:]
 
   @discardableResult
   open func given(_ providerState: String) -> Interaction {
@@ -24,7 +24,11 @@ import Alamofire
 
   @objc(withRequestHTTPMethod: path: query: headers: body:)
   @discardableResult
-  open func withRequest(method: PactHTTPMethod, path: Any, query: Dictionary<String, Any>? = nil, headers: Dictionary<String, String>? = nil, body: Any? = nil) -> Interaction {
+  open func withRequest(method: PactHTTPMethod,
+                        path: Any,
+                        query: [String: Any]? = nil,
+                        headers: [String: String]? = nil,
+                        body: Any? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
@@ -40,7 +44,9 @@ import Alamofire
 
   @objc(willRespondWithHTTPStatus: headers: body:)
   @discardableResult
-  open func willRespondWith(status: Int, headers: Dictionary<String, String>? = nil, body: Any? = nil) -> Interaction {
+  open func willRespondWith(status: Int,
+                            headers: [String: String]? = nil,
+                            body: Any? = nil) -> Interaction {
     response = ["status": status]
     if let headersValue = headers {
       response["headers"] = headersValue
@@ -52,7 +58,9 @@ import Alamofire
   }
 
   open func payload() -> [String: Any] {
-    var payload: [String: Any] = ["description": testDescription, "request": request, "response": response ]
+    var payload: [String: Any] = ["description": testDescription,
+                                  "request": request,
+                                  "response": response ]
     if let providerState = providerState {
       payload["providerState"] = providerState
     }

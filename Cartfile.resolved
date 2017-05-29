@@ -1,5 +1,5 @@
-github "Alamofire/Alamofire" "4.2.0"
+github "Alamofire/Alamofire" "4.4.0"
 github "Quick/Nimble" "v5.1.1"
 github "Quick/Quick" "v0.10.0"
-github "antitypical/Result" "3.1.0"
-github "Thomvis/BrightFutures" "v5.1.0"
+github "Thomvis/BrightFutures" "5.2.0"
+github "antitypical/Result" "3.2.2"

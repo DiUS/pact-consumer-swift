@@ -126,7 +126,7 @@
                                 headers:nil body: nil]
                               willRespondWithHTTPStatus:200
                                 headers:@{@"Content-Type": @"application/json"}
-                                body: [Matcher eachLike:@{ @"name": @"Bruce", @"legs": @4 } min:1] ];
+                                body: [Matcher eachLike:@{ @"name": @"Bruce", @"legs": @4 } min:1]];
   
   [self.animalMockService run:^(CompleteBlock testComplete) {
     NSArray *animals = [self.animalServiceClient findAnimalsLiving:@"land"];

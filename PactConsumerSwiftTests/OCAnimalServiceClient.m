@@ -28,10 +28,14 @@
   NSError *requestError;
   NSURLResponse *urlResponse = nil;
   
-  NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-
+  NSData *response = [self sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+  
+  
+  
   NSError *error;
-  NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
+  NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:response
+                                                      options:kNilOptions
+                                                        error:&error];
 
   Animal * animal = [[Animal alloc] init];
   animal.name = dic[@"name"];
@@ -52,7 +56,7 @@
   NSError *requestError;
   NSURLResponse *urlResponse = nil;
 
-  NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+  NSData *response = [self sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
 
   NSError *error;
   NSArray *array = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
@@ -67,6 +71,29 @@
   }
 
   return animals;
+}
+
+- (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error {
+  
+  NSError __block *err = NULL;
+  NSData __block *data;
+  BOOL __block reqProcessed = false;
+  NSURLResponse __block *resp;
+  NSURLSession * sess = [NSURLSession sharedSession];
+  
+  [[sess dataTaskWithRequest:request
+           completionHandler:^(NSData * _Nullable _data, NSURLResponse * _Nullable _resp, NSError * _Nullable _err) {
+             resp = _resp;
+             err = _err;
+             data = _data;
+             reqProcessed = true;
+           }] resume];
+  
+  while (!reqProcessed) { [NSThread sleepForTimeInterval: 0]; }
+  
+  *response = resp;
+  *error = err;
+  return data;
 }
 
 @end
