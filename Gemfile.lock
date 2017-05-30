@@ -96,17 +96,17 @@ GEM
     multipart-post (2.0.0)
     nanaimo (0.2.3)
     os (0.9.6)
-    pact-mock_service (0.12.1)
+    pact-mock_service (2.1.0)
       find_a_port (~> 1.0.1)
       json
-      pact-support (~> 0.5)
+      pact-support (~> 1.0)
       rack
       rack-test (~> 0.6.2)
       rspec (>= 2.14)
       term-ansicolor (~> 1.0)
       thor
       webrick
-    pact-support (0.6.1)
+    pact-support (1.0.1)
       awesome_print (~> 1.1)
       find_a_port (~> 1.0.1)
       json
@@ -182,7 +182,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  pact-mock_service (~> 0.12.0)
+  pact-mock_service (~> 2.1.0)
   scan
 
 BUNDLED WITH
