@@ -56,30 +56,42 @@ import Nimble
 
   open func run(_ file: String? = #file, line: UInt? = #line, timeout: TimeInterval = 30,
                 testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) {
-    var complete = false
-    self.pactVerificationService.setup(self.interactions).onSuccess { _ in
-      testFunction { () in
-        self.pactVerificationService.verify(provider: self.provider,
-                                            consumer: self.consumer).onSuccess { _ in
-          complete = true
-        }.onFailure { error in
-          if let fileName = file, let lineNumber = line {
-            fail("Error verifying pact: \(error.localizedDescription)", file: fileName,
-                 line: lineNumber)
-          } else {
-            fail("Error verifying pact: \(error.localizedDescription)")
-          }
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+      self.pactVerificationService.setup(self.interactions).onSuccess { _ in
+        testFunction { () in
+          done()
         }
-        return
+      }.onFailure { error in
+        fail("Error setting up pact: \(error.localizedDescription)")
       }
-      return
-    }.onFailure { error in
-      fail("Error setting up pact: \(error.localizedDescription)")
     }
-    if let fileName = file, let lineNumber = line {
-      expect(fileName, line: lineNumber, expression: { complete }).toEventually(beTrue())
-    } else {
-      expect(complete).toEventually(beTrue(), timeout: timeout)
+
+    self.pactVerificationService.verify(provider: self.provider,
+                                        consumer: self.consumer).onSuccess { _ in
+    }.onFailure { error in
+      self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
+        file: file,
+        line: line)
     }
   }
+
+  func failWithLocation(_ message: String, file: String?, line: UInt?) {
+    if let fileName = file, let lineNumber = line {
+      fail(message, file: fileName, line: lineNumber)
+    } else {
+      fail(message)
+    }
+  }
+
+  public func waitUntilWithLocation(timeout: TimeInterval,
+                                    file: FileString?,
+                                    line: UInt?,
+                                    action: @escaping (@escaping () -> Void) -> Void) {
+    if let fileName = file, let lineNumber = line {
+      return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
+    } else {
+      return waitUntil(timeout: timeout, action: action)
+    }
+  }
+
 }
