@@ -92,7 +92,7 @@ ask('Tag and Push commits?: [Y]') {
 
 ask('Publish library to cocoapods?: [Y]') {
   executeOnShell 'pod spec lint PactConsumerSwift.podspec  --allow-warnings'
-  executeOnShell 'pod trunk push PactConsumerSwift.podspec'
+  executeOnShell 'pod trunk push PactConsumerSwift.podspec --allow-warnings'
 }
 
 def nextVer = Version.valueOf(releaseVer).incrementPatchVersion()
