@@ -74,6 +74,72 @@ class PactSwiftSpec: QuickSpec {
             })
           }
         }
+
+        it("should return animals living in water using dictionary matcher") {
+          animalMockService!.given("an alligator exists")
+                            .uponReceiving("a request for animals living in water with dictionary matcher")
+                            .withRequest(method:.GET, path: "/animals", query: ["live": Matcher.somethingLike("water")])
+                            .willRespondWith(status: 200,
+                                             headers: ["Content-Type": "application/json"],
+                                             body: [ ["name": "Mary", "type": "alligator"] ] )
+
+          //Run the tests
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.findAnimals(live: "water", response: {
+              (response) in
+              expect(response.count).to(equal(1))
+              let name = response[0].name
+              expect(name).to(equal("Mary"))
+              testComplete()
+            })
+          }
+        }
+
+        it("should return animals living in water using matcher") {
+          let queryMatcher = Matcher.term(matcher: "live=*", generate: "live=water")
+
+          animalMockService!.given("an alligator exists")
+                            .uponReceiving("a request for animals living in water with matcher")
+                            .withRequest(method:.GET, path: "/animals", query: queryMatcher)
+                            .willRespondWith(status: 200,
+                                             headers: ["Content-Type": "application/json"],
+                                             body: [ ["name": "Mary", "type": "alligator"] ] )
+
+          //Run the tests
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.findAnimals(live: "water", response: {
+              (response) in
+              expect(response.count).to(equal(1))
+              let name = response[0].name
+              expect(name).to(equal("Mary"))
+              testComplete()
+            })
+          }
+        }
+      }
+
+      describe("With Header matches") {
+        it("gets a secure alligator with auth header matcher") {
+          animalMockService!.given("an alligator exists")
+                  .uponReceiving("a request for an alligator with header matcher")
+                  .withRequest(method: .GET,
+                    path: "/alligators",
+                    headers: ["Authorization": Matcher.somethingLike("OIOIUOIU")])
+                  .willRespondWith(status: 200,
+                    headers: ["Content-Type": "application/json", "Etag": Matcher.somethingLike("x234")],
+                    body: ["name": "Mary", "type": "alligator"])
+
+          //Run the tests
+          animalMockService!.run { (testComplete) -> Void in
+            animalServiceClient!.getSecureAlligators(authToken: "OIOIUOIU", success: { (alligators) in
+                expect(alligators[0].name).to(equal("Mary"))
+                 testComplete()
+              }, failure: { (error) in
+                testComplete()
+              }
+            )
+          }
+        }
       }
 
       describe("PATCH request") {

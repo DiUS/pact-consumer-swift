@@ -26,8 +26,8 @@ import Alamofire
   @discardableResult
   open func withRequest(method: PactHTTPMethod,
                         path: Any,
-                        query: [String: Any]? = nil,
-                        headers: [String: String]? = nil,
+                        query: Any? = nil,
+                        headers: [String: Any]? = nil,
                         body: Any? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
@@ -45,7 +45,7 @@ import Alamofire
   @objc(willRespondWithHTTPStatus: headers: body:)
   @discardableResult
   open func willRespondWith(status: Int,
-                            headers: [String: String]? = nil,
+                            headers: [String: Any]? = nil,
                             body: Any? = nil) -> Interaction {
     response = ["status": status]
     if let headersValue = headers {

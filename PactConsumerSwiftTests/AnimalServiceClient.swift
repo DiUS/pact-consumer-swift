@@ -35,6 +35,25 @@ open class AnimalServiceClient {
             }
   }
 
+  open func getSecureAlligators(authToken: String, success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
+    Alamofire.request("\(baseUrl)/alligators", headers: ["Authorization": authToken])
+            .responseJSON {
+              (result) in
+              if result.result.isSuccess {
+                if let jsonArray = result.result.value as? Array<[String: AnyObject]> {
+                  success(jsonArray.map { animal -> Animal in
+                    return Animal(
+                            name: animal["name"] as! String,
+                            type: animal["type"] as! String,
+                            dob: animal["dateOfBirth"] as? String,
+                            legs: animal["legs"] as? Int)
+                  })
+                } else {
+                  failure(result.result.value as? NSError)
+                }
+              }
+            }
+  }
   open func getAlligator(_ id: Int, success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
     Alamofire.request("\(baseUrl)/alligators/\(id)")
     .responseJSON {
@@ -63,8 +82,8 @@ open class AnimalServiceClient {
           var alligators : [Animal] = []
           for alligator in jsonResult {
             alligators.append(Animal(
-              name: alligator["name"] as! String, 
-              type: alligator["type"] as! String, 
+              name: alligator["name"] as! String,
+              type: alligator["type"] as! String,
               dob: alligator["dateOfBirth"] as? String,
               legs: alligator["legs"] as? Int))
           }
@@ -104,8 +123,8 @@ open class AnimalServiceClient {
           var animals: [Animal] = []
           for alligator in jsonResult {
             animals.append(Animal(
-              name: alligator["name"] as! String, 
-              type: alligator["type"] as! String, 
+              name: alligator["name"] as! String,
+              type: alligator["type"] as! String,
               dob: alligator["dateOfBirth"] as? String,
               legs: alligator["legs"] as? Int))
           }
