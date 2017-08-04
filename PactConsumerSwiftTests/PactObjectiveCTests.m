@@ -1,5 +1,3 @@
-
-
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "OCAnimalServiceClient.h"
@@ -44,7 +42,7 @@
 }
 
 - (void)testWithQueryParams {
-  typedef void (^CompleteBlock)();
+  typedef void (^CompleteBlock)(void);
   
   [[[[self.animalMockService given:@"an alligator exists"]
                              uponReceiving:@"ObjC - a request for animals living in water"]
@@ -69,7 +67,7 @@
 #pragma mark - Mather tests
 
 - (void)testMatchingRegex {
-  typedef void (^CompleteBlock)();
+  typedef void (^CompleteBlock)(void);
   
   [[[[self.animalMockService given:@"an alligator exists with a birthdate"]
                               uponReceiving:@"ObjC - a request for alligator with birthdate"]
@@ -92,7 +90,7 @@
 }
 
 - (void)testMatchingType {
-  typedef void (^CompleteBlock)();
+  typedef void (^CompleteBlock)(void);
   
   [[[[self.animalMockService given:@"an alligator exists with legs"]
                               uponReceiving:@"ObjC - a request for alligator with legs"]
@@ -116,7 +114,7 @@
 
 
 - (void)testMatchingVariableLengthArray {
-  typedef void (^CompleteBlock)();
+  typedef void (^CompleteBlock)(void);
   
   [[[[self.animalMockService given:@"multiple land based animals exist"]
                               uponReceiving:@"ObjC - a request for animals living on land"]
