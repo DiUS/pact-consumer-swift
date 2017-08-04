@@ -23,7 +23,7 @@
 }
 
 - (void)testGetAlligator {
-  typedef void (^CompleteBlock)();
+  typedef void (^CompleteBlock)(void);
   
   [[[[self.animalMockService given:@"an alligator exists"]
                              uponReceiving:@"ObjC - a request for an alligator"]
