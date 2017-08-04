@@ -171,7 +171,7 @@ class PactSwiftSpec: QuickSpec {
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
-            animalServiceClient!.wontEat(animal: "pidgeon", success: { (response) in
+            animalServiceClient!.wontEat(animal: "pidgeon", success: { () in
               // We are expecting this test to fail - the error handler should be called
               expect(true).to(equal(false))
               testComplete()
