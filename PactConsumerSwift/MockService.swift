@@ -10,6 +10,7 @@ import Nimble
   fileprivate let pactVerificationService: PactVerificationService
   fileprivate var interactions: [Interaction] = []
 
+  @objc
   open var baseUrl: String {
     return pactVerificationService.baseUrl
   }
@@ -30,6 +31,7 @@ import Nimble
               pactVerificationService: PactVerificationService())
   }
 
+  @objc
   open func given(_ providerState: String) -> Interaction {
     let interaction = Interaction().given(providerState)
     interactions.append(interaction)
