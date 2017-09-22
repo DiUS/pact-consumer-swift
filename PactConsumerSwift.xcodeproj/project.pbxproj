@@ -97,9 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				AD0FCC4C1ED6A85300E94B33 /* .swiftlint.yml */,
+				AD1510AD1F74AA8C00899EFB /* Sources */,
+				AD1510AE1F74AA9400899EFB /* Tests */,
+				AD1510AF1F74AAC600899EFB /* ObjCTests */,
+				AD1510B41F74AB4100899EFB /* Frameworks */,
 				A1343CE61A64D59E00DCD05E /* script */,
-				A11F1A6D1A5C890D00DAB9CE /* PactConsumerSwift */,
-				A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */,
 				A11F1A6C1A5C890D00DAB9CE /* Products */,
 				2DC1894F534D68C7B712D1DF /* README.md */,
 				2DC189C6CB7BB21E0063D70C /* CONTRIBUTING.md */,
@@ -119,47 +121,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A11F1A6D1A5C890D00DAB9CE /* PactConsumerSwift */ = {
-			isa = PBXGroup;
-			children = (
-				A1343CE31A63869500DCD05E /* PactVerificationService.swift */,
-				A11F1AEE1A5CF84600DAB9CE /* MockService.swift */,
-				A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */,
-				A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */,
-				A11F1A6E1A5C890D00DAB9CE /* Supporting Files */,
-				2DC1855727137D1A61E22336 /* Matcher.swift */,
-			);
-			path = PactConsumerSwift;
-			sourceTree = "<group>";
-		};
-		A11F1A6E1A5C890D00DAB9CE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A11F1A6F1A5C890D00DAB9CE /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A11F1A7A1A5C890E00DAB9CE /* PactConsumerSwiftTests */ = {
-			isa = PBXGroup;
-			children = (
-				A1EE18A51AA00A68008B0E8C /* PactTests */,
-				A11F1A7B1A5C890E00DAB9CE /* Supporting Files */,
-				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
-				A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */,
-				2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */,
-			);
-			path = PactConsumerSwiftTests;
-			sourceTree = "<group>";
-		};
-		A11F1A7B1A5C890E00DAB9CE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A11F1A7C1A5C890E00DAB9CE /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		A1343CE61A64D59E00DCD05E /* script */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,16 +130,80 @@
 			path = script;
 			sourceTree = "<group>";
 		};
-		A1EE18A51AA00A68008B0E8C /* PactTests */ = {
+		AD1510AD1F74AA8C00899EFB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				AD1510B31F74AB2600899EFB /* PactConsumerSwift */,
+				AD1510B21F74AB0A00899EFB /* Supporting Files */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AD1510AE1F74AA9400899EFB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AD1510B11F74AAE600899EFB /* Supporting Files */,
+				AD1510B01F74AAD500899EFB /* PactConsumerSwiftTests */,
 				A10AC5B31A87087B00F4524C /* AnimalServiceClient.swift */,
+				A10AC5B21A87087B00F4524C /* PactSpecs.swift */,
+				A1343CD31A6200C100DCD05E /* InteractionSpec.swift */,
+				2DC18486E5D4554858BCCA32 /* MatcherSpec.swift */,
+			);
+			name = Tests;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		AD1510AF1F74AAC600899EFB /* ObjCTests */ = {
+			isa = PBXGroup;
+			children = (
 				A1EE18A21AA009A9008B0E8C /* OCAnimalServiceClient.h */,
 				A1EE18A31AA009A9008B0E8C /* OCAnimalServiceClient.m */,
 				A1EE189D1AA00498008B0E8C /* PactObjectiveCTests.m */,
-				A10AC5B21A87087B00F4524C /* PactSpecs.swift */,
 			);
-			name = PactTests;
+			path = ObjCTests;
+			sourceTree = "<group>";
+		};
+		AD1510B01F74AAD500899EFB /* PactConsumerSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PactConsumerSwiftTests;
+			sourceTree = "<group>";
+		};
+		AD1510B11F74AAE600899EFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A11F1A7C1A5C890E00DAB9CE /* Info.plist */,
+				A1EE189C1AA00497008B0E8C /* PactConsumerSwiftTests-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD1510B21F74AB0A00899EFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A11F1A701A5C890D00DAB9CE /* PactConsumerSwift.h */,
+				A11F1A6F1A5C890D00DAB9CE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD1510B31F74AB2600899EFB /* PactConsumerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A1343CE31A63869500DCD05E /* PactVerificationService.swift */,
+				A11F1AEE1A5CF84600DAB9CE /* MockService.swift */,
+				A11F1AEF1A5CF84600DAB9CE /* Interaction.swift */,
+				2DC1855727137D1A61E22336 /* Matcher.swift */,
+			);
+			path = PactConsumerSwift;
+			sourceTree = "<group>";
+		};
+		AD1510B41F74AB4100899EFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -499,14 +524,14 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
+				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
 					XCTest,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "spinks.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.dius.pact.PactConsumerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -528,14 +553,14 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = PactConsumerSwift/Info.plist;
+				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
 					XCTest,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "spinks.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.dius.pact.PactConsumerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
