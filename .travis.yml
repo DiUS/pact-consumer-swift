@@ -36,7 +36,7 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - swiftlint
-  - carthage build --no-skip-current --platform iOS
+  - carthage build --no-skip-current
 
   # Build Framework in Debug and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
