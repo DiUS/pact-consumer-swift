@@ -13,7 +13,7 @@ coverage:
     changes: no
 
   ignore:
-    - PactConsumerSwiftTests/*
+    - Tests/*
 
 parsers:
   gcov:
