@@ -52,7 +52,6 @@ script:
       xcodebuild -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
 
-  - scripts/build.sh
   - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
 after_script: scripts/delete_keychain.sh
 after_success:
