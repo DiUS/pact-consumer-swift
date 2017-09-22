@@ -4,7 +4,8 @@ import BrightFutures
 import Result
 import Nimble
 
-@objc open class MockService: NSObject {
+@objc
+open class MockService: NSObject {
   fileprivate let provider: String
   fileprivate let consumer: String
   fileprivate let pactVerificationService: PactVerificationService
