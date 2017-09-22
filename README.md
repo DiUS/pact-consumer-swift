@@ -43,14 +43,15 @@ PATH=/full/path/to/your/rubies/bin:$PATH
 
 ### Add the PactConsumerSwift library to your project
 
-#### Using [Carthage](https://github.com/Carthage/Carthage) library manager [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
-- See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) for an example project using the library with Carthage for iOS target.
+#### Using [Carthage](https://github.com/Carthage/Carthage) library manager
+- See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) for an example project using `pact-consumer-swift` with Carthage for iOS target. [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
+- See the [PactMacOSExample](https://github.com/surpher/PactMacOSExample) for an example project using `pact-consumer-swift` with Carthage for macOS target. [![Build Status](https://travis-ci.org/surpher/PactMacOSExample.svg?branch=master)](https://travis-ci.org/surpher/PactMacOSExample)
 
-#### Using [CocoaPods](https://cocoapods.org/pods/PactConsumerSwift) (Git Submodules) [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
-- See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using the library with CocoaPods for iOS target.
+#### Using [CocoaPods](https://cocoapods.org/pods/PactConsumerSwift) (Git Submodules)
+- See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using `pact-consumer-swift` with CocoaPods for iOS target. [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
 
 #### Using [Swift Package Manager](https://swift.org/package-manager/) dependencies manager
-- Coming soon...
+- See the [PactSwiftPMExample](http://github.com/surpher/PactSwiftPMExample) for an example project using `pact-consumer-swift` library with Swift Package Manager for a command line app that runs on a Mac or Linux. [![Build Status](https://travis-ci.org/surpher/PactSwiftPMExample.svg?branch=master)](https://travis-ci.org/surpher/PactSwiftPMExample)
 
 ## Writing Pact Tests
 
