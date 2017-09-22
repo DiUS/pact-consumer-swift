@@ -26,12 +26,17 @@ before_install:
   - gem install pact-mock_service -v 2.1.0
   - bundle install
   - brew update
+  - brew upgrade
+  - brew prune
+  - brew cleanup
+  - brew doctor
   - carthage checkout
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
   - swiftlint
+  - carthage build --no-skip-current --platform iOS
 
   # Build Framework in Debug and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
@@ -47,7 +52,6 @@ script:
       xcodebuild -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
 
-  - carthage build --no-skip-current --platform iOS
   - scripts/build.sh
   - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
 after_script: scripts/delete_keychain.sh
