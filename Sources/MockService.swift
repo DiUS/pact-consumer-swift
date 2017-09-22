@@ -56,7 +56,7 @@ import Nimble
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
 
-  open func run(_ file: String? = #file, line: UInt? = #line, timeout: TimeInterval = 30,
+  open func run(_ file: FileString? = #file, line: UInt? = #line, timeout: TimeInterval = 30,
                 testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
       self.pactVerificationService.setup(self.interactions).onSuccess { _ in
@@ -77,7 +77,7 @@ import Nimble
     }
   }
 
-  func failWithLocation(_ message: String, file: String?, line: UInt?) {
+  func failWithLocation(_ message: String, file: FileString?, line: UInt?) {
     if let fileName = file, let lineNumber = line {
       fail(message, file: fileName, line: lineNumber)
     } else {

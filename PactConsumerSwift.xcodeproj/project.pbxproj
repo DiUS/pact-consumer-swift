@@ -51,6 +51,26 @@
 		ADC03E1F1F74C492003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
 		ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
+		ADC03E261F74C64F003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E231F74C64E003FCA6A /* BrightFutures.framework */; };
+		ADC03E271F74C64F003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E241F74C64E003FCA6A /* Nimble.framework */; };
+		ADC03E281F74C64F003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E251F74C64E003FCA6A /* Alamofire.framework */; };
+		ADC03E291F74C68E003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E251F74C64E003FCA6A /* Alamofire.framework */; };
+		ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E231F74C64E003FCA6A /* BrightFutures.framework */; };
+		ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E241F74C64E003FCA6A /* Nimble.framework */; };
+		ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
+		ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2D1F74C68E003FCA6A /* Quick.framework */; };
+		ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E301F74C8A5003FCA6A /* Nimble.framework */; };
+		ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E311F74C8A5003FCA6A /* Result.framework */; };
+		ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */; };
+		ADC03E381F74C8A5003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E331F74C8A5003FCA6A /* Alamofire.framework */; };
+		ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
+		ADC03E3A1F74C8EE003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E331F74C8A5003FCA6A /* Alamofire.framework */; };
+		ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */; };
+		ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E301F74C8A5003FCA6A /* Nimble.framework */; };
+		ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
+		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
+		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
+		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +123,16 @@
 		ADC03E191F74C41B003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		ADC03E211F74C492003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		ADC03E231F74C64E003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/Mac/BrightFutures.framework; sourceTree = "<group>"; };
+		ADC03E241F74C64E003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		ADC03E251F74C64E003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		ADC03E2C1F74C68E003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		ADC03E2D1F74C68E003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		ADC03E301F74C8A5003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = "<group>"; };
+		ADC03E311F74C8A5003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/tvOS/Result.framework; sourceTree = "<group>"; };
+		ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/tvOS/BrightFutures.framework; sourceTree = "<group>"; };
+		ADC03E331F74C8A5003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
+		ADC03E341F74C8A5003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +162,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC03E281F74C64F003FCA6A /* Alamofire.framework in Frameworks */,
+				ADC03E261F74C64F003FCA6A /* BrightFutures.framework in Frameworks */,
+				ADC03E271F74C64F003FCA6A /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +173,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5B11F74AFB000219F39 /* PactConsumerSwift.framework in Frameworks */,
+				ADC03E291F74C68E003FCA6A /* Alamofire.framework in Frameworks */,
+				ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */,
+				ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */,
+				ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */,
+				ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +185,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC03E3A1F74C8EE003FCA6A /* Alamofire.framework in Frameworks */,
+				ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */,
+				ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +196,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5CD1F74AFC900219F39 /* PactConsumerSwift.framework in Frameworks */,
+				ADC03E381F74C8A5003FCA6A /* Alamofire.framework in Frameworks */,
+				ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */,
+				ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */,
+				ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */,
+				ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +301,16 @@
 		ADC03E171F74C2C0003FCA6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADC03E331F74C8A5003FCA6A /* Alamofire.framework */,
+				ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */,
+				ADC03E301F74C8A5003FCA6A /* Nimble.framework */,
+				ADC03E341F74C8A5003FCA6A /* Quick.framework */,
+				ADC03E311F74C8A5003FCA6A /* Result.framework */,
+				ADC03E2D1F74C68E003FCA6A /* Quick.framework */,
+				ADC03E2C1F74C68E003FCA6A /* Result.framework */,
+				ADC03E251F74C64E003FCA6A /* Alamofire.framework */,
+				ADC03E231F74C64E003FCA6A /* BrightFutures.framework */,
+				ADC03E241F74C64E003FCA6A /* Nimble.framework */,
 				ADC03E211F74C492003FCA6A /* Quick.framework */,
 				ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */,
 				ADC03E181F74C41B003FCA6A /* BrightFutures.framework */,
@@ -629,6 +685,9 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -715,7 +774,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\ncarthage copy-frameworks";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks";
 		};
 		AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -723,13 +782,18 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/Result.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -774,9 +838,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */,
+				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
 				AD17A65F1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */,
-				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
 				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				AD17A6601F74BB7E00219F39 /* InteractionSpec.swift in Sources */,
 			);
@@ -797,8 +861,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */,
 				AD17A6631F74BB7F00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */,
+				ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */,
+				ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */,
+				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1313,7 +1381,6 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1383,7 +1450,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1446,6 +1512,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1519,6 +1589,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1582,7 +1656,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1650,7 +1724,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;

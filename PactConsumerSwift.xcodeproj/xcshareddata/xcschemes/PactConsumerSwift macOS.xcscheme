@@ -27,13 +27,14 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <PreActions>
          <ExecutionAction
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "">
+               scriptText = "echo &gt; &quot;$SRCROOT&quot;/tmp/pre-actions-macOS.log 2&gt;&amp;1&#10;PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/start_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -51,7 +52,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "">
+               scriptText = "echo &gt; &quot;$SRCROOT&quot;/tmp/post-actions-macOS.log 2&gt;&amp;1&#10;PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/stop_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
