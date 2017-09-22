@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
-  s.version = "0.4.3"
+  s.version = "0.5.0"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
@@ -13,18 +13,18 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/DiUS/pact-consumer-swift"
 
-  s.author       = { "andrewspinks" => "andrewspinks@gmail.com" }
+  s.author       = { "andrewspinks" => "andrewspinks@gmail.com", "marko" => "mjustinek@dius.com.au" }
 
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '9.0'
 
   s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => "v#{s.version}" }
-  s.source_files = 'PactConsumerSwift/**/*.swift'
+  s.source_files = 'Sources/**/*.swift'
   s.resources = 'scripts/start_server.sh', 'scripts/stop_server.sh'
   s.requires_arc = true
   s.frameworks   = 'Foundation', 'UIKit', 'XCTest'
 
-  s.dependency 'Alamofire', '~> 4.4'
+  s.dependency 'Alamofire', '~> 4.5'
   s.dependency 'BrightFutures', '~> 5.1'
   s.dependency 'Nimble', '~> 7.0'
 end
