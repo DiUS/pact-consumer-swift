@@ -1,7 +1,7 @@
 # Contributing to Pact Consumer Swift
 
 ### Prepare development environment
-The Pact Consumer Swift library is using carthage to manage library dependencies. You can install carthage using homebrew, then download and build the dependencies using `carthage bootstrap`
+The Pact Consumer Swift library is using Carthage and Swift Package Manager to manage library dependencies. You can install carthage using homebrew, then download and build the dependencies using `carthage bootstrap` or `swift package resolve`.
 
 ### Running tests
 iOS 11.0 on iPhone 8:  

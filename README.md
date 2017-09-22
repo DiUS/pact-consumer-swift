@@ -30,12 +30,12 @@ In Xcode, edit your scheme and add pre- and post-actions for your `Test` step to
 ```
 # Examples:
 # Pre-actions
-echo > "$SRCROOT"/tmp/pre-actions.log 2>&1
+exec > "$SRCROOT"/tmp/pre-actions.log 2>&1
 PATH=/full/path/to/your/rubies/bin:$PATH
 "$SRCROOT"/scripts/start_server.sh
 
 # Post-actions
-echo > "$SRCROOT"/tmp/post-actions.log 2>&1
+exec > "$SRCROOT"/tmp/post-actions.log 2>&1
 PATH=/full/path/to/your/rubies/bin:$PATH
 "$SRCROOT"/scripts/stop_server.sh
 ```
