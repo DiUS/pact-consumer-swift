@@ -2,7 +2,6 @@ excluded:
   - scripts
   - Carthage
   - certificates
-  - PactConsumerSwiftTests/
   - Products/
 included:
   - Sources/

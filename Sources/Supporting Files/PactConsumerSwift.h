@@ -2,17 +2,17 @@
 //  PactConsumerSwift.h
 //  PactConsumerSwift
 //
-//  Created by Andrew Spinks on 7/01/2015.
-//  Copyright (c) 2015 Andrew Spinks. All rights reserved.
+//  Created by Marko Justinek on 22/9/17.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for PactConsumerSwift.
-FOUNDATION_EXPORT double PactConsumerSwiftVersionNumber;
+FOUNDATION_EXPORT double PactConsumerSwift_VersionNumber;
 
 //! Project version string for PactConsumerSwift.
-FOUNDATION_EXPORT const unsigned char PactConsumerSwiftVersionString[];
+FOUNDATION_EXPORT const unsigned char PactConsumerSwift_VersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PactConsumerSwift/PublicHeader.h>
+
 
