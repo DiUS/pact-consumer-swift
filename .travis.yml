@@ -6,7 +6,7 @@ before_install:
   - gem install pact-mock_service -v 2.1.0
   - bundle install
   - brew update
-  - brew upgrade swiftlint
+  - brew outdated swiftlint || brew upgrade swiftlint
   - carthage checkout
 script:
   - set -o pipefail
