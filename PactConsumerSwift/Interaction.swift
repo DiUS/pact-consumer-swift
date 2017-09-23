@@ -1,10 +1,12 @@
 import Alamofire
 
-@objc public enum PactHTTPMethod: Int {
+@objc
+public enum PactHTTPMethod: Int {
   case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
 }
 
-@objc open class Interaction: NSObject {
+@objc
+open class Interaction: NSObject {
   open var providerState: String?
   open var testDescription: String = ""
   open var request: [String: Any] = [:]
@@ -16,6 +18,7 @@ import Alamofire
     return self
   }
 
+  @objc
   @discardableResult
   open func uponReceiving(_ testDescription: String) -> Interaction {
     self.testDescription = testDescription
@@ -57,6 +60,7 @@ import Alamofire
     return self
   }
 
+  @objc
   open func payload() -> [String: Any] {
     var payload: [String: Any] = ["description": testDescription,
                                   "request": request,

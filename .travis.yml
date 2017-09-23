@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.2
+osx_image: xcode9
 before_install:
   - scripts/import_keychain.sh
   - security find-identity -v -p codesigning
