@@ -24,6 +24,7 @@ before_install:
   - bundle install
   - brew update
   - brew upgrade
+  - brew outdated swiftlint || brew upgrade swiftlint
   - brew prune
   - brew cleanup
   - brew doctor
