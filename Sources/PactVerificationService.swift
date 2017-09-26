@@ -67,7 +67,7 @@ open class PactVerificationService {
     Router.baseURLString = baseUrl
   }
 
-  func setup (_ interactions: [Interaction]) -> Future<String, NSError> {
+  func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
     self.clean().onSuccess { _ in
         promise.completeWith(self.setupInteractions(interactions))
@@ -93,7 +93,6 @@ open class PactVerificationService {
     let promise = Promise<String, NSError>()
     Alamofire.request(Router.verify())
     .validate()
-    .responseString { response in self.requestHandler(promise)(response) }
 
     return promise.future
   }

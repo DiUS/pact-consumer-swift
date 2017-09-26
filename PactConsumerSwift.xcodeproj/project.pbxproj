@@ -73,6 +73,9 @@
 		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		ADC03E461F74E68D003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E431F74E68D003FCA6A /* BrightFutures.framework */; };
 		ADC03E471F74E68D003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E441F74E68D003FCA6A /* Alamofire.framework */; };
+		ADE08C371F7A664A0023A3A4 /* PactVerificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE08C361F7A664A0023A3A4 /* PactVerificationServiceTests.swift */; };
+		ADE08C381F7A664A0023A3A4 /* PactVerificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE08C361F7A664A0023A3A4 /* PactVerificationServiceTests.swift */; };
+		ADE08C391F7A664A0023A3A4 /* PactVerificationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE08C361F7A664A0023A3A4 /* PactVerificationServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +141,7 @@
 		ADC03E421F74E68D003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = "<group>"; };
 		ADC03E431F74E68D003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/watchOS/BrightFutures.framework; sourceTree = "<group>"; };
 		ADC03E441F74E68D003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
+		ADE08C361F7A664A0023A3A4 /* PactVerificationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactVerificationServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,7 @@
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
 				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
 				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
+				ADE08C361F7A664A0023A3A4 /* PactVerificationServiceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -827,6 +832,7 @@
 				AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */,
 				AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
+				ADE08C371F7A664A0023A3A4 /* PactVerificationServiceTests.swift in Sources */,
 				AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */,
 				AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */,
 				AD01EDB61F74BF4A00827C66 /* InteractionSpec.swift in Sources */,
@@ -851,6 +857,7 @@
 				AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */,
 				AD17A65F1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */,
+				ADE08C381F7A664A0023A3A4 /* PactVerificationServiceTests.swift in Sources */,
 				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
 				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				AD17A6601F74BB7E00219F39 /* InteractionSpec.swift in Sources */,
@@ -875,6 +882,7 @@
 				ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */,
 				AD17A6631F74BB7F00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */,
+				ADE08C391F7A664A0023A3A4 /* PactVerificationServiceTests.swift in Sources */,
 				ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */,
 				ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */,
 				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
