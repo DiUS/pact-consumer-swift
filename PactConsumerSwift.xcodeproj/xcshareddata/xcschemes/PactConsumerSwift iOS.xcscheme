@@ -34,7 +34,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "exec &gt; &quot;$SRCROOT&quot;/tmp/pre-actions-iOS.log 2&gt;&amp;1&#10;PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/start_server.sh">
+               scriptText = "PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/start_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -52,7 +52,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "exec &gt; &quot;$SRCROOT&quot;/tmp/post-actions-iOS.log 2&gt;&amp;1&#10;PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/stop_server.sh">
+               scriptText = "PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/stop_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
