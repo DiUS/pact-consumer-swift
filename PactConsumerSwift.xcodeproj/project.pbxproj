@@ -73,6 +73,7 @@
 		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		ADC03E461F74E68D003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E431F74E68D003FCA6A /* BrightFutures.framework */; };
 		ADC03E471F74E68D003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E441F74E68D003FCA6A /* Alamofire.framework */; };
+		ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */,
 				ADC03E3A1F74C8EE003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */,
@@ -1523,6 +1525,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1600,6 +1603,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
