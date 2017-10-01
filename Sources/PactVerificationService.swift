@@ -101,7 +101,7 @@ open class PactVerificationService {
     let promise = Promise<String, NSError>()
 
     Alamofire.request(Router.write(["consumer": [ "name": consumer ],
-                                    "provider": ["name": provider]]))
+                                    "provider": [ "name": provider ]]))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
@@ -141,9 +141,7 @@ open class PactVerificationService {
         } else {
           errorMessage = error.localizedDescription
         }
-        let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error",
-                                                                     value: errorMessage,
-                                                                     comment: "")]
+        let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: errorMessage, comment: "")]
         promise.failure(NSError(domain: "", code: 0, userInfo: userInfo))
       }
     }
