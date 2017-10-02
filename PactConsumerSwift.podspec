@@ -24,10 +24,10 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/**/*.swift'
   s.resources    = 'scripts/start_server.sh', 'scripts/stop_server.sh'
   s.requires_arc = true
-  s.frameworks   = 'Foundation', 'UIKit', 'XCTest', 'AppKit'
+  s.frameworks   = 'XCTest'
 
   s.dependency 'Alamofire', '~> 4.5'
-  s.dependency 'BrightFutures', '~> 5.1'
+  s.dependency 'BrightFutures', '~> 6.0'
   s.dependency 'Nimble', '~> 7.0'
   s.dependency 'Quick', '~> 1.1'
 end
