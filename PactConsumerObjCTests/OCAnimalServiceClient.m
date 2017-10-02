@@ -1,4 +1,3 @@
-
 #import "OCAnimalServiceClient.h"
 
 @implementation Animal

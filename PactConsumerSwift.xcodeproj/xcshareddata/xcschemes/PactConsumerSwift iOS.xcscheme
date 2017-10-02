@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A11F1A6A1A5C890D00DAB9CE"
+               BlueprintIdentifier = "AD17A5871F74AF5300219F39"
                BuildableName = "PactConsumerSwift.framework"
-               BlueprintName = "PactConsumerSwift"
-               ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A11F1A751A5C890E00DAB9CE"
-               BuildableName = "PactConsumerSwiftTests.xctest"
-               BlueprintName = "PactConsumerSwiftTests"
+               BlueprintName = "PactConsumerSwift iOS"
                ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,13 +34,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "PATH=/opt/boxen/rbenv/shims:$PATH&#10;&quot;$SRCROOT&quot;/scripts/start_server.sh">
+               scriptText = "PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/start_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "A11F1A6A1A5C890D00DAB9CE"
+                     BlueprintIdentifier = "AD17A5871F74AF5300219F39"
                      BuildableName = "PactConsumerSwift.framework"
-                     BlueprintName = "PactConsumerSwift"
+                     BlueprintName = "PactConsumerSwift iOS"
                      ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -66,13 +52,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "PATH=/opt/boxen/rbenv/shims:$PATH&#10;&quot;$SRCROOT&quot;/scripts/stop_server.sh">
+               scriptText = "PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/stop_server.sh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "A11F1A6A1A5C890D00DAB9CE"
+                     BlueprintIdentifier = "AD17A5871F74AF5300219F39"
                      BuildableName = "PactConsumerSwift.framework"
-                     BlueprintName = "PactConsumerSwift"
+                     BlueprintName = "PactConsumerSwift iOS"
                      ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -84,9 +70,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A11F1A751A5C890E00DAB9CE"
-               BuildableName = "PactConsumerSwiftTests.xctest"
-               BlueprintName = "PactConsumerSwiftTests"
+               BlueprintIdentifier = "AD17A5901F74AF5300219F39"
+               BuildableName = "PactConsumerSwift iOSTests.xctest"
+               BlueprintName = "PactConsumerSwift iOSTests"
                ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -94,9 +80,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A11F1A6A1A5C890D00DAB9CE"
+            BlueprintIdentifier = "AD17A5871F74AF5300219F39"
             BuildableName = "PactConsumerSwift.framework"
-            BlueprintName = "PactConsumerSwift"
+            BlueprintName = "PactConsumerSwift iOS"
             ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -117,9 +103,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A11F1A6A1A5C890D00DAB9CE"
+            BlueprintIdentifier = "AD17A5871F74AF5300219F39"
             BuildableName = "PactConsumerSwift.framework"
-            BlueprintName = "PactConsumerSwift"
+            BlueprintName = "PactConsumerSwift iOS"
             ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -135,9 +121,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A11F1A6A1A5C890D00DAB9CE"
+            BlueprintIdentifier = "AD17A5871F74AF5300219F39"
             BuildableName = "PactConsumerSwift.framework"
-            BlueprintName = "PactConsumerSwift"
+            BlueprintName = "PactConsumerSwift iOS"
             ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

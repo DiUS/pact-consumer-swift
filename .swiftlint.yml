@@ -2,10 +2,9 @@ excluded:
   - scripts
   - Carthage
   - certificates
-  - PactConsumerSwiftTests/
   - Products/
 included:
-  - PactConsumerSwift/
+  - Sources/
 opt_in_rules:
   - empty_count
 force_cast:

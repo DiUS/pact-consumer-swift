@@ -1,12 +1,18 @@
 # Pact Consumer Swift
-* Core Library build: [![Build Status](https://travis-ci.org/DiUS/pact-consumer-swift.svg?branch=master)](https://travis-ci.org/DiUS/pact-consumer-swift)
-* Core Library Code coverage: [![codecov](https://codecov.io/gh/DiUS/pact-consumer-swift/branch/master/graph/badge.svg)](https://codecov.io/gh/DiUS/pact-consumer-swift)
-* Swift, Carthage Example build: [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample)
-* ObjeciveC, Git Submodules Example build: [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample)
+
+[![Build Status](https://travis-ci.org/DiUS/pact-consumer-swift.svg?branch=master)](https://travis-ci.org/DiUS/pact-consumer-swift)
+[![codecov](https://codecov.io/gh/DiUS/pact-consumer-swift/branch/master/graph/badge.svg)](https://codecov.io/gh/DiUS/pact-consumer-swift)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager Compatible](https://img.shields.io/badge/swift_package_manager-compatible-brightgreen.svg)]()
+![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/PactConsumerSwift/badge.png)](https://cocoadocs.org/docsets/PactConsumerSwift)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/PactConsumerSwift/badge.svg)](https://cocoadocs.org/docsets/PactConsumerSwift) ![MIT](https://cocoapod-badges.herokuapp.com/l/PactConsumerSwift/badge.png)
+[![Twitter](https://img.shields.io/badge/twitter-@pact__up-blue.svg?style=flat)](http://twitter.com/pact_up)
 
 This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io).
 
-Why? To test communication boundaries between your app and services. You can view a presentation I gave on how Pact can work in a mobile context here: [Yow Connected Talk](https://www.youtube.com/watch?v=UQkMr4bKYp4)
+Why? To test communication boundaries between your app and services.
+You can view a presentation on how Pact can work in a mobile context here: [Yow! Connected 2016 Andrew Spinks - Increasing The Confidence In Your Service Integrations](https://www.youtube.com/watch?v=UQkMr4bKYp4).
 
 Implements [Pact Specification v2](https://github.com/pact-foundation/pact-specification/tree/version-2),
 including [flexible matching](http://docs.pact.io/documentation/matching.html).
@@ -17,15 +23,33 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
 ### Install the [pact-mock_service][pact-mock-service]
-  `sudo gem install pact-mock_service -v 2.1.0`
+
+Run `sudo gem install pact-mock_service -v 2.1.0` in your terminal.
+
+In Xcode, edit your scheme and add pre- and post-actions for your `Test` step to run the provided scripts in `./scripts/` folder. Make sure you select your target in _Provide build settings from_ the drop down menu.
+```
+# Examples:
+# Pre-actions
+PATH=/full/path/to/your/rubies/bin:$PATH
+"$SRCROOT"/scripts/start_server.sh
+
+# Post-actions
+PATH=/full/path/to/your/rubies/bin:$PATH
+"$SRCROOT"/scripts/stop_server.sh
+```
+![Xcode Scheme Test Pre-actions](scripts/images/xcode-scheme-test-pre-actions.png)
 
 ### Add the PactConsumerSwift library to your project
 
 #### Using [Carthage](https://github.com/Carthage/Carthage) library manager
-- See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) for an example project using the library with Carthage.
+- See the [PactSwiftExample](https://github.com/andrewspinks/PactSwiftExample) [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactSwiftExample) for an example project using `pact-consumer-swift` with Carthage for an iOS target.
+- See the [PactMacOSExample](https://github.com/surpher/PactMacOSExample) [![Build Status](https://travis-ci.org/surpher/PactMacOSExample.svg?branch=master)](https://travis-ci.org/surpher/PactMacOSExample) for an example project using `pact-consumer-swift` through Carthage for a macOS target.
 
-#### Using CocoaPods
-- See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) for an example project using the library with CocoaPods.
+#### Using [CocoaPods](https://cocoapods.org/pods/PactConsumerSwift) (Git Submodules)
+- See the [PactObjectiveCExample](https://github.com/andrewspinks/PactObjectiveCExample) [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](https://travis-ci.org/andrewspinks/PactObjectiveCExample) for an example project using `pact-consumer-swift` with CocoaPods for an iOS target.
+
+#### Using [Swift Package Manager](https://swift.org/package-manager/) dependencies manager
+- See the [PactSwiftPMExample](http://github.com/surpher/PactSwiftPMExample) [![Build Status](https://travis-ci.org/surpher/PactSwiftPMExample.svg?branch=master)](https://travis-ci.org/surpher/PactSwiftPMExample) for an example project using `pact-consumer-swift` library through Swift Package Manager for an executable file that runs in terminal.
 
 ## Writing Pact Tests
 
@@ -115,6 +139,56 @@ import PactConsumerSwift
   } timeout:60];
 }
 ```
+
+### Testing with XCTest
+Write a Unit Test similar to the following:
+```swift
+import PactConsumerSwift
+...
+  var animalMockService: MockService?
+  var animalServiceClient: AnimalServiceClient?
+
+  override func setUp() {
+    super.setUp()
+
+    animalMockService = MockService(provider: "Animal Provider", consumer: "Animal Service Client")
+    animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
+  }
+
+  func testItGetsAlligator() {
+    // Prepare the expecated behaviour using pact's MockService
+    animalMockService!
+      .given("an alligator exists")
+      .uponReceiving("a request for alligator")
+      .withRequest(method: .GET, path: "/alligator")
+      .willRespondWith(status: 200,
+                       headers: ["Content-Type": "application/json"],
+                       body: [ "name": "Mary" ])
+
+    // Run the test
+    animalMockService!.run(timeout: 60) { (testComplete) -> Void in
+      self.animalServiceClient!.getAlligator { (response) -> in
+        XCTAssertEqual(response.name, "Mary")
+        testComplete()
+      }
+    }
+  }
+  ...
+```
+
+An optional `timeout` (seconds) parameter can be included on the run function. Defaults to 30 seconds.
+
+```swift
+...
+    // Run the test
+    animalMockService!.run(timeout: 60) { (testComplete) -> Void in
+      self.animalServiceClient!.getAlligator { (response) -> in
+        XCTAssertEqual(response.name, "Mary")
+        testComplete()
+      }
+    }
+```
+
 ### Matching
 
 In addition to verbatim value matching, you have 3 useful matching functions
