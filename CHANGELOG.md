@@ -1,5 +1,15 @@
 
 
+# 0.5.0 - macOS and SwiftPM support
+
+* 51b567a - Adds support for macOS and tvOS targets using Carthage and SwiftPM (#32) (Marko, Mon Oct 2 12:46:52 2017 +1100)
+* 5248ba4 - Fix swiftlint upgrade. (#30) (andrewspinks, Sat Sep 23 15:03:52 2017 +0900)
+* c74eaae - Swift 4 compatible framework (#27) (Marko Justinek, Sat Sep 23 15:14:42 2017 +1000)
+* 2dd464d - Allow matchers to be used with headers, and add specs around query parameter matchers. (Andrew Spinks, Thu Jun 1 14:21:06 2017 +0900)
+* 2d7eb6f - Fix travisci badge. (Andrew Spinks, Thu Jun 1 07:54:11 2017 +0900)
+* 414159d - Fix cocoapods publish. (Andrew Spinks, Wed May 31 15:30:19 2017 +0900)
+* 878b70b - bump version to 0.4.3 (Andrew Spinks, Wed May 31 15:29:41 2017 +0900)
+
 # 0.4.2 - Bugfix Release
 
 * 891920f - bump version to 0.4.2 (Andrew Spinks, Wed May 31 14:55:31 2017 +0900)
