@@ -9,48 +9,25 @@ env:
     - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
     - secure: FpfacekFs93LkX9gerQUxQKIDTjBl2abp7ZQ/8L3DiJo4nMF7xEwUGeSDQMR+2hRqRWr/SdU59Lll5k10JBqWxAaLXDTUq3Lh3aamc4nc2PAN7yp+0aq9RQG5+PaLkfx+SLs5B/CjDiRRotZg/H/uMTRRFbkqydVtxiqGv94JOg=
   matrix:
-    - DESTINATION="OS=11.0,name=iPhone 8"          SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES"  CARTHAGE_PLATFORM="iOS"
-    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"   SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES"  CARTHAGE_PLATFORM="iOS"
-    - DESTINATION="OS=9.3,name=iPhone 6"           SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES"  CARTHAGE_PLATFORM="iOS"
+    - DESTINATION="OS=11.0,name=iPhone 8"          SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
+    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"   SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
 
-    - DESTINATION="OS=11.0,name=Apple TV 4K (at 1080p)" SCHEME="$TVOS_FRAMEWORK_SCHEME" RUN_TESTS="YES" CARTHAGE_PLATFORM="tvOS"
-    - DESTINATION="OS=10.2,name=Apple TV 1080p"    SCHEME="$TVOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES"  CARTHAGE_PLATFORM="tvOS"
-    - DESTINATION="OS=9.2,name=Apple TV 1080p"     SCHEME="$TVOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES"  CARTHAGE_PLATFORM="tvOS"
+    - DESTINATION="OS=11.0,name=Apple TV 4K (at 1080p)" SCHEME="$TVOS_FRAMEWORK_SCHEME" CARTHAGE_PLATFORM="tvOS"
 
-    - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES"  CARTHAGE_PLATFORM="macOS"
+    - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"     CARTHAGE_PLATFORM="macOS"
 before_install:
   - scripts/import_keychain.sh
   - security find-identity -v -p codesigning
   - gem install pact-mock_service -v 2.1.0
   - bundle install
-  - brew update
-  - brew upgrade
+  - brew outdated carthage || brew upgrade carthage
   - brew outdated swiftlint || brew upgrade swiftlint
-  - brew prune
-  - brew cleanup
-  - brew doctor
   - carthage checkout
 script:
   - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -showsdks
   - swiftlint
   - carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
-
-  # Build Framework in Debug and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
-
-  # Build Framework in Release and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
-
+  - scripts/build.sh
   - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
 after_script: scripts/delete_keychain.sh
 after_success:
