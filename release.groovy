@@ -43,6 +43,8 @@ def projectProps = new File('PactConsumerSwift.podspec').text
 def versionMatch = projectProps =~ /(?m)version\s*=\s*"(.*)"/
 def version = versionMatch[0][1]
 
+executeOnShell 'pod spec lint PactConsumerSwift.podspec --allow-warnings'
+
 def releaseDesc = System.console().readLine('Describe this release: [Bugfix Release]').trim()
 if (releaseDesc.empty) {
   releaseDesc = 'Bugfix Release'
@@ -91,7 +93,6 @@ ask('Tag and Push commits?: [Y]') {
 }
 
 ask('Publish library to cocoapods?: [Y]') {
-  executeOnShell 'pod spec lint PactConsumerSwift.podspec  --allow-warnings'
   executeOnShell 'pod trunk push PactConsumerSwift.podspec --allow-warnings'
 }
 
