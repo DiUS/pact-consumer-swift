@@ -40,7 +40,7 @@ carthage build --no-skip-current --platform iOS,macOS,tvOS
 #### Test Swift Package Manager
 ```
 ./scripts/start_server.sh &&
-swift build &&
+swift build -c debug | release &&
 swift test &&
 ./scripts/stop_server.sh
 ```

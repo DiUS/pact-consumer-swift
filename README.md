@@ -216,7 +216,7 @@ If your setup is correct and your tests run against the pack mock server, then y
 And the generated pacts here:
 `$YOUR_PROJECT/tmp/pacts/...`
 
-[Publish][pact-publish-to-broker] your generated pact file(s) to a [Pact Broker][pact-broker] so your _API provider_ can always retrieve them from one location, even when pacts change. Or even just by simply sending the pact file to your API provider devs so they can used them in their tests of their API responses. See [Verifying pacts][pact-verifying] for more information.
+[Publish][pact-publish-to-broker] your generated pact file(s) to your [Pact Broker][pact-broker] or a [Hosted Pact Broker](http://pact.dius.com.au) so your _API provider_ can always retrieve them from one location, even when pacts change. Or even just by simply sending the pact file to your API provider devs so they can used them in their tests of their API responses. See [Verifying pacts][pact-verifying] for more information.
 For an end-to-end example with a ruby back end service, have a look at the [KatKit example][pact-katkit-example].
 
 Also, check out this article on [using a dockerized Node.js service][pact-dockerized-example] that uses provider states.
