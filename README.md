@@ -14,8 +14,8 @@ This library provides a Swift / Objective C DSL for creating Consumer [Pacts](ht
 _But why?_ To test communication boundaries between your app and services.  
 You can view a presentation on how Pact can work in a mobile context here: [Yow! Connected 2016 Andrew Spinks - Increasing The Confidence In Your Service Integrations](https://www.youtube.com/watch?v=UQkMr4bKYp4).
 
-Implements [Pact Specification v2](pact-spec-v2),
-including [flexible matching](pact-flexible-matching).
+Implements [Pact Specification v2][pact-spec-v2],
+including [flexible matching][pact-flexible-matching].
 
 This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the tests.
 
@@ -42,14 +42,14 @@ PATH=/full/path/to/your/rubies/bin:$PATH
 ### Add the PactConsumerSwift library to your project
 
 #### Using [Carthage](https://github.com/Carthage/Carthage)
-- See the [PactSwiftExample](pact-carthage-ios-example) [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)](build-carthage-ios-example) for an example project using `pact-consumer-swift` with Carthage for an iOS target.
-- See the [PactMacOSExample](pact-carthage-macos-example) [![Build Status](https://travis-ci.org/surpher/PactMacOSExample.svg?branch=master)](build-carthage-macos-example) for an example project using `pact-consumer-swift` through Carthage for a macOS target.
+- See the [PactSwiftExample][pact-carthage-ios-example] [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)][build-carthage-ios-example] for an example project using `pact-consumer-swift` with Carthage for an iOS target.
+- See the [PactMacOSExample][pact-carthage-macos-example] [![Build Status](https://travis-ci.org/surpher/PactMacOSExample.svg?branch=master)][build-carthage-macos-example] for an example project using `pact-consumer-swift` through Carthage for a macOS target.
 
 #### Using [CocoaPods](https://cocoapods.org/pods/PactConsumerSwift)
-- See the [PactObjectiveCExample](pact-objc-example) [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)](build-objc-example) for an example project using `pact-consumer-swift` with CocoaPods for an iOS target.
+- See the [PactObjectiveCExample][pact-objc-example] [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)][build-objc-example] for an example project using `pact-consumer-swift` with CocoaPods for an iOS target.
 
 #### Using [Swift Package Manager](https://swift.org/package-manager/)
-- See the [PactSwiftPMExample](pact-swiftpm-example) [![Build Status](https://travis-ci.org/surpher/PactSwiftPMExample.svg?branch=master)](build-swiftpm-example) for an example project using `pact-consumer-swift` library through Swift Package Manager for an executable that runs in terminal.
+- See the [PactSwiftPMExample][pact-swiftpm-example] [![Build Status](https://travis-ci.org/surpher/PactSwiftPMExample.svg?branch=master)][build-swiftpm-example] for an example project using `pact-consumer-swift` library through Swift Package Manager for an executable that runs in terminal.
 
 ## Writing Pact Tests
 
@@ -204,11 +204,11 @@ as the element _type_ (valid JSON number, string, object etc.) itself matches.
 consisting of elements like those passed in. `min` must be >= 1. `content` may
 be a valid JSON value: e.g. strings, numbers and objects.
 
-*NOTE*: One caveat to note, is that you will need to use valid Ruby [regular expressions](regular-expressions) and double escape backslashes.
+*NOTE*: One caveat to note, is that you will need to use valid Ruby [regular expressions][regular-expressions] and double escape backslashes.
 
 See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect error responses, how to use query params, and Matchers.
 
-For more on request / response matching, see [Matching](matching).
+For more on request / response matching, see [Matching][matching].
 
 ### Verifying your client against the service you are integrating with
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
@@ -216,15 +216,15 @@ If your setup is correct and your tests run against the pack mock server, then y
 And the generated pacts here:
 `$YOUR_PROJECT/tmp/pacts/...`
 
-[Publish](pact-publish-to-broker) your generated pact file(s) to a [Pact Broker](pact-broker) so your _API provider_ can always retrieve them from one location, even when pacts change. Or even just by simply sending the pact file to your API provider devs so they can used them in their tests of their API responses. See [Verifying pacts](pact-verifying) for more information.
-For an end-to-end example with a ruby back end service, have a look at the [KatKit example](pact-katkit-example).
+[Publish][pact-publish-to-broker] your generated pact file(s) to a [Pact Broker][pact-broker] so your _API provider_ can always retrieve them from one location, even when pacts change. Or even just by simply sending the pact file to your API provider devs so they can used them in their tests of their API responses. See [Verifying pacts][pact-verifying] for more information.
+For an end-to-end example with a ruby back end service, have a look at the [KatKit example][pact-katkit-example].
 
-Also, check out this article on [using a dockerized Node.js service](pact-dockerized-example) that uses provider states.
+Also, check out this article on [using a dockerized Node.js service][pact-dockerized-example] that uses provider states.
 
 ## More reading
 * The Pact website [Pact](http://pact.io)
-* The pact mock server that the Swift library uses under the hood [Pact mock service](https://github.com/bethesque/pact-mock_service)
-* A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker](pact-broker)
+* The pact mock server that the Swift library uses under the hood [Pact mock service][pact-mock-service]
+* A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker][pact-broker]
 
 ## Contributing
 
