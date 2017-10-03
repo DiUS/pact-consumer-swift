@@ -26,7 +26,7 @@ Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
 Run `sudo gem install pact-mock_service -v 2.1.0` in your terminal.
 
-In Xcode, edit your scheme and add pre- and post-actions for your `Test` step to run the provided scripts in `./scripts/` folder. Make sure you select your target in _Provide build settings from_ the drop down menu.
+In Xcode, edit your scheme and add _pre-_ and _post-actions_ for your `Test` step to run the provided scripts in `./scripts/` folder. Make sure you select your target in _Provide build settings from_ the drop down menu.
 ```
 # Examples:
 # Pre-actions
@@ -218,17 +218,18 @@ If your setup is correct and your tests run against the pack mock server, then y
 And the generated pacts, here:
 `$YOUR_PROJECT/tmp/pacts/...`
 
-  See [Verifying pacts](http://docs.pact.io/documentation/verifying_pacts.html) for more information.
+Share the generated pact file(s) with your API provider using a Pact Broker, or using the pacts in their project to test their API responses.  
+See [Verifying pacts](http://docs.pact.io/documentation/verifying_pacts.html) for more information.
 
-For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso).
-[Here](https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk) is an article using a dockerized nodejs service which uses provider states.
+- For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso).  
+- An article on [using a dockerized Node.js service](https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk) which uses provider states.
 
-# More reading
+## More reading
 * The Pact website [Pact](http://pact.io)
 * The pact mock server that the Swift library uses under the hood [Pact mock service](https://github.com/bethesque/pact-mock_service)
 * A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker](https://github.com/bethesque/pact_broker)
 
-# Contributing
+## Contributing
 
 Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 
