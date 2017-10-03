@@ -3,11 +3,6 @@
 ### Prepare your development environment
 The Pact Consumer Swift library is using Carthage and Swift Package Manager to manage library dependencies. You should install [Carthage](https://github.com/Carthage/Carthage) using [Homebrew](https://brew.sh), then download and build the dependencies using `carthage bootstrap` (Carthage), or `swift package resolve` (SwiftPM).
 
-##### Setup
-```
-gem install xcpretty
-```
-
 ### Running tests with default destination
 ```
 ./scripts/build.sh
@@ -39,7 +34,7 @@ Getting set up to work with [CocoaPods](https://guides.cocoapods.org/making/gett
 
 #### Test Carthage
 ```
-carthage build --no-skip-current --platform iOS,macOS
+carthage build --no-skip-current --platform iOS,macOS,tvOS
 ```
 
 #### Test Swift Package Manager
