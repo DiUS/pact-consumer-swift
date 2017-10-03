@@ -212,17 +212,17 @@ See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect
 
 For more on request / response matching, see [Matching](http://docs.pact.io/documentation/matching.html).
 
-### Verifying your iOS client against the service you are integrating with
+### Verifying your client against the service you are integrating with
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
 `$YOUR_PROJECT/tmp/pact.log`
 And the generated pacts, here:
 `$YOUR_PROJECT/tmp/pacts/...`
 
-Share the generated pact file(s) with your API provider using a Pact Broker, or using the pacts in their project to test their API responses.  
-See [Verifying pacts](http://docs.pact.io/documentation/verifying_pacts.html) for more information.
+Share the generated pact file(s) with your API provider using a Pact Broker, or using the pacts in their project to test their API responses.
 
-- For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso).  
-- An article on [using a dockerized Node.js service](https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk) which uses provider states.
+See [Verifying pacts](http://docs.pact.io/documentation/verifying_pacts.html) for more information.  
+For an end to end example with a ruby back end service, have a look at the [KatKit example](https://github.com/andrewspinks/pact-mobile-preso).  
+An article on [using a dockerized Node.js service](https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk) that uses provider states.
 
 ## More reading
 * The Pact website [Pact](http://pact.io)
