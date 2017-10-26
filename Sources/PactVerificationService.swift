@@ -93,7 +93,8 @@ open class PactVerificationService {
     let promise = Promise<String, NSError>()
     Alamofire.request(Router.verify())
     .validate()
-
+    .responseString { response in self.requestHandler(promise)(response) }
+    
     return promise.future
   }
 
