@@ -1,5 +1,17 @@
 
 
+# 0.5.1 - Bugfix Release
+
+* 1b6ba70 - Fixed issue preventing the pact writing (Angel G. Olloqui, Wed Oct 25 12:30:38 2017 +0200)
+* 44146ba - Updates documentation (Marko Justinek, Wed Oct 4 10:41:17 2017 +1100)
+* a5d24a0 - Build script improvements (Marko Justinek, Wed Oct 4 10:29:54 2017 +1100)
+* ff6939f - Fixes links (Marko Justinek, Wed Oct 4 10:09:08 2017 +1100)
+* 0aa3bd6 - Fixes links (Marko Justinek, Wed Oct 4 10:09:08 2017 +1100)
+* 10ddac3 - Updates README (Marko Justinek, Wed Oct 4 08:35:12 2017 +1100)
+* c9806df - Updates README (Marko Justinek, Wed Oct 4 08:16:21 2017 +1100)
+* 44b087f - Release script runs pod spec lint before versioning and tagging (Marko Justinek, Wed Oct 4 08:07:39 2017 +1100)
+* d8c22b0 - Updates readme and contributing. (Marko Justinek, Wed Oct 4 08:07:03 2017 +1100)
+
 # 0.5.0 - macOS and SwiftPM support
 
 * 51b567a - Adds support for macOS and tvOS targets using Carthage and SwiftPM (#32) (Marko, Mon Oct 2 12:46:52 2017 +1100)
