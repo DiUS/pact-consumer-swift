@@ -7,6 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10985BA1FE0ED7A0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
+		A10985BB1FE0ED7B0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
+		A10985BC1FE0ED7C0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
+		A10985BD1FE0ED840045F9FF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */; };
+		A10985BE1FE0ED840045F9FF /* PactInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C681FE0CDBF0080725A /* PactInteraction.swift */; };
+		A10985BF1FE0ED840045F9FF /* PactMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6A1FE0CDBF0080725A /* PactMockServer.swift */; };
+		A10985C01FE0ED840045F9FF /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
+		A10985C11FE0ED840045F9FF /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6B1FE0CDBF0080725A /* Pact.swift */; };
+		A10985C21FE0ED840045F9FF /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
+		A10985C31FE0ED840045F9FF /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
+		A10985C41FE0ED850045F9FF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */; };
+		A10985C51FE0ED850045F9FF /* PactInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C681FE0CDBF0080725A /* PactInteraction.swift */; };
+		A10985C61FE0ED850045F9FF /* PactMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6A1FE0CDBF0080725A /* PactMockServer.swift */; };
+		A10985C71FE0ED850045F9FF /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
+		A10985C81FE0ED850045F9FF /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6B1FE0CDBF0080725A /* Pact.swift */; };
+		A10985C91FE0ED850045F9FF /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
+		A10985CA1FE0ED850045F9FF /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
+		A10985CB1FE0ED860045F9FF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */; };
+		A10985CC1FE0ED860045F9FF /* PactInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C681FE0CDBF0080725A /* PactInteraction.swift */; };
+		A10985CD1FE0ED860045F9FF /* PactMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6A1FE0CDBF0080725A /* PactMockServer.swift */; };
+		A10985CE1FE0ED860045F9FF /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
+		A10985CF1FE0ED860045F9FF /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6B1FE0CDBF0080725A /* Pact.swift */; };
+		A10985D01FE0ED860045F9FF /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
+		A10985D11FE0ED860045F9FF /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
+		A10985D21FE0ED8B0045F9FF /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C751FE0CDC80080725A /* Matchers.swift */; };
+		A10985D31FE0ED8B0045F9FF /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
+		A10985D41FE0ED8B0045F9FF /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
+		A10985D51FE0ED8B0045F9FF /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
+		A10985D61FE0ED8C0045F9FF /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C751FE0CDC80080725A /* Matchers.swift */; };
+		A10985D71FE0ED8C0045F9FF /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
+		A10985D81FE0ED8C0045F9FF /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
+		A10985D91FE0ED8C0045F9FF /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
+		A10985DA1FE0ED8D0045F9FF /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C751FE0CDC80080725A /* Matchers.swift */; };
+		A10985DB1FE0ED8D0045F9FF /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
+		A10985DC1FE0ED8D0045F9FF /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
+		A10985DD1FE0ED8D0045F9FF /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
+		A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10985E61FE0F2250045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10985EA1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
+		A10986261FE0F8200045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
+		A10986281FE0F8240045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
+		A10986291FE0F8250045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
+		A109862A1FE0F8260045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
+		A1400C6C1FE0CDC00080725A /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
+		A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
+		A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
+		A1400C6F1FE0CDC00080725A /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
+		A1400C701FE0CDC00080725A /* PactInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C681FE0CDBF0080725A /* PactInteraction.swift */; };
+		A1400C711FE0CDC00080725A /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */; };
+		A1400C721FE0CDC00080725A /* PactMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6A1FE0CDBF0080725A /* PactMockServer.swift */; };
+		A1400C731FE0CDC00080725A /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C6B1FE0CDBF0080725A /* Pact.swift */; };
+		A1400C781FE0CDC80080725A /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
+		A1400C791FE0CDC80080725A /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C751FE0CDC80080725A /* Matchers.swift */; };
+		A1400C7A1FE0CDC80080725A /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
+		A1400C7B1FE0CDC80080725A /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
+		A1400C901FE0D02E0080725A /* MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */; };
+		A1400C911FE0D0300080725A /* MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */; };
+		A1400C921FE0D0310080725A /* MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */; };
+		A1400C931FE0DF080080725A /* PactInteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C831FE0CFAB0080725A /* PactInteractionSpec.swift */; };
+		A1400C941FE0DF090080725A /* PactInteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C831FE0CFAB0080725A /* PactInteractionSpec.swift */; };
+		A1400C951FE0DF0B0080725A /* PactInteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C831FE0CFAB0080725A /* PactInteractionSpec.swift */; };
+		A1400C961FE0DF120080725A /* PactBodyBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */; };
+		A1400C971FE0DF120080725A /* PactHeaderBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */; };
+		A1400C981FE0DF120080725A /* PactQueryBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */; };
+		A1400C991FE0DF120080725A /* PactSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C801FE0CFAB0080725A /* PactSpec.swift */; };
+		A1400C9A1FE0DF130080725A /* PactBodyBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */; };
+		A1400C9B1FE0DF130080725A /* PactHeaderBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */; };
+		A1400C9C1FE0DF130080725A /* PactQueryBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */; };
+		A1400C9D1FE0DF130080725A /* PactSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C801FE0CFAB0080725A /* PactSpec.swift */; };
+		A1400C9E1FE0DF140080725A /* PactBodyBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */; };
+		A1400C9F1FE0DF140080725A /* PactHeaderBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */; };
+		A1400CA01FE0DF140080725A /* PactQueryBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */; };
+		A1400CA11FE0DF140080725A /* PactSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C801FE0CFAB0080725A /* PactSpec.swift */; };
 		AD01EDB61F74BF4A00827C66 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
 		AD17A5921F74AF5300219F39 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD17A5881F74AF5300219F39 /* PactConsumerSwift.framework */; };
 		AD17A5991F74AF5300219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,6 +178,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		A10986271FE0F8200045F9FF /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactQueryBuilder.swift; sourceTree = "<group>"; };
+		A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilder.swift; sourceTree = "<group>"; };
+		A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMockServerWrapper.swift; sourceTree = "<group>"; };
+		A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactBodyBuilder.swift; sourceTree = "<group>"; };
+		A1400C681FE0CDBF0080725A /* PactInteraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteraction.swift; sourceTree = "<group>"; };
+		A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		A1400C6A1FE0CDBF0080725A /* PactMockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactMockServer.swift; sourceTree = "<group>"; };
+		A1400C6B1FE0CDBF0080725A /* Pact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pact.swift; sourceTree = "<group>"; };
+		A1400C741FE0CDC80080725A /* TermMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermMatcher.swift; sourceTree = "<group>"; };
+		A1400C751FE0CDC80080725A /* Matchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchers.swift; sourceTree = "<group>"; };
+		A1400C761FE0CDC80080725A /* MatchingRule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchingRule.swift; sourceTree = "<group>"; };
+		A1400C771FE0CDC80080725A /* TypeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeMatcher.swift; sourceTree = "<group>"; };
+		A1400C801FE0CFAB0080725A /* PactSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactSpec.swift; sourceTree = "<group>"; };
+		A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactQueryBuilderSpec.swift; sourceTree = "<group>"; };
+		A1400C831FE0CFAB0080725A /* PactInteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteractionSpec.swift; sourceTree = "<group>"; };
+		A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilderSpec.swift; sourceTree = "<group>"; };
+		A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactBodyBuilderSpec.swift; sourceTree = "<group>"; };
+		A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchersSpec.swift; sourceTree = "<group>"; };
 		AD17A5881F74AF5300219F39 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PactConsumerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PactConsumerSwift.h; sourceTree = "<group>"; };
 		AD17A58C1F74AF5300219F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +243,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10986261FE0F8200045F9FF /* NativeMockServer.framework in Frameworks */,
+				A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E1B1F74C41B003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */,
@@ -158,6 +257,7 @@
 			files = (
 				AD17A5921F74AF5300219F39 /* PactConsumerSwift.framework in Frameworks */,
 				ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */,
+				A10985E61FE0F2250045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E1F1F74C492003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */,
 				ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */,
@@ -171,6 +271,8 @@
 				ADC03E281F74C64F003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E261F74C64F003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E271F74C64F003FCA6A /* Nimble.framework in Frameworks */,
+				A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
+				A10986281FE0F8240045F9FF /* NativeMockServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +284,7 @@
 				ADC03E291F74C68E003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */,
+				A10985EA1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */,
 				ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */,
 			);
@@ -191,8 +294,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10986291FE0F8250045F9FF /* NativeMockServer.framework in Frameworks */,
 				ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */,
 				ADC03E3A1F74C8EE003FCA6A /* Alamofire.framework in Frameworks */,
+				A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */,
 			);
@@ -206,6 +311,7 @@
 				ADC03E381F74C8A5003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */,
+				A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */,
 				ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */,
 			);
@@ -215,7 +321,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E461F74E68D003FCA6A /* BrightFutures.framework in Frameworks */,
+				A109862A1FE0F8260045F9FF /* NativeMockServer.framework in Frameworks */,
 				ADC03E471F74E68D003FCA6A /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,12 +331,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1400C621FE0CB8A0080725A /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */,
+				A1400C681FE0CDBF0080725A /* PactInteraction.swift */,
+				A1400C6A1FE0CDBF0080725A /* PactMockServer.swift */,
+				A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */,
+				A1400C6B1FE0CDBF0080725A /* Pact.swift */,
+				A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */,
+				A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */,
+				A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */,
+				A1400C631FE0CBE10080725A /* Matchers */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		A1400C631FE0CBE10080725A /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C751FE0CDC80080725A /* Matchers.swift */,
+				A1400C761FE0CDC80080725A /* MatchingRule.swift */,
+				A1400C741FE0CDC80080725A /* TermMatcher.swift */,
+				A1400C771FE0CDC80080725A /* TypeMatcher.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
+		A1400C7D1FE0CDFF0080725A /* NativeTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C8D1FE0CFF70080725A /* Matchers */,
+				A1400C831FE0CFAB0080725A /* PactInteractionSpec.swift */,
+				A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */,
+				A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */,
+				A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */,
+				A1400C801FE0CFAB0080725A /* PactSpec.swift */,
+			);
+			path = NativeTests;
+			sourceTree = "<group>";
+		};
+		A1400C7E1FE0CE590080725A /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
+				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
+				A1400C7D1FE0CDFF0080725A /* NativeTests */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		A1400C7F1FE0CE6A0080725A /* e2e */ = {
+			isa = PBXGroup;
+			children = (
+				AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */,
+				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
+			);
+			path = e2e;
+			sourceTree = "<group>";
+		};
+		A1400C8D1FE0CFF70080725A /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
 		AD17A57C1F74AF1000219F39 = {
 			isa = PBXGroup;
 			children = (
 				AD17A5E91F74B03000219F39 /* Sources */,
 				AD17A5EA1F74B03500219F39 /* Tests */,
-				AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */,
 				AD17A5891F74AF5300219F39 /* Products */,
 				ADC03E171F74C2C0003FCA6A /* Frameworks */,
 			);
@@ -251,6 +425,7 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A1400C621FE0CB8A0080725A /* Native */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
 				AD17A64C1F74BA8A00219F39 /* MockService.swift */,
@@ -263,10 +438,9 @@
 		AD17A5EA1F74B03500219F39 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
+				A1400C7F1FE0CE6A0080725A /* e2e */,
+				A1400C7E1FE0CE590080725A /* Unit */,
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
-				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
-				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -310,6 +484,8 @@
 		ADC03E171F74C2C0003FCA6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A10986271FE0F8200045F9FF /* NativeMockServer.framework */,
+				A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */,
 				ADC03E331F74C8A5003FCA6A /* Alamofire.framework */,
 				ADC03E441F74E68D003FCA6A /* Alamofire.framework */,
 				ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */,
@@ -513,7 +689,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				TargetAttributes = {
 					AD17A5871F74AF5300219F39 = {
 						CreatedOnToolsVersion = 9.0;
@@ -651,6 +827,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -668,6 +845,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -699,6 +877,7 @@
 				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -729,6 +908,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/watchOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/watchOS/BrightFuture.framework",
+				"$(SRCROOT)/Carthage/Build/watchOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -762,6 +942,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -781,6 +962,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Result.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -800,6 +982,7 @@
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -815,9 +998,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1400C7A1FE0CDC80080725A /* MatchingRule.swift in Sources */,
+				A1400C6C1FE0CDC00080725A /* PactQueryBuilder.swift in Sources */,
+				A1400C7B1FE0CDC80080725A /* TypeMatcher.swift in Sources */,
 				AD17A66A1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
+				A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
+				A1400C791FE0CDC80080725A /* Matchers.swift in Sources */,
+				A1400C721FE0CDC00080725A /* PactMockServer.swift in Sources */,
+				A1400C731FE0CDC00080725A /* Pact.swift in Sources */,
+				A1400C781FE0CDC80080725A /* TermMatcher.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
+				A1400C711FE0CDC00080725A /* DictionaryExtensions.swift in Sources */,
+				A1400C6F1FE0CDC00080725A /* PactBodyBuilder.swift in Sources */,
+				A1400C701FE0CDC00080725A /* PactInteraction.swift in Sources */,
+				A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,12 +1021,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1400C901FE0D02E0080725A /* MatchersSpec.swift in Sources */,
 				AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */,
+				A1400C981FE0DF120080725A /* PactQueryBuilderSpec.swift in Sources */,
 				AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
+				A1400C991FE0DF120080725A /* PactSpec.swift in Sources */,
+				A1400C931FE0DF080080725A /* PactInteractionSpec.swift in Sources */,
 				AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */,
 				AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */,
 				AD01EDB61F74BF4A00827C66 /* InteractionSpec.swift in Sources */,
+				A1400C961FE0DF120080725A /* PactBodyBuilderSpec.swift in Sources */,
+				A1400C971FE0DF120080725A /* PactHeaderBuilderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,10 +1040,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10985BF1FE0ED840045F9FF /* PactMockServer.swift in Sources */,
+				A10985BE1FE0ED840045F9FF /* PactInteraction.swift in Sources */,
+				A10985D51FE0ED8B0045F9FF /* TypeMatcher.swift in Sources */,
+				A10985D31FE0ED8B0045F9FF /* MatchingRule.swift in Sources */,
+				A10985C31FE0ED840045F9FF /* PactHeaderBuilder.swift in Sources */,
+				A10985C01FE0ED840045F9FF /* NativeMockServerWrapper.swift in Sources */,
+				A10985BA1FE0ED7A0045F9FF /* PactQueryBuilder.swift in Sources */,
+				A10985D21FE0ED8B0045F9FF /* Matchers.swift in Sources */,
 				AD17A66E1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A66C1F74BB8300219F39 /* Matcher.swift in Sources */,
 				AD17A66B1F74BB8300219F39 /* Interaction.swift in Sources */,
 				AD17A66D1F74BB8300219F39 /* MockService.swift in Sources */,
+				A10985C21FE0ED840045F9FF /* PactBodyBuilder.swift in Sources */,
+				A10985D41FE0ED8B0045F9FF /* TermMatcher.swift in Sources */,
+				A10985BD1FE0ED840045F9FF /* DictionaryExtensions.swift in Sources */,
+				A10985C11FE0ED840045F9FF /* Pact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,12 +1063,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1400C911FE0D0300080725A /* MatchersSpec.swift in Sources */,
 				AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */,
+				A1400C9C1FE0DF130080725A /* PactQueryBuilderSpec.swift in Sources */,
 				AD17A65F1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
+				A1400C9D1FE0DF130080725A /* PactSpec.swift in Sources */,
+				A1400C941FE0DF090080725A /* PactInteractionSpec.swift in Sources */,
 				AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */,
 				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
 				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				AD17A6601F74BB7E00219F39 /* InteractionSpec.swift in Sources */,
+				A1400C9A1FE0DF130080725A /* PactBodyBuilderSpec.swift in Sources */,
+				A1400C9B1FE0DF130080725A /* PactHeaderBuilderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,10 +1082,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10985C61FE0ED850045F9FF /* PactMockServer.swift in Sources */,
+				A10985C51FE0ED850045F9FF /* PactInteraction.swift in Sources */,
+				A10985D91FE0ED8C0045F9FF /* TypeMatcher.swift in Sources */,
+				A10985D71FE0ED8C0045F9FF /* MatchingRule.swift in Sources */,
+				A10985CA1FE0ED850045F9FF /* PactHeaderBuilder.swift in Sources */,
+				A10985C71FE0ED850045F9FF /* NativeMockServerWrapper.swift in Sources */,
+				A10985BB1FE0ED7B0045F9FF /* PactQueryBuilder.swift in Sources */,
+				A10985D61FE0ED8C0045F9FF /* Matchers.swift in Sources */,
 				AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */,
 				AD17A66F1F74BB8400219F39 /* Interaction.swift in Sources */,
 				AD17A6711F74BB8400219F39 /* MockService.swift in Sources */,
+				A10985C91FE0ED850045F9FF /* PactBodyBuilder.swift in Sources */,
+				A10985D81FE0ED8C0045F9FF /* TermMatcher.swift in Sources */,
+				A10985C41FE0ED850045F9FF /* DictionaryExtensions.swift in Sources */,
+				A10985C81FE0ED850045F9FF /* Pact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,12 +1105,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1400C921FE0D0310080725A /* MatchersSpec.swift in Sources */,
 				ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */,
+				A1400CA01FE0DF140080725A /* PactQueryBuilderSpec.swift in Sources */,
 				AD17A6631F74BB7F00219F39 /* AnimalServiceClient.swift in Sources */,
+				A1400CA11FE0DF140080725A /* PactSpec.swift in Sources */,
+				A1400C951FE0DF0B0080725A /* PactInteractionSpec.swift in Sources */,
 				AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */,
 				ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */,
 				ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */,
 				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
+				A1400C9E1FE0DF140080725A /* PactBodyBuilderSpec.swift in Sources */,
+				A1400C9F1FE0DF140080725A /* PactHeaderBuilderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,10 +1124,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10985CD1FE0ED860045F9FF /* PactMockServer.swift in Sources */,
+				A10985CC1FE0ED860045F9FF /* PactInteraction.swift in Sources */,
+				A10985DD1FE0ED8D0045F9FF /* TypeMatcher.swift in Sources */,
+				A10985DB1FE0ED8D0045F9FF /* MatchingRule.swift in Sources */,
+				A10985D11FE0ED860045F9FF /* PactHeaderBuilder.swift in Sources */,
+				A10985CE1FE0ED860045F9FF /* NativeMockServerWrapper.swift in Sources */,
+				A10985BC1FE0ED7C0045F9FF /* PactQueryBuilder.swift in Sources */,
+				A10985DA1FE0ED8D0045F9FF /* Matchers.swift in Sources */,
 				AD17A6761F74BB8400219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6741F74BB8400219F39 /* Matcher.swift in Sources */,
 				AD17A6731F74BB8400219F39 /* Interaction.swift in Sources */,
 				AD17A6751F74BB8400219F39 /* MockService.swift in Sources */,
+				A10985D01FE0ED860045F9FF /* PactBodyBuilder.swift in Sources */,
+				A10985DC1FE0ED8D0045F9FF /* TermMatcher.swift in Sources */,
+				A10985CB1FE0ED860045F9FF /* DictionaryExtensions.swift in Sources */,
+				A10985CF1FE0ED860045F9FF /* Pact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,6 +1167,31 @@
 		AD17A5811F74AF1000219F39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
 			name = Debug;
@@ -925,6 +1199,29 @@
 		AD17A5821F74AF1000219F39 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
 			name = Release;
@@ -959,6 +1256,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1037,6 +1335,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1253,6 +1552,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1331,6 +1631,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1397,6 +1698,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1466,6 +1768,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1531,6 +1834,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1609,6 +1913,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1674,6 +1979,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1742,6 +2048,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
