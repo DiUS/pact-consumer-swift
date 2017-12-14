@@ -1,0 +1,3 @@
+clean true
+skip_slack true
+code_coverage true

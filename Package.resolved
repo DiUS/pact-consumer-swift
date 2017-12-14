@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "b8995447518fd57af14c88a47f27434a16f60403",
-          "version": "4.5.1"
+          "revision": "bc973c5311ce3db3f01a9fcde027fb11fa2254bf",
+          "version": "4.6.0"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
         "state": {
           "branch": null,
-          "revision": "f18744a3061d2302a3673aafdb6fbdbbfe9b4f6f",
-          "version": "5.2.0"
+          "revision": "8659746df02d8f62a112eda288f4f2f3bab368f1",
+          "version": "6.0.0"
         }
       },
       {

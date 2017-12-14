@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A10986581FE11D470045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A109864F1FE11D470045F9FF /* NativeMockServer.framework */; };
 		A10986661FE11D5A0045F9FF /* PublicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C4C1FE0BCE60080725A /* PublicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A10986671FE11D610045F9FF /* exported_symbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1400C4A1FE0BCDE0080725A /* exported_symbols.txt */; };
 		A10986681FE11D660045F9FF /* NativeMockServer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C321FE0BB920080725A /* NativeMockServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A10986691FE11D940045F9FF /* NativeMockServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C3D1FE0BB920080725A /* NativeMockServerTests.swift */; };
 		A11552A61FE20707008796C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1400C531FE0BD400080725A /* Foundation.framework */; };
@@ -27,9 +26,6 @@
 		A11553031FE209B1008796C3 /* PublicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C4C1FE0BCE60080725A /* PublicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A11553041FE209B2008796C3 /* PublicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C4C1FE0BCE60080725A /* PublicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A11553051FE209B3008796C3 /* PublicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C4C1FE0BCE60080725A /* PublicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A11553061FE209BC008796C3 /* exported_symbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1400C4A1FE0BCDE0080725A /* exported_symbols.txt */; };
-		A11553071FE209BD008796C3 /* exported_symbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1400C4A1FE0BCDE0080725A /* exported_symbols.txt */; };
-		A11553081FE209BE008796C3 /* exported_symbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1400C4A1FE0BCDE0080725A /* exported_symbols.txt */; };
 		A11553091FE209C1008796C3 /* NativeMockServer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C321FE0BB920080725A /* NativeMockServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A115530A1FE209C2008796C3 /* NativeMockServer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C321FE0BB920080725A /* NativeMockServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A115530B1FE209C3008796C3 /* NativeMockServer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C321FE0BB920080725A /* NativeMockServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -440,7 +436,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10986671FE11D610045F9FF /* exported_symbols.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +450,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11553061FE209BC008796C3 /* exported_symbols.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +464,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11553071FE209BD008796C3 /* exported_symbols.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +478,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11553081FE209BE008796C3 /* exported_symbols.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

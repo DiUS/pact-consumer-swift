@@ -12,6 +12,7 @@
 - Add logging configuration to output pact sent to mock server.
 - Document on how to turn on debug oupput of mock server.
 - Unit Tests around MockService and NativeMockServer
+- Fix Swift Package Manager support (breaks with NativeMockServer dependency -- local dependency not supported?)
 
 Matchers:
 - ~~Type~~
