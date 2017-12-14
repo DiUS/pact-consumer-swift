@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A11552B71FE208E3008796C3"
+               BuildableName = "NativeMockServer.framework"
+               BlueprintName = "NativeMockServer_iOS"
+               ReferencedContainer = "container:NativeMockServer/NativeMockServer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD17A5871F74AF5300219F39"
                BuildableName = "PactConsumerSwift.framework"
                BlueprintName = "PactConsumerSwift iOS"

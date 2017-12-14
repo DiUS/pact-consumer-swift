@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0920"
-   version = "1.7">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A11552D31FE20941008796C3"
+               BlueprintIdentifier = "A11552EF1FE2096F008796C3"
                BuildableName = "NativeMockServer.framework"
-               BlueprintName = "NativeMockServer_tvOS"
+               BlueprintName = "NativeMockServer_watchOS"
                ReferencedContainer = "container:NativeMockServer/NativeMockServer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AD17A5C31F74AFC900219F39"
-               BuildableName = "PactConsumerSwift.framework"
-               BlueprintName = "PactConsumerSwift tvOS"
+               BlueprintIdentifier = "AD17A6021F74B2B600219F39"
+               BuildableName = "PactConsumerSwift_watchOS.framework"
+               BlueprintName = "PactConsumerSwift watchOS"
                ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,60 +43,14 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
-      <PreActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/start_server.sh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "AD17A5C31F74AFC900219F39"
-                     BuildableName = "PactConsumerSwift.framework"
-                     BlueprintName = "PactConsumerSwift tvOS"
-                     ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PreActions>
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "PATH=&quot;$HOME&quot;/.rvm/rubies/ruby-2.3.1/bin:$PATH&#10;&quot;$SRCROOT&quot;/scripts/stop_server.sh">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "AD17A5C31F74AFC900219F39"
-                     BuildableName = "PactConsumerSwift.framework"
-                     BlueprintName = "PactConsumerSwift tvOS"
-                     ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AD17A5CB1F74AFC900219F39"
-               BuildableName = "PactConsumerSwift tvOSTests.xctest"
-               BlueprintName = "PactConsumerSwift tvOSTests"
-               ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AD17A5C31F74AFC900219F39"
-            BuildableName = "PactConsumerSwift.framework"
-            BlueprintName = "PactConsumerSwift tvOS"
+            BlueprintIdentifier = "AD17A6021F74B2B600219F39"
+            BuildableName = "PactConsumerSwift_watchOS.framework"
+            BlueprintName = "PactConsumerSwift watchOS"
             ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -117,9 +71,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AD17A5C31F74AFC900219F39"
-            BuildableName = "PactConsumerSwift.framework"
-            BlueprintName = "PactConsumerSwift tvOS"
+            BlueprintIdentifier = "AD17A6021F74B2B600219F39"
+            BuildableName = "PactConsumerSwift_watchOS.framework"
+            BlueprintName = "PactConsumerSwift watchOS"
             ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -135,9 +89,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AD17A5C31F74AFC900219F39"
-            BuildableName = "PactConsumerSwift.framework"
-            BlueprintName = "PactConsumerSwift tvOS"
+            BlueprintIdentifier = "AD17A6021F74B2B600219F39"
+            BuildableName = "PactConsumerSwift_watchOS.framework"
+            BlueprintName = "PactConsumerSwift watchOS"
             ReferencedContainer = "container:PactConsumerSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

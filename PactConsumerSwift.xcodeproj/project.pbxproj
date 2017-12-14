@@ -50,10 +50,27 @@
 		A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
 		A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
 		A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10986261FE0F8200045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
-		A10986281FE0F8240045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
-		A10986291FE0F8250045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
-		A109862A1FE0F8260045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10986271FE0F8200045F9FF /* NativeMockServer.framework */; };
+		A115530C1FE20B79008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
+		A115530D1FE20B79008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
+		A115530E1FE20B7A008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
+		A115530F1FE20B7A008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
+		A11553101FE20B7A008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
+		A11553111FE20BA1008796C3 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
+		A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
+		A11553131FE20BA3008796C3 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
+		A11553141FE20BB4008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
+		A11553151FE20BB4008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
+		A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
+		A11553171FE20BB5008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
+		A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
+		A11553191FE20C1F008796C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
+		A115531A1FE20C20008796C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
+		A115531B1FE20CED008796C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
+		A115531C1FE20CEF008796C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
+		A115531F1FE21265008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553201FE21265008796C3 /* NativeMockServer.framework */; };
+		A11553211FE21275008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553221FE21275008796C3 /* NativeMockServer.framework */; };
+		A11553231FE2127E008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553241FE2127E008796C3 /* NativeMockServer.framework */; };
+		A11553271FE21457008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553281FE21457008796C3 /* NativeMockServer.framework */; };
 		A1400C6C1FE0CDC00080725A /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
 		A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
@@ -125,32 +142,13 @@
 		ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
 		ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
-		ADC03E1F1F74C492003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
 		ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
-		ADC03E261F74C64F003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E231F74C64E003FCA6A /* BrightFutures.framework */; };
-		ADC03E271F74C64F003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E241F74C64E003FCA6A /* Nimble.framework */; };
-		ADC03E281F74C64F003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E251F74C64E003FCA6A /* Alamofire.framework */; };
-		ADC03E291F74C68E003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E251F74C64E003FCA6A /* Alamofire.framework */; };
-		ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E231F74C64E003FCA6A /* BrightFutures.framework */; };
-		ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E241F74C64E003FCA6A /* Nimble.framework */; };
 		ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
-		ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2D1F74C68E003FCA6A /* Quick.framework */; };
-		ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E301F74C8A5003FCA6A /* Nimble.framework */; };
-		ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E311F74C8A5003FCA6A /* Result.framework */; };
-		ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */; };
-		ADC03E381F74C8A5003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E331F74C8A5003FCA6A /* Alamofire.framework */; };
-		ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
-		ADC03E3A1F74C8EE003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E331F74C8A5003FCA6A /* Alamofire.framework */; };
-		ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */; };
-		ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E301F74C8A5003FCA6A /* Nimble.framework */; };
 		ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
 		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
-		ADC03E461F74E68D003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E431F74E68D003FCA6A /* BrightFutures.framework */; };
-		ADC03E471F74E68D003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E441F74E68D003FCA6A /* Alamofire.framework */; };
-		ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,7 +177,10 @@
 
 /* Begin PBXFileReference section */
 		A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		A10986271FE0F8200045F9FF /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11553201FE21265008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11553221FE21275008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11553241FE2127E008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11553281FE21457008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactQueryBuilder.swift; sourceTree = "<group>"; };
 		A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilder.swift; sourceTree = "<group>"; };
 		A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMockServerWrapper.swift; sourceTree = "<group>"; };
@@ -223,19 +224,7 @@
 		ADC03E191F74C41B003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		ADC03E211F74C492003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		ADC03E231F74C64E003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/Mac/BrightFutures.framework; sourceTree = "<group>"; };
-		ADC03E241F74C64E003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
-		ADC03E251F74C64E003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		ADC03E2C1F74C68E003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		ADC03E2D1F74C68E003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
-		ADC03E301F74C8A5003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = "<group>"; };
-		ADC03E311F74C8A5003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/tvOS/Result.framework; sourceTree = "<group>"; };
-		ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/tvOS/BrightFutures.framework; sourceTree = "<group>"; };
-		ADC03E331F74C8A5003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/tvOS/Alamofire.framework; sourceTree = "<group>"; };
-		ADC03E341F74C8A5003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
-		ADC03E421F74E68D003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = "<group>"; };
-		ADC03E431F74E68D003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/watchOS/BrightFutures.framework; sourceTree = "<group>"; };
-		ADC03E441F74E68D003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10986261FE0F8200045F9FF /* NativeMockServer.framework in Frameworks */,
+				A11553271FE21457008796C3 /* NativeMockServer.framework in Frameworks */,
 				A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E1B1F74C41B003FCA6A /* BrightFutures.framework in Frameworks */,
@@ -258,7 +247,7 @@
 				AD17A5921F74AF5300219F39 /* PactConsumerSwift.framework in Frameworks */,
 				ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */,
 				A10985E61FE0F2250045F9FF /* SwiftyJSON.framework in Frameworks */,
-				ADC03E1F1F74C492003FCA6A /* BrightFutures.framework in Frameworks */,
+				A115531B1FE20CED008796C3 /* Result.framework in Frameworks */,
 				ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */,
 				ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */,
 			);
@@ -268,11 +257,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC03E281F74C64F003FCA6A /* Alamofire.framework in Frameworks */,
-				ADC03E261F74C64F003FCA6A /* BrightFutures.framework in Frameworks */,
-				ADC03E271F74C64F003FCA6A /* Nimble.framework in Frameworks */,
+				A115531F1FE21265008796C3 /* NativeMockServer.framework in Frameworks */,
+				A11553141FE20BB4008796C3 /* Nimble.framework in Frameworks */,
+				A11553111FE20BA1008796C3 /* BrightFutures.framework in Frameworks */,
+				A115530C1FE20B79008796C3 /* Alamofire.framework in Frameworks */,
 				A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				A10986281FE0F8240045F9FF /* NativeMockServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,12 +270,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5B11F74AFB000219F39 /* PactConsumerSwift.framework in Frameworks */,
-				ADC03E291F74C68E003FCA6A /* Alamofire.framework in Frameworks */,
-				ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */,
-				ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */,
 				A10985EA1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */,
+				A11553191FE20C1F008796C3 /* Quick.framework in Frameworks */,
+				A11553151FE20BB4008796C3 /* Nimble.framework in Frameworks */,
 				ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */,
+				A115530D1FE20B79008796C3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,12 +282,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10986291FE0F8250045F9FF /* NativeMockServer.framework in Frameworks */,
-				ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */,
-				ADC03E3A1F74C8EE003FCA6A /* Alamofire.framework in Frameworks */,
+				A11553211FE21275008796C3 /* NativeMockServer.framework in Frameworks */,
 				A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */,
-				ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */,
+				A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */,
+				A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */,
+				A115530E1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,12 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5CD1F74AFC900219F39 /* PactConsumerSwift.framework in Frameworks */,
-				ADC03E381F74C8A5003FCA6A /* Alamofire.framework in Frameworks */,
-				ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */,
-				ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */,
 				A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */,
-				ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */,
+				A115531A1FE20C20008796C3 /* Quick.framework in Frameworks */,
+				A115531C1FE20CEF008796C3 /* Result.framework in Frameworks */,
+				A11553171FE20BB5008796C3 /* Nimble.framework in Frameworks */,
+				A115530F1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,16 +307,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11553231FE2127E008796C3 /* NativeMockServer.framework in Frameworks */,
+				A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */,
 				A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				ADC03E461F74E68D003FCA6A /* BrightFutures.framework in Frameworks */,
-				A109862A1FE0F8260045F9FF /* NativeMockServer.framework in Frameworks */,
-				ADC03E471F74E68D003FCA6A /* Alamofire.framework in Frameworks */,
+				A11553131FE20BA3008796C3 /* BrightFutures.framework in Frameworks */,
+				A11553101FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A11553291FE21C91008796C3 /* ObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */,
+			);
+			path = ObjectiveC;
+			sourceTree = "<group>";
+		};
+		A115532A1FE21C9C008796C3 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C7E1FE0CE590080725A /* Unit */,
+				A1400C7F1FE0CE6A0080725A /* e2e */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		A1400C621FE0CB8A0080725A /* Native */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +388,6 @@
 		A1400C7F1FE0CE6A0080725A /* e2e */ = {
 			isa = PBXGroup;
 			children = (
-				AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */,
 				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
 			);
 			path = e2e;
@@ -438,8 +441,8 @@
 		AD17A5EA1F74B03500219F39 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A1400C7F1FE0CE6A0080725A /* e2e */,
-				A1400C7E1FE0CE590080725A /* Unit */,
+				A115532A1FE21C9C008796C3 /* Swift */,
+				A11553291FE21C91008796C3 /* ObjectiveC */,
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
 			);
 			path = Tests;
@@ -484,25 +487,16 @@
 		ADC03E171F74C2C0003FCA6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A10986271FE0F8200045F9FF /* NativeMockServer.framework */,
-				A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */,
-				ADC03E331F74C8A5003FCA6A /* Alamofire.framework */,
-				ADC03E441F74E68D003FCA6A /* Alamofire.framework */,
-				ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */,
-				ADC03E431F74E68D003FCA6A /* BrightFutures.framework */,
-				ADC03E421F74E68D003FCA6A /* Result.framework */,
-				ADC03E301F74C8A5003FCA6A /* Nimble.framework */,
-				ADC03E341F74C8A5003FCA6A /* Quick.framework */,
-				ADC03E311F74C8A5003FCA6A /* Result.framework */,
-				ADC03E2D1F74C68E003FCA6A /* Quick.framework */,
-				ADC03E2C1F74C68E003FCA6A /* Result.framework */,
-				ADC03E251F74C64E003FCA6A /* Alamofire.framework */,
-				ADC03E231F74C64E003FCA6A /* BrightFutures.framework */,
-				ADC03E241F74C64E003FCA6A /* Nimble.framework */,
-				ADC03E211F74C492003FCA6A /* Quick.framework */,
+				A11553281FE21457008796C3 /* NativeMockServer.framework */,
+				A11553241FE2127E008796C3 /* NativeMockServer.framework */,
+				A11553221FE21275008796C3 /* NativeMockServer.framework */,
+				A11553201FE21265008796C3 /* NativeMockServer.framework */,
 				ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */,
 				ADC03E181F74C41B003FCA6A /* BrightFutures.framework */,
 				ADC03E191F74C41B003FCA6A /* Nimble.framework */,
+				ADC03E211F74C492003FCA6A /* Quick.framework */,
+				ADC03E2C1F74C68E003FCA6A /* Result.framework */,
+				A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1416,6 +1410,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1485,6 +1480,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1552,7 +1548,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1631,7 +1626,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1834,7 +1828,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1913,7 +1906,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1980,6 +1972,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2049,6 +2042,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2116,7 +2110,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2195,7 +2188,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
