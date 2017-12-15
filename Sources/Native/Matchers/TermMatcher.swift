@@ -10,7 +10,7 @@ public class TermMatcher: NSObject, MatchingRule {
     self.regex = regex
   }
 
-  public func rule() -> [String : String] {
+  public func rule() -> [String: String] {
     return [ "match": "regex", "regex": regex ]
   }
 

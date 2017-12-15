@@ -574,7 +574,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -604,7 +603,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -666,7 +664,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.pact.NativeMockServer-iOS";
@@ -693,7 +690,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.pact.NativeMockServer-iOS";
@@ -748,7 +744,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.pact.NativeMockServer-tvOS";
@@ -776,7 +771,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.pact.NativeMockServer-tvOS";
@@ -837,7 +831,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.pact.NativeMockServer-watchOS";
@@ -866,7 +859,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/NativeMockServer",
 					"$(PROJECT_DIR)/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.pact.NativeMockServer-watchOS";

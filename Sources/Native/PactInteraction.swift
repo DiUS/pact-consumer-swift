@@ -63,7 +63,7 @@ public class PactInteraction: NSObject {
         "path": matcher.value(),
         "matchingRules": ["$.path": matcher.rule()]])
     default:
-      return message.merge(dictionary:["path": path])
+      return message.merge(dictionary: ["path": path])
     }
   }
 
@@ -92,10 +92,10 @@ public class PactInteraction: NSObject {
 
   private func matchingRules(message: HttpMessage, matchingRules: PathWithMatchingRule) -> HttpMessage {
     switch message["matchingRules"] {
-      case let existingMatchingRules as PathWithMatchingRule:
-        return existingMatchingRules.merge(dictionary: matchingRules)
-      default:
-        return matchingRules
+    case let existingMatchingRules as PathWithMatchingRule:
+      return existingMatchingRules.merge(dictionary: matchingRules)
+    default:
+      return matchingRules
     }
   }
 
@@ -109,24 +109,24 @@ public class PactInteraction: NSObject {
 
   private func httpMethod(_ method: PactHTTPMethod) -> String {
     switch method {
-      case .GET:
-        return "get"
-      case .HEAD:
-        return "head"
-      case .POST:
-        return "post"
-      case .PUT:
-        return "put"
-      case .PATCH:
-        return "patch"
-      case .DELETE:
-        return "delete"
-      case .TRACE:
-        return "trace"
-      case .CONNECT:
-        return "connect"
-      default:
-        return "get"
+    case .GET:
+      return "get"
+    case .HEAD:
+      return "head"
+    case .POST:
+      return "post"
+    case .PUT:
+      return "put"
+    case .PATCH:
+      return "patch"
+    case .DELETE:
+      return "delete"
+    case .TRACE:
+      return "trace"
+    case .CONNECT:
+      return "connect"
+    default:
+      return "get"
     }
   }
 }

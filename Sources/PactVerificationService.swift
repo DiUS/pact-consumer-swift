@@ -94,7 +94,7 @@ open class PactVerificationService {
     Alamofire.request(Router.verify())
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
-    
+
     return promise.future
   }
 

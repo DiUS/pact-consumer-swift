@@ -74,24 +74,24 @@ open class Interaction: NSObject {
 
   fileprivate func httpMethod(_ method: PactHTTPMethod) -> String {
     switch method {
-      case .GET:
-        return "get"
-      case .HEAD:
-        return "head"
-      case .POST:
-        return "post"
-      case .PUT:
-        return "put"
-      case .PATCH:
-        return "patch"
-      case .DELETE:
-        return "delete"
-      case .TRACE:
-        return "trace"
-      case .CONNECT:
-        return "connect"
-      default:
-        return "get"
+    case .GET:
+      return "get"
+    case .HEAD:
+      return "head"
+    case .POST:
+      return "post"
+    case .PUT:
+      return "put"
+    case .PATCH:
+      return "patch"
+    case .DELETE:
+      return "delete"
+    case .TRACE:
+      return "trace"
+    case .CONNECT:
+      return "connect"
+    default:
+      return "get"
     }
   }
 }

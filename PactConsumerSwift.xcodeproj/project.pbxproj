@@ -68,9 +68,9 @@
 		A115531B1FE20CED008796C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
 		A115531C1FE20CEF008796C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
 		A115531F1FE21265008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553201FE21265008796C3 /* NativeMockServer.framework */; };
-		A11553211FE21275008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553221FE21275008796C3 /* NativeMockServer.framework */; };
 		A11553231FE2127E008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553241FE2127E008796C3 /* NativeMockServer.framework */; };
 		A11553271FE21457008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553281FE21457008796C3 /* NativeMockServer.framework */; };
+		A115532F1FE36DD6008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553301FE36DD6008796C3 /* NativeMockServer.framework */; };
 		A1400C6C1FE0CDC00080725A /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
 		A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
@@ -181,6 +181,7 @@
 		A11553221FE21275008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11553241FE2127E008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11553281FE21457008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11553301FE36DD6008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactQueryBuilder.swift; sourceTree = "<group>"; };
 		A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilder.swift; sourceTree = "<group>"; };
 		A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMockServerWrapper.swift; sourceTree = "<group>"; };
@@ -282,7 +283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11553211FE21275008796C3 /* NativeMockServer.framework in Frameworks */,
+				A115532F1FE36DD6008796C3 /* NativeMockServer.framework in Frameworks */,
 				A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */,
 				A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */,
@@ -487,6 +488,7 @@
 		ADC03E171F74C2C0003FCA6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A11553301FE36DD6008796C3 /* NativeMockServer.framework */,
 				A11553281FE21457008796C3 /* NativeMockServer.framework */,
 				A11553241FE2127E008796C3 /* NativeMockServer.framework */,
 				A11553221FE21275008796C3 /* NativeMockServer.framework */,
