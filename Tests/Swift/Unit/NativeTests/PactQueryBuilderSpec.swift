@@ -28,8 +28,8 @@ class PactQueryBuilderSpec: QuickSpec {
 
       context("matching rules") {
         let pactQuery = PactQueryBuilder(query: [
-          "name": Matchers.somethingLike(3),
-          "type": Matchers.somethingLike("alligator")]
+          "name": NativeMatcher().somethingLike(3),
+          "type": NativeMatcher().somethingLike("alligator")]
           ).build()
 
         it("builds matching rules") {
@@ -63,7 +63,7 @@ class PactQueryBuilderSpec: QuickSpec {
     }
 
     context("matcher based query") {
-      let matcher = Matchers.term("live=*", generate: "live=water")
+      let matcher = NativeMatcher().term(matcher: "live=*", generate: "live=water")
       let pactQuery = PactQueryBuilder(query: matcher).build()
 
       it("builds matching rules") {

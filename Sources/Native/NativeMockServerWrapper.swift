@@ -1,9 +1,9 @@
 import Foundation
 import NativeMockServer
-import Nimble
 import SwiftyJSON
+import BrightFutures
 
-open class NativeMockServerWrapper {
+open class NativeMockServerWrapper: MockServer {
   open var port: Int32 = -1
   open var pactDir: String
 
@@ -13,35 +13,57 @@ open class NativeMockServerWrapper {
   }
 
   func randomPort() -> Int32 {
-    return Int32(arc4random_uniform(200) + 4000)
+    return Int32(arc4random_uniform(1000) + 4000)
   }
 
-  open func withPact(_ pact: Pact) {
-    do {
-      let jsonData = try JSONSerialization.data(withJSONObject: pact.payload())
-      let jsonString = String(bytes: jsonData, encoding: String.Encoding.utf8)
+  public func getBaseUrl() -> String {
+    return "http://localhost:\(port)"
+  }
 
-      // iOS json generation adds extra backslashes to "application/json" --> "application\\/json" 
-      // causing the MockServer to fail to parse the file.
-      let sanitizedString = jsonString!.replacingOccurrences(of: "\\/", with: "/")
-      let result = NativeMockServer.create_mock_server(sanitizedString, port)
-      if result < 0 {
-        switch result {
-        case -1:
-          fail("Mock server creation failed, pact supplied was nil")
-        case -2:
-          fail("Mock server creation failed, pact JSON file could not be parsed")
-        default:
-          fail("Mock server creation failed, result: \(result)")
+  public func setup(_ pact: Pact) -> Future<String, PactError> {
+    return Future { complete in
+      do {
+        let payload = pact.payload()
+        let jsonData = try JSONSerialization.data(withJSONObject: payload)
+        let jsonString = String(bytes: jsonData, encoding: String.Encoding.utf8)
+
+        // iOS json generation adds extra backslashes to "application/json" --> "application\\/json"
+        // causing the MockServer to fail to parse the file.
+        let sanitizedString = jsonString!.replacingOccurrences(of: "\\/", with: "/")
+        let result = NativeMockServer.create_mock_server(sanitizedString, port)
+        if result < 0 {
+          switch result {
+          case -1:
+            complete(.failure(.setupError("Mock server creation failed, pact supplied was nil")))
+          case -2:
+            complete(.failure(.setupError("Mock server creation failed, pact JSON file could not be parsed")))
+          default:
+            complete(.failure(.setupError("Mock server creation failed, result: \(result)")))
+          }
         }
+        print("Server started on port \(port)")
+        complete(.success("Server started on port \(port)"))
+      } catch let error as NSError {
+        complete(.failure(.setupError(error.localizedDescription)))
       }
-      print("Server started on port \(port)")
-    } catch let error as NSError {
-      print(error)
     }
   }
 
-  open func mismatches() -> String {
+  public func verify(_ pact: Pact) -> Future<String, PactError> {
+    return Future { complete in
+      if !matched() {
+        let message = "Actual request did not match expectations. Mismatches: \(mismatches())"
+        cleanup()
+        complete(.failure(.executionError(message)))
+      } else {
+        writeFile()
+        cleanup()
+        complete(.success("Pact verified successfully!"))
+      }
+    }
+  }
+
+  private func mismatches() -> String {
     let mismatches = NativeMockServer.mock_server_mismatches(port)
     if let mismatches = mismatches {
       let json = JSON(parseJSON: String(cString: mismatches))
@@ -60,17 +82,16 @@ open class NativeMockServerWrapper {
     }
   }
 
-  open func matched() -> Bool {
+  private func matched() -> Bool {
     return NativeMockServer.mock_server_matched(port)
   }
 
-  open func writeFile() {
+  private func writeFile() {
     NativeMockServer.write_pact_file(port, pactDir)
     print("notify: You can find the generated pact files here: \(self.pactDir)")
   }
 
-  open func cleanup() {
+  private func cleanup() {
     NativeMockServer.cleanup_mock_server(port)
   }
-
 }

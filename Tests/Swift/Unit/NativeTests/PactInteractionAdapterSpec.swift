@@ -3,10 +3,11 @@ import Nimble
 @testable import PactConsumerSwift
 import SwiftyJSON
 
-class PactInteractionSpec: QuickSpec {
+class PactInteractionAdapterSpec: QuickSpec {
   override func spec() {
-    var interaction: PactInteraction?
-    beforeEach { interaction = PactInteraction() }
+    var interaction: Interaction?
+
+    beforeEach { interaction = Interaction() }
 
     describe("interaction state setup") {
       it("it initialises the provider state") {
@@ -17,7 +18,7 @@ class PactInteractionSpec: QuickSpec {
     describe("json payload"){
       context("pact state") {
         it("includes provider state in the payload") {
-          var payload = interaction!.given("state of awesomeness").uponReceiving("an important request is received").payload()
+          var payload = PactInteractionAdapter(interaction!.given("state of awesomeness").uponReceiving("an important request is received")).adapt()
 
           expect(payload["providerState"] as! String?) == "state of awesomeness"
           expect(payload["description"] as! String?) == "an important request is received"
@@ -26,7 +27,7 @@ class PactInteractionSpec: QuickSpec {
 
       context("no provider state") {
         it("doesn not include provider state when not included") {
-          var payload = interaction!.uponReceiving("an important request is received").payload()
+          var payload = PactInteractionAdapter(interaction!.uponReceiving("an important request is received")).adapt()
 
           expect(payload["providerState"]).to(beNil())
         }
@@ -37,10 +38,10 @@ class PactInteractionSpec: QuickSpec {
         let path = "/path"
         let headers = ["header": "value"]
         let body = "blah"
-        let regex = "^\\/resource\\/[0-9]*"
+        let regex = "^/resource/[0-9]*"
 
         it("returns expected request with specific headers and body") {
-          var payload = interaction!.withRequest(method: method, path: path, headers: headers, body: body).payload()
+          var payload = PactInteractionAdapter(interaction!.withRequest(method: method, path: path, headers: headers, body: body)).adapt()
 
           var request = payload["request"] as! [String: AnyObject]
           expect(request["path"] as! String?) == path
@@ -50,7 +51,7 @@ class PactInteractionSpec: QuickSpec {
         }
 
         it("returns expected request without body and headers") {
-          var payload = interaction!.withRequest(method: method, path: path).payload()
+          var payload = PactInteractionAdapter(interaction!.withRequest(method: method, path: path)).adapt()
 
           var request = payload["request"] as! [String: AnyObject]
           expect(request["path"] as! String?) == path
@@ -61,21 +62,21 @@ class PactInteractionSpec: QuickSpec {
 
         context("with query params") {
           it("accepts single query param in dictionary") {
-            var payload = interaction!.withRequest(method: method, path: path, query: ["live": "water"]).payload()
+            var payload = PactInteractionAdapter(interaction!.withRequest(method: method, path: path, query: ["live": "water"])).adapt()
 
             var request = payload["request"] as! [String: AnyObject]
             expect(request["query"] as! String?) == "live=water"
           }
 
           it("accepts multiple query params in dictionary") {
-            var payload = interaction!.withRequest(method: method, path: path, query: ["live": "water", "age": 10]).payload()
+            var payload = PactInteractionAdapter(interaction!.withRequest(method: method, path: path, query: ["live": "water", "age": 10])).adapt()
 
             var request = payload["request"] as! [String: AnyObject]
             expect(request["query"] as! String?) == "age=10&live=water"
           }
 
           it("accepts query params as string") {
-            var payload = interaction!.withRequest(method: method, path: path, query: "live=water").payload()
+            var payload = PactInteractionAdapter(interaction!.withRequest(method: method, path: path, query: "live=water")).adapt()
 
             var request = payload["request"] as! [String: AnyObject]
             expect(request["query"] as! String?) == "live=water"
@@ -85,8 +86,8 @@ class PactInteractionSpec: QuickSpec {
             var request : [String: Any]?
 
             beforeEach {
-              interaction!.withRequest(method: method, path: path, query: ["live": Matchers.somethingLike("water")])
-              request = interaction!.payload()["request"] as? [String: Any]
+              interaction!.withRequest(method: method, path: path, query: ["live": NativeMatcher().somethingLike("water")])
+              request = PactInteractionAdapter(interaction!).adapt()["request"] as? [String: Any]
             }
 
             it("accepts query parameter with a matcher") {
@@ -101,12 +102,12 @@ class PactInteractionSpec: QuickSpec {
         }
 
         context("with header matcher") {
-          let headers = ["Authorization": Matchers.somethingLike("somekey")]
+          let headers = ["Authorization": NativeMatcher().somethingLike("somekey")]
           var request : [String: Any]?
 
           beforeEach {
             interaction!.withRequest(method: method, path: path, headers: headers, body: body)
-            request = interaction!.payload()["request"] as? [String: Any]
+            request = PactInteractionAdapter(interaction!).adapt()["request"] as? [String: Any]
           }
 
           it("builds matching rules") {
@@ -121,12 +122,12 @@ class PactInteractionSpec: QuickSpec {
         }
 
         context("with path matcher") {
-          let path = Matchers.term(regex, generate: "/resource/1")
+          let path = NativeMatcher().term(matcher: regex, generate: "/resource/1")
           var request : [String: Any]?
 
           beforeEach {
             interaction!.withRequest(method: method, path: path, headers: headers, body: body)
-            request = interaction!.payload()["request"] as? [String: Any]
+            request = PactInteractionAdapter(interaction!).adapt()["request"] as? [String: Any]
           }
 
           it("builds matching rules") {
@@ -143,12 +144,12 @@ class PactInteractionSpec: QuickSpec {
         context("body with matcher") {
           let body  = [
                   "type": "alligator",
-                  "legs": Matchers.somethingLike(4)] as [String : Any]
+                  "legs": NativeMatcher().somethingLike(4)] as [String : Any]
           var request : [String: Any]?
 
           beforeEach {
             interaction!.withRequest(method: method, path: path, headers: headers, body: body)
-            request = interaction!.payload()["request"] as? [String: Any]
+            request = PactInteractionAdapter(interaction!).adapt()["request"] as? [String: Any]
           }
 
           it("builds matching rules") {
@@ -162,11 +163,11 @@ class PactInteractionSpec: QuickSpec {
           }
 
           context("and path matcher") {
-            let path = Matchers.term(regex, generate: "/resource/1")
+            let path = NativeMatcher().term(matcher: regex, generate: "/resource/1")
 
             beforeEach {
               interaction!.withRequest(method: method, path: path, headers: headers, body: body)
-              request = interaction!.payload()["request"] as? [String: Any]
+              request = PactInteractionAdapter(interaction!).adapt()["request"] as? [String: Any]
             }
 
             it("includes both matching rules") {
@@ -185,7 +186,7 @@ class PactInteractionSpec: QuickSpec {
         var response : [String: Any]?
 
         it("returns expected response with specific headers and body") {
-          var payload = interaction!.willRespondWith(status: statusCode, headers: headers, body: body).payload()
+          var payload = PactInteractionAdapter(interaction!.willRespondWith(status: statusCode, headers: headers, body: body)).adapt()
 
           response = payload["response"] as! [String: AnyObject]
           expect(response!["status"] as! Int?) == statusCode
@@ -196,11 +197,11 @@ class PactInteractionSpec: QuickSpec {
         context("body with matcher") {
           let body  = [
             "type": "alligator",
-            "legs": Matchers.somethingLike(4)] as [String : Any]
+            "legs": NativeMatcher().somethingLike(4)] as [String : Any]
 
           beforeEach {
             interaction!.willRespondWith(status: statusCode, headers: headers, body: body)
-            response = interaction!.payload()["response"] as? [String: Any]
+            response = PactInteractionAdapter(interaction!).adapt()["response"] as? [String: Any]
           }
 
           it("builds matching rules") {
@@ -215,11 +216,11 @@ class PactInteractionSpec: QuickSpec {
         }
 
         context("with header matcher") {
-          let headers = ["Authorization": Matchers.somethingLike("somekey")]
+          let headers = ["Authorization": NativeMatcher().somethingLike("somekey")]
 
           beforeEach {
             interaction!.willRespondWith(status: statusCode, headers: headers, body: body)
-            response = interaction!.payload()["response"] as? [String: Any]
+            response = PactInteractionAdapter(interaction!).adapt()["response"] as? [String: Any]
           }
 
           it("builds matching rules") {

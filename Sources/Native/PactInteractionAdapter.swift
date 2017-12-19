@@ -1,48 +1,29 @@
 @objc
-public class PactInteraction: NSObject {
+public class PactInteractionAdapter: NSObject {
   typealias HttpMessage = [String: Any]
   typealias QueryParameter = [String: Any]
-  var providerState: String?
-  var testDescription: String = ""
-  var request: HttpMessage = [:]
-  var response: HttpMessage = [:]
+  var interaction: Interaction
 
-  @discardableResult
-  public func given(_ providerState: String) -> PactInteraction {
-    self.providerState = providerState
-    return self
+  public init(_ interaction: Interaction) {
+    self.interaction = interaction
   }
 
-  @discardableResult
-  public func uponReceiving(_ testDescription: String) -> PactInteraction {
-    self.testDescription = testDescription
-    return self
+  private func adaptRequest(_ request: Request) -> HttpMessage {
+    var transformedRequest: HttpMessage = [:]
+    transformedRequest = ["method": httpMethod(request.method)]
+    transformedRequest = applyPath(message: transformedRequest, path: request.path)
+    transformedRequest = applyHeaders(message: transformedRequest, headers: request.headers)
+    transformedRequest = applyQuery(message: transformedRequest, query: request.query)
+    transformedRequest = applyBody(message: transformedRequest, body: request.body)
+    return transformedRequest
   }
 
-  @objc(withRequestHTTPMethod: path: query: headers: body:)
-  @discardableResult
-  public func withRequest(method: PactHTTPMethod,
-                          path: Any,
-                          query: Any? = nil,
-                          headers: [String: Any]? = nil,
-                          body: Any? = nil) -> PactInteraction {
-    request = ["method": httpMethod(method)]
-    request = applyPath(message: request, path: path)
-    request = applyHeaders(message: request, headers: headers)
-    request = applyQuery(message: request, query: query)
-    request = applyBody(message: request, body: body)
-    return self
-  }
-
-  @objc(willRespondWithHTTPStatus: headers: body:)
-  @discardableResult
-  public func willRespondWith(status: Int,
-                              headers: [String: Any]? = nil,
-                              body: Any? = nil) -> PactInteraction {
-    response = ["status": status]
-    response = applyHeaders(message: response, headers: headers)
-    response = applyBody(message: response, body: body)
-    return self
+  private func adaptResponse(_ response: Response) -> HttpMessage {
+    var transformedResponse: HttpMessage = [:]
+    transformedResponse = ["status": response.status]
+    transformedResponse = applyHeaders(message: transformedResponse, headers: response.headers)
+    transformedResponse = applyBody(message: transformedResponse, body: response.body)
+    return transformedResponse
   }
 
   private func applyHeaders(message: HttpMessage, headers: [String: Any]?) -> HttpMessage {
@@ -99,9 +80,16 @@ public class PactInteraction: NSObject {
     }
   }
 
-  public func payload() -> [String: Any] {
-    var payload: [String: Any] = ["description": testDescription, "request": request, "response": response ]
-    if let providerState = providerState {
+  public func adapt() -> [String: Any] {
+    var payload: [String: Any] = ["description": self.interaction.testDescription as Any]
+
+    if let request = self.interaction.request {
+      payload["request"] = adaptRequest(request)
+    }
+    if let response = self.interaction.response {
+      payload["response"] = adaptResponse(response)
+    }
+    if let providerState = self.interaction.providerState {
       payload["providerState"] = providerState
     }
     return payload

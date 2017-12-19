@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A10986581FE11D470045F9FF /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A109864F1FE11D470045F9FF /* NativeMockServer.framework */; };
 		A10986661FE11D5A0045F9FF /* PublicHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C4C1FE0BCE60080725A /* PublicHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A10986681FE11D660045F9FF /* NativeMockServer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1400C321FE0BB920080725A /* NativeMockServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A10986691FE11D940045F9FF /* NativeMockServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C3D1FE0BB920080725A /* NativeMockServerTests.swift */; };
@@ -33,6 +32,7 @@
 		A115532C1FE24809008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1400C4F1FE0BD2F0080725A /* libpact_mock_server.a */; };
 		A115532D1FE2480A008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1400C4F1FE0BD2F0080725A /* libpact_mock_server.a */; };
 		A115532E1FE2480B008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1400C4F1FE0BD2F0080725A /* libpact_mock_server.a */; };
+		A115536F1FE8FFC5008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A109864F1FE11D470045F9FF /* NativeMockServer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A10986581FE11D470045F9FF /* NativeMockServer.framework in Frameworks */,
+				A115536F1FE8FFC5008796C3 /* NativeMockServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

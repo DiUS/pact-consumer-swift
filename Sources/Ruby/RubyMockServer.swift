@@ -2,9 +2,10 @@ import Foundation
 import Alamofire
 import BrightFutures
 
-open class PactVerificationService {
+open class RubyMockServer: MockServer {
   open let url: String
   open let port: Int
+
   open var baseUrl: String {
     return "\(url):\(port)"
   }
@@ -67,50 +68,49 @@ open class PactVerificationService {
     Router.baseURLString = baseUrl
   }
 
-  func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
+  public func getBaseUrl() -> String {
+    return baseUrl
+  }
+
+  public func setup(_ pact: Pact) -> Future<String, PactError> {
+    let promise = Promise<String, PactError>()
     self.clean().onSuccess { _ in
-        promise.completeWith(self.setupInteractions(interactions))
+        promise.completeWith(self.setupInteractions(pact.interactions))
     }.onFailure { error in
-      promise.failure(error)
+      promise.failure(.setupError(error.localizedDescription))
     }
-
     return promise.future
   }
 
-  func verify(provider: String, consumer: String) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
+  public func verify(_ pact: Pact) -> Future<String, PactError> {
+    let promise = Promise<String, PactError>()
     self.verifyInteractions().onSuccess { _ in
-      promise.completeWith(self.write(provider: provider, consumer: consumer))
+      promise.completeWith(self.write(provider: pact.provider, consumer: pact.consumer))
     }.onFailure { error in
-      promise.failure(error)
+      promise.failure(.executionError(error.localizedDescription))
     }
-
     return promise.future
   }
 
-  fileprivate func verifyInteractions() -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
+  fileprivate func verifyInteractions() -> Future<String, PactError> {
+    let promise = Promise<String, PactError>()
     Alamofire.request(Router.verify())
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
-
     return promise.future
   }
 
-  fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
+  fileprivate func write(provider: String, consumer: String) -> Future<String, PactError> {
+    let promise = Promise<String, PactError>()
     Alamofire.request(Router.write(["consumer": [ "name": consumer ],
                                     "provider": [ "name": provider ]]))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
-
     return promise.future
   }
 
-  fileprivate func clean() -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
+  fileprivate func clean() -> Future<String, PactError> {
+    let promise = Promise<String, PactError>()
 
     Alamofire.request(Router.clean())
     .validate()
@@ -119,9 +119,9 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-    let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
+  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, PactError> {
+    let promise = Promise<String, PactError>()
+    let payload: [String: Any] = ["interactions": interactions.map({ RubyInteractionAdapter($0).adapt() }),
                                   "example_description": "description"]
     Alamofire.request(Router.setup(payload))
               .validate()
@@ -130,7 +130,7 @@ open class PactVerificationService {
     return promise.future
   }
 
-  func requestHandler(_ promise: Promise<String, NSError>) -> (DataResponse<String>) -> Void {
+  func requestHandler(_ promise: Promise<String, PactError>) -> (DataResponse<String>) -> Void {
     return { response in
       switch response.result {
       case .success(let responseValue):
@@ -142,8 +142,7 @@ open class PactVerificationService {
         } else {
           errorMessage = error.localizedDescription
         }
-        let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: errorMessage, comment: "")]
-        promise.failure(NSError(domain: "", code: 0, userInfo: userInfo))
+        promise.failure(.executionError(errorMessage))
       }
     }
   }

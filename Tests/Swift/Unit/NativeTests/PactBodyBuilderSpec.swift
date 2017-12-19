@@ -32,7 +32,7 @@ class PactBodyBuilderSpec: QuickSpec {
       let pactBody = PactBodyBuilder( body: [
                                            "name": "Mary",
                                            "type": "alligator",
-                                           "legs": Matchers.somethingLike(4)]
+                                           "legs": NativeMatcher().somethingLike(4)]
         ).build()
 
       it("builds matching rules") {
@@ -51,7 +51,7 @@ class PactBodyBuilderSpec: QuickSpec {
     }
 
     context("constructs matcher in array") {
-      let pactBody = PactBodyBuilder( body: [ "friends": [ Matchers.somethingLike("Bob") ] ]
+      let pactBody = PactBodyBuilder( body: [ "friends": [ NativeMatcher().somethingLike("Bob") ] ]
         ).build()
 
       it("builds matching rules") {
@@ -70,8 +70,8 @@ class PactBodyBuilderSpec: QuickSpec {
     context("with multiple matches") {
       let pactBody = PactBodyBuilder( body: [
         "name": "Mary",
-        "skills": [ [ "type": Matchers.somethingLike("building"), "time": Matchers.somethingLike("3 years") ] ],
-        "relations": [ "friends": [ "Jane", Matchers.somethingLike("Bob") ] ]]
+        "skills": [ [ "type": NativeMatcher().somethingLike("building"), "time": NativeMatcher().somethingLike("3 years") ] ],
+        "relations": [ "friends": [ "Jane", NativeMatcher().somethingLike("Bob") ] ]]
         ).build()
 
       it("builds matching rules") {

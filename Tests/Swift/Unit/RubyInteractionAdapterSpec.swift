@@ -1,8 +1,8 @@
 import Quick
 import Nimble
-import PactConsumerSwift
+@testable import PactConsumerSwift
 
-class InteractionSpec: QuickSpec {
+class RubyInteractionAdapterSpec: QuickSpec {
   override func spec() {
     var interaction: Interaction?
     beforeEach { interaction = Interaction() }
@@ -11,13 +11,12 @@ class InteractionSpec: QuickSpec {
       it("it initialises the provider state") {
         expect(interaction?.given("some state").providerState).to(equal("some state"))
       }
-      
     }
 
-    describe("json payload"){
+    describe("json payload") {
       context("pact state") {
         it("includes provider state in the payload") {
-          var payload = interaction!.given("state of awesomeness").uponReceiving("an important request is received").payload()
+          var payload = RubyInteractionAdapter(interaction!.given("state of awesomeness").uponReceiving("an important request is received")).adapt()
 
           expect(payload["providerState"] as! String?) == "state of awesomeness"
           expect(payload["description"] as! String?) == "an important request is received"
@@ -26,7 +25,7 @@ class InteractionSpec: QuickSpec {
 
       context("no provider state") {
         it("doesn not include provider state when not included") {
-          var payload = interaction!.uponReceiving("an important request is received").payload()
+          var payload = RubyInteractionAdapter(interaction!.uponReceiving("an important request is received")).adapt()
 
           expect(payload["providerState"]).to(beNil())
         }
@@ -39,7 +38,7 @@ class InteractionSpec: QuickSpec {
         let body = "blah"
 
         it("returns expected request with specific headers and body") {
-          var payload = interaction!.withRequest(method: method, path: path, headers: headers, body: body).payload()
+          var payload = RubyInteractionAdapter(interaction!.withRequest(method: method, path: path, headers: headers, body: body)).adapt()
 
           var request = payload["request"] as! [String: AnyObject]
           expect(request["path"] as! String?) == path
@@ -49,7 +48,7 @@ class InteractionSpec: QuickSpec {
         }
 
         it("returns expected request without body and headers") {
-          var payload = interaction!.withRequest(method:method, path: path).payload()
+          var payload = RubyInteractionAdapter(interaction!.withRequest(method:method, path: path)).adapt()
 
           var request = payload["request"] as! [String: AnyObject]
           expect(request["path"] as! String?) == path
@@ -65,7 +64,7 @@ class InteractionSpec: QuickSpec {
         let body = "body"
 
         it("returns expected response with specific headers and body") {
-          var payload = interaction!.willRespondWith(status: statusCode, headers: headers, body: body).payload()
+          var payload = RubyInteractionAdapter(interaction!.willRespondWith(status: statusCode, headers: headers, body: body)).adapt()
 
           var request = payload["response"] as! [String: AnyObject]
           expect(request["status"] as! Int?) == statusCode

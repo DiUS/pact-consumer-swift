@@ -28,8 +28,8 @@ class PactHeaderBuilderSpec: QuickSpec {
     context("matching rules") {
       let pactHeaders = PactHeaderBuilder(headers: [
         "Content-Type": "application/json",
-        "MyHeader": Matchers.somethingLike(3),
-        "Authorization": Matchers.somethingLike("alligator")]
+        "MyHeader": NativeMatcher().somethingLike(3),
+        "Authorization": NativeMatcher().somethingLike("alligator")]
         ).build()
 
         it("builds matching rules") {

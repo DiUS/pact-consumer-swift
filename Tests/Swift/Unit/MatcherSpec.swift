@@ -9,7 +9,7 @@ class MatcherSpec: QuickSpec {
     describe("regex matcher") {
       let regex = "\\d{16}"
       let placeholder = "1111222233334444"
-      let subject = Matcher.term(matcher: regex, generate: placeholder)
+      let subject = Matcher.term(matcher: regex, generate: placeholder) as! [String: Any]
 
       it("sets the json_class") {
         let className = subject["json_class"] as? String
@@ -17,7 +17,7 @@ class MatcherSpec: QuickSpec {
       }
 
       it("sets the regular expression to match against") {
-        let data = subject["data"] as? [String: AnyObject] 
+        let data = subject["data"] as? [String: AnyObject]
         let matcher = data?["matcher"] as? [String: AnyObject]
         let matcherRegex = matcher?["s"] as! String
 
@@ -33,7 +33,7 @@ class MatcherSpec: QuickSpec {
     }
 
     describe("type matcher") {
-      let subject = Matcher.somethingLike(1234)
+      let subject = Matcher.somethingLike(1234) as! [String: Any]
 
       it("sets the json_class") {
         let className = subject["json_class"] as? String
@@ -48,7 +48,7 @@ class MatcherSpec: QuickSpec {
 
     describe("eachLike matcher") {
       let arrayItem = ["blah": "blow"]
-      var subject = Matcher.eachLike(arrayItem)
+      var subject = Matcher.eachLike(arrayItem) as! [String: Any]
 
       it("sets the json_class") {
         let className = subject["json_class"] as? String
@@ -66,7 +66,7 @@ class MatcherSpec: QuickSpec {
       }
 
       it("allows min to be specified") {
-        subject = Matcher.eachLike(arrayItem, min: 4)
+        subject = Matcher.eachLike(arrayItem, min: 4) as! [String: Any]
 
         let min = subject["min"] as? Int
         expect(min).to(equal(4))

@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-import PactConsumerSwift
+@testable import PactConsumerSwift
 import SwiftyJSON
 
 class PactSpec: QuickSpec {
@@ -22,11 +22,11 @@ class PactSpec: QuickSpec {
 
       it("includes pact version") {
         let metadata = subject.payload()["metadata"] as! [ String: [ String: String ] ]
-        expect(metadata["pact-specification"]?["version"]).to(equal("1.0.0"))
+        expect(metadata["pact-specification"]?["version"]).to(equal("2.0.0"))
       }
 
       context("with interactions") {
-        let interaction = PactInteraction()
+        let interaction = Interaction()
         .uponReceiving("a request for an alligator")
         .withRequest(method: .GET, path: "/alligator")
         .willRespondWith(status: 200,
@@ -45,7 +45,7 @@ class PactSpec: QuickSpec {
         }
 
         context("response body matcher") {
-          let interaction = PactInteraction()
+          let interaction = Interaction()
                   .uponReceiving("a request for an alligator")
                   .withRequest(method: .GET, path: "/alligator")
                   .willRespondWith(status: 200,
@@ -53,7 +53,7 @@ class PactSpec: QuickSpec {
                                    body: [
                                            "name": "Mary",
                                            "type": "alligator",
-                                           "legs": Matchers.somethingLike(4)
+                                           "legs": NativeMatcher().somethingLike(4)
                                    ])
 
 

@@ -1,9 +1,24 @@
 import Foundation
 
 @objc
-open class Matcher: NSObject {
+open class Matcher: NSObject, Matchers {
+  @objc
+  public class func term(matcher: String, generate: Any) -> Any {
+    return Matcher().term(matcher: matcher, generate: generate)
+  }
 
-  @objc open class func term(matcher: String, generate: String) -> [String: Any] {
+  @objc
+  public class func somethingLike(_ value: Any) -> Any {
+    return Matcher().somethingLike(value)
+  }
+
+  @objc
+  public class func eachLike(_ value: Any, min: Int = 1) -> Any {
+    return Matcher().eachLike(value, min: min)
+  }
+
+  @objc
+  public func term(matcher: String, generate: Any) -> Any {
     return [ "json_class": "Pact::Term",
       "data": [
         "generate": generate,
@@ -15,7 +30,7 @@ open class Matcher: NSObject {
   }
 
   @objc
-  open class func somethingLike(_ value: Any) -> [String: Any] {
+  public func somethingLike(_ value: Any) -> Any {
     return [
       "json_class": "Pact::SomethingLike",
       "contents": value
@@ -23,7 +38,7 @@ open class Matcher: NSObject {
   }
 
   @objc
-  open class func eachLike(_ value: Any, min: Int = 1) -> [String: Any] {
+  public func eachLike(_ value: Any, min: Int = 1) -> Any {
     return [
       "json_class": "Pact::ArrayLike",
       "contents": value,

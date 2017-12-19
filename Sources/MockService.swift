@@ -6,30 +6,27 @@ import Nimble
 
 @objc
 open class MockService: NSObject {
-  fileprivate let provider: String
-  fileprivate let consumer: String
-  fileprivate let pactVerificationService: PactVerificationService
+  fileprivate let pact: Pact
+  fileprivate let mockServer: MockServer
   fileprivate var interactions: [Interaction] = []
 
   @objc
   open var baseUrl: String {
-    return pactVerificationService.baseUrl
+    return mockServer.getBaseUrl()
   }
 
   public init(provider: String,
               consumer: String,
-              pactVerificationService: PactVerificationService) {
-    self.provider = provider
-    self.consumer = consumer
-
-    self.pactVerificationService = pactVerificationService
+              mockServer: MockServer) {
+    self.pact = Pact(provider: provider, consumer: consumer)
+    self.mockServer = mockServer
   }
 
   @objc(initWithProvider: consumer:)
   public convenience init(provider: String, consumer: String) {
     self.init(provider: provider,
               consumer: consumer,
-              pactVerificationService: PactVerificationService())
+              mockServer: RubyMockServer())
   }
 
   @objc
@@ -60,7 +57,8 @@ open class MockService: NSObject {
   open func run(_ file: FileString? = #file, line: UInt? = #line, timeout: TimeInterval = 30,
                 testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.setup(self.interactions).onSuccess { _ in
+      self.pact.withInteractions(self.interactions)
+      self.mockServer.setup(self.pact).onSuccess { _ in
         testFunction { () in
           done()
         }
@@ -69,12 +67,12 @@ open class MockService: NSObject {
       }
     }
 
-    self.pactVerificationService.verify(provider: self.provider,
-                                        consumer: self.consumer).onSuccess { _ in
+    self.mockServer.verify(self.pact).onSuccess { _ in
     }.onFailure { error in
       self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
         file: file,
         line: line)
+      print("warning: Make sure the testComplete() fuction is called at the end of your test.")
     }
   }
 
@@ -96,5 +94,4 @@ open class MockService: NSObject {
       return waitUntil(timeout: timeout, action: action)
     }
   }
-
 }
