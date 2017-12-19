@@ -5,6 +5,10 @@ if [[ -z "${SCHEME}" ]]; then
   SCHEME="PactConsumerSwift iOS";
 fi
 
+swiftlint
+# carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
+carthage build --platform $CARTHAGE_PLATFORM
+
 bundle exec fastlane scan --scheme "$SCHEME" --destination "$DESTINATION"
 
 # # SwiftPM
