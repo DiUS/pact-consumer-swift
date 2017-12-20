@@ -93,10 +93,10 @@
 		A11553671FE8D94B008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
 		A11553681FE8D94B008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
 		A11553691FE8D94C008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
-		A115536B1FE8DAFB008796C3 /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115536A1FE8DAFB008796C3 /* Matchers.swift */; };
-		A115536C1FE8DB07008796C3 /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115536A1FE8DAFB008796C3 /* Matchers.swift */; };
-		A115536D1FE8DB08008796C3 /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115536A1FE8DAFB008796C3 /* Matchers.swift */; };
-		A115536E1FE8DB08008796C3 /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115536A1FE8DAFB008796C3 /* Matchers.swift */; };
+		A11553711FE9E11E008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
+		A11553721FE9E120008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
+		A11553731FE9E121008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
+		A11553741FE9E122008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
 		A1400C6C1FE0CDC00080725A /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
 		A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
@@ -203,7 +203,7 @@
 		A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteractionAdapterSpec.swift; sourceTree = "<group>"; };
 		A11553511FE8AB24008796C3 /* PactError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactError.swift; sourceTree = "<group>"; };
 		A11553651FE8D8A5008796C3 /* NativeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMatcher.swift; sourceTree = "<group>"; };
-		A115536A1FE8DAFB008796C3 /* Matchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchers.swift; sourceTree = "<group>"; };
+		A11553701FE9E11D008796C3 /* RubyMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyMatcher.swift; sourceTree = "<group>"; };
 		A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactQueryBuilder.swift; sourceTree = "<group>"; };
 		A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilder.swift; sourceTree = "<group>"; };
 		A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMockServerWrapper.swift; sourceTree = "<group>"; };
@@ -354,6 +354,7 @@
 		A11553391FE3C4C5008796C3 /* Ruby */ = {
 			isa = PBXGroup;
 			children = (
+				A11553701FE9E11D008796C3 /* RubyMatcher.swift */,
 				A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */,
 				A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */,
 			);
@@ -451,7 +452,6 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A115536A1FE8DAFB008796C3 /* Matchers.swift */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
 				A11553321FE3C416008796C3 /* MockServer.swift */,
@@ -1035,10 +1035,10 @@
 				A11553341FE3C416008796C3 /* MockServer.swift in Sources */,
 				A11553661FE8D8A5008796C3 /* NativeMatcher.swift in Sources */,
 				A11553521FE8AB24008796C3 /* PactError.swift in Sources */,
+				A11553711FE9E11E008796C3 /* RubyMatcher.swift in Sources */,
 				A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
 				A11553331FE3C416008796C3 /* Pact.swift in Sources */,
-				A115536B1FE8DAFB008796C3 /* Matchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,10 +1080,10 @@
 				A10985C21FE0ED840045F9FF /* PactBodyBuilder.swift in Sources */,
 				A11553671FE8D94B008796C3 /* NativeMatcher.swift in Sources */,
 				A11553621FE8AD30008796C3 /* RubyMockServer.swift in Sources */,
+				A11553721FE9E120008796C3 /* RubyMatcher.swift in Sources */,
 				A10985D41FE0ED8B0045F9FF /* TermMatcher.swift in Sources */,
 				A10985BD1FE0ED840045F9FF /* DictionaryExtensions.swift in Sources */,
 				A11553591FE8AD0D008796C3 /* Pact.swift in Sources */,
-				A115536C1FE8DB07008796C3 /* Matchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1125,10 +1125,10 @@
 				A10985C91FE0ED850045F9FF /* PactBodyBuilder.swift in Sources */,
 				A11553681FE8D94B008796C3 /* NativeMatcher.swift in Sources */,
 				A11553631FE8AD31008796C3 /* RubyMockServer.swift in Sources */,
+				A11553731FE9E121008796C3 /* RubyMatcher.swift in Sources */,
 				A10985D81FE0ED8C0045F9FF /* TermMatcher.swift in Sources */,
 				A10985C41FE0ED850045F9FF /* DictionaryExtensions.swift in Sources */,
 				A115535A1FE8AD0E008796C3 /* Pact.swift in Sources */,
-				A115536D1FE8DB08008796C3 /* Matchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1170,10 +1170,10 @@
 				A10985D01FE0ED860045F9FF /* PactBodyBuilder.swift in Sources */,
 				A11553691FE8D94C008796C3 /* NativeMatcher.swift in Sources */,
 				A11553641FE8AD32008796C3 /* RubyMockServer.swift in Sources */,
+				A11553741FE9E122008796C3 /* RubyMatcher.swift in Sources */,
 				A10985DC1FE0ED8D0045F9FF /* TermMatcher.swift in Sources */,
 				A10985CB1FE0ED860045F9FF /* DictionaryExtensions.swift in Sources */,
 				A115535B1FE8AD0F008796C3 /* Pact.swift in Sources */,
-				A115536E1FE8DB08008796C3 /* Matchers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

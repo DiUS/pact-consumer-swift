@@ -27,7 +27,7 @@ enum TestSetup {
   var matcher: Matchers {
     switch self {
     case .Ruby:
-      return Matcher()
+      return RubyMatcher()
     case .Rust:
       return NativeMatcher()
     }
