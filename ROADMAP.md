@@ -13,9 +13,8 @@
 - Document on how to turn on debug output of mock server.
 - Unit Tests around MockService and NativeMockServer
 - Fix Swift Package Manager support (breaks with NativeMockServer dependency -- local dependency not supported?)
-- Fix carthage linkage issues (what are these issues exactly?)
 - Fix build of native library (cargo-lipo doesn't support rust workspaces)
-- Rust Bitcode support. Won't work with watchOS or tvOS. https://github.com/rust-lang/rust/issues/35968
+- Investigate whether seperate tvOS project works without Rust Bitcode support. https://github.com/rust-lang/rust/issues/35968
 
 Matchers:
 - ~~Type~~

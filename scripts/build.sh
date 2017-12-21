@@ -3,12 +3,11 @@
 if [[ -z "${SCHEME}" ]]; then
   DESTINATION="OS=11.2,name=iPhone 8";
   SCHEME="PactConsumerSwift iOS";
+  CARTHAGE_PLATFORM="iOS"
 fi
 
 swiftlint
-# carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
-carthage build --platform $CARTHAGE_PLATFORM
-
+carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
 bundle exec fastlane scan --scheme "$SCHEME" --destination "$DESTINATION"
 
 # # SwiftPM

@@ -1,5 +1,4 @@
 import Foundation
-import NativeMockServer
 import SwiftyJSON
 import BrightFutures
 
@@ -30,7 +29,7 @@ open class NativeMockServerWrapper: MockServer {
         // iOS json generation adds extra backslashes to "application/json" --> "application\\/json"
         // causing the MockServer to fail to parse the file.
         let sanitizedString = jsonString!.replacingOccurrences(of: "\\/", with: "/")
-        let result = NativeMockServer.create_mock_server_ffi(sanitizedString, port)
+        let result = create_mock_server_ffi(sanitizedString, port)
         if result < 0 {
           switch result {
           case -1:
@@ -64,7 +63,7 @@ open class NativeMockServerWrapper: MockServer {
   }
 
   private func mismatches() -> String {
-    let mismatches = NativeMockServer.mock_server_mismatches_ffi(port)
+    let mismatches = mock_server_mismatches_ffi(port)
     if let mismatches = mismatches {
       let json = JSON(parseJSON: String(cString: mismatches))
       var mismatches = ""
@@ -83,15 +82,15 @@ open class NativeMockServerWrapper: MockServer {
   }
 
   private func matched() -> Bool {
-    return NativeMockServer.mock_server_matched_ffi(port)
+    return mock_server_matched_ffi(port)
   }
 
   private func writeFile() {
-    NativeMockServer.write_pact_file_ffi(port, pactDir)
+    write_pact_file_ffi(port, pactDir)
     print("notify: You can find the generated pact files here: \(self.pactDir)")
   }
 
   private func cleanup() {
-    NativeMockServer.cleanup_mock_server_ffi(port)
+    cleanup_mock_server_ffi(port)
   }
 }
