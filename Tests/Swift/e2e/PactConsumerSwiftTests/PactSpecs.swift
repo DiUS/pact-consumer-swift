@@ -130,28 +130,25 @@ class PactSwiftSpec: QuickSpec {
               }
             }
 
-            if(testSetup == TestSetup.Ruby) {
-              // TODO: NOT SURE WHY THIS DOESNT WORK WITH RUST server??????
-              it("should return animals living in water using matcher") {
-                let queryMatcher = testSetup.matcher.term(matcher: "live=*", generate: "live=water")
+            it("should return animals living in water using matcher") {
+              let queryMatcher = testSetup.matcher.term(matcher: "live=*", generate: "live=water")
 
-                animalMockService!.given("an alligator exists")
-                  .uponReceiving("a request for animals living in water with matcher")
-                  .withRequest(method:.GET, path: "/animals", query: queryMatcher)
-                  .willRespondWith(status: 200,
-                                  headers: ["Content-Type": "application/json"],
-                                  body: [ ["name": "Mary", "type": "alligator"] ] )
+              animalMockService!.given("an alligator exists")
+                .uponReceiving("a request for animals living in water with matcher")
+                .withRequest(method:.GET, path: "/animals", query: queryMatcher)
+                .willRespondWith(status: 200,
+                                headers: ["Content-Type": "application/json"],
+                                body: [ ["name": "Mary", "type": "alligator"] ] )
 
-                //Run the tests
-                animalMockService!.run { (testComplete) -> Void in
-                  animalServiceClient!.findAnimals(live: "water", response: {
-                    (response) in
-                    expect(response.count).to(equal(1))
-                    let name = response[0].name
-                    expect(name).to(equal("Mary"))
-                    testComplete()
-                  })
-                }
+              //Run the tests
+              animalMockService!.run { (testComplete) -> Void in
+                animalServiceClient!.findAnimals(live: "water", response: {
+                  (response) in
+                  expect(response.count).to(equal(1))
+                  let name = response[0].name
+                  expect(name).to(equal("Mary"))
+                  testComplete()
+                })
               }
             }
           }

@@ -33,6 +33,11 @@
 		A115532D1FE2480A008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1400C4F1FE0BD2F0080725A /* libpact_mock_server.a */; };
 		A115532E1FE2480B008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1400C4F1FE0BD2F0080725A /* libpact_mock_server.a */; };
 		A115536F1FE8FFC5008796C3 /* NativeMockServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A109864F1FE11D470045F9FF /* NativeMockServer.framework */; };
+		A11553761FEA32CA008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553751FEA32CA008796C3 /* libobjc.tbd */; };
+		A11553781FEA32E1008796C3 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553771FEA32E0008796C3 /* libSystem.tbd */; };
+		A115537A1FEA32F2008796C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553791FEA32F2008796C3 /* libresolv.tbd */; };
+		A115537C1FEA3312008796C3 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115537B1FEA3312008796C3 /* libc.tbd */; };
+		A115537E1FEA331C008796C3 /* libm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115537D1FEA331C008796C3 /* libm.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		A11552D41FE20941008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11552DC1FE20941008796C3 /* NativeMockServer_tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativeMockServer_tvOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11552F01FE2096F008796C3 /* NativeMockServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NativeMockServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11553751FEA32CA008796C3 /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = usr/lib/libobjc.tbd; sourceTree = SDKROOT; };
+		A11553771FEA32E0008796C3 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
+		A11553791FEA32F2008796C3 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		A115537B1FEA3312008796C3 /* libc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libc.tbd; path = usr/lib/libc.tbd; sourceTree = SDKROOT; };
+		A115537D1FEA331C008796C3 /* libm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libm.tbd; path = usr/lib/libm.tbd; sourceTree = SDKROOT; };
 		A1400C321FE0BB920080725A /* NativeMockServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeMockServer.h; sourceTree = "<group>"; };
 		A1400C331FE0BB920080725A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1400C3D1FE0BB920080725A /* NativeMockServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeMockServerTests.swift; sourceTree = "<group>"; };
@@ -101,6 +111,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A115537E1FEA331C008796C3 /* libm.tbd in Frameworks */,
+				A115537C1FEA3312008796C3 /* libc.tbd in Frameworks */,
+				A115537A1FEA32F2008796C3 /* libresolv.tbd in Frameworks */,
+				A11553781FEA32E1008796C3 /* libSystem.tbd in Frameworks */,
+				A11553761FEA32CA008796C3 /* libobjc.tbd in Frameworks */,
 				A11552FB1FE2099F008796C3 /* Security.framework in Frameworks */,
 				A11552F81FE20999008796C3 /* Foundation.framework in Frameworks */,
 				A115532B1FE24808008796C3 /* libpact_mock_server.a in Frameworks */,
@@ -194,6 +209,11 @@
 		A1400C4E1FE0BD2E0080725A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A115537D1FEA331C008796C3 /* libm.tbd */,
+				A115537B1FEA3312008796C3 /* libc.tbd */,
+				A11553791FEA32F2008796C3 /* libresolv.tbd */,
+				A11553771FEA32E0008796C3 /* libSystem.tbd */,
+				A11553751FEA32CA008796C3 /* libobjc.tbd */,
 				A1400C531FE0BD400080725A /* Foundation.framework */,
 				A1400C511FE0BD380080725A /* Security.framework */,
 			);
@@ -658,6 +678,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				EXPORTED_SYMBOLS_FILE = "$(PROJECT_DIR)/Sources/exported_symbols.txt";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -684,6 +705,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				EXPORTED_SYMBOLS_FILE = "$(PROJECT_DIR)/Sources/exported_symbols.txt";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
