@@ -2,13 +2,20 @@ import Foundation
 import SwiftyJSON
 import BrightFutures
 
-open class NativeMockServerWrapper: MockServer {
-  open var port: Int32 = -1
-  open var pactDir: String
+class NativeMockServerWrapper: MockServer {
+  var port: Int32 = -1
+  var pactDir: String = ""
 
-  public init(_ directory: String = "./pacts") {
-    pactDir = directory
+  public init() {
+    pactDir = defaultPactDir()
     port = randomPort()
+  }
+
+  func defaultPactDir() -> String {
+    if let dir = ProcessInfo.processInfo.environment["pact_dir"] {
+      return dir
+    }
+    return "/tmp/pacts"
   }
 
   func randomPort() -> Int32 {
@@ -51,9 +58,9 @@ open class NativeMockServerWrapper: MockServer {
   public func verify(_ pact: Pact) -> Future<String, PactError> {
     return Future { complete in
       if !matched() {
-        let message = "Actual request did not match expectations. Mismatches: \(mismatches())"
+        let message = mismatches()
         cleanup()
-        complete(.failure(.executionError(message)))
+        complete(.failure(.missmatches(message)))
       } else {
         writeFile()
         cleanup()

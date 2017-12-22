@@ -63,16 +63,32 @@ open class MockService: NSObject {
           done()
         }
       }.onFailure { error in
-        fail("Error setting up pact: \(error.localizedDescription)")
+        self.failWithError(error, file: file, line: line)
+        done()
       }
     }
 
     self.mockServer.verify(self.pact).onSuccess { _ in
     }.onFailure { error in
-      self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
+      self.failWithError(error, file: file, line: line)
+      print("warning: Make sure the testComplete() fuction is called at the end of your test.")
+    }
+  }
+
+  func failWithError(_ error: PactError, file: FileString?, line: UInt?) {
+    switch error {
+    case let .setupError(message):
+      self.failWithLocation("Error setting up pact: \(message)",
         file: file,
         line: line)
-      print("warning: Make sure the testComplete() fuction is called at the end of your test.")
+    case let .executionError(message):
+      self.failWithLocation("Error executing pact: \(message)",
+        file: file,
+        line: line)
+    case let .missmatches(message):
+      self.failWithLocation("Error verifying pact. Missmatches: \(message)",
+        file: file,
+        line: line)
     }
   }
 

@@ -11,7 +11,7 @@
 
 This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io). It provides support for **[Consumer Driven Contract Testing][pact-microservices]** between dependent systems where the integration is based on HTTP (or message queues for some of the implementations).
 
-_But why?_ To test communication boundaries between your app and services.  
+_But why?_ To test communication boundaries between your app and services.
 You can view a presentation on how Pact can work in a mobile context here: [Yow! Connected 2016 Andrew Spinks - Increasing The Confidence In Your Service Integrations](https://www.youtube.com/watch?v=UQkMr4bKYp4).
 
 Implements [Pact Specification v2][pact-spec-v2],
@@ -252,3 +252,17 @@ Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 [pact-carthage-ios-example]: https://github.com/andrewspinks/PactSwiftExample
 [build-carthage-ios-example]: https://travis-ci.org/andrewspinks/PactSwiftExample
 [pact-microservices]: https://dius.com.au/2016/02/03/microservices-pact/
+
+# Native implementation - Beta
+No ruby dependencies, simpler setup.
+A lot of issues were caused by the . Different ruby setups, etc.
+
+## Setup
+Add pact-consumer-swift as a dependency using Carthage or Cocoapods...
+
+By default, pacts will be written to `/tmp/pacts`. You can change the location the pacts are written to by setting `pact_dir` environment variable in the Test scheme. The environment variable you specify can reference other environment variables, so setting it to `$PROJECT_DIR/pacts` will set the output directory to the pacts dir within your current project.
+
+![Xcode Scheme Test Arguments](scripts/images/specify-pact-dir.png)
+
+## Debugging
+Turning on extra pact logging... How to turn up the mock server logs?

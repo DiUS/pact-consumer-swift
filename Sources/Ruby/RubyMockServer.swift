@@ -87,7 +87,7 @@ open class RubyMockServer: MockServer {
     self.verifyInteractions().onSuccess { _ in
       promise.completeWith(self.write(provider: pact.provider, consumer: pact.consumer))
     }.onFailure { error in
-      promise.failure(.executionError(error.localizedDescription))
+      promise.failure(.missmatches(error.localizedDescription))
     }
     return promise.future
   }
