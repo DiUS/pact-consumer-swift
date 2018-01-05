@@ -20,7 +20,7 @@ before_install:
   - security find-identity -v -p codesigning
   - gem install pact-mock_service -v 2.1.0
   - bundle install
-  - brew bundle
+  - brew update && brew bundle
   - carthage checkout
 script:
   - set -o pipefail
