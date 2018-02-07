@@ -20,8 +20,7 @@ before_install:
   - security find-identity -v -p codesigning
   - gem install pact-mock_service -v 2.1.0
   - bundle install
-  - brew outdated carthage || brew upgrade carthage
-  - brew outdated swiftlint || brew upgrade swiftlint
+  - brew update && brew bundle
   - carthage checkout
 script:
   - set -o pipefail
