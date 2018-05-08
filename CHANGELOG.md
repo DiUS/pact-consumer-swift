@@ -1,5 +1,17 @@
 
 
+# 0.5.2 - Bugfix Release
+
+* 52cf980 - Update release script to work better with cocoa pods (Andrew Spinks, Tue May 8 17:09:25 2018 +0900)
+* 2bc59b5 - Update gems (Andrew Spinks, Tue May 8 16:26:54 2018 +0900)
+* 6749fdc - Merge pull request #38 from stitchfix/master (andrewspinks, Tue May 1 11:46:08 2018 +0900)
+* 26cab90 - Update BrightFutures (Robbin Voortman, Wed Apr 25 08:51:25 2018 +0200)
+* b538409 - wait on verify to complete before allowing tests to continue to prevent race condition (Eric Vennaro, Tue Apr 24 15:31:03 2018 -0700)
+* 3e1edc3 - move to brew update (Stephen, Thu Jan 4 16:42:57 2018 -0800)
+* db7abe5 - move to brew bundle (Stephen, Thu Jan 4 15:37:59 2018 -0800)
+* 8bc8fc0 - Create Brewfile (Stephen, Thu Jan 4 15:37:26 2018 -0800)
+* 9c5678b - Update cocopods version number (Andrew Spinks, Thu Oct 26 19:19:37 2017 +0900)
+
 # 0.5.1 - Bugfix Release
 
 * 1b6ba70 - Fixed issue preventing the pact writing (Angel G. Olloqui, Wed Oct 25 12:30:38 2017 +0200)
