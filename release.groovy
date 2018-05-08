@@ -92,17 +92,16 @@ ask('Tag and Push commits?: [Y]') {
   executeOnShell 'git push --tags'
 }
 
-ask('Publish library to cocoapods?: [Y]') {
-  executeOnShell 'pod trunk push PactConsumerSwift.podspec --allow-warnings'
-}
-
-def nextVer = Version.valueOf(releaseVer).incrementPatchVersion()
-ask("Bump version to $nextVer?: [Y]") {
-  executeOnShell "sed -i -e 's/version = \"${releaseVer}\"/version = \"${nextVer}\"/' PactConsumerSwift.podspec"
+ask("Update cocoapods version to $releaseVer?: [Y]") {
+  executeOnShell "sed -i -e 's/version = \"${prevTag}\"/version = \"${releaseVer}\"/' PactConsumerSwift.podspec"
   executeOnShell("git add PactConsumerSwift.podspec")
   executeOnShell("git diff --cached")
   ask("Commit and push this change?: [Y]") {
-    executeOnShell("git commit -m 'bump version to $nextVer'")
+    executeOnShell("git commit -m 'bump cocoapods version to $releaseVer'")
     executeOnShell("git push")
   }
+}
+
+ask('Publish library to cocoapods?: [Y]') {
+  executeOnShell 'pod trunk push PactConsumerSwift.podspec --allow-warnings'
 }
