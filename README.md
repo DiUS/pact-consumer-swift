@@ -22,35 +22,24 @@ This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provid
 ## Installation
 Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
-### Install the Pact Mock Service
+### Install Pact Mock Service
 
 Install the [pact-ruby-standalone][pact-mock-service-standalone] as per installation instructions.
 
 #### Xcode Setup
-In Xcode, edit your scheme and add _pre-_ and _post-actions_ for your `Test` step to run the provided scripts in `./scripts/` folder. Make sure you select your target in _Provide build settings from_ the drop down menu.
-
-Example if you installed _pact-ruby-standalone_:
-```
-# Pre-actions
-PATH=/full/path/to/your/standalone/pact/bin:$PATH
-"$SRCROOT"/scripts/start_server.sh
-
-# Post-actions
-PATH=/full/path/to/your/standalone/pact/bin:$PATH
-"$SRCROOT"/scripts/stop_server.sh
-```
-
-of if you installed Pact mock service using `gem install pact-mock_service`:
+In Xcode, edit your scheme and add _pre-_ and _post-actions_ to `Test` to start and stop `pact-mock-service`. Make sure you select your target in _Provide build settings from_ the drop down menu.
 
 ```
 # Pre-actions
-PATH=/full/path/to/your/rubies/bin:$PATH
-"$SRCROOT"/scripts/start_server.sh
+PATH=/path/to/your/standalone/pact/bin:$PATH
+pact-mock-service start --pact-specification-version 2.0.0 --log "${SRCROOT}/tmp/pact.log" --pact-dir "${SRCROOT}/tmp/pacts" -p 1234
 
 # Post-actions
-PATH=/full/path/to/your/rubies/bin:$PATH
-"$SRCROOT"/scripts/stop_server.sh
+PATH=/path/to/your/standalone/pact/bin:$PATH
+pact-mock-service stop
 ```
+Note: your generated Pact files will be dropped into `"${SRCROOT}/tmp/pacts"` folder.
+
 ![Xcode Scheme Test Pre-actions](scripts/images/xcode-scheme-test-pre-actions.png)
 
 ### Add the PactConsumerSwift library to your project
@@ -225,9 +214,9 @@ See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect
 For more on request / response matching, see [Matching][matching].
 
 ### Using in you CI
-Xcode's _pre-actions_ and _post-actions_ do not honour non-zero script exits and therefore would not fail your build if publishing to a Pact broker would fail. If you would like to upload your Pact files to Pact Broker as part of your CI, we would suggest, if possible, that you create a separate step in your CI workflow with that responsibility.
+Xcode's _pre-actions_ and _post-actions_ do not honour non-zero script exits and therefore would not fail your build if publishing to a Pact Broker would fail. If you would like to upload your Pact files to a Pact Broker as part of your CI, we would suggest that you create a separate step in your CI workflow with that responsibility.
 
-See the [`pact-ruby-standalone`][pact-ruby-standalone-releases] page for installation instructions and how to use `pact-broker` client.
+See [pact-ruby-standalone][pact-ruby-standalone-releases] page for installation instructions and how to use `pact-broker` client.
 
 ### Verifying your client against the service you are integrating with
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
