@@ -1,4 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.5
-github "Thomvis/BrightFutures" ~> 6.0.1
+github "Thomvis/BrightFutures" ~> 7.0
 github "Quick/Nimble" ~> 7.0
 github "Quick/Quick" ~> 1.1
