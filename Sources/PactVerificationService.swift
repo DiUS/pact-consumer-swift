@@ -3,8 +3,8 @@ import Alamofire
 import BrightFutures
 
 open class PactVerificationService {
-  open let url: String
-  open let port: Int
+  public let url: String
+  public let port: Int
   open var baseUrl: String {
     return "\(url):\(port)"
   }
@@ -94,7 +94,7 @@ open class PactVerificationService {
     Alamofire.request(Router.verify())
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
-    
+
     return promise.future
   }
 
