@@ -86,20 +86,18 @@ ask('Update Changelog?: [Y]') {
   executeOnShell("git diff HEAD^..HEAD")
 }
 
-ask('Tag and Push commits?: [Y]') {
- executeOnShell 'git push'
-  executeOnShell("git tag v${releaseVer}")
-  executeOnShell 'git push --tags'
-}
-
 ask("Update cocoapods version to $releaseVer?: [Y]") {
-  executeOnShell "sed -i -e 's/version = \"${prevTag}\"/version = \"${releaseVer}\"/' PactConsumerSwift.podspec"
+  executeOnShell "sed -i '' 's/version = \"${prevTag}\"/version = \"${releaseVer}\"/' PactConsumerSwift.podspec"
   executeOnShell("git add PactConsumerSwift.podspec")
   executeOnShell("git diff --cached")
-  ask("Commit and push this change?: [Y]") {
+  ask("Commit this change?: [Y]") {
     executeOnShell("git commit -m 'bump cocoapods version to $releaseVer'")
-    executeOnShell("git push")
   }
+}
+
+ask('Tag and Push commits?: [Y]') {
+  executeOnShell("git tag v${releaseVer}")
+  executeOnShell 'git push --tags'
 }
 
 ask('Publish library to cocoapods?: [Y]') {
