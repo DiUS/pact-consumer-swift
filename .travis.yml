@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode10.1
 env:
   global:
     - IOS_FRAMEWORK_SCHEME="PactConsumerSwift iOS"
@@ -9,12 +9,10 @@ env:
     - secure: QmmEqePFeG6D1Qu0KrWI0w6LiwiY3V2qUWAHxQrSYFFPG4wJOZuHpwdk9NO45gOzPYxbkzXT9MynWFMs5pZKrIJCmQRkK5fNcDecwvNunsJEzBmvNYLhd0B4IKy2R1pBmKcDHPIYCzgpanPDAV7LhTXlGoUGk59+QL6qK8+hBQs=
     - secure: FpfacekFs93LkX9gerQUxQKIDTjBl2abp7ZQ/8L3DiJo4nMF7xEwUGeSDQMR+2hRqRWr/SdU59Lll5k10JBqWxAaLXDTUq3Lh3aamc4nc2PAN7yp+0aq9RQG5+PaLkfx+SLs5B/CjDiRRotZg/H/uMTRRFbkqydVtxiqGv94JOg=
   matrix:
-    - DESTINATION="OS=11.0,name=iPhone 8"          SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
-    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"   SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
-
+    - DESTINATION="OS=12.0,name=iPhone X"   SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
+    - DESTINATION="OS=11.3,name=iPhone 8"   SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
     - DESTINATION="OS=11.0,name=Apple TV 4K (at 1080p)" SCHEME="$TVOS_FRAMEWORK_SCHEME" CARTHAGE_PLATFORM="tvOS"
-
-    - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"     CARTHAGE_PLATFORM="macOS"
+    - DESTINATION="arch=x86_64"             SCHEME="$MACOS_FRAMEWORK_SCHEME"     CARTHAGE_PLATFORM="macOS"
 before_install:
   - scripts/import_keychain.sh
   - security find-identity -v -p codesigning

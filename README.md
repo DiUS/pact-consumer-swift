@@ -17,7 +17,7 @@ You can view a presentation on how Pact can work in a mobile context here: [Yow!
 Implements [Pact Specification v2][pact-spec-v2],
 including [flexible matching][pact-flexible-matching].
 
-This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the tests.
+This DSL relies on the Ruby [pact-ruby-standalone][pact-mock-service-standalone] to provide the mock service for the tests.
 
 ## Installation
 Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
