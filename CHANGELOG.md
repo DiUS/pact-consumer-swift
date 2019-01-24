@@ -1,5 +1,22 @@
 
 
+# 0.5.3 - Bugfix Release
+
+* a1cd000 - Update cocoapods dependencies. (Andrew Spinks, Thu Jan 24 19:34:14 2019 +0900)
+* 5ebc062 - Update pact-mock-service versions (Andrew Spinks, Thu Jan 24 17:29:40 2019 +0900)
+* 2e77868 - Update Cartfile.resolved for use with bootstrap on CI (Marko Justinek, Thu Jan 24 09:06:45 2019 +1100)
+* f8899f8 - Update Quick dependency to use “master” (Marko Justinek, Thu Jan 24 08:38:31 2019 +1100)
+* 596b6b8 - Update travis CI env matrix (Marko Justinek, Thu Jan 24 08:26:12 2019 +1100)
+* 8c4d3cf - Bumps up versions of all dependencies (Marko Justinek, Wed Jan 23 23:58:20 2019 +1100)
+* 4198e38 - Bump up Alamofire version (Marko Justinek, Wed Jan 23 23:47:04 2019 +1100)
+* 5897e28 - Updates travis pipeline to run tests on iOS 12.1 and 11.3 (Marko Justinek, Wed Jan 23 23:30:14 2019 +1100)
+* 0e7212b - Project updates for Swift 4.2 (Marko Justinek, Wed Jan 23 23:21:23 2019 +1100)
+* 6ca5c37 - Update BrightFutures dependency version (Marko Justinek, Wed Jan 23 23:12:39 2019 +1100)
+* d639fe7 - Update readme (Marko Justinek, Wed Jan 23 23:12:23 2019 +1100)
+* e1c4596 - Removed reference to non-standalone pact mock service (Marko Justinek, Fri May 18 11:00:12 2018 +1000)
+* 2a667c2 - Updates README to encourage usage of pact-ruby-standalone (Marko Justinek, Thu May 17 08:27:07 2018 +1000)
+* 5ec6eb3 - bump cocoapods version to 0.5.2 (Andrew Spinks, Tue May 8 17:22:01 2018 +0900)
+
 # 0.5.2 - Bugfix Release
 
 * 52cf980 - Update release script to work better with cocoa pods (Andrew Spinks, Tue May 8 17:09:25 2018 +0900)
