@@ -1,5 +1,10 @@
 
 
+# 0.5.4 - Bugfix Release
+
+* 3ed97f1 - Update dependencies (Mihai Georgescu, Mon Mar 25 23:12:14 2019 +0000)
+* 28e1588 - Fix cocoa pods release version number and release script. (Andrew Spinks, Thu Jan 24 20:17:51 2019 +0900)
+
 # 0.5.3 - Bugfix Release
 
 * a1cd000 - Update cocoapods dependencies. (Andrew Spinks, Thu Jan 24 19:34:14 2019 +0900)
