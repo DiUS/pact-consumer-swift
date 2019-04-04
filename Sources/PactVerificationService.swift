@@ -12,9 +12,9 @@ open class PactVerificationService {
   enum Router: URLRequestConvertible {
     static var baseURLString = "http://example.com"
 
-    case clean()
+    case clean(Void)
     case setup([String: Any])
-    case verify()
+    case verify(Void)
     case write([String: [String: String]])
 
     var method: HTTPMethod {
@@ -91,7 +91,7 @@ open class PactVerificationService {
 
   fileprivate func verifyInteractions() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    Alamofire.request(Router.verify())
+    Alamofire.request(Router.verify(()))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
@@ -112,7 +112,7 @@ open class PactVerificationService {
   fileprivate func clean() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
-    Alamofire.request(Router.clean())
+    Alamofire.request(Router.clean(()))
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 
