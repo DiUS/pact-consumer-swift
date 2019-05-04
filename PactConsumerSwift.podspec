@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
   s.module_name  = "PactConsumerSwift"
-  s.version = "0.5.3"
+  s.version      = "0.5.5"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
@@ -26,8 +26,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks   = 'XCTest'
 
-  s.dependency 'Alamofire', '~> 4.7'
-  s.dependency 'BrightFutures', '~> 7.0'
-  s.dependency 'Nimble', '~> 8.0'
-  s.dependency 'Quick', '~> 2.0'
+  s.dependency 'Alamofire', '~> 4.8.2'
+  s.dependency 'BrightFutures', '~> 8.0.0'
+  s.dependency 'Nimble', '~> 8.0.1'
+  s.dependency 'SwiftyJSON', '~> 5.0.0'
+  s.dependency 'Quick', '~> 2.0.0'
 end
