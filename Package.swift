@@ -11,10 +11,10 @@ let package = Package(
     ),
   ],
   dependencies: [
-    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.6.0"),
-    .package(url: "https://github.com/Quick/Quick.git", from: "1.1.0"),
-    .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.0"),
-    .package(url: "https://github.com/Thomvis/BrightFutures.git", from: "6.0.0")
+    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "4.5.1"),
+    .package(url: "https://github.com/Quick/Quick.git", from: "2.0.0"),
+    .package(url: "https://github.com/Quick/Nimble.git", from: "8.0.0"),
+    .package(url: "https://github.com/Thomvis/BrightFutures.git", from: "5.2.0")
   ],
   targets: [
     .target(

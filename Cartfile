@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" ~> 4.6
-github "Thomvis/BrightFutures" ~> 6.0
-github "Quick/Nimble" ~> 7.0
+github "Alamofire/Alamofire" ~> 4.7
+github "Thomvis/BrightFutures" ~> 7.0
+github "Quick/Nimble" ~> 8.0
 github "SwiftyJSON/SwiftyJSON" ~> 4.0

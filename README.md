@@ -5,8 +5,8 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg)]()
 ![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)
-[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/PactConsumerSwift/badge.png)](https://cocoadocs.org/docsets/PactConsumerSwift)
-[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/PactConsumerSwift/badge.svg)](https://cocoadocs.org/docsets/PactConsumerSwift) ![MIT](https://cocoapod-badges.herokuapp.com/l/PactConsumerSwift/badge.png)
+[![Badge w/ CocoaPod Version](https://cocoapod-badges.herokuapp.com/v/PactConsumerSwift/badge.png)](https://cocoadocs.org/docsets/PactConsumerSwift)
+[![Badge w/ Supported Platforms](https://cocoapod-badges.herokuapp.com/p/PactConsumerSwift/badge.svg)](https://cocoadocs.org/docsets/PactConsumerSwift) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Twitter](https://img.shields.io/badge/twitter-@pact__up-blue.svg?style=flat)](http://twitter.com/pact_up)
 
 This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io). It provides support for **[Consumer Driven Contract Testing][pact-microservices]** between dependent systems where the integration is based on HTTP (or message queues for some of the implementations).
@@ -17,26 +17,29 @@ You can view a presentation on how Pact can work in a mobile context here: [Yow!
 Implements [Pact Specification v2][pact-spec-v2],
 including [flexible matching][pact-flexible-matching].
 
-This DSL relies on the Ruby [pact-mock_service][pact-mock-service] gem to provide the mock service for the tests.
+This DSL relies on the Ruby [pact-ruby-standalone][pact-mock-service-standalone] to provide the mock service for the tests.
 
 ## Installation
 Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
-### Install the [pact-mock_service][pact-mock-service]
+### Install Pact Mock Service
 
-Run `sudo gem install pact-mock_service -v 2.1.0` in your terminal.
+Install the [pact-ruby-standalone][pact-mock-service-standalone] as per installation instructions.
 
-In Xcode, edit your scheme and add _pre-_ and _post-actions_ for your `Test` step to run the provided scripts in `./scripts/` folder. Make sure you select your target in _Provide build settings from_ the drop down menu.
+#### Xcode Setup
+In Xcode, edit your scheme and add _pre-_ and _post-actions_ to `Test` to start and stop `pact-mock-service`. Make sure you select your target in _Provide build settings from_ the drop down menu.
+
 ```
-# Examples:
 # Pre-actions
-PATH=/full/path/to/your/rubies/bin:$PATH
-"$SRCROOT"/scripts/start_server.sh
+PATH=/path/to/your/standalone/pact/bin:$PATH
+pact-mock-service start --pact-specification-version 2.0.0 --log "${SRCROOT}/tmp/pact.log" --pact-dir "${SRCROOT}/tmp/pacts" -p 1234
 
 # Post-actions
-PATH=/full/path/to/your/rubies/bin:$PATH
-"$SRCROOT"/scripts/stop_server.sh
+PATH=/path/to/your/standalone/pact/bin:$PATH
+pact-mock-service stop
 ```
+Note: your generated Pact files will be dropped into `"${SRCROOT}/tmp/pacts"` folder.
+
 ![Xcode Scheme Test Pre-actions](scripts/images/xcode-scheme-test-pre-actions.png)
 
 ### Add the PactConsumerSwift library to your project
@@ -210,6 +213,11 @@ See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect
 
 For more on request / response matching, see [Matching][matching].
 
+### Using in you CI
+Xcode's _pre-actions_ and _post-actions_ do not honour non-zero script exits and therefore would not fail your build if publishing to a Pact Broker would fail. If you would like to upload your Pact files to a Pact Broker as part of your CI, we would suggest that you create a separate step in your CI workflow with that responsibility.
+
+See [pact-ruby-standalone][pact-ruby-standalone-releases] page for installation instructions and how to use `pact-broker` client.
+
 ### Verifying your client against the service you are integrating with
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
 `$YOUR_PROJECT/tmp/pact.log`
@@ -240,6 +248,8 @@ Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 [pact-katkit-example]: https://github.com/andrewspinks/pact-mobile-preso
 [pact-dockerized-example]: https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk
 [pact-mock-service]: https://github.com/bethesque/pact-mock_service
+[pact-mock-service-standalone]: https://github.com/pact-foundation/pact-ruby-standalone
+[pact-ruby-standalone-releases]: https://github.com/pact-foundation/pact-ruby-standalone/releases
 [pact-mock-service-without-ruby]: https://github.com/DiUS/pact-consumer-js-dsl/wiki/Using-the-Pact-Mock-Service-without-Ruby
 [regular-expressions]: http://ruby-doc.org/core-2.1.5/Regexp.html
 [matching]: http://docs.pact.io/documentation/matching.html
