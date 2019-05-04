@@ -938,7 +938,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/iOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi";
+			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/iOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi\n";
 		};
 		AD17A6261F74B59100219F39 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -952,7 +952,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
