@@ -53,8 +53,6 @@
 		A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		A11553191FE20C1F008796C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
 		A115531A1FE20C20008796C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
-		A115531B1FE20CED008796C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
-		A115531C1FE20CEF008796C3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
 		A11553331FE3C416008796C3 /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553311FE3C416008796C3 /* Pact.swift */; };
 		A11553341FE3C416008796C3 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553321FE3C416008796C3 /* MockServer.swift */; };
 		A115533C1FE3C4C5008796C3 /* RubyMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */; };
@@ -189,7 +187,6 @@
 		ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
 		ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
-		ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
 		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
@@ -276,7 +273,6 @@
 		ADC03E191F74C41B003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		ADC03E211F74C492003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		ADC03E2C1F74C68E003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +302,6 @@
 				AD17A5921F74AF5300219F39 /* PactConsumerSwift.framework in Frameworks */,
 				ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */,
 				A10985E61FE0F2250045F9FF /* SwiftyJSON.framework in Frameworks */,
-				A115531B1FE20CED008796C3 /* Result.framework in Frameworks */,
 				ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */,
 				ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */,
 			);
@@ -339,7 +334,6 @@
 				A10985EA1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553191FE20C1F008796C3 /* Quick.framework in Frameworks */,
 				A11553151FE20BB4008796C3 /* Nimble.framework in Frameworks */,
-				ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */,
 				A115530D1FE20B79008796C3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +364,6 @@
 				AD17A5CD1F74AFC900219F39 /* PactConsumerSwift.framework in Frameworks */,
 				A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A115531A1FE20C20008796C3 /* Quick.framework in Frameworks */,
-				A115531C1FE20CEF008796C3 /* Result.framework in Frameworks */,
 				A11553171FE20BB5008796C3 /* Nimble.framework in Frameworks */,
 				A115530F1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 			);
@@ -591,7 +584,6 @@
 				ADC03E181F74C41B003FCA6A /* BrightFutures.framework */,
 				ADC03E191F74C41B003FCA6A /* Nimble.framework */,
 				ADC03E211F74C492003FCA6A /* Quick.framework */,
-				ADC03E2C1F74C68E003FCA6A /* Result.framework */,
 				A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
