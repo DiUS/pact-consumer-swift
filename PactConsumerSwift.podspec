@@ -21,8 +21,9 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
 
   s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => "v#{s.version}" }
-  s.source_files = 'Sources/**/*.swift'
-  s.resources    = 'scripts/start_server.sh', 'scripts/stop_server.sh'
+  s.source_files = 'Sources/**/*.swift', 'Sources/Native/pact_mock_server.h'
+  s.vendored_libraries = 'Sources/Native/libpact_mock_server.a'
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/Sources/Native/**" }
   s.requires_arc = true
   s.frameworks   = 'XCTest'
 
