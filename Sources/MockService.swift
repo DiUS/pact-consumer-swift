@@ -1,7 +1,6 @@
 import Foundation
 import Alamofire
 import BrightFutures
-import Result
 import Nimble
 
 @objc

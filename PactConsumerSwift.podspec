@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
   s.dependency 'BrightFutures', '~> 8.0.0'
   s.dependency 'Nimble', '~> 8.0.1'
   s.dependency 'SwiftyJSON', '~> 5.0.0'
-  s.dependency 'Quick', '~> 2.0.0'
+  s.dependency 'Quick', '~> 2.1.0'
 end
