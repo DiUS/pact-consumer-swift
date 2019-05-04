@@ -17,15 +17,16 @@ class PactHeaderBuilder {
   func processHeaders(path: String, headers: [String: Any]) -> ([String: Any], PathWithMatchingRule) {
     var processedHeaders: [String: Any] = [:]
     var matchingRule: PathWithMatchingRule = [:]
-    for (key, value) in headers.reversed() {
+    // FIXME: renamed key, check if context checks out
+    for (headerKey, value) in headers.reversed() {
       switch value {
       case let string as String:
-        processedHeaders[key] = string
+        processedHeaders[headerKey] = string
       case let matcher as MatchingRule:
-        processedHeaders[key] = matcher.value()
-        matchingRule["\(path).\(key)"] = matcher.rule()
+        processedHeaders[headerKey] = matcher.value()
+        matchingRule["\(path).\(headerKey)"] = matcher.rule()
       default:
-        processedHeaders[key] = value
+        processedHeaders[headerKey] = value
       }
     }
     return (processedHeaders, matchingRule)

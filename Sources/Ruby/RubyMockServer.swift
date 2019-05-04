@@ -3,8 +3,8 @@ import Alamofire
 import BrightFutures
 
 open class RubyMockServer: MockServer {
-  open let url: String
-  open let port: Int
+  let url: String
+  let port: Int
 
   open var baseUrl: String {
     return "\(url):\(port)"
@@ -13,9 +13,9 @@ open class RubyMockServer: MockServer {
   enum Router: URLRequestConvertible {
     static var baseURLString = "http://example.com"
 
-    case clean()
+    case clean
     case setup([String: Any])
-    case verify()
+    case verify
     case write([String: [String: String]])
 
     var method: HTTPMethod {
@@ -94,7 +94,7 @@ open class RubyMockServer: MockServer {
 
   fileprivate func verifyInteractions() -> Future<String, PactError> {
     let promise = Promise<String, PactError>()
-    Alamofire.request(Router.verify())
+    Alamofire.request(Router.verify)
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
     return promise.future
@@ -112,7 +112,7 @@ open class RubyMockServer: MockServer {
   fileprivate func clean() -> Future<String, PactError> {
     let promise = Promise<String, PactError>()
 
-    Alamofire.request(Router.clean())
+    Alamofire.request(Router.clean)
     .validate()
     .responseString { response in self.requestHandler(promise)(response) }
 

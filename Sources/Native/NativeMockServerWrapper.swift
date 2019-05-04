@@ -12,8 +12,8 @@ class NativeMockServerWrapper: MockServer {
   }
 
   func defaultPactDir() -> String {
-    if let dir = ProcessInfo.processInfo.environment["pact_dir"] {
-      return dir
+    if let pactDir = ProcessInfo.processInfo.environment["pact_dir"] {
+      return pactDir
     }
     return "/tmp/pacts"
   }

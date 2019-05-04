@@ -46,11 +46,12 @@ class PactBodyBuilder {
   func processDictionary(_ dictionary: JSONEntry, path: String) -> (Any, PathWithMatchingRule) {
     var matches: PathWithMatchingRule =  [:]
     var processedDictionary: JSONEntry = [:]
-    for key in dictionary.keys {
-      if let dictionaryValue = dictionary[key] {
-        let processedSubElement = processElement(path: "\(path).\(key)", element: dictionaryValue)
+    // FIXME: renamed key, check if context checks out
+    for jsonKey in dictionary.keys {
+      if let dictionaryValue = dictionary[jsonKey] {
+        let processedSubElement = processElement(path: "\(path).\(jsonKey)", element: dictionaryValue)
         matches = matches.merge(dictionary: processedSubElement.1)
-        processedDictionary[key] = processedSubElement.0
+        processedDictionary[jsonKey] = processedSubElement.0
       }
     }
     return (processedDictionary, matches)
