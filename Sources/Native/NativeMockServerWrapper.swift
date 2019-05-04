@@ -2,7 +2,7 @@ import Foundation
 import SwiftyJSON
 import BrightFutures
 
-class NativeMockServerWrapper: MockServer {
+public class NativeMockServerWrapper: MockServer {
   var port: Int32 = -1
   var pactDir: String = ""
 
