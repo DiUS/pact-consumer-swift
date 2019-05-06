@@ -6,9 +6,10 @@ public class NativeMockServerWrapper: MockServer {
   var port: Int32 = -1
   var pactDir: String = ""
 
-  public init() {
+  public init(port: Int32? = nil) {
     pactDir = defaultPactDir()
-    port = randomPort()
+
+    self.port = port ?? randomPort()
   }
 
   func defaultPactDir() -> String {
@@ -43,6 +44,8 @@ public class NativeMockServerWrapper: MockServer {
             complete(.failure(.setupError("Mock server creation failed, pact supplied was nil")))
           case -2:
             complete(.failure(.setupError("Mock server creation failed, pact JSON file could not be parsed")))
+          case -4:
+            complete(.failure(.setupError("Mock server creation failed, Address already in use")))
           default:
             complete(.failure(.setupError("Mock server creation failed, result: \(result)")))
           }
