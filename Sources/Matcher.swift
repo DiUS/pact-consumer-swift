@@ -17,19 +17,16 @@ protocol Matchers {
 open class Matcher: NSObject {
   @objc
   public class func term(matcher: String, generate: Any) -> Any {
-    // FIXME: this should be dependent on the mockser type
-    return NativeMatcher().term(matcher: matcher, generate: generate)
+    return RubyMatcher().term(matcher: matcher, generate: generate)
   }
 
   @objc
   public class func somethingLike(_ value: Any) -> Any {
-    // FIXME: this should be dependent on the mockser type
-    return NativeMatcher().somethingLike(value)
+    return RubyMatcher().somethingLike(value)
   }
 
   @objc
   public class func eachLike(_ value: Any, min: Int = 1) -> Any {
-    // FIXME: this should be dependent on the mockser type
-    return NativeMatcher().eachLike(value, min: min)
+    return RubyMatcher().eachLike(value, min: min)
   }
 }
