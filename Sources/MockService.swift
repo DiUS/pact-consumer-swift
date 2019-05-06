@@ -16,16 +16,19 @@ open class MockService: NSObject {
 
   public init(provider: String,
               consumer: String,
-              mockServer: MockServer) {
+              mockServer: MockServer,
+              matchers: Matchers) {
     self.pact = Pact(provider: provider, consumer: consumer)
     self.mockServer = mockServer
+    Matcher.matchers = matchers
   }
 
   @objc(initWithProvider: consumer:)
   public convenience init(provider: String, consumer: String) {
     self.init(provider: provider,
               consumer: consumer,
-              mockServer: RubyMockServer())
+              mockServer: RubyMockServer(),
+              matchers: RubyMatcher())
   }
 
   @objc
