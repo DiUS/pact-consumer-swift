@@ -91,6 +91,10 @@ open class MockService: NSObject {
       self.failWithLocation("Error verifying pact. Missmatches: \(message)",
         file: file,
         line: line)
+    case .writeError(let message):
+      self.failWithLocation("Error writing pact. Missmatches: \(message)",
+        file: file,
+        line: line)
     }
   }
 

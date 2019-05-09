@@ -65,8 +65,18 @@ public class NativeMockServerWrapper: MockServer {
         cleanup()
         complete(.failure(.missmatches(message)))
       } else {
-        writeFile()
+        let result = writeFile()
         cleanup()
+        if result > 0 {
+          switch result {
+          case 2:
+            complete(.failure(.writeError("The pact file was not able to be written")))
+          case 3:
+            complete(.failure(.writeError("A mock server with the provided port was not found")))
+          default:
+            complete(.failure(.writeError("Writing file failed, result: \(result)")))
+          }
+        }
         complete(.success("Pact verified successfully!"))
       }
     }
@@ -95,9 +105,10 @@ public class NativeMockServerWrapper: MockServer {
     return mock_server_matched_ffi(port)
   }
 
-  private func writeFile() {
-    write_pact_file_ffi(port, pactDir)
+  private func writeFile() -> Int32 {
+    let result = write_pact_file_ffi(port, pactDir)
     print("notify: You can find the generated pact files here: \(self.pactDir)")
+    return result
   }
 
   private func cleanup() {
