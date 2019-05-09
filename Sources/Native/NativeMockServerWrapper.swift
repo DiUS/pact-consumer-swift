@@ -74,6 +74,8 @@ public class NativeMockServerWrapper: MockServer {
             complete(.failure(.writeError("The pact file was not able to be written")))
           case 3:
             complete(.failure(.writeError("A mock server with the provided port was not found")))
+          case 4:
+            complete(.success("Pact verified successfully but could not be written!"))
           default:
             complete(.failure(.writeError("Writing file failed, result: \(result)")))
           }
@@ -108,6 +110,9 @@ public class NativeMockServerWrapper: MockServer {
   }
 
   private func writeFile() -> Int32 {
+    guard FileManager.default.fileExists(atPath: pactDir) else {
+        return 4
+    }
     let result = write_pact_file_ffi(port, pactDir)
     print("notify: You can find the generated pact files here: \(self.pactDir)")
     return result
