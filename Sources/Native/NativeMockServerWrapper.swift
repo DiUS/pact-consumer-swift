@@ -49,6 +49,7 @@ public class NativeMockServerWrapper: MockServer {
           default:
             complete(.failure(.setupError("Mock server creation failed, result: \(result)")))
           }
+          return
         }
         print("Server started on port \(port)")
         complete(.success("Server started on port \(port)"))
@@ -76,6 +77,7 @@ public class NativeMockServerWrapper: MockServer {
           default:
             complete(.failure(.writeError("Writing file failed, result: \(result)")))
           }
+          return
         }
         complete(.success("Pact verified successfully!"))
       }
