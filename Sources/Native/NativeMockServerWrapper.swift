@@ -20,7 +20,7 @@ public class NativeMockServerWrapper: MockServer {
   }
 
   func randomPort() -> Int32 {
-    return Int32(arc4random_uniform(1000) + 4000)
+    return Int32(arc4random_uniform(2000) + 4000)
   }
 
   public func getBaseUrl() -> String {
@@ -37,7 +37,7 @@ public class NativeMockServerWrapper: MockServer {
         // iOS json generation adds extra backslashes to "application/json" --> "application\\/json"
         // causing the MockServer to fail to parse the file.
         let sanitizedString = jsonString!.replacingOccurrences(of: "\\/", with: "/")
-        let result = create_mock_server_ffi(sanitizedString, port)
+        let result = createServerOnUnusedPort(withJson: sanitizedString)
         if result < 0 {
           switch result {
           case -1:
@@ -57,6 +57,17 @@ public class NativeMockServerWrapper: MockServer {
         complete(.failure(.setupError(error.localizedDescription)))
       }
     }
+  }
+
+  private func createServerOnUnusedPort(withJson sanitizedString: String) -> Int32 {
+    var result = create_mock_server_ffi(sanitizedString, port)
+    var count = 0
+    while result == -4 && count < 25 {
+        port = randomPort()
+        result = create_mock_server_ffi(sanitizedString, port)
+        count += 1
+    }
+    return result
   }
 
   public func verify(_ pact: Pact) -> Future<String, PactError> {
