@@ -6,10 +6,9 @@ public class NativeMockServerWrapper: MockServer {
   var port: Int32 = -1
   var pactDir: String = ""
 
-  public init(port: Int32? = nil) {
+  public init() {
     pactDir = defaultPactDir()
-
-    self.port = port ?? randomPort()
+    port = randomPort()
   }
 
   func defaultPactDir() -> String {
@@ -63,7 +62,9 @@ public class NativeMockServerWrapper: MockServer {
     var result = create_mock_server_ffi(sanitizedString, port)
     var count = 0
     while result == -4 && count < 25 {
+        print("Port: \(port) already in use")
         port = randomPort()
+        print("Re-trying on: \(port)")
         result = create_mock_server_ffi(sanitizedString, port)
         count += 1
     }
