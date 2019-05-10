@@ -132,5 +132,6 @@ public class NativeMockServerWrapper: MockServer {
 
   private func cleanup() {
     cleanup_mock_server_ffi(port)
+    print("Server closed on port \(port)")
   }
 }
