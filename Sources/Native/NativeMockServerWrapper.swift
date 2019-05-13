@@ -122,14 +122,34 @@ public class NativeMockServerWrapper: MockServer {
   }
 
   private func writeFile() -> Int32 {
-    guard FileManager.default.fileExists(atPath: pactDir) else {
-        print("notify: Files not written. Path not found: \(self.pactDir)")
+    guard checkForPath() else {
         return 4
     }
     let result = write_pact_file_ffi(port, pactDir)
     print("notify: You can find the generated pact files here: \(self.pactDir)")
     return result
   }
+
+    private func checkForPath() -> Bool {
+        let exists = FileManager.default.fileExists(atPath: pactDir)
+        guard !exists else {
+            return true
+        }
+        print("notify: Files not written. Path not found: \(self.pactDir)")
+        return couldCreatePath()
+    }
+
+    private func couldCreatePath() -> Bool {
+        var couldBeCreated = false
+        do {
+            try FileManager.default.createDirectory(atPath: self.pactDir, withIntermediateDirectories: false, attributes: nil)
+            couldBeCreated = true
+        } catch let error as NSError {
+            print("notify: Files not written. Path couldn't be created: \(self.pactDir)")
+            print(error.localizedDescription)
+        }
+        return couldBeCreated
+    }
 
   private func cleanup() {
     cleanup_mock_server_ffi(port)
