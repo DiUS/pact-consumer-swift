@@ -123,6 +123,7 @@ public class NativeMockServerWrapper: MockServer {
 
   private func writeFile() -> Int32 {
     guard FileManager.default.fileExists(atPath: pactDir) else {
+        print("notify: Files not written. Path not found: \(self.pactDir)")
         return 4
     }
     let result = write_pact_file_ffi(port, pactDir)
