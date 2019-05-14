@@ -92,7 +92,7 @@ open class MockService: NSObject {
         file: file,
         line: line)
     case .writeError(let message):
-      self.failWithLocation("Error writing pact. Missmatches: \(message)",
+      self.failWithLocation("Error writing pact: \(message)",
         file: file,
         line: line)
     }

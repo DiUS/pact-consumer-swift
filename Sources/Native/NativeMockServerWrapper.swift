@@ -131,11 +131,10 @@ public class NativeMockServerWrapper: MockServer {
   }
 
     private func checkForPath() -> Bool {
-        let exists = FileManager.default.fileExists(atPath: pactDir)
-        guard !exists else {
+        guard !FileManager.default.fileExists(atPath: pactDir) else {
             return true
         }
-        print("notify: Files not written. Path not found: \(self.pactDir)")
+        print("notify: Path not found: \(self.pactDir)")
         return couldCreatePath()
     }
 
