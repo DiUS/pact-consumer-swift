@@ -4,21 +4,12 @@ import BrightFutures
 
 public class NativeMockServerWrapper: MockServer {
   var port: Int32 = -1
-  var pactDir: String = ""
+  let pactDir: String = ProcessInfo.processInfo.environment["pact_dir"] ?? "/tmp/pacts"
   let shouldWritePacts: Bool
 
-  public init() {
-    pactDir = defaultPactDir()
   public init(shouldWritePacts: Bool = false) {
     self.shouldWritePacts = shouldWritePacts
     port = randomPort()
-  }
-
-  func defaultPactDir() -> String {
-    if let pactDir = ProcessInfo.processInfo.environment["pact_dir"] {
-      return pactDir
-    }
-    return "/tmp/pacts"
   }
 
   func randomPort() -> Int32 {
@@ -90,7 +81,7 @@ public class NativeMockServerWrapper: MockServer {
           case 3:
             complete(.failure(.writeError("A mock server with the provided port was not found")))
           case 4:
-            complete(.success("Pact verified successfully but could not be written!"))
+            complete(.success("Pact verified successfully but was not written!"))
           default:
             complete(.failure(.writeError("Writing file failed, result: \(result)")))
           }
