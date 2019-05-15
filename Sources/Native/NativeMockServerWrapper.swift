@@ -5,9 +5,12 @@ import BrightFutures
 public class NativeMockServerWrapper: MockServer {
   var port: Int32 = -1
   var pactDir: String = ""
+  let shouldWritePacts: Bool
 
   public init() {
     pactDir = defaultPactDir()
+  public init(shouldWritePacts: Bool = false) {
+    self.shouldWritePacts = shouldWritePacts
     port = randomPort()
   }
 
@@ -122,7 +125,7 @@ public class NativeMockServerWrapper: MockServer {
   }
 
   private func writeFile() -> Int32 {
-    guard checkForPath() else {
+    guard shouldWritePacts, checkForPath() else {
         return 4
     }
     let result = write_pact_file_ffi(port, pactDir)
