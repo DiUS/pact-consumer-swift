@@ -3,7 +3,7 @@ import Foundation
 public class Pact {
   let provider: String
   let consumer: String
-  var interactions: [Interaction] = []
+  private(set) var interactions: [Interaction] = []
 
   public init(provider: String, consumer: String) {
     self.provider = provider
@@ -14,7 +14,11 @@ public class Pact {
     self.interactions = interactions
   }
 
-  func payload() -> [String: Any] {
+  public func addInteractions(_ interaction: Interaction) {
+    self.interactions.append(interaction)
+  }
+
+  public func payload() -> [String: Any] {
     return [ "provider": [ "name": provider],
       "consumer": [ "name": consumer],
       "interactions": interactions.map({ PactInteractionAdapter($0).adapt() }),
