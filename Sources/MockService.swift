@@ -66,14 +66,15 @@ open class MockService: NSObject {
         }
       }.onFailure { error in
         self.failWithError(error, file: file, line: line)
-        done()
       }
     }
-
-    self.mockServer.verify(self.pact).onSuccess { _ in
-    }.onFailure { error in
-      self.failWithError(error, file: file, line: line)
-      print("warning: Make sure the testComplete() fuction is called at the end of your test.")
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+        self.mockServer.verify(self.pact).onSuccess { _ in
+            done()
+        }.onFailure { error in
+          self.failWithError(error, file: file, line: line)
+          print("warning: Make sure the testComplete() fuction is called at the end of your test.")
+        }
     }
   }
 
