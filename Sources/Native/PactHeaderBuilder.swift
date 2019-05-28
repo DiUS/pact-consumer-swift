@@ -17,7 +17,6 @@ class PactHeaderBuilder {
   func processHeaders(path: String, headers: [String: Any]) -> ([String: Any], PathWithMatchingRule) {
     var processedHeaders: [String: Any] = [:]
     var matchingRule: PathWithMatchingRule = [:]
-    // FIXME: renamed key, check if context checks out
     for (headerKey, value) in headers.reversed() {
       switch value {
       case let string as String:

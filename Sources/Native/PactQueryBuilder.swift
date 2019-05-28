@@ -31,7 +31,6 @@ class PactQueryBuilder {
   func processDictionary(_ dictionary: JSONEntry, path: String) -> (String, PathWithMatchingRule) {
     var queryParams: [String] = []
     var matchingRule: PathWithMatchingRule = [:]
-    // FIXME: renamed key, check if context checks out
     for (matchingKey, value) in dictionary.reversed() {
       switch value {
       case let string as String:
