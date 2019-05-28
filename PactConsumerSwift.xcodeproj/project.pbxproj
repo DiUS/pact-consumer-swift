@@ -1026,7 +1026,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
@@ -1035,7 +1034,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\ncarthage copy-frameworks";
+			shellScript = "PATH=/usr/local/bin:$PATH\n\ncarthage copy-frameworks\n";
 		};
 		AD17A62C1F74B6EC00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1047,7 +1046,6 @@
 				"$(SRCROOT)/Carthage/Build/Mac/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/Result.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -1055,7 +1053,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
 		};
 		AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1067,7 +1065,6 @@
 				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/tvOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -1075,7 +1072,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
