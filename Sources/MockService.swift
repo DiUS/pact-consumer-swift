@@ -24,7 +24,8 @@ open class MockService: NSObject {
   }
 
   @objc(initWithProvider: consumer:)
-  public convenience init(provider: String, consumer: String) {
+  public convenience init(provider: String,
+                          consumer: String) {
     self.init(provider: provider,
               consumer: consumer,
               mockServer: RubyMockServer(),
