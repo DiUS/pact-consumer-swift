@@ -14,6 +14,15 @@ open class MockService: NSObject {
     return mockServer.getBaseUrl()
   }
 
+  public convenience init(provider: String,
+                          consumer: String,
+                          mockServer: MockServer) {
+        self.init(provider: provider,
+                  consumer: consumer,
+                  mockServer: mockServer,
+                  matchers: RubyMatcher())
+  }
+
   public init(provider: String,
               consumer: String,
               mockServer: MockServer,
