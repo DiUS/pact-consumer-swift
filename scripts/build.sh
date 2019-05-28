@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "${SCHEME}" ]]; then
-  DESTINATION="OS=11.2,name=iPhone 8";
+  DESTINATION="OS=11.4,name=iPhone 8";
   SCHEME="PactConsumerSwift iOS";
   CARTHAGE_PLATFORM="iOS"
 fi
