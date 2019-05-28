@@ -135,7 +135,9 @@ public class NativeMockServerWrapper: MockServer {
     private func couldCreatePath() -> Bool {
         var couldBeCreated = false
         do {
-            try FileManager.default.createDirectory(atPath: self.pactDir, withIntermediateDirectories: false, attributes: nil)
+            try FileManager.default.createDirectory(atPath: self.pactDir,
+                                                    withIntermediateDirectories: false,
+                                                    attributes: nil)
             couldBeCreated = true
         } catch let error as NSError {
             print("notify: Files not written. Path couldn't be created: \(self.pactDir)")
