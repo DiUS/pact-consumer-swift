@@ -31,7 +31,8 @@ class PactQueryBuilder {
   func processDictionary(_ dictionary: JSONEntry, path: String) -> (String, PathWithMatchingRule) {
     var queryParams: [String] = []
     var matchingRule: PathWithMatchingRule = [:]
-    for (matchingKey, value) in dictionary.reversed() {
+    for matchingKey in dictionary.keys.sorted() {
+      guard let value = dictionary[matchingKey] else { continue }
       switch value {
       case let string as String:
         queryParams.append("\(matchingKey)=\(string)")
