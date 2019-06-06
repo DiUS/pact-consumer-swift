@@ -8,7 +8,7 @@ public class TypeMatcher: NSObject, MatchingRule {
     self.typeValue = value
   }
 
-  public func rule() -> [String: String] {
+  public func rule() -> [String: Any] {
     return [ "match": "type" ]
   }
 

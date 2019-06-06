@@ -16,10 +16,6 @@ open class NativeMatcher: NSObject, Matchers {
 
   @objc
   public func eachLike(_ value: Any, min: Int = 1) -> Any {
-    return [
-      "json_class": "Pact::ArrayLike",
-      "contents": value,
-      "min": min
-    ]
+    return MinTypeMatcher(value: value, min: min)
   }
 }
