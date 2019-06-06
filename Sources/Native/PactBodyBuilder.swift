@@ -46,13 +46,18 @@ class PactBodyBuilder {
   func processArray(_ array: JSONArray, path: String) -> (Any, PathWithMatchingRule) {
     var matches: PathWithMatchingRule = [:]
     var processedArray: JSONArray = []
+    var numberOfBodyElements = 1
+    
     for (index, arrayValue) in array.enumerated() {
-      if let eachLikeRule = eachLikeMatchingRule(path: path, element: arrayValue) {
-        matches = matches.merge(dictionary: eachLikeRule)
-      }
       let processedSubElement = processElement(path: "\(path)[\(index)]", element: arrayValue)
-      processedArray.append(processedSubElement.0)
-      matches = matches.merge(dictionary: processedSubElement.1)
+      if let eachLikeElement = arrayValue as? MinTypeMatcher {
+        matches = matches.merge(dictionary: [path: eachLikeElement.rule()])
+        numberOfBodyElements = eachLikeElement.min
+      }
+      for _ in 0..<numberOfBodyElements {
+        processedArray.append(processedSubElement.0)
+        matches = matches.merge(dictionary: processedSubElement.1)
+      }
     }
     return (processedArray, matches)
   }
@@ -62,9 +67,6 @@ class PactBodyBuilder {
     var processedDictionary: JSONEntry = [:]
     for jsonKey in dictionary.keys {
       if let dictionaryValue = dictionary[jsonKey] {
-        if let eachLikeRule = eachLikeMatchingRule(path: path, element: dictionaryValue) {
-          matches = matches.merge(dictionary: eachLikeRule)
-        }
         let processedSubElement = processElement(path: "\(path).\(jsonKey)", element: dictionaryValue)
         processedDictionary[jsonKey] = processedSubElement.0
         matches = matches.merge(dictionary: processedSubElement.1)
