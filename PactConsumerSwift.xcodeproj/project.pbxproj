@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C64A7322A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
+		08C64A7422A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
+		08C64A7522A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
+		08C64A7622A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		A10985BA1FE0ED7A0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A10985BB1FE0ED7B0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A10985BC1FE0ED7C0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
@@ -217,6 +221,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinTypeMatcher.swift; sourceTree = "<group>"; };
 		A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11553311FE3C416008796C3 /* Pact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pact.swift; sourceTree = "<group>"; };
 		A11553321FE3C416008796C3 /* MockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
@@ -441,6 +446,7 @@
 				A1400C761FE0CDC80080725A /* MatchingRule.swift */,
 				A1400C741FE0CDC80080725A /* TermMatcher.swift */,
 				A1400C771FE0CDC80080725A /* TypeMatcher.swift */,
+				08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -1086,6 +1092,7 @@
 				A1400C7B1FE0CDC80080725A /* TypeMatcher.swift in Sources */,
 				A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */,
 				A11553411FE79751008796C3 /* PactInteractionAdapter.swift in Sources */,
+				08C64A7322A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
 				A115533C1FE3C4C5008796C3 /* RubyMockServer.swift in Sources */,
 				A1400C781FE0CDC80080725A /* TermMatcher.swift in Sources */,
@@ -1131,6 +1138,7 @@
 				A10985D31FE0ED8B0045F9FF /* MatchingRule.swift in Sources */,
 				A11553561FE8AD06008796C3 /* MockServer.swift in Sources */,
 				A11553531FE8AB27008796C3 /* PactError.swift in Sources */,
+				08C64A7422A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */,
 				A10985C31FE0ED840045F9FF /* PactHeaderBuilder.swift in Sources */,
 				A115535F1FE8AD2B008796C3 /* RubyInteractionAdapter.swift in Sources */,
 				A10985C01FE0ED840045F9FF /* NativeMockServerWrapper.swift in Sources */,
@@ -1176,6 +1184,7 @@
 				A10985D71FE0ED8C0045F9FF /* MatchingRule.swift in Sources */,
 				A11553571FE8AD07008796C3 /* MockServer.swift in Sources */,
 				A11553541FE8AB28008796C3 /* PactError.swift in Sources */,
+				08C64A7522A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */,
 				A10985CA1FE0ED850045F9FF /* PactHeaderBuilder.swift in Sources */,
 				A11553601FE8AD2C008796C3 /* RubyInteractionAdapter.swift in Sources */,
 				A10985C71FE0ED850045F9FF /* NativeMockServerWrapper.swift in Sources */,
@@ -1221,6 +1230,7 @@
 				A10985DB1FE0ED8D0045F9FF /* MatchingRule.swift in Sources */,
 				A11553581FE8AD08008796C3 /* MockServer.swift in Sources */,
 				A11553551FE8AB2A008796C3 /* PactError.swift in Sources */,
+				08C64A7622A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */,
 				A10985D11FE0ED860045F9FF /* PactHeaderBuilder.swift in Sources */,
 				A11553611FE8AD2D008796C3 /* RubyInteractionAdapter.swift in Sources */,
 				A10985CE1FE0ED860045F9FF /* NativeMockServerWrapper.swift in Sources */,
