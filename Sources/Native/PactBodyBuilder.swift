@@ -1,6 +1,6 @@
 typealias JSONEntry = [String: Any]
 typealias JSONArray = [Any]
-typealias PathWithMatchingRule = [String: [String: String]]
+typealias PathWithMatchingRule = [String: [String: Any]]
 
 class PactBodyBuilder {
   let bodyDefinition: Any
@@ -19,23 +19,37 @@ class PactBodyBuilder {
   }
 
   func processElement(path: String, element: Any) -> (Any, PathWithMatchingRule) {
+    let result: (Any, PathWithMatchingRule)
     switch element {
     case let array as JSONArray:
-      return processArray(array, path: path)
+      result = processArray(array, path: path)
     case let dictionary as JSONEntry:
-      return processDictionary(dictionary, path: path)
+      result = processDictionary(dictionary, path: path)
+    case let matcher as MinTypeMatcher:
+      result = processElement(path: "\(path)[*]", element: matcher.value())
     case let matcher as MatchingRule:
-      return (matcher.value(), [path: matcher.rule()])
+      result = (matcher.value(), [path: matcher.rule()])
     default:
       print(path, element)
+      result = (element, [:])
     }
-    return (element, [:])
+    return result
+  }
+
+  private func eachLikeMatchingRule(path: String, element: Any) -> PathWithMatchingRule? {
+    guard let eachLikeElement = element as? MinTypeMatcher else {
+      return nil
+    }
+    return [path: eachLikeElement.rule()]
   }
 
   func processArray(_ array: JSONArray, path: String) -> (Any, PathWithMatchingRule) {
     var matches: PathWithMatchingRule = [:]
     var processedArray: JSONArray = []
     for (index, arrayValue) in array.enumerated() {
+      if let eachLikeRule = eachLikeMatchingRule(path: path, element: arrayValue) {
+        matches = matches.merge(dictionary: eachLikeRule)
+      }
       let processedSubElement = processElement(path: "\(path)[\(index)]", element: arrayValue)
       processedArray.append(processedSubElement.0)
       matches = matches.merge(dictionary: processedSubElement.1)
@@ -48,9 +62,12 @@ class PactBodyBuilder {
     var processedDictionary: JSONEntry = [:]
     for jsonKey in dictionary.keys {
       if let dictionaryValue = dictionary[jsonKey] {
+        if let eachLikeRule = eachLikeMatchingRule(path: path, element: dictionaryValue) {
+          matches = matches.merge(dictionary: eachLikeRule)
+        }
         let processedSubElement = processElement(path: "\(path).\(jsonKey)", element: dictionaryValue)
-        matches = matches.merge(dictionary: processedSubElement.1)
         processedDictionary[jsonKey] = processedSubElement.0
+        matches = matches.merge(dictionary: processedSubElement.1)
       }
     }
     return (processedDictionary, matches)
