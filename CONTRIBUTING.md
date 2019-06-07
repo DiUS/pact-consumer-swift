@@ -12,7 +12,7 @@ defaults to iOS 11 on iPhone 8
 ### Running specific platform tests
 iOS 10.3 on iPhone 7:  
 ```
-xcodebuild -project PactConsumerSwift.xcodeproj -scheme "PactConsumerSwift iOS" -destination "OS=10.3,name=iPhone 7" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+xcodebuild -project PactConsumerSwift.xcodeproj -scheme "PactConsumerSwift iOS" -destination "OS=11.4,name=iPhone 8" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
 ```
 
 for macOS:  
@@ -22,7 +22,7 @@ xcodebuild -project PactConsumerSwift.xcodeproj -scheme "PactConsumerSwift macOS
 
 for tvOS:
 ```
-xcodebuild -project PactConsumerSwift.xcodeproj -scheme PactConsumerSwift tvOS -destination OS=11.0,name=Apple TV 4K (at 1080p) -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+xcodebuild -project PactConsumerSwift.xcodeproj -scheme "PactConsumerSwift tvOS" -destination OS=11.4,name="Apple TV 4K (at 1080p)" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
 ```
 
 #### Test CocoaPods
