@@ -17,6 +17,8 @@ FOUNDATION_EXPORT const unsigned char PactConsumerSwift_VersionString[];
 
 #if TARGET_OS_OSX
     #import "PactConsumerSwift/pact_mock_server_mac_os.h"
+#elif TARGET_OS_SIMULATOR
+    #import "PactConsumerSwift/pact_mock_server_ios_sim.h"
 #else
-    #import "PactConsumerSwift/pact_mock_server_ios.h"
+    #import "PactConsumerSwift/pact_mock_server_arm.h"
 #endif
