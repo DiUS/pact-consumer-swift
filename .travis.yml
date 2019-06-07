@@ -15,6 +15,7 @@ env:
 before_install:
   - scripts/import_keychain.sh
   - security find-identity -v -p codesigning
+  - bundle update --bundler
   - bundle install
   - brew update && brew bundle
   - carthage checkout
