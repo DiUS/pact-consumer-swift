@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0893C01622AAE26F001A6E27 /* libpact_mock_server_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C01422AAE26F001A6E27 /* libpact_mock_server_ios.a */; };
+		0893C01822AAE277001A6E27 /* libpact_mock_server_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C01422AAE26F001A6E27 /* libpact_mock_server_ios.a */; };
+		0893C01922AAE27A001A6E27 /* libpact_mock_server_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C01422AAE26F001A6E27 /* libpact_mock_server_ios.a */; };
+		0893C01A22AAE281001A6E27 /* libpact_mock_server_mac_os.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */; };
 		08C64A7322A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		08C64A7422A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		08C64A7522A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
@@ -95,7 +99,6 @@
 		A11553721FE9E120008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
 		A11553731FE9E121008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
 		A11553741FE9E122008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
-		A11553841FEB4743008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A115537F1FEB46EB008796C3 /* libpact_mock_server.a */; };
 		A11553861FEB4751008796C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553851FEB4751008796C3 /* libresolv.tbd */; };
 		A11553881FEB476B008796C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553871FEB476A008796C3 /* Security.framework */; };
 		A115538A1FEB4772008796C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553891FEB4772008796C3 /* Foundation.framework */; };
@@ -103,13 +106,10 @@
 		A115538E1FEB478D008796C3 /* libm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538D1FEB478D008796C3 /* libm.tbd */; };
 		A11553901FEB479F008796C3 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538F1FEB479F008796C3 /* libSystem.tbd */; };
 		A11553921FEB47AC008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
-		A11553961FEB4FDF008796C3 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A11553971FEB505C008796C3 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A11553981FEB505D008796C3 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A11553991FEB505E008796C3 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A115539A1FEB507D008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A115537F1FEB46EB008796C3 /* libpact_mock_server.a */; };
-		A115539B1FEB507E008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A115537F1FEB46EB008796C3 /* libpact_mock_server.a */; };
-		A115539C1FEB507F008796C3 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A115537F1FEB46EB008796C3 /* libpact_mock_server.a */; };
+		A11553961FEB4FDF008796C3 /* pact_mock_server_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A11553971FEB505C008796C3 /* pact_mock_server_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A11553981FEB505D008796C3 /* pact_mock_server_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A11553991FEB505E008796C3 /* pact_mock_server_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = A11553931FEB47EF008796C3 /* pact_mock_server_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A115539D1FEB508B008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
 		A115539E1FEB508D008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
 		A115539F1FEB508E008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
@@ -221,6 +221,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0893C01422AAE26F001A6E27 /* libpact_mock_server_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_ios.a; sourceTree = "<group>"; };
+		0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_mac_os.a; sourceTree = "<group>"; };
+		0893C01B22AAE3ED001A6E27 /* pact_mock_server_mac_os.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_mac_os.h; sourceTree = "<group>"; };
 		08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinTypeMatcher.swift; sourceTree = "<group>"; };
 		A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11553311FE3C416008796C3 /* Pact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pact.swift; sourceTree = "<group>"; };
@@ -233,7 +236,6 @@
 		A11553511FE8AB24008796C3 /* PactError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactError.swift; sourceTree = "<group>"; };
 		A11553651FE8D8A5008796C3 /* NativeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMatcher.swift; sourceTree = "<group>"; };
 		A11553701FE9E11D008796C3 /* RubyMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyMatcher.swift; sourceTree = "<group>"; };
-		A115537F1FEB46EB008796C3 /* libpact_mock_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server.a; sourceTree = "<group>"; };
 		A11553851FEB4751008796C3 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		A11553871FEB476A008796C3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		A11553891FEB4772008796C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -241,7 +243,7 @@
 		A115538D1FEB478D008796C3 /* libm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libm.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/usr/lib/libm.tbd; sourceTree = DEVELOPER_DIR; };
 		A115538F1FEB479F008796C3 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/usr/lib/libSystem.tbd; sourceTree = DEVELOPER_DIR; };
 		A11553911FEB47AB008796C3 /* libobjc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/usr/lib/libobjc.tbd; sourceTree = DEVELOPER_DIR; };
-		A11553931FEB47EF008796C3 /* pact_mock_server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pact_mock_server.h; sourceTree = "<group>"; };
+		A11553931FEB47EF008796C3 /* pact_mock_server_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_ios.h; sourceTree = "<group>"; };
 		A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactQueryBuilder.swift; sourceTree = "<group>"; };
 		A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilder.swift; sourceTree = "<group>"; };
 		A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMockServerWrapper.swift; sourceTree = "<group>"; };
@@ -292,8 +294,8 @@
 				A115538A1FEB4772008796C3 /* Foundation.framework in Frameworks */,
 				A11553881FEB476B008796C3 /* Security.framework in Frameworks */,
 				A11553861FEB4751008796C3 /* libresolv.tbd in Frameworks */,
-				A11553841FEB4743008796C3 /* libpact_mock_server.a in Frameworks */,
 				A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */,
+				0893C01622AAE26F001A6E27 /* libpact_mock_server_ios.a in Frameworks */,
 				ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E1B1F74C41B003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */,
@@ -320,13 +322,13 @@
 				A11553141FE20BB4008796C3 /* Nimble.framework in Frameworks */,
 				A11553111FE20BA1008796C3 /* BrightFutures.framework in Frameworks */,
 				A11553AC1FEB50A7008796C3 /* Security.framework in Frameworks */,
-				A115539A1FEB507D008796C3 /* libpact_mock_server.a in Frameworks */,
 				A11553A31FEB5097008796C3 /* libm.tbd in Frameworks */,
 				A11553A91FEB50A2008796C3 /* Foundation.framework in Frameworks */,
 				A115530C1FE20B79008796C3 /* Alamofire.framework in Frameworks */,
 				A115539D1FEB508B008796C3 /* libobjc.tbd in Frameworks */,
 				A11553A61FEB509C008796C3 /* libc.tbd in Frameworks */,
 				A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
+				0893C01A22AAE281001A6E27 /* libpact_mock_server_mac_os.a in Frameworks */,
 				A11553AF1FEB50AC008796C3 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,11 +353,11 @@
 				A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */,
 				A11553AD1FEB50A7008796C3 /* Security.framework in Frameworks */,
-				A115539B1FEB507E008796C3 /* libpact_mock_server.a in Frameworks */,
 				A11553A41FEB5097008796C3 /* libm.tbd in Frameworks */,
 				A11553AA1FEB50A2008796C3 /* Foundation.framework in Frameworks */,
 				A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */,
 				A115539E1FEB508D008796C3 /* libobjc.tbd in Frameworks */,
+				0893C01822AAE277001A6E27 /* libpact_mock_server_ios.a in Frameworks */,
 				A11553A71FEB509D008796C3 /* libc.tbd in Frameworks */,
 				A115530E1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 				A11553B01FEB50AC008796C3 /* libresolv.tbd in Frameworks */,
@@ -382,11 +384,11 @@
 				A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */,
 				A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553AE1FEB50A8008796C3 /* Security.framework in Frameworks */,
-				A115539C1FEB507F008796C3 /* libpact_mock_server.a in Frameworks */,
 				A11553A51FEB5098008796C3 /* libm.tbd in Frameworks */,
 				A11553AB1FEB50A3008796C3 /* Foundation.framework in Frameworks */,
 				A11553131FE20BA3008796C3 /* BrightFutures.framework in Frameworks */,
 				A115539F1FEB508E008796C3 /* libobjc.tbd in Frameworks */,
+				0893C01922AAE27A001A6E27 /* libpact_mock_server_ios.a in Frameworks */,
 				A11553A81FEB509E008796C3 /* libc.tbd in Frameworks */,
 				A11553101FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 				A11553B11FEB50AD008796C3 /* libresolv.tbd in Frameworks */,
@@ -426,8 +428,10 @@
 		A1400C621FE0CB8A0080725A /* Native */ = {
 			isa = PBXGroup;
 			children = (
-				A11553931FEB47EF008796C3 /* pact_mock_server.h */,
-				A115537F1FEB46EB008796C3 /* libpact_mock_server.a */,
+				A11553931FEB47EF008796C3 /* pact_mock_server_ios.h */,
+				0893C01422AAE26F001A6E27 /* libpact_mock_server_ios.a */,
+				0893C01B22AAE3ED001A6E27 /* pact_mock_server_mac_os.h */,
+				0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */,
 				A11553401FE79751008796C3 /* PactInteractionAdapter.swift */,
 				A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */,
 				A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */,
@@ -603,7 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5991F74AF5300219F39 /* PactConsumerSwift.h in Headers */,
-				A11553961FEB4FDF008796C3 /* pact_mock_server.h in Headers */,
+				A11553961FEB4FDF008796C3 /* pact_mock_server_ios.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6171F74B3C400219F39 /* PactConsumerSwift.h in Headers */,
-				A11553971FEB505C008796C3 /* pact_mock_server.h in Headers */,
+				A11553971FEB505C008796C3 /* pact_mock_server_ios.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6181F74B3C400219F39 /* PactConsumerSwift.h in Headers */,
-				A11553981FEB505D008796C3 /* pact_mock_server.h in Headers */,
+				A11553981FEB505D008796C3 /* pact_mock_server_ios.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6191F74B3C500219F39 /* PactConsumerSwift.h in Headers */,
-				A11553991FEB505E008796C3 /* pact_mock_server.h in Headers */,
+				A11553991FEB505E008796C3 /* pact_mock_server_ios.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
