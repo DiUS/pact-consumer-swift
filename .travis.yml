@@ -18,13 +18,6 @@ before_install:
   - bundle install
   - brew update && brew bundle
   - carthage checkout
-install:
-  - if [[ `uname` == "Linux" ]] ; then
-      curl "https://swift.org/builds/swift-5.0.1-release/ubuntu1604/swift-5.0.1-RELEASE/swift-5.0.1-RELEASE-ubuntu16.04.tar.gz" > /tmp/swift.tar.gz;
-      tar -xzf /tmp/swift.tar.gz -C /tmp;
-      export PATH="${PATH}:/tmp/swift-${swift}-RELEASE-ubuntu16.04/usr/bin";
-      swift -version;
-    fi
 script:
   - set -o pipefail
   - scripts/build.sh
