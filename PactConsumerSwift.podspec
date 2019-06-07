@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/Sources/Native/**" }
   s.requires_arc = true
   s.frameworks   = 'XCTest'
-  s.swift_version = '5.0'
+  s.swift_version = '4.2'
 
   s.dependency 'Alamofire', '~> 4.8.2'
   s.dependency 'BrightFutures', '~> 8.0.0'
