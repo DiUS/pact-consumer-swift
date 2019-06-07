@@ -222,11 +222,8 @@
 
 /* Begin PBXFileReference section */
 		0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_mac_os.a; sourceTree = "<group>"; };
-		0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_arm.h; sourceTree = "<group>"; };
 		0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_ios_sim.a; sourceTree = "<group>"; };
 		0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_arm.a; sourceTree = "<group>"; };
-		0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_ios_sim.h; sourceTree = "<group>"; };
-		0893C02D22AAF29B001A6E27 /* pact_mock_server_mac_os.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_mac_os.h; sourceTree = "<group>"; };
 		0893C03F22AB06FD001A6E27 /* pact_mock_server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server.h; sourceTree = "<group>"; };
 		0893C04D22AB0871001A6E27 /* libpact_mock_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server.a; sourceTree = "<group>"; };
 		08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinTypeMatcher.swift; sourceTree = "<group>"; };
@@ -417,7 +414,6 @@
 		0893C03C22AAFE50001A6E27 /* sim */ = {
 			isa = PBXGroup;
 			children = (
-				0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */,
 				0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */,
 			);
 			path = sim;
@@ -426,7 +422,6 @@
 		0893C03D22AAFE62001A6E27 /* arm */ = {
 			isa = PBXGroup;
 			children = (
-				0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */,
 				0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */,
 			);
 			path = arm;
@@ -435,7 +430,6 @@
 		0893C03E22AAFE71001A6E27 /* macos */ = {
 			isa = PBXGroup;
 			children = (
-				0893C02D22AAF29B001A6E27 /* pact_mock_server_mac_os.h */,
 				0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */,
 			);
 			path = macos;
