@@ -131,7 +131,7 @@ class PactSwiftSpec: QuickSpec {
             }
 
             it("should return animals living in water using matcher") {
-              let queryMatcher = testSetup.matcher.term(matcher: "live=*", generate: "live=water")
+                let queryMatcher = ["live": testSetup.matcher.term(matcher: ".*", generate: "water")]
 
               animalMockService!.given("an alligator exists")
                 .uponReceiving("a request for animals living in water with matcher")
@@ -141,7 +141,7 @@ class PactSwiftSpec: QuickSpec {
                                 body: [ ["name": "Mary", "type": "alligator"] ] )
 
               //Run the tests
-              animalMockService!.run { (testComplete) -> Void in
+              animalMockService!.run(timeout: 5) { (testComplete) -> Void in
                 animalServiceClient!.findAnimals(live: "water", response: {
                   (response) in
                   expect(response.count).to(equal(1))
@@ -299,7 +299,7 @@ class PactSwiftSpec: QuickSpec {
                 })
               }
             }
-            
+
             if(testSetup == TestSetup.Ruby) {
               // TODO: Implement matcher in RUST
               it("Can match based on flexible length array") {
