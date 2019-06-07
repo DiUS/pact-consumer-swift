@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target  = '9.0'
   s.osx.deployment_target = '10.10'
 
-  s.source       = { :git => "https://github.com/DiUS/pact-consumer-swift.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/nonec/pact-consumer-swift.git", :tag => "v#{s.version}" }
   s.source_files = 'Sources/**/*.swift', 'Sources/lib/**/*.h'
   s.vendored_libraries = 'Sources/lib/**/*.a'
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/Sources/Native/**" }
