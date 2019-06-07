@@ -47,7 +47,7 @@ class PactBodyBuilder {
     var matches: PathWithMatchingRule = [:]
     var processedArray: JSONArray = []
     var numberOfBodyElements = 1
-    
+
     for (index, arrayValue) in array.enumerated() {
       let processedSubElement = processElement(path: "\(path)[\(index)]", element: arrayValue)
       if let eachLikeElement = arrayValue as? MinTypeMatcher {
