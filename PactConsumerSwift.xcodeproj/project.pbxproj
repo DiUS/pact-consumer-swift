@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0893C01A22AAE281001A6E27 /* libpact_mock_server_mac_os.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */; };
-		0893C02322AAF09E001A6E27 /* libpact_mock_server_ios_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */; };
-		0893C02622AAF0AD001A6E27 /* libpact_mock_server_ios_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */; };
-		0893C02E22AAF2C7001A6E27 /* pact_mock_server_ios_sim.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C02F22AAF2D5001A6E27 /* pact_mock_server_ios_sim.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C03022AAF2E5001A6E27 /* pact_mock_server_mac_os.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C02D22AAF29B001A6E27 /* pact_mock_server_mac_os.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C03322AAFB9E001A6E27 /* pact_mock_server_ios_sim.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C03422AAFB9E001A6E27 /* libpact_mock_server_ios_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */; };
-		0893C03522AAFC67001A6E27 /* pact_mock_server_arm.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C03622AAFC67001A6E27 /* libpact_mock_server_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */; };
-		0893C03722AAFC6A001A6E27 /* pact_mock_server_arm.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C03822AAFC6A001A6E27 /* libpact_mock_server_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */; };
-		0893C03922AAFC6B001A6E27 /* pact_mock_server_arm.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C03A22AAFC6B001A6E27 /* libpact_mock_server_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */; };
+		0893C04E22AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
+		0893C04F22AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
+		0893C05022AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
+		0893C05122AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
+		0893C05222AB0935001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0893C05322AB0936001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0893C05422AB0937001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0893C05522AB0938001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08C64A7322A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		08C64A7422A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		08C64A7522A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
@@ -233,6 +227,8 @@
 		0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_arm.a; sourceTree = "<group>"; };
 		0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_ios_sim.h; sourceTree = "<group>"; };
 		0893C02D22AAF29B001A6E27 /* pact_mock_server_mac_os.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server_mac_os.h; sourceTree = "<group>"; };
+		0893C03F22AB06FD001A6E27 /* pact_mock_server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server.h; sourceTree = "<group>"; };
+		0893C04D22AB0871001A6E27 /* libpact_mock_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server.a; sourceTree = "<group>"; };
 		08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinTypeMatcher.swift; sourceTree = "<group>"; };
 		A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		A11553311FE3C416008796C3 /* Pact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pact.swift; sourceTree = "<group>"; };
@@ -297,14 +293,13 @@
 			files = (
 				A11553921FEB47AC008796C3 /* libobjc.tbd in Frameworks */,
 				A11553901FEB479F008796C3 /* libSystem.tbd in Frameworks */,
+				0893C04E22AB0871001A6E27 /* libpact_mock_server.a in Frameworks */,
 				A115538E1FEB478D008796C3 /* libm.tbd in Frameworks */,
 				A115538C1FEB477E008796C3 /* libc.tbd in Frameworks */,
 				A115538A1FEB4772008796C3 /* Foundation.framework in Frameworks */,
 				A11553881FEB476B008796C3 /* Security.framework in Frameworks */,
 				A11553861FEB4751008796C3 /* libresolv.tbd in Frameworks */,
 				A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */,
-				0893C02322AAF09E001A6E27 /* libpact_mock_server_ios_sim.a in Frameworks */,
-				0893C03822AAFC6A001A6E27 /* libpact_mock_server_arm.a in Frameworks */,
 				ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E1B1F74C41B003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */,
@@ -329,6 +324,7 @@
 			files = (
 				A11553A01FEB5091008796C3 /* libSystem.tbd in Frameworks */,
 				A11553141FE20BB4008796C3 /* Nimble.framework in Frameworks */,
+				0893C04F22AB0871001A6E27 /* libpact_mock_server.a in Frameworks */,
 				A11553111FE20BA1008796C3 /* BrightFutures.framework in Frameworks */,
 				A11553AC1FEB50A7008796C3 /* Security.framework in Frameworks */,
 				A11553A31FEB5097008796C3 /* libm.tbd in Frameworks */,
@@ -337,7 +333,6 @@
 				A115539D1FEB508B008796C3 /* libobjc.tbd in Frameworks */,
 				A11553A61FEB509C008796C3 /* libc.tbd in Frameworks */,
 				A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				0893C01A22AAE281001A6E27 /* libpact_mock_server_mac_os.a in Frameworks */,
 				A11553AF1FEB50AC008796C3 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,14 +355,13 @@
 			files = (
 				A11553A11FEB5093008796C3 /* libSystem.tbd in Frameworks */,
 				A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
+				0893C05022AB0871001A6E27 /* libpact_mock_server.a in Frameworks */,
 				A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */,
 				A11553AD1FEB50A7008796C3 /* Security.framework in Frameworks */,
 				A11553A41FEB5097008796C3 /* libm.tbd in Frameworks */,
 				A11553AA1FEB50A2008796C3 /* Foundation.framework in Frameworks */,
 				A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */,
 				A115539E1FEB508D008796C3 /* libobjc.tbd in Frameworks */,
-				0893C03422AAFB9E001A6E27 /* libpact_mock_server_ios_sim.a in Frameworks */,
-				0893C03622AAFC67001A6E27 /* libpact_mock_server_arm.a in Frameworks */,
 				A11553A71FEB509D008796C3 /* libc.tbd in Frameworks */,
 				A115530E1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 				A11553B01FEB50AC008796C3 /* libresolv.tbd in Frameworks */,
@@ -392,14 +386,13 @@
 			files = (
 				A11553A21FEB5093008796C3 /* libSystem.tbd in Frameworks */,
 				A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */,
+				0893C05122AB0871001A6E27 /* libpact_mock_server.a in Frameworks */,
 				A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553AE1FEB50A8008796C3 /* Security.framework in Frameworks */,
 				A11553A51FEB5098008796C3 /* libm.tbd in Frameworks */,
 				A11553AB1FEB50A3008796C3 /* Foundation.framework in Frameworks */,
 				A11553131FE20BA3008796C3 /* BrightFutures.framework in Frameworks */,
 				A115539F1FEB508E008796C3 /* libobjc.tbd in Frameworks */,
-				0893C02622AAF0AD001A6E27 /* libpact_mock_server_ios_sim.a in Frameworks */,
-				0893C03A22AAFC6B001A6E27 /* libpact_mock_server_arm.a in Frameworks */,
 				A11553A81FEB509E008796C3 /* libc.tbd in Frameworks */,
 				A11553101FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 				A11553B11FEB50AD008796C3 /* libresolv.tbd in Frameworks */,
@@ -409,6 +402,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0893C03B22AAFE29001A6E27 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				0893C03D22AAFE62001A6E27 /* arm */,
+				0893C03E22AAFE71001A6E27 /* macos */,
+				0893C03C22AAFE50001A6E27 /* sim */,
+				0893C03F22AB06FD001A6E27 /* pact_mock_server.h */,
+				0893C04D22AB0871001A6E27 /* libpact_mock_server.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		0893C03C22AAFE50001A6E27 /* sim */ = {
+			isa = PBXGroup;
+			children = (
+				0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */,
+				0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */,
+			);
+			path = sim;
+			sourceTree = "<group>";
+		};
+		0893C03D22AAFE62001A6E27 /* arm */ = {
+			isa = PBXGroup;
+			children = (
+				0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */,
+				0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */,
+			);
+			path = arm;
+			sourceTree = "<group>";
+		};
+		0893C03E22AAFE71001A6E27 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				0893C02D22AAF29B001A6E27 /* pact_mock_server_mac_os.h */,
+				0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */,
+			);
+			path = macos;
+			sourceTree = "<group>";
+		};
 		A11553291FE21C91008796C3 /* ObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,12 +471,6 @@
 		A1400C621FE0CB8A0080725A /* Native */ = {
 			isa = PBXGroup;
 			children = (
-				0893C01B22AAE3ED001A6E27 /* pact_mock_server_arm.h */,
-				0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */,
-				0893C02C22AAF28F001A6E27 /* pact_mock_server_ios_sim.h */,
-				0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */,
-				0893C02D22AAF29B001A6E27 /* pact_mock_server_mac_os.h */,
-				0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */,
 				A11553401FE79751008796C3 /* PactInteractionAdapter.swift */,
 				A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */,
 				A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */,
@@ -534,6 +560,7 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0893C03B22AAFE29001A6E27 /* lib */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
 				A11553321FE3C416008796C3 /* MockServer.swift */,
@@ -620,8 +647,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5991F74AF5300219F39 /* PactConsumerSwift.h in Headers */,
-				0893C03722AAFC6A001A6E27 /* pact_mock_server_arm.h in Headers */,
-				0893C02E22AAF2C7001A6E27 /* pact_mock_server_ios_sim.h in Headers */,
+				0893C05222AB0935001A6E27 /* pact_mock_server.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6171F74B3C400219F39 /* PactConsumerSwift.h in Headers */,
-				0893C03022AAF2E5001A6E27 /* pact_mock_server_mac_os.h in Headers */,
+				0893C05322AB0936001A6E27 /* pact_mock_server.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,8 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6181F74B3C400219F39 /* PactConsumerSwift.h in Headers */,
-				0893C03522AAFC67001A6E27 /* pact_mock_server_arm.h in Headers */,
-				0893C03322AAFB9E001A6E27 /* pact_mock_server_ios_sim.h in Headers */,
+				0893C05422AB0937001A6E27 /* pact_mock_server.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A6191F74B3C500219F39 /* PactConsumerSwift.h in Headers */,
-				0893C03922AAFC6B001A6E27 /* pact_mock_server_arm.h in Headers */,
-				0893C02F22AAF2D5001A6E27 /* pact_mock_server_ios_sim.h in Headers */,
+				0893C05522AB0938001A6E27 /* pact_mock_server.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +685,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A59E1F74AF5300219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift iOS" */;
 			buildPhases = (
+				0893C05622AB0969001A6E27 /* Combine static libraries */,
 				AD17A5831F74AF5300219F39 /* Sources */,
 				AD17A5841F74AF5300219F39 /* Frameworks */,
 				AD17A5851F74AF5300219F39 /* Headers */,
@@ -700,6 +725,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A5B91F74AFB000219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift macOS" */;
 			buildPhases = (
+				0893C04C22AB07B0001A6E27 /* Copy static library */,
 				AD17A5A31F74AFB000219F39 /* Sources */,
 				AD17A5A41F74AFB000219F39 /* Frameworks */,
 				AD17A5A51F74AFB000219F39 /* Headers */,
@@ -739,6 +765,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A5D51F74AFC900219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift tvOS" */;
 			buildPhases = (
+				0893C05822AB0AB9001A6E27 /* Combine static libraries */,
 				AD17A5BF1F74AFC900219F39 /* Sources */,
 				AD17A5C01F74AFC900219F39 /* Frameworks */,
 				AD17A5C11F74AFC900219F39 /* Headers */,
@@ -778,6 +805,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A6081F74B2B600219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift watchOS" */;
 			buildPhases = (
+				0893C05922AB0AC2001A6E27 /* Combine static libraries */,
 				AD17A5FE1F74B2B600219F39 /* Sources */,
 				AD17A5FF1F74B2B600219F39 /* Frameworks */,
 				AD17A6001F74B2B600219F39 /* Headers */,
@@ -916,6 +944,78 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0893C04C22AB07B0001A6E27 /* Copy static library */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy static library";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncp ${SRCROOT}/Sources/lib/macos/libpact_mock_server_mac_os.a ${SRCROOT}/Sources/lib/libpact_mock_server.a\n";
+		};
+		0893C05622AB0969001A6E27 /* Combine static libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Combine static libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nlibtool -static -o ${SRCROOT}/Sources/lib/libpact_mock_server.a ${SRCROOT}/Sources/lib/sim/libpact_mock_server_ios_sim.a ${SRCROOT}/Sources/lib/arm/libpact_mock_server_arm.a\n";
+		};
+		0893C05822AB0AB9001A6E27 /* Combine static libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Combine static libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nlibtool -static -o ${SRCROOT}/Sources/lib/libpact_mock_server.a ${SRCROOT}/Sources/lib/sim/libpact_mock_server_ios_sim.a\n";
+		};
+		0893C05922AB0AC2001A6E27 /* Combine static libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Combine static libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nlibtool -static -o ${SRCROOT}/Sources/lib/libpact_mock_server.a ${SRCROOT}/Sources/lib/sim/libpact_mock_server_ios_sim.a\n";
+		};
 		AD17A6231F74B56D00219F39 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1420,10 +1520,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
@@ -1497,10 +1594,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
@@ -1714,7 +1808,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
+					"$(PROJECT_DIR)/Sources/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1790,7 +1884,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
+					"$(PROJECT_DIR)/Sources/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -2001,7 +2095,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
+					"$(PROJECT_DIR)/Sources/lib",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2077,7 +2171,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
+					"$(PROJECT_DIR)/Sources/lib",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
@@ -2291,7 +2385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
+					"$(PROJECT_DIR)/Sources/lib",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2367,7 +2461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/Native",
+					"$(PROJECT_DIR)/Sources/lib",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
