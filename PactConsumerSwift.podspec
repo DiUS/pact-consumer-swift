@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/nonec/pact-consumer-swift.git", :tag => "v#{s.version}" }
   s.source_files = 'Sources/**/*.swift', 'Sources/lib/**/*.h'
   s.vendored_libraries = 'Sources/lib/**/*.a'
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/Sources/Native/**" }
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/Sources/lib" }
   s.requires_arc = true
   s.frameworks   = 'XCTest'
   s.swift_version = '5.0'
