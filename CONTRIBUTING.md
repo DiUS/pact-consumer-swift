@@ -7,10 +7,10 @@ The Pact Consumer Swift library is using Carthage and Swift Package Manager to m
 ```
 ./scripts/build.sh
 ```
-defaults to iOS 11 on iPhone 8
+defaults to iOS 12.2 on iPhone 8
 
 ### Running specific platform tests
-iOS 10.3 on iPhone 7:  
+iOS 11.4 on iPhone 8:  
 ```
 xcodebuild -project PactConsumerSwift.xcodeproj -scheme "PactConsumerSwift iOS" -destination "OS=11.4,name=iPhone 8" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
 ```
