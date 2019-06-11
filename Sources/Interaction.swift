@@ -1,5 +1,4 @@
 import Foundation
-import Alamofire
 
 @objc
 public enum PactHTTPMethod: Int {

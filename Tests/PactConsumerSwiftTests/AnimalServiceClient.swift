@@ -1,5 +1,4 @@
 import Foundation
-import Alamofire
 
 public struct Animal {
   public let name: String
@@ -9,95 +8,93 @@ public struct Animal {
 }
 
 open class AnimalServiceClient {
-    fileprivate let baseUrl: String
+  fileprivate let baseUrl: String
+  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
 
   public init(baseUrl : String) {
     self.baseUrl = baseUrl
   }
 
   open func getAlligators(_ success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
-    Alamofire.request("\(baseUrl)/alligators")
-            .responseJSON {
-              (result) in
-              if result.result.isSuccess {
-                if let jsonArray = result.result.value as? Array<[String: AnyObject]> {
-                  success(jsonArray.map { animal -> Animal in
-                    return Animal(
-                            name: animal["name"] as! String,
-                            type: animal["type"] as! String,
-                            dob: animal["dateOfBirth"] as? String,
-                            legs: animal["legs"] as? Int)
-                  })
-                } else {
-                  failure(result.result.value as? NSError)
-                }
-              }
-            }
+    self.performRequest("\(baseUrl)/alligators") { jsonObject, nsError in
+      if let jsonArray = jsonObject as? Array<[String: AnyObject]> {
+        success(jsonArray.map { animal -> Animal in
+          return Animal(
+            name: animal["name"] as! String,
+            type: animal["type"] as! String,
+            dob: animal["dateOfBirth"] as? String,
+            legs: animal["legs"] as? Int)
+        })
+      } else {
+        if let error = nsError {
+          failure(error)
+        } else {
+          failure(NSError(domain: "", code: 42, userInfo: nil))
+        }
+      }
+    }
   }
 
   open func getSecureAlligators(authToken: String, success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
-    Alamofire.request("\(baseUrl)/alligators", headers: ["Authorization": authToken])
-            .responseJSON {
-              (result) in
-              if result.result.isSuccess {
-                if let jsonArray = result.result.value as? Array<[String: AnyObject]> {
-                  success(jsonArray.map { animal -> Animal in
-                    return Animal(
-                            name: animal["name"] as! String,
-                            type: animal["type"] as! String,
-                            dob: animal["dateOfBirth"] as? String,
-                            legs: animal["legs"] as? Int)
-                  })
-                } else {
-                  failure(result.result.value as? NSError)
-                }
-              }
-            }
-  }
-  open func getAlligator(_ id: Int, success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
-    Alamofire.request("\(baseUrl)/alligators/\(id)")
-    .responseJSON {
-      (result) in
-      if result.result.isSuccess {
-        if let jsonResult = result.result.value as? Dictionary<String, AnyObject> {
-          let alligator = Animal(
-              name: jsonResult["name"] as! String, 
-              type: jsonResult["type"] as! String, 
-              dob: jsonResult["dateOfBirth"] as? String,
-              legs: jsonResult["legs"] as? Int)
-          success(alligator)
+    self.performRequest("\(baseUrl)/alligators", headers: ["Authorization": authToken]) { jsonObject, nsError in
+      if let jsonArray = jsonObject as? Array<[String: AnyObject]> {
+        success(jsonArray.map { animal -> Animal in
+          return Animal(
+            name: animal["name"] as! String,
+            type: animal["type"] as! String,
+            dob: animal["dateOfBirth"] as? String,
+            legs: animal["legs"] as? Int)
+        })
+      } else {
+        if let error = nsError {
+          failure(error)
         } else {
-          failure(result.result.value as? NSError)
+          failure(NSError(domain: "", code: 42, userInfo: nil))
+        }
+      }
+    }
+  }
+
+  open func getAlligator(_ id: Int, success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
+    self.performRequest("\(baseUrl)/alligators/\(id)") { jsonObject, nsError in
+      if let jsonResult = jsonObject as? Dictionary<String, AnyObject> {
+        let alligator = Animal(
+          name: jsonResult["name"] as! String,
+          type: jsonResult["type"] as! String,
+          dob: jsonResult["dateOfBirth"] as? String,
+          legs: jsonResult["legs"] as? Int)
+        success(alligator)
+      } else {
+        if let error = nsError {
+          failure(error)
+        } else {
+          failure(NSError(domain: "", code: 42, userInfo: nil))
         }
       }
     }
   }
 
   open func findAnimals(live: String, response: @escaping ([Animal]) -> Void) {
-    Alamofire.request("\(baseUrl)/animals", parameters: [ "live": live])
-    .responseJSON {
-      (result) in
-      if result.result.isSuccess {
-        if let jsonResult = result.result.value as? Array<Dictionary<String, AnyObject>> {
-          var alligators : [Animal] = []
-          for alligator in jsonResult {
-            alligators.append(Animal(
-              name: alligator["name"] as! String,
-              type: alligator["type"] as! String,
-              dob: alligator["dateOfBirth"] as? String,
-              legs: alligator["legs"] as? Int))
-          }
-          response(alligators)
+    let liveEncoded = live.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    self.performRequest("\(baseUrl)/animals?live=\(liveEncoded)") { jsonObject, nsError in
+      if let jsonResult = jsonObject as? Array<Dictionary<String, AnyObject>> {
+        var alligators : [Animal] = []
+        for alligator in jsonResult {
+          alligators.append(Animal(
+            name: alligator["name"] as! String,
+            type: alligator["type"] as! String,
+            dob: alligator["dateOfBirth"] as? String,
+            legs: alligator["legs"] as? Int))
         }
+        response(alligators)
       }
     }
   }
 
   open func eat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
-    Alamofire.request("\(baseUrl)/alligator/eat", method: .patch, parameters: [ "type" : animal ], encoding: JSONEncoding.default)
-    .responseString { (response) in
-      if response.result.isFailure {
-        error(response.response!.statusCode)
+    self.performRequest("\(baseUrl)/alligator/eat", method: "patch", parameters: ["type": animal], isJsonResponse: false) { jsonObject, nsError in
+      if let localErr = nsError {
+        error(localErr.code)
       } else {
         success()
       }
@@ -105,10 +102,9 @@ open class AnimalServiceClient {
   }
 
   open func wontEat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
-    Alamofire.request("\(baseUrl)/alligator/eat", method: .delete, parameters: [ "type" : animal ], encoding: JSONEncoding.default)
-    .responseJSON { (response) in
-      if response.result.isFailure {
-        error(response.response!.statusCode)
+    self.performRequest("\(baseUrl)/alligator/eat", method: "delete", parameters: ["type": animal]) { jsonObject, nsError in
+      if let localErr = nsError {
+        error(localErr.code)
       } else {
         success()
       }
@@ -116,21 +112,58 @@ open class AnimalServiceClient {
   }
 
   open func eats(_ success: @escaping ([Animal]) -> Void) {
-    Alamofire.request("\(baseUrl)/alligator/eat")
-    .responseJSON { (response) in
-      if response.result.isSuccess {
-        if let jsonResult = response.result.value as? Array<Dictionary<String, AnyObject>> {
-          var animals: [Animal] = []
-          for alligator in jsonResult {
-            animals.append(Animal(
-              name: alligator["name"] as! String,
-              type: alligator["type"] as! String,
-              dob: alligator["dateOfBirth"] as? String,
-              legs: alligator["legs"] as? Int))
-          }
-          success(animals)
+    self.performRequest("\(baseUrl)/alligator/eat") { jsonObject, nsError in
+      if let jsonResult = jsonObject as? Array<Dictionary<String, AnyObject>> {
+        var animals: [Animal] = []
+        for alligator in jsonResult {
+          animals.append(Animal(
+            name: alligator["name"] as! String,
+            type: alligator["type"] as! String,
+            dob: alligator["dateOfBirth"] as? String,
+            legs: alligator["legs"] as? Int))
         }
+        success(animals)
       }
     }
+  }
+
+  private func performRequest(_ urlString: String, headers: [String: String]? = nil, method: String = "get", parameters: [String: String]? = nil, isJsonResponse: Bool = true, completionHandler: @escaping (_ jsonObject: Any?, _ error: NSError?) -> Void) {
+    var request = URLRequest(url: URL(string: urlString)!)
+    request.httpMethod = method
+    if let headers = headers {
+      request.allHTTPHeaderFields = headers
+    }
+    if let parameters = parameters,
+      let data = try? JSONSerialization.data(withJSONObject: parameters, options: []) {
+      request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+      request.httpBody = data
+    }
+
+    let task = self.session.dataTask(with: request) { data, response, error in
+      if let error = error {
+        completionHandler(nil, error as NSError)
+        return
+      }
+
+      if let data = data,
+        let response = response as? HTTPURLResponse,
+        (200..<300).contains(response.statusCode) {
+        do {
+          if isJsonResponse {
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            completionHandler(jsonObject, nil)
+          } else {
+            let stringResponse = String(data: data, encoding: .utf8)
+            completionHandler(stringResponse, nil)
+          }
+        } catch {
+          completionHandler(nil, error as NSError)
+        }
+      } else {
+        completionHandler(nil, NSError(domain: "", code: 41, userInfo: nil))
+      }
+    }
+
+    task.resume()
   }
 }
