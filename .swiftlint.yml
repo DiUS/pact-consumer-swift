@@ -15,6 +15,9 @@ force_try:
 type_body_length:
   - 300 # warning
   - 400 # error
+line_length:
+  warning: 128
+  error: 156
 file_length:
   warning: 500
   error: 1200
@@ -34,4 +37,9 @@ identifier_name:
     - PUT
     - min
     - max
+    - key
+    - GET
+    - PUT
+    - get
+    - put
 reporter: "xcode"
