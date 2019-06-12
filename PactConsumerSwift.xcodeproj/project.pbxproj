@@ -83,6 +83,34 @@
 		ADD82FE522AFB95E00FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
 		ADD82FE722AFB97600FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
 		ADD82FE922B04CB500FAADB6 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */; };
+		ADD82FEA22B1321E00FAADB6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */; };
+		ADD82FEB22B1321E00FAADB6 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */; };
+		ADD82FEC22B1321E00FAADB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */; };
+		ADD82FED22B1321E00FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
+		ADD82FEE22B1321E00FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
+		ADD82FEF22B1321E00FAADB6 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD022AF8F3A00FAADB6 /* HTTPMethod.swift */; };
+		ADD82FF022B1321E00FAADB6 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD222AF8F7B00FAADB6 /* HTTPTask.swift */; };
+		ADD82FF122B1321E00FAADB6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */; };
+		ADD82FF222B1321E00FAADB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDE22AF954600FAADB6 /* Router.swift */; };
+		ADD82FF322B1321E00FAADB6 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */; };
+		ADD82FF422B1321E00FAADB6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD622AF915400FAADB6 /* NetworkError.swift */; };
+		ADD82FF522B1321E00FAADB6 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD422AF900200FAADB6 /* ParameterEncoding.swift */; };
+		ADD82FF622B1321E00FAADB6 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD822AF91D600FAADB6 /* URLParameterEncoding.swift */; };
+		ADD82FF722B1321E00FAADB6 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */; };
+		ADD82FF822B1324600FAADB6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */; };
+		ADD82FF922B1324600FAADB6 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */; };
+		ADD82FFA22B1324600FAADB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */; };
+		ADD82FFB22B1324600FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
+		ADD82FFC22B1324600FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
+		ADD82FFD22B1324600FAADB6 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD022AF8F3A00FAADB6 /* HTTPMethod.swift */; };
+		ADD82FFE22B1324600FAADB6 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD222AF8F7B00FAADB6 /* HTTPTask.swift */; };
+		ADD82FFF22B1324600FAADB6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */; };
+		ADD8300022B1324600FAADB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDE22AF954600FAADB6 /* Router.swift */; };
+		ADD8300122B1324600FAADB6 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */; };
+		ADD8300222B1324600FAADB6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD622AF915400FAADB6 /* NetworkError.swift */; };
+		ADD8300322B1324600FAADB6 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD422AF900200FAADB6 /* ParameterEncoding.swift */; };
+		ADD8300422B1324600FAADB6 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD822AF91D600FAADB6 /* URLParameterEncoding.swift */; };
+		ADD8300522B1324600FAADB6 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */; };
 		ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
 /* End PBXBuildFile section */
 
@@ -924,6 +952,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD82FEA22B1321E00FAADB6 /* EndPointType.swift in Sources */,
+				ADD82FEB22B1321E00FAADB6 /* MockAPI.swift in Sources */,
+				ADD82FEC22B1321E00FAADB6 /* NetworkManager.swift in Sources */,
+				ADD82FED22B1321E00FAADB6 /* NetworkResponse.swift in Sources */,
+				ADD82FEE22B1321E00FAADB6 /* Result.swift in Sources */,
+				ADD82FEF22B1321E00FAADB6 /* HTTPMethod.swift in Sources */,
+				ADD82FF022B1321E00FAADB6 /* HTTPTask.swift in Sources */,
+				ADD82FF122B1321E00FAADB6 /* NetworkRouter.swift in Sources */,
+				ADD82FF222B1321E00FAADB6 /* Router.swift in Sources */,
+				ADD82FF322B1321E00FAADB6 /* NetworkLogger.swift in Sources */,
+				ADD82FF422B1321E00FAADB6 /* NetworkError.swift in Sources */,
+				ADD82FF522B1321E00FAADB6 /* ParameterEncoding.swift in Sources */,
+				ADD82FF622B1321E00FAADB6 /* URLParameterEncoding.swift in Sources */,
+				ADD82FF722B1321E00FAADB6 /* JSONParameterEncoder.swift in Sources */,
 				AD17A66E1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A66C1F74BB8300219F39 /* Matcher.swift in Sources */,
 				AD17A66B1F74BB8300219F39 /* Interaction.swift in Sources */,
@@ -948,6 +990,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD82FF822B1324600FAADB6 /* EndPointType.swift in Sources */,
+				ADD82FF922B1324600FAADB6 /* MockAPI.swift in Sources */,
+				ADD82FFA22B1324600FAADB6 /* NetworkManager.swift in Sources */,
+				ADD82FFB22B1324600FAADB6 /* NetworkResponse.swift in Sources */,
+				ADD82FFC22B1324600FAADB6 /* Result.swift in Sources */,
+				ADD82FFD22B1324600FAADB6 /* HTTPMethod.swift in Sources */,
+				ADD82FFE22B1324600FAADB6 /* HTTPTask.swift in Sources */,
+				ADD82FFF22B1324600FAADB6 /* NetworkRouter.swift in Sources */,
+				ADD8300022B1324600FAADB6 /* Router.swift in Sources */,
+				ADD8300122B1324600FAADB6 /* NetworkLogger.swift in Sources */,
+				ADD8300222B1324600FAADB6 /* NetworkError.swift in Sources */,
+				ADD8300322B1324600FAADB6 /* ParameterEncoding.swift in Sources */,
+				ADD8300422B1324600FAADB6 /* URLParameterEncoding.swift in Sources */,
+				ADD8300522B1324600FAADB6 /* JSONParameterEncoder.swift in Sources */,
 				AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */,
 				AD17A66F1F74BB8400219F39 /* Interaction.swift in Sources */,
