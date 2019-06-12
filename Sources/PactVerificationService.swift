@@ -63,9 +63,7 @@ open class PactVerificationService {
             var urlRequest = request
             let data = try JSONSerialization.data(withJSONObject: parameters, options: [])
 
-            if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
-                urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            }
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             urlRequest.httpBody = data
             return urlRequest
@@ -79,10 +77,6 @@ open class PactVerificationService {
   }
 
     private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
-    private var setupTask: URLSessionDataTask?
-    private var verifyTask: URLSessionDataTask?
-    private var cleanTask: URLSessionDataTask?
-    private var writeTask: URLSessionDataTask?
 
   func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
@@ -109,45 +103,17 @@ open class PactVerificationService {
   fileprivate func verifyInteractions() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
-    do {
-        verifyTask = try
-            session.dataTask(with: Router.verify.asURLRequest()) { data, response, error in
-                defer { self.verifyTask = nil }
-
-                self.requestHandler(promise)(data, response, error)
-        }
-
-        verifyTask?.resume()
-    } catch {
-        DispatchQueue.main.async {
-            // Make sure this promise fails in the future.
-            promise.failure(error as NSError)
-        }
-    }
+    self.performNetworkRequest(for: Router.verify, promise: promise)
 
     return promise.future
   }
 
   fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
+    let payload: [String: [String: String]] = ["consumer": ["name": consumer],
+                                               "provider": ["name": provider]]
 
-    do {
-        writeTask = try
-            session.dataTask(with: Router.write(["consumer": [ "name": consumer ],
-                                                 "provider": [ "name": provider ]]
-                ).asURLRequest()) { data, response, error in
-                defer { self.writeTask = nil }
-
-                self.requestHandler(promise)(data, response, error)
-        }
-
-        writeTask?.resume()
-    } catch {
-        DispatchQueue.main.async {
-            // Make sure this promise fails in the future.
-            promise.failure(error as NSError)
-        }
-    }
+    self.performNetworkRequest(for: Router.write(payload), promise: promise)
 
     return promise.future
   }
@@ -155,20 +121,7 @@ open class PactVerificationService {
   fileprivate func clean() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
-    do {
-        cleanTask = try session.dataTask(with: Router.clean.asURLRequest()) { data, response, error in
-            defer { self.cleanTask = nil }
-
-            self.requestHandler(promise)(data, response, error)
-        }
-
-        cleanTask?.resume()
-    } catch {
-        DispatchQueue.main.async {
-            // Make sure this promise fails in the future.
-            promise.failure(error as NSError)
-        }
-    }
+    self.performNetworkRequest(for: Router.clean, promise: promise)
 
     return promise.future
   }
@@ -178,25 +131,30 @@ open class PactVerificationService {
     let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
                                   "example_description": "description"]
 
-    do {
-        setupTask = try session.dataTask(with: Router.setup(payload).asURLRequest()) { data, response, error in
-            defer { self.setupTask = nil }
-
-            self.requestHandler(promise)(data, response, error)
-        }
-
-        setupTask?.resume()
-    } catch {
-        DispatchQueue.main.async {
-            // Make sure this promise fails in the future.
-            promise.failure(error as NSError)
-        }
-    }
+    self.performNetworkRequest(for: Router.setup(payload), promise: promise)
 
     return promise.future
   }
 
-  private func requestHandler(_ promise: Promise<String, NSError>) -> (Data?, URLResponse?, Error?) -> Void {
+  // MARK: - Networking
+
+  private func performNetworkRequest(for router: Router, promise: Promise<String, NSError>) {
+    let task: URLSessionDataTask?
+    do {
+      task = try session.dataTask(with: router.asURLRequest()) { data, response, error in
+        self.responseHandler(promise)(data, response, error)
+      }
+
+      task?.resume()
+    } catch {
+      DispatchQueue.main.async {
+        // Make sure this promise fails in the future.
+        promise.failure(error as NSError)
+      }
+    }
+  }
+
+  private func responseHandler(_ promise: Promise<String, NSError>) -> (Data?, URLResponse?, Error?) -> Void {
     return { data, response, error in
         if let data = data,
             let response = response as? HTTPURLResponse,

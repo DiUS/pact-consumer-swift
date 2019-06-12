@@ -1,10 +1,17 @@
 import Foundation
 
-public struct Animal {
+public struct Animal: Decodable {
   public let name: String
   public let type: String
   public let dob: String?
   public let legs: Int?
+
+  enum CodingKeys: String, CodingKey {
+    case name
+    case type
+    case dob = "dateOfBirth"
+    case legs
+  }
 }
 
 open class AnimalServiceClient {
@@ -16,15 +23,9 @@ open class AnimalServiceClient {
   }
 
   open func getAlligators(_ success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
-    self.performRequest("\(baseUrl)/alligators") { jsonObject, nsError in
-      if let jsonArray = jsonObject as? Array<[String: AnyObject]> {
-        success(jsonArray.map { animal -> Animal in
-          return Animal(
-            name: animal["name"] as! String,
-            type: animal["type"] as! String,
-            dob: animal["dateOfBirth"] as? String,
-            legs: animal["legs"] as? Int)
-        })
+    self.performRequest("\(baseUrl)/alligators", decoder: decodeAnimals) { animals, nsError in
+      if let animals = animals {
+        success(animals)
       } else {
         if let error = nsError {
           failure(error)
@@ -36,15 +37,9 @@ open class AnimalServiceClient {
   }
 
   open func getSecureAlligators(authToken: String, success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
-    self.performRequest("\(baseUrl)/alligators", headers: ["Authorization": authToken]) { jsonObject, nsError in
-      if let jsonArray = jsonObject as? Array<[String: AnyObject]> {
-        success(jsonArray.map { animal -> Animal in
-          return Animal(
-            name: animal["name"] as! String,
-            type: animal["type"] as! String,
-            dob: animal["dateOfBirth"] as? String,
-            legs: animal["legs"] as? Int)
-        })
+    self.performRequest("\(baseUrl)/alligators", headers: ["Authorization": authToken], decoder: decodeAnimals) { animals, nsError in
+      if let animals = animals {
+        success(animals)
       } else {
         if let error = nsError {
           failure(error)
@@ -56,14 +51,9 @@ open class AnimalServiceClient {
   }
 
   open func getAlligator(_ id: Int, success: @escaping (Animal) -> Void, failure: @escaping (NSError?) -> Void) {
-    self.performRequest("\(baseUrl)/alligators/\(id)") { jsonObject, nsError in
-      if let jsonResult = jsonObject as? Dictionary<String, AnyObject> {
-        let alligator = Animal(
-          name: jsonResult["name"] as! String,
-          type: jsonResult["type"] as! String,
-          dob: jsonResult["dateOfBirth"] as? String,
-          legs: jsonResult["legs"] as? Int)
-        success(alligator)
+    self.performRequest("\(baseUrl)/alligators/\(id)", decoder: decodeAnimal) { animal, nsError in
+      if let animal = animal {
+        success(animal)
       } else {
         if let error = nsError {
           failure(error)
@@ -76,23 +66,15 @@ open class AnimalServiceClient {
 
   open func findAnimals(live: String, response: @escaping ([Animal]) -> Void) {
     let liveEncoded = live.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-    self.performRequest("\(baseUrl)/animals?live=\(liveEncoded)") { jsonObject, nsError in
-      if let jsonResult = jsonObject as? Array<Dictionary<String, AnyObject>> {
-        var alligators : [Animal] = []
-        for alligator in jsonResult {
-          alligators.append(Animal(
-            name: alligator["name"] as! String,
-            type: alligator["type"] as! String,
-            dob: alligator["dateOfBirth"] as? String,
-            legs: alligator["legs"] as? Int))
-        }
-        response(alligators)
+    self.performRequest("\(baseUrl)/animals?live=\(liveEncoded)", decoder: decodeAnimals) { animals, nsError in
+      if let animals = animals {
+        response(animals)
       }
     }
   }
 
   open func eat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
-    self.performRequest("\(baseUrl)/alligator/eat", method: "patch", parameters: ["type": animal], isJsonResponse: false) { jsonObject, nsError in
+    self.performRequest("\(baseUrl)/alligator/eat", method: "patch", parameters: ["type": animal], decoder: decodeString) { string, nsError in
       if let localErr = nsError {
         error(localErr.code)
       } else {
@@ -102,7 +84,7 @@ open class AnimalServiceClient {
   }
 
   open func wontEat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
-    self.performRequest("\(baseUrl)/alligator/eat", method: "delete", parameters: ["type": animal]) { jsonObject, nsError in
+    self.performRequest("\(baseUrl)/alligator/eat", method: "delete", parameters: ["type": animal], decoder: decodeAnimals) { animals, nsError in
       if let localErr = nsError {
         error(localErr.code)
       } else {
@@ -112,22 +94,22 @@ open class AnimalServiceClient {
   }
 
   open func eats(_ success: @escaping ([Animal]) -> Void) {
-    self.performRequest("\(baseUrl)/alligator/eat") { jsonObject, nsError in
-      if let jsonResult = jsonObject as? Array<Dictionary<String, AnyObject>> {
-        var animals: [Animal] = []
-        for alligator in jsonResult {
-          animals.append(Animal(
-            name: alligator["name"] as! String,
-            type: alligator["type"] as! String,
-            dob: alligator["dateOfBirth"] as? String,
-            legs: alligator["legs"] as? Int))
-        }
+    self.performRequest("\(baseUrl)/alligator/eat", decoder: decodeAnimals) { animals, nsError in
+      if let animals = animals {
         success(animals)
       }
     }
   }
 
-  private func performRequest(_ urlString: String, headers: [String: String]? = nil, method: String = "get", parameters: [String: String]? = nil, isJsonResponse: Bool = true, completionHandler: @escaping (_ jsonObject: Any?, _ error: NSError?) -> Void) {
+  // MARK: - Networking and Decoding
+
+  private func performRequest<T: Decodable>(_ urlString: String,
+                              headers: [String: String]? = nil,
+                              method: String = "get",
+                              parameters: [String: String]? = nil,
+                              decoder: @escaping (_ data: Data) throws -> T,
+                              completionHandler: @escaping (_ response: T?, _ error: NSError?) -> Void
+    ) {
     var request = URLRequest(url: URL(string: urlString)!)
     request.httpMethod = method
     if let headers = headers {
@@ -149,13 +131,8 @@ open class AnimalServiceClient {
         let response = response as? HTTPURLResponse,
         (200..<300).contains(response.statusCode) {
         do {
-          if isJsonResponse {
-            let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            completionHandler(jsonObject, nil)
-          } else {
-            let stringResponse = String(data: data, encoding: .utf8)
-            completionHandler(stringResponse, nil)
-          }
+          let result = try decoder(data)
+          completionHandler(result, nil)
         } catch {
           completionHandler(nil, error as NSError)
         }
@@ -165,5 +142,22 @@ open class AnimalServiceClient {
     }
 
     task.resume()
+  }
+
+  private func decodeAnimal(_ data: Data) throws -> Animal {
+    let decoder = JSONDecoder()
+    return try decoder.decode(Animal.self, from: data)
+  }
+
+  private func decodeAnimals(_ data: Data) throws -> [Animal] {
+      let decoder = JSONDecoder()
+      return try decoder.decode([Animal].self, from: data)
+  }
+
+  private func decodeString(_ data: Data) throws -> String {
+    guard let result = String(data: data, encoding: .utf8) else {
+      throw NSError(domain: "", code: 63, userInfo: nil)
+    }
+    return result
   }
 }
