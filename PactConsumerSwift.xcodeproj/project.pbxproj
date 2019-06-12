@@ -66,6 +66,21 @@
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
 		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		ADC03E461F74E68D003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E431F74E68D003FCA6A /* BrightFutures.framework */; };
+		ADC03E471F74E68D003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E441F74E68D003FCA6A /* Alamofire.framework */; };
+		ADD82FCB22AF8E4D00FAADB6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */; };
+		ADD82FD122AF8F3A00FAADB6 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD022AF8F3A00FAADB6 /* HTTPMethod.swift */; };
+		ADD82FD322AF8F7B00FAADB6 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD222AF8F7B00FAADB6 /* HTTPTask.swift */; };
+		ADD82FD522AF900200FAADB6 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD422AF900200FAADB6 /* ParameterEncoding.swift */; };
+		ADD82FD722AF915400FAADB6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD622AF915400FAADB6 /* NetworkError.swift */; };
+		ADD82FD922AF91D600FAADB6 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD822AF91D600FAADB6 /* URLParameterEncoding.swift */; };
+		ADD82FDB22AF93EA00FAADB6 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */; };
+		ADD82FDD22AF94CC00FAADB6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */; };
+		ADD82FDF22AF954600FAADB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDE22AF954600FAADB6 /* Router.swift */; };
+		ADD82FE122AF98EB00FAADB6 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */; };
+		ADD82FE322AFB64C00FAADB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */; };
+		ADD82FE522AFB95E00FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
+		ADD82FE722AFB97600FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
+		ADD82FE922B04CB500FAADB6 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */; };
 		ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +143,21 @@
 		ADC03E341F74C8A5003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
 		ADC03E421F74E68D003FCA6A /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/watchOS/Result.framework; sourceTree = "<group>"; };
 		ADC03E431F74E68D003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/watchOS/BrightFutures.framework; sourceTree = "<group>"; };
+		ADC03E441F74E68D003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
+		ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		ADD82FD022AF8F3A00FAADB6 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		ADD82FD222AF8F7B00FAADB6 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		ADD82FD422AF900200FAADB6 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		ADD82FD622AF915400FAADB6 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		ADD82FD822AF91D600FAADB6 /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		ADD82FDE22AF954600FAADB6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
+		ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		ADD82FE622AFB97600FAADB6 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +263,7 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ADD82FC922AF8E0E00FAADB6 /* Networking */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
 				AD17A64C1F74BA8A00219F39 /* MockService.swift */,
@@ -307,6 +338,59 @@
 				ADC03E191F74C41B003FCA6A /* Nimble.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADD82FC922AF8E0E00FAADB6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ADD82FCC22AF8EB600FAADB6 /* EndPoint */,
+				ADD82FCD22AF8EC000FAADB6 /* Manager */,
+				ADD82FCE22AF8EC700FAADB6 /* Service */,
+				ADD82FCF22AF8ED000FAADB6 /* Encoding */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		ADD82FCC22AF8EB600FAADB6 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */,
+				ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */,
+			);
+			name = EndPoint;
+			sourceTree = "<group>";
+		};
+		ADD82FCD22AF8EC000FAADB6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */,
+				ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */,
+				ADD82FE622AFB97600FAADB6 /* Result.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		ADD82FCE22AF8EC700FAADB6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ADD82FD022AF8F3A00FAADB6 /* HTTPMethod.swift */,
+				ADD82FD222AF8F7B00FAADB6 /* HTTPTask.swift */,
+				ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */,
+				ADD82FDE22AF954600FAADB6 /* Router.swift */,
+				ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		ADD82FCF22AF8ED000FAADB6 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				ADD82FD622AF915400FAADB6 /* NetworkError.swift */,
+				ADD82FD422AF900200FAADB6 /* ParameterEncoding.swift */,
+				ADD82FD822AF91D600FAADB6 /* URLParameterEncoding.swift */,
+				ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */,
+			);
+			name = Encoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -787,10 +871,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADD82FD322AF8F7B00FAADB6 /* HTTPTask.swift in Sources */,
 				AD17A66A1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
+				ADD82FD522AF900200FAADB6 /* ParameterEncoding.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
+				ADD82FDB22AF93EA00FAADB6 /* JSONParameterEncoder.swift in Sources */,
+				ADD82FDD22AF94CC00FAADB6 /* NetworkRouter.swift in Sources */,
+				ADD82FE922B04CB500FAADB6 /* NetworkLogger.swift in Sources */,
+				ADD82FD922AF91D600FAADB6 /* URLParameterEncoding.swift in Sources */,
+				ADD82FD122AF8F3A00FAADB6 /* HTTPMethod.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
+				ADD82FE522AFB95E00FAADB6 /* NetworkResponse.swift in Sources */,
+				ADD82FE122AF98EB00FAADB6 /* MockAPI.swift in Sources */,
+				ADD82FD722AF915400FAADB6 /* NetworkError.swift in Sources */,
+				ADD82FCB22AF8E4D00FAADB6 /* EndPointType.swift in Sources */,
+				ADD82FE322AFB64C00FAADB6 /* NetworkManager.swift in Sources */,
+				ADD82FE722AFB97600FAADB6 /* Result.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
+				ADD82FDF22AF954600FAADB6 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
