@@ -19,6 +19,7 @@ before_install:
   - brew update && brew bundle
   - brew tap surpher/pact-ruby-standalone
   - brew install pact-ruby-standalone
+  - bundle install
   - carthage checkout
 script:
   - set -o pipefail
