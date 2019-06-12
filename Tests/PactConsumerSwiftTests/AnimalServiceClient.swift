@@ -16,7 +16,6 @@ public struct Animal: Decodable {
 
 open class AnimalServiceClient {
   fileprivate let baseUrl: String
-  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
 
   public init(baseUrl : String) {
     self.baseUrl = baseUrl
@@ -102,6 +101,8 @@ open class AnimalServiceClient {
   }
 
   // MARK: - Networking and Decoding
+
+  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
 
   private func performRequest<T: Decodable>(_ urlString: String,
                               headers: [String: String]? = nil,

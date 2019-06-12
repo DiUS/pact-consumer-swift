@@ -76,8 +76,6 @@ open class PactVerificationService {
     Router.baseURLString = baseUrl
   }
 
-    private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
-
   func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
     self.clean().onSuccess { _ in
@@ -137,6 +135,8 @@ open class PactVerificationService {
   }
 
   // MARK: - Networking
+
+  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
 
   private func performNetworkRequest(for router: Router, promise: Promise<String, NSError>) {
     let task: URLSessionDataTask?
