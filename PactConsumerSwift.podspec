@@ -26,7 +26,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks   = 'XCTest'
 
-  s.dependency 'Alamofire', '~> 4.7'
   s.dependency 'BrightFutures', '~> 7.0'
   s.dependency 'Nimble', '~> 8.0'
   s.dependency 'Quick', '~> 2.0'
