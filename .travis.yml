@@ -17,7 +17,7 @@ before_install:
   - scripts/import_keychain.sh
   - security find-identity -v -p codesigning
   - brew update && brew bundle
-  - brew tap surpher/pact-ruby-standalone
+  - brew tap pact-foundation/pact-ruby-standalone
   - brew install pact-ruby-standalone
   - bundle install
   - carthage checkout
