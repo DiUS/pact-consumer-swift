@@ -9,6 +9,13 @@ open class PactVerificationService {
 
     var networkManager: NetworkManager!
 
+    ///
+    /// Networking service that talks to your Pact-Mock-Service (eg: pact-ruby-standalone)
+    /// - parameter url: The `url` where your Pact-Mock-Service is running
+    /// - parameter port: The port on which your Pact-Mock-Service is listening
+    /// - parameter networkLogging: set to `true` for network call and response logging
+    /// - parameter networkManager: DI option for your specific NetworkManager
+    ///
     public init(
         url: String = "http://localhost",
         port: Int = 1234,
@@ -22,6 +29,9 @@ open class PactVerificationService {
         self.networkManager = networkManager ?? NetworkManager()
     }
 
+    ///
+    /// Calls Pact-Mock-Service and sets the interactions between your Consumer and Provider
+    ///
     func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
         let promise = Promise<String, NSError>()
 
@@ -36,6 +46,9 @@ open class PactVerificationService {
         return promise.future
     }
 
+    ///
+    /// Verifies the interactions between your Consumer and Provider
+    ///
     func verify(provider: String, consumer: String) -> Future<String, NSError> {
         let promise = Promise<String, NSError>()
 
