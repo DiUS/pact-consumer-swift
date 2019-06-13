@@ -12,10 +12,12 @@ open class PactVerificationService {
     public init(
         url: String = "http://localhost",
         port: Int = 1234,
+        networkLogging: Bool = false,
         networkManager: NetworkManager? = nil
     ) {
         MockAPI.url = url
         MockAPI.port = port
+        MockAPI.enableNetworkLogging = networkLogging
 
         self.networkManager = networkManager ?? NetworkManager()
     }

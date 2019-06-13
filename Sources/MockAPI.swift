@@ -4,6 +4,7 @@ public enum MockAPI: EndPointURLSettable {
 
     static var url: String = "http://localhost"
     static var port: Int = 1234
+    static var enableNetworkLogging: Bool = false
 
     case clean
     case setup([String: Any])
@@ -13,6 +14,11 @@ public enum MockAPI: EndPointURLSettable {
 }
 
 extension MockAPI: EndPointType {
+
+    var networkLogging: Bool {
+        return MockAPI.enableNetworkLogging
+    }
+
     var baseURL: URL {
         guard let url = URL(string: "\(MockAPI.url):\(MockAPI.port)") else {
             fatalError("baseURL could not be configured")
