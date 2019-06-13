@@ -31,7 +31,8 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                  timeoutInterval: 300.0)
 
         request.httpMethod = route.httpMethod.rawValue
-        request.setValue("true", forHTTPHeaderField: "X-Pact-Mock-Service")
+
+        addAdditionalHeaders(route.headers, request: &request)
 
         do {
             switch route.task {
