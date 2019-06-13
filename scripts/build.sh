@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [[ -z "${PROJECT_NAME}" ]]; then
   PROJECT_NAME="PactConsumerSwift.xcodeproj";
