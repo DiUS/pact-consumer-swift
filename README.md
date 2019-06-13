@@ -26,7 +26,7 @@ Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
 #### Homebrew
 
-    brew tap surpher/pact-ruby-standalone
+    brew tap pact-foundation/pact-ruby-standalone
     brew install pact-ruby-standalone
 
 This will install the following tools:
