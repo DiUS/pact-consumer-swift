@@ -151,4 +151,3 @@ open class Interaction: NSObject {
     }
   }
 }
-
