@@ -68,10 +68,9 @@ open class MockService: NSObject {
   ///
   /// Describe the request your provider will receive
   ///
-  /// Use this method in the `Arrange` step of your Pact test.
+  /// This is the entry point if not using a provider state i.e.:
   ///
-  ///     myMockService.given("a user exists")
-  ///                  .uponReceiving("a request for users")
+  ///     myMockService.uponReceiving("a request for users")
   ///
   /// - Parameter description: Describing the request to the provider
   /// - Returns: An `Interaction` object
@@ -89,9 +88,10 @@ open class MockService: NSObject {
   /// Use this method in the `Act` step of your Pact test.
   /// (eg. Testing your `serviceClientUnderTest!.getUsers(...)` method)
   ///
-  ///     myMockService!.run { (testComplete) -> Void in
-  ///         serviceClientUnderTest!.getUsers( /* ... */ )
-  ///     }
+  ///     [self.mockService run:^(CompleteBlock testComplete) {
+  ///       [self. serviceClientUnderTest getUsers]
+  ///       testComplete();
+  ///     }];
   ///
   /// Make sure you call `testComplete()` after your `Assert` step in your test
   ///
@@ -108,9 +108,10 @@ open class MockService: NSObject {
   /// Use this method in the `Act` step of your Pact test.
   /// (eg. Testing your `serviceClientUnderTest!.getUsers(...)` method)
   ///
-  ///     myMockService!.run(timeout: 10) { (testComplete) -> Void in
-  ///         serviceClientUnderTest!.getUsers( /* ... */ )
-  ///     }
+  ///     [self.mockService run:^(CompleteBlock testComplete) {
+  ///       [self. serviceClientUnderTest getUsers]
+  ///       testComplete();
+  ///     } withTimeout: 10];
   ///
   /// Make sure you call `testComplete()` after your `Assert` step in your test
   ///
@@ -129,14 +130,12 @@ open class MockService: NSObject {
   /// Use this method in the `Act` step of your Pact test.
   /// (eg. Testing your `serviceClientUnderTest!.getUsers(...)` method)
   ///
-  ///     myMockService!.run(line: 40, timeout: 10) { (testComplete) -> Void in
+  ///     myMockService!.run(timeout: 10) { (testComplete) -> Void in
   ///         serviceClientUnderTest!.getUsers( /* ... */ )
   ///     }
   ///
   /// Make sure you call `testComplete()` after your `Assert` step in your test
   ///
-  /// - Parameter file: The file in which your test resides
-  /// - Parameter line: The line number of your test
   /// - Parameter timeout: Number of seconds how long to wait for `testComplete()` before marking the test as failed.
   /// - Parameter testFunction: The function making the network request you are testing
   ///
@@ -145,7 +144,7 @@ open class MockService: NSObject {
     line: UInt? = #line,
     timeout: TimeInterval = 30,
     testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
-    ) {
+  ) {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
       self.pactVerificationService.setup(self.interactions).onSuccess { _ in
         testFunction { () in
@@ -170,7 +169,11 @@ open class MockService: NSObject {
 
   // MARK: - Helper methods
 
-  func failWithLocation(_ message: String, file: FileString?, line: UInt?) {
+  func failWithLocation(
+    _ message: String,
+    file: FileString?,
+    line: UInt?
+  ) {
     if let fileName = file, let lineNumber = line {
       fail(message, file: fileName, line: lineNumber)
     } else {
@@ -178,15 +181,16 @@ open class MockService: NSObject {
     }
   }
 
-  public func waitUntilWithLocation(timeout: TimeInterval,
-                                    file: FileString?,
-                                    line: UInt?,
-                                    action: @escaping (@escaping () -> Void) -> Void) {
+  public func waitUntilWithLocation(
+    timeout: TimeInterval,
+    file: FileString?,
+    line: UInt?,
+    action: @escaping (@escaping () -> Void) -> Void
+  ) {
     if let fileName = file, let lineNumber = line {
       return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
     } else {
       return waitUntil(timeout: timeout, action: action)
     }
   }
-
 }
