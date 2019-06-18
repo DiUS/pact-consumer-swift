@@ -33,8 +33,6 @@ identifier_name:
     - id
     - URL
     - url
-    - GET
-    - PUT
     - min
     - max
     - key
