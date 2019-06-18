@@ -1,9 +1,9 @@
 import Foundation
 
-typealias NetworkCallCompletion = (_ response: String?, _ error: String?) -> Void
+typealias NetworkCallResultCompletion = (NetworkResult<String>) -> Void
 
 ///
-/// A Network Manager service that takes the `MockAPI`
+/// A Network Manager service that takes the `PactMockServiceAPI`
 /// as the router configuration and makes calls to the
 /// Pact Mock Service
 ///
@@ -20,10 +20,10 @@ public struct NetworkManager {
   ///
   /// - Returns: No return value
   ///
-  func clean(completion: @escaping NetworkCallCompletion) {
+  func clean(completion: @escaping NetworkCallResultCompletion) {
     router.request(.clean) { data, response, error in
-      self.handleStringResponse(data, response, error) { response, error in
-        completion(response, error)
+      self.handleStringResponse(data, response, error) { result in
+        completion(result)
       }
     }
   }
@@ -35,10 +35,10 @@ public struct NetworkManager {
   ///
   /// - Returns: No return value
   ///
-  func verify(completion: @escaping NetworkCallCompletion) {
+  func verify(completion: @escaping NetworkCallResultCompletion) {
     router.request(.verify) { data, response, error in
-      self.handleStringResponse(data, response, error) { response, error in
-        completion(response, error)
+      self.handleStringResponse(data, response, error) { result in
+        completion(result)
       }
     }
   }
@@ -53,10 +53,10 @@ public struct NetworkManager {
   ///   "provider": [ "name": "My App's Provider" ] ]
   /// ```
   ///
-  func write(_ parameters: [String: [String: String]], completion: @escaping NetworkCallCompletion) {
+  func write(_ parameters: [String: [String: String]], completion: @escaping NetworkCallResultCompletion) {
     router.request(.write(parameters)) { data, response, error in
-      self.handleStringResponse(data, response, error) { response, error in
-        completion(response, error)
+      self.handleStringResponse(data, response, error) { result in
+        completion(result)
       }
     }
   }
@@ -64,10 +64,10 @@ public struct NetworkManager {
   ///
   /// Sets up to write the Pact file, the contract, between your Pact client and your Pact provider.
   ///
-  func setup(_ parameters: [String: Any], completion: @escaping NetworkCallCompletion) {
+  func setup(_ parameters: [String: Any], completion: @escaping (NetworkResult<String>) -> Void) {
     router.request(.setup(parameters)) { data, response, error in
-      self.handleStringResponse(data, response, error) { response, error in
-        completion(response, error)
+      self.handleStringResponse(data, response, error) { result in
+        completion(result)
       }
     }
   }
@@ -81,7 +81,7 @@ public struct NetworkManager {
   ///
   /// - returns: .success or .failure(String) describing the cause of error
   ///
-  fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
+  fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> ResponseCode<String> {
     switch response.statusCode {
     case 200...299: return .success
     case 401, 403:  return .failure(NetworkResponse.authenticationError.rawValue)
@@ -106,9 +106,9 @@ public struct NetworkManager {
     _ data: Data?,
     _ response: URLResponse?,
     _ error: Error?,
-    completion: NetworkCallCompletion
-    ) {
-    if error != nil { completion(nil, NetworkResponse.failed.rawValue) }
+    completion: NetworkCallResultCompletion
+  ) {
+    if error != nil { completion(.failure(.failed(error!))) }
 
     if let response = response as? HTTPURLResponse {
       let result = self.handleNetworkResponse(response)
@@ -116,13 +116,13 @@ public struct NetworkManager {
       switch result {
       case .success:
         guard let responseData = data else {
-          completion(nil, NetworkResponse.noData.rawValue)
+          completion(.failure(.noData))
           return
         }
-        completion(String(decoding: responseData, as: UTF8.self), nil)
-
+        completion(.success(String(decoding: responseData, as: UTF8.self)))
       case .failure(let networkFailureError):
-        completion(nil, networkFailureError)
+        let returnError = NSError(domain: "NetworkManager", code: 1009, userInfo: ["Error": networkFailureError])
+        completion(.failure(.failed(returnError)))
       }
     }
   }

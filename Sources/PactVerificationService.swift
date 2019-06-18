@@ -69,8 +69,8 @@ open class PactVerificationService {
     let promise = Promise<String, NSError>()
 
     networkManager
-      .clean { [unowned self] response, error in
-        self.handleResponse(promise)(response, error)
+      .clean { [unowned self] result in
+        self.handleResponse(promise)(result)
     }
 
     return promise.future
@@ -83,8 +83,8 @@ open class PactVerificationService {
                                      "example_description": "description"]
 
     networkManager
-      .setup(parameters) { [unowned self] response, error in
-        self.handleResponse(promise)(response, error)
+      .setup(parameters) { [unowned self] result in
+        self.handleResponse(promise)(result)
     }
 
     return promise.future
@@ -94,8 +94,8 @@ open class PactVerificationService {
     let promise = Promise<String, NSError>()
 
     networkManager
-      .verify { [unowned self] response, error in
-        self.handleResponse(promise)(response, error)
+      .verify { [unowned self] result in
+        self.handleResponse(promise)(result)
     }
 
     return promise.future
@@ -108,8 +108,8 @@ open class PactVerificationService {
                                                   "provider": [ "name": provider ]]
 
     networkManager
-      .write(parameters) { [unowned self] response, error in
-        self.handleResponse(promise)(response, error)
+      .write(parameters) { [unowned self] result in
+        self.handleResponse(promise)(result)
     }
 
     return promise.future
@@ -127,12 +127,13 @@ open class PactVerificationService {
     return NSError(domain: domain, code: code, userInfo: userInfo)
   }
 
-  fileprivate func handleResponse(_ promise: Promise<String, NSError>) -> NetworkCallCompletion {
-    return { response, error in
-      if let error = error {
-        promise.failure(self.failWithError(error))
-      } else {
-        promise.success(response!)
+  fileprivate func handleResponse(_ promise: Promise<String, NSError>) -> NetworkCallResultCompletion {
+    return { result in
+      switch result {
+      case .success(let resultString):
+        promise.success(resultString)
+      case .failure(let error):
+        promise.failure(self.failWithError(error.localizedDescription, code: 0, domain: "Verification Service", comment: ""))
       }
     }
   }

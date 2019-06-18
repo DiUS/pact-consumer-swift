@@ -12,6 +12,12 @@ public enum ParameterEncoding {
   case jsonEncoding
   case urlAndJsonEncoding
 
+  /// Encode parameters for given URLRequest
+  ///
+  /// - parameter urlRequest: URLRequest to be encoded with parameters
+  /// - parameter bodyParameters: HTTP Body parameters to be encoded
+  /// - parameter urlParameters: URL parameters to be encoded
+  ///
   public func encode(urlRequest: inout URLRequest,
                      bodyParameters: Parameters?,
                      urlParameters: Parameters?) throws {

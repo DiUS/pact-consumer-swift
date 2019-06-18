@@ -2,6 +2,11 @@ import Foundation
 
 public struct URLParameterEncoder: ParameterEncoder {
 
+  /// Encode an URLRequest with parameters for URL components
+  ///
+  /// - parameter urlRequest: URLRequest being changed
+  /// - parameter parameters: URL components to be percentage encoded with allowed characters set to `.urlHostAllowed`
+  ///
   public func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
     guard let url = urlRequest.url else {
       throw NetworkError.missingURL
@@ -14,8 +19,7 @@ public struct URLParameterEncoder: ParameterEncoder {
         urlComponents
           .queryItems?
           .append(URLQueryItem(name: key,
-                               value: "\(value)"
-                                .addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)))
+                               value: "\(value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)))
       }
       urlRequest.url = urlComponents.url
     }
