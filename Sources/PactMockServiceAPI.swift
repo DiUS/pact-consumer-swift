@@ -54,12 +54,12 @@ extension PactMockServiceAPI: EndPointType {
   var task: HTTPTask {
     switch self {
     case .setup(let parameters):
-      return .requestParametersAndHeaders(bodyParameters: parameters,
+      return .requestWithParameters(bodyParameters: parameters,
                                           urlParameters: nil,
                                           additionHeaders: self.headers)
 
     case .write(let nestedParameters):
-      return .requestParametersAndHeaders(bodyParameters: nestedParameters,
+      return .requestWithParameters(bodyParameters: nestedParameters,
                                           urlParameters: nil,
                                           additionHeaders: self.headers)
 
