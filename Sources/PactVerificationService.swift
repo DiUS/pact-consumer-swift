@@ -4,7 +4,7 @@ import BrightFutures
 open class PactVerificationService {
 
   open var baseUrl: String {
-    return "\(MockAPI.url):\(MockAPI.port)"
+    return "\(PactMockServiceAPI.url):\(PactMockServiceAPI.port)"
   }
 
   var networkManager: NetworkManager!
@@ -22,9 +22,9 @@ open class PactVerificationService {
     networkLogging: Bool = false,
     networkManager: NetworkManager? = nil
     ) {
-    MockAPI.url = url
-    MockAPI.port = port
-    MockAPI.enableNetworkLogging = networkLogging
+    PactMockServiceAPI.url = url
+    PactMockServiceAPI.port = port
+    PactMockServiceAPI.enableNetworkLogging = networkLogging
 
     self.networkManager = networkManager ?? NetworkManager()
   }

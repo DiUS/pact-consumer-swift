@@ -9,7 +9,7 @@ typealias NetworkCallCompletion = (_ response: String?, _ error: String?) -> Voi
 ///
 public struct NetworkManager {
 
-  private let router = Router<MockAPI>()
+  private let router = Router<PactMockServiceAPI>()
 
   ///
   /// Clears any previously defined interactions between

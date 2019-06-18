@@ -1,6 +1,6 @@
 import Foundation
 
-public enum MockAPI: EndPointURLSettable {
+public enum PactMockServiceAPI: EndPointURLSettable {
 
   static var url: String = "http://localhost"
   static var port: Int = 1234
@@ -13,14 +13,14 @@ public enum MockAPI: EndPointURLSettable {
 
 }
 
-extension MockAPI: EndPointType {
+extension PactMockServiceAPI: EndPointType {
 
   var networkLogging: Bool {
-    return MockAPI.enableNetworkLogging
+    return PactMockServiceAPI.enableNetworkLogging
   }
 
   var baseURL: URL {
-    guard let url = URL(string: "\(MockAPI.url):\(MockAPI.port)") else {
+    guard let url = URL(string: "\(PactMockServiceAPI.url):\(PactMockServiceAPI.port)") else {
       fatalError("baseURL could not be configured")
     }
     return url

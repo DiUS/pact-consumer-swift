@@ -75,13 +75,13 @@
 		ADD82FDB22AF93EA00FAADB6 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */; };
 		ADD82FDD22AF94CC00FAADB6 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */; };
 		ADD82FDF22AF954600FAADB6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDE22AF954600FAADB6 /* Router.swift */; };
-		ADD82FE122AF98EB00FAADB6 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */; };
+		ADD82FE122AF98EB00FAADB6 /* PactMockServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* PactMockServiceAPI.swift */; };
 		ADD82FE322AFB64C00FAADB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */; };
 		ADD82FE522AFB95E00FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
 		ADD82FE722AFB97600FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
 		ADD82FE922B04CB500FAADB6 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE822B04CB500FAADB6 /* NetworkLogger.swift */; };
 		ADD82FEA22B1321E00FAADB6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */; };
-		ADD82FEB22B1321E00FAADB6 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */; };
+		ADD82FEB22B1321E00FAADB6 /* PactMockServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* PactMockServiceAPI.swift */; };
 		ADD82FEC22B1321E00FAADB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */; };
 		ADD82FED22B1321E00FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
 		ADD82FEE22B1321E00FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
@@ -95,7 +95,7 @@
 		ADD82FF622B1321E00FAADB6 /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FD822AF91D600FAADB6 /* URLParameterEncoding.swift */; };
 		ADD82FF722B1321E00FAADB6 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */; };
 		ADD82FF822B1324600FAADB6 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */; };
-		ADD82FF922B1324600FAADB6 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */; };
+		ADD82FF922B1324600FAADB6 /* PactMockServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE022AF98EB00FAADB6 /* PactMockServiceAPI.swift */; };
 		ADD82FFA22B1324600FAADB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */; };
 		ADD82FFB22B1324600FAADB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */; };
 		ADD82FFC22B1324600FAADB6 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD82FE622AFB97600FAADB6 /* Result.swift */; };
@@ -179,7 +179,7 @@
 		ADD82FDA22AF93EA00FAADB6 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		ADD82FDC22AF94CC00FAADB6 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		ADD82FDE22AF954600FAADB6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
+		ADD82FE022AF98EB00FAADB6 /* PactMockServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactMockServiceAPI.swift; sourceTree = "<group>"; };
 		ADD82FE222AFB64C00FAADB6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADD82FE422AFB95E00FAADB6 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		ADD82FE622AFB97600FAADB6 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				ADD82FCA22AF8E4D00FAADB6 /* EndPointType.swift */,
-				ADD82FE022AF98EB00FAADB6 /* MockAPI.swift */,
+				ADD82FE022AF98EB00FAADB6 /* PactMockServiceAPI.swift */,
 			);
 			name = EndPoint;
 			sourceTree = "<group>";
@@ -908,7 +908,7 @@
 				ADD82FD122AF8F3A00FAADB6 /* HTTPMethod.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
 				ADD82FE522AFB95E00FAADB6 /* NetworkResponse.swift in Sources */,
-				ADD82FE122AF98EB00FAADB6 /* MockAPI.swift in Sources */,
+				ADD82FE122AF98EB00FAADB6 /* PactMockServiceAPI.swift in Sources */,
 				ADD82FD722AF915400FAADB6 /* NetworkError.swift in Sources */,
 				ADD82FCB22AF8E4D00FAADB6 /* EndPointType.swift in Sources */,
 				ADD82FE322AFB64C00FAADB6 /* NetworkManager.swift in Sources */,
@@ -936,7 +936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADD82FEA22B1321E00FAADB6 /* EndPointType.swift in Sources */,
-				ADD82FEB22B1321E00FAADB6 /* MockAPI.swift in Sources */,
+				ADD82FEB22B1321E00FAADB6 /* PactMockServiceAPI.swift in Sources */,
 				ADD82FEC22B1321E00FAADB6 /* NetworkManager.swift in Sources */,
 				ADD82FED22B1321E00FAADB6 /* NetworkResponse.swift in Sources */,
 				ADD82FEE22B1321E00FAADB6 /* Result.swift in Sources */,
@@ -974,7 +974,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADD82FF822B1324600FAADB6 /* EndPointType.swift in Sources */,
-				ADD82FF922B1324600FAADB6 /* MockAPI.swift in Sources */,
+				ADD82FF922B1324600FAADB6 /* PactMockServiceAPI.swift in Sources */,
 				ADD82FFA22B1324600FAADB6 /* NetworkManager.swift in Sources */,
 				ADD82FFB22B1324600FAADB6 /* NetworkResponse.swift in Sources */,
 				ADD82FFC22B1324600FAADB6 /* Result.swift in Sources */,
