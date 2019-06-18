@@ -131,16 +131,20 @@ open class AnimalServiceClient {
   ///
   /// - parameter animal: A String representing an animal as food to an alligator (eg: "Pigeon")
   ///
-  open func eat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
+  open func eat(animal: String, success: @escaping () -> Void, error: @escaping (Error) -> Void) {
     request(
       urlString: "\(baseUrl)/alligator/eat",
       method: .patch,
       bodyParameters: ["type": animal]
     ) { data, response, responseError in
+      if let responseError = responseError { error(responseError); return }
+
       if let response = response as? HTTPURLResponse {
-        (200..<400).contains(response.statusCode) ? success() : error(response.statusCode)
+        (200..<400).contains(response.statusCode)
+          ? success()
+          : error(self.describeError("Alligators menu: \(response.statusCode)", code: 1))
       } else {
-        error(500)
+        error(self.describeError("Missing Response Data", code: 109))
       }
     }
   }
@@ -150,18 +154,26 @@ open class AnimalServiceClient {
   ///
   /// - parameter animal: A String representing an animal as food to an alligator (eg: "Giraffe")
   ///
-  open func wontEat(animal: String, success: @escaping () -> Void, error: @escaping (Int) -> Void) {
+  open func wontEat(animal: String, success: @escaping () -> Void, error: @escaping (Error) -> Void) {
     request(
       urlString: "\(baseUrl)/alligator/eat",
       method: .delete,
       bodyParameters: ["type": animal]
-    ) { data, response, responseError in
+    ) { [unowned self] data, response, responseError in
+      if let responseError = responseError { error(responseError); return }
+
       if let response = response as? HTTPURLResponse {
-        (200..<400).contains(response.statusCode) ? success() : error(response.statusCode)
+        (200..<400).contains(response.statusCode)
+          ? success()
+          : error(self.describeError("Alligators menu: \(response.statusCode)", code: 1))
       } else {
-        error(500)
+        error(self.describeError("Missing Response Data", code: 109))
       }
     }
+  }
+
+  fileprivate func describeError(_ domain: String, code: Int) -> NSError {
+    return NSError(domain: domain, code: code, userInfo: nil)
   }
 
   ///
