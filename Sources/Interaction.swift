@@ -12,12 +12,33 @@ open class Interaction: NSObject {
   open var request: [String: Any] = [:]
   open var response: [String: Any] = [:]
 
+  ///
+  /// Define the providers state
+  ///
+  /// Use this method in the `Arrange` step of your Pact test.
+  ///
+  ///     myMockService.given("a user exists")
+  ///
+  /// - Parameter providerState: A description of providers state
+  /// - Returns: An `Interaction` object
+  ///
   @discardableResult
   open func given(_ providerState: String) -> Interaction {
     self.providerState = providerState
     return self
   }
 
+  ///
+  /// Describe the request your provider will receive
+  ///
+  /// Use this method in the `Arrange` step of your Pact test.
+  ///
+  ///     myMockService.given("a user exists")
+  ///                  .uponReceiving("a request for users")
+  ///
+  /// - Parameter testDescription: A description of the request to the provider
+  /// - Returns: An `Interaction` object
+  ///
   @objc
   @discardableResult
   open func uponReceiving(_ testDescription: String) -> Interaction {
@@ -25,6 +46,22 @@ open class Interaction: NSObject {
     return self
   }
 
+  ///
+  /// Describe the request your consumer will send to your provider
+  ///
+  /// Use this method in the `Arrange` step of your Pact test.
+  ///
+  ///     myMockService.given("a user exists")
+  ///                  .uponReceiving("a request for users")
+  ///                  .withRequest(method:.GET, path: "/users")
+  ///
+  /// - Parameter method: Enum of available HTTP methods
+  /// - Parameter path: an object representing url path component
+  /// - Parameter query: an object representing url query components
+  /// - Parameter headers: Dictionary representing any headers in network request
+  /// - Parameter body: An object representing the body of your network request
+  /// - Returns: An `Interaction` object
+  ///
   @objc(withRequestHTTPMethod: path: query: headers: body:)
   @discardableResult
   open func withRequest(method: PactHTTPMethod,
@@ -45,6 +82,23 @@ open class Interaction: NSObject {
     return self
   }
 
+  ///
+  /// Describe the response of your provider
+  ///
+  /// Use this method in the `Arrange` step of your Pact test.
+  ///
+  ///     myMockService.given("a user exists")
+  ///                  .uponReceiving("a request for users")
+  ///                  .withRequest(method:.GET, path: "/users")
+  ///                  .willRespondWith(status: 200,
+  ///                                   headers: [ /* ... */ ],
+  ///                                   body: [ /* ...DSL... */ ])
+  ///
+  /// - Parameter status: The status code of your provider's response
+  /// - Parameter headers: A Dictionary representing the return headers
+  /// - Parameter body: An object representing the body of your Provider's response
+  /// - Returns: An `Interaction` object
+  ///
   @objc(willRespondWithHTTPStatus: headers: body:)
   @discardableResult
   open func willRespondWith(status: Int,
@@ -60,6 +114,7 @@ open class Interaction: NSObject {
     return self
   }
 
+  ///
   @objc
   open func payload() -> [String: Any] {
     var payload: [String: Any] = ["description": testDescription,
@@ -70,6 +125,8 @@ open class Interaction: NSObject {
     }
     return payload
   }
+
+  // MARK: - Private
 
   fileprivate func httpMethod(_ method: PactHTTPMethod) -> String {
     switch method {

@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10.1
+osx_image: xcode10.2
 env:
   global:
     - IOS_FRAMEWORK_SCHEME="PactConsumerSwift iOS"
@@ -16,9 +16,10 @@ env:
 before_install:
   - scripts/import_keychain.sh
   - security find-identity -v -p codesigning
-  - gem install pact-mock_service -v 2.12.0
-  - bundle install
   - brew update && brew bundle
+  - brew tap pact-foundation/pact-ruby-standalone
+  - brew install pact-ruby-standalone
+  - bundle install
   - carthage checkout
 script:
   - set -o pipefail

@@ -1,8 +1,9 @@
 #!/bin/bash
+set -e
 
 if [[ -z "${PROJECT_NAME}" ]]; then
   PROJECT_NAME="PactConsumerSwift.xcodeproj";
-  DESTINATION="OS=11.0,name=iPhone 8";
+  DESTINATION="OS=12.2,name=iPhone Xs";
   SCHEME="PactConsumerSwift iOS";
 fi
 

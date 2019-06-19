@@ -24,7 +24,23 @@ Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
 ### Install Pact Mock Service
 
-Install the [pact-ruby-standalone][pact-mock-service-standalone] as per installation instructions.
+#### Homebrew
+
+    brew tap pact-foundation/pact-ruby-standalone
+    brew install pact-ruby-standalone
+
+This will install the following tools:
+
+    pact
+    pact-broker
+    pact-message
+    pact-mock-service
+    pact-provider-verifier
+    pact-publish
+    pact-stub-service
+    
+#### Manually
+Alternatively you can download and install the [pact-ruby-standalone][pact-ruby-standalone-releases] archives for your platform and install as per installation instructions written in [Pact Ruby Standalone release notes][pact-mock-service-standalone-installation].
 
 #### Xcode Setup
 In Xcode, edit your scheme and add _pre-_ and _post-actions_ to `Test` to start and stop `pact-mock-service`. Make sure you select your target in _Provide build settings from_ the drop down menu.
