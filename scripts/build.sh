@@ -1,11 +1,16 @@
 #!/bin/bash
 set -e
 
+swiftlint
+
 if [[ -z "${PROJECT_NAME}" ]]; then
   PROJECT_NAME="PactConsumerSwift.xcodeproj";
   DESTINATION="OS=12.2,name=iPhone Xs";
   SCHEME="PactConsumerSwift iOS";
+  CARTHAGE_PLATFORM="iOS";
 fi
+
+carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
 
 # Carthage - debug
 echo "#### Testing DEBUG configuration for scheme: $SCHEME, with destination: $DESTINATION ####"

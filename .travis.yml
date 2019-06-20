@@ -14,19 +14,10 @@ env:
     - DESTINATION="OS=11.0,name=Apple TV 4K (at 1080p)" SCHEME="$TVOS_FRAMEWORK_SCHEME" CARTHAGE_PLATFORM="tvOS"
     - DESTINATION="arch=x86_64"             SCHEME="$MACOS_FRAMEWORK_SCHEME"     CARTHAGE_PLATFORM="macOS"
 before_install:
-  - scripts/import_keychain.sh
-  - security find-identity -v -p codesigning
-  - brew update && brew bundle
-  - brew tap pact-foundation/pact-ruby-standalone
-  - brew install pact-ruby-standalone
-  - bundle install
-  - carthage checkout
+  - scripts/install_deps.sh
 script:
   - set -o pipefail
-  - swiftlint
-  - carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
   - scripts/build.sh
   - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
-after_script: scripts/delete_keychain.sh
 after_success:
   - scripts/build_children.sh
