@@ -20,15 +20,6 @@
         }
       },
       {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "94df9b449508344667e5afc7e80f8bcbff1e4c37",
-          "version": "2.1.0"
-        }
-      },
-      {
         "package": "Result",
         "repositoryURL": "https://github.com/antitypical/Result.git",
         "state": {
