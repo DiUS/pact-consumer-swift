@@ -1,3 +1,2 @@
 github "Thomvis/BrightFutures" ~> 7.0
 github "Quick/Nimble" ~> 8.0
-github "Quick/Quick" ~> 2.0
