@@ -50,7 +50,7 @@ if (releaseDesc.empty) {
   releaseDesc = 'Bugfix Release'
 }
 
-def releaseVer = System.console().readLine("What is the version for this release?: [$version]").trim()
+def releaseVer = System.console().readLine("What is the version for this release?: [last version $version]").trim()
 if (releaseVer.empty) {
   releaseVer = version
 }
@@ -87,7 +87,7 @@ ask('Update Changelog?: [Y]') {
 }
 
 ask("Update cocoapods version to $releaseVer?: [Y]") {
-  executeOnShell "sed -i '' 's/version = \"${prevTag}\"/version = \"${releaseVer}\"/' PactConsumerSwift.podspec"
+  executeOnShell "sed -i '' 's/version = \"${version}\"/version = \"${releaseVer}\"/' PactConsumerSwift.podspec"
   executeOnShell("git add PactConsumerSwift.podspec")
   executeOnShell("git diff --cached")
   ask("Commit this change?: [Y]") {
