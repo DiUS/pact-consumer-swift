@@ -1,5 +1,15 @@
 
 
+# 0.6.0 - Maintenance Release
+
+* 9605227 - Cleanup build settings so ci build can be more easily reproduced locally. (#59) (andrewspinks, Tue Jun 25 17:32:54 2019 +0900)
+* cdecfbc - Fixes bitcode related issue when used from CocoaPods. (Kyle Hammond, Mon Jun 24 10:36:16 2019 -0500)
+* 848f4c5 - Remove quick dependency from requirements. It is only used for internal tests. (#58) (andrewspinks, Sun Jun 23 11:19:26 2019 +0900)
+* 8688fdc - Refactor pact mock server network calling code and upgrade to swift 5 (#53) (Marko Justinek, Wed Jun 19 17:32:45 2019 +1000)
+* 23296ce - Completely removed Alamofire in favor of simple networking calls. (#51) (Kyle Hammond, Wed Jun 12 18:53:11 2019 -0500)
+* 3ed97f1 - Update dependencies (Mihai Georgescu, Mon Mar 25 23:12:14 2019 +0000)
+* 28e1588 - Fix cocoa pods release version number and release script. (Andrew Spinks, Thu Jan 24 20:17:51 2019 +0900)
+
 # 0.5.3 - Bugfix Release
 
 * a1cd000 - Update cocoapods dependencies. (Andrew Spinks, Thu Jan 24 19:34:14 2019 +0900)
