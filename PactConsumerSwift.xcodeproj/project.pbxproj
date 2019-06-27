@@ -461,6 +461,7 @@
 				AD17A58E1F74AF5300219F39 /* Frameworks */,
 				AD17A58F1F74AF5300219F39 /* Resources */,
 				AD17A62B1F74B6DF00219F39 /* Copy Carthage Frameworks */,
+				AD86B16322C4E3C800DC81C5 /* Check Dependencies */,
 			);
 			buildRules = (
 			);
@@ -500,6 +501,7 @@
 				AD17A5AD1F74AFB000219F39 /* Frameworks */,
 				AD17A5AE1F74AFB000219F39 /* Resources */,
 				AD17A62C1F74B6EC00219F39 /* Copy Carthage Frameworks */,
+				AD86B16422C4E4EC00DC81C5 /* Check Dependencies */,
 			);
 			buildRules = (
 			);
@@ -539,6 +541,7 @@
 				AD17A5C91F74AFC900219F39 /* Frameworks */,
 				AD17A5CA1F74AFC900219F39 /* Resources */,
 				AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks */,
+				AD86B16522C4E50200DC81C5 /* Check Dependencies */,
 			);
 			buildRules = (
 			);
@@ -803,6 +806,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks";
+		};
+		AD86B16322C4E3C800DC81C5 /* Check Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
+		};
+		AD86B16422C4E4EC00DC81C5 /* Check Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n\n";
+		};
+		AD86B16522C4E50200DC81C5 /* Check Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
