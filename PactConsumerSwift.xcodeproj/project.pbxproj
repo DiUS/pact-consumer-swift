@@ -437,12 +437,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A59E1F74AF5300219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift iOS" */;
 			buildPhases = (
+				AD17A6261F74B59100219F39 /* Run Swiftlint */,
 				AD17A5831F74AF5300219F39 /* Sources */,
 				AD17A5841F74AF5300219F39 /* Frameworks */,
 				AD17A5851F74AF5300219F39 /* Headers */,
 				AD17A5861F74AF5300219F39 /* Resources */,
 				AD17A6251F74B59000219F39 /* Copy Carthage Frameworks */,
-				AD17A6261F74B59100219F39 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -477,12 +477,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A5B91F74AFB000219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift macOS" */;
 			buildPhases = (
+				AD17A6231F74B56D00219F39 /* Run Swiftlint */,
 				AD17A5A31F74AFB000219F39 /* Sources */,
 				AD17A5A41F74AFB000219F39 /* Frameworks */,
 				AD17A5A51F74AFB000219F39 /* Headers */,
 				AD17A5A61F74AFB000219F39 /* Resources */,
 				AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */,
-				AD17A6231F74B56D00219F39 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -517,12 +517,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD17A5D51F74AFC900219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift tvOS" */;
 			buildPhases = (
+				AD17A6281F74B5A700219F39 /* Run Swiftlint */,
 				AD17A5BF1F74AFC900219F39 /* Sources */,
 				AD17A5C01F74AFC900219F39 /* Frameworks */,
 				AD17A5C11F74AFC900219F39 /* Headers */,
 				AD17A5C21F74AFC900219F39 /* Resources */,
 				AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */,
-				AD17A6281F74B5A700219F39 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -675,7 +675,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --strict\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -721,7 +721,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --strict\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -751,7 +751,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --strict\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		AD17A62B1F74B6DF00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
