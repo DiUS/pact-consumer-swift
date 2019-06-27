@@ -8,8 +8,7 @@ else
     echo "Dependencies check:" 
     echo "- pact-mock-service: not found!"
     echo ""
-    echo "### ERROR ###"
-    echo "pact-mock-service is not installed!"
+    echo "error: pact-mock-service is not installed!"
     echo "See https://github.com/pact-foundation/pact-ruby-standalone or use Homebrew tap \"pact-foundation/pact-ruby-standalone\""
     exit 1
 fi
