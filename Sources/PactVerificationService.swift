@@ -54,7 +54,14 @@ open class PactVerificationService {
       .verifyInteractions { result in
         switch result {
         case .success:
-          completion(.success(()))
+          _ = self.write(provider: provider, consumer: consumer) { result in
+            switch result {
+            case .success:
+              completion(.success(()))
+            case .failure(let error):
+              completion(.failure(error))
+            }
+          }
         case .failure(let error):
           completion(.failure(error))
         }
@@ -100,29 +107,19 @@ open class PactVerificationService {
     }
   }
 
-  fileprivate func verifyInteractions() -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
-    networkManager
-      .verify { [unowned self] result in
-        self.handleResponse(promise)(result)
-    }
-
-    return promise.future
-  }
-
-  fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
+  fileprivate func write(provider: String, consumer: String, completion: @escaping (PactResult<Void>) -> Void) {
     let parameters: [String: [String: String]] = ["consumer": [ "name": consumer ],
                                                   "provider": [ "name": provider ]]
 
     networkManager
-      .write(parameters) { [unowned self] result in
-        self.handleResponse(promise)(result)
-    }
-
-    return promise.future
+      .write(parameters) { result in
+        switch result {
+        case .success:
+          completion(.success(()))
+        case .failure(let error):
+          completion(.failure(error))
+        }
+      }
   }
 
   // MARK: - Helpers
