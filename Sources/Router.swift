@@ -24,7 +24,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 
   // MARK: -
 
-  fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
+  private func buildRequest(from route: EndPoint) throws -> URLRequest {
 
     var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
                              cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
@@ -48,7 +48,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     }
   }
 
-  fileprivate func configureParameters(
+  private func configureParameters(
     bodyParameters: Parameters?,
     urlParameters: Parameters?,
     request: inout URLRequest
@@ -65,7 +65,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     }
   }
 
-  fileprivate func addHeaders(_ headers: HTTPHeaders?, request: inout URLRequest) {
+  private func addHeaders(_ headers: HTTPHeaders?, request: inout URLRequest) {
     guard let headers = headers else { return }
     _ = headers.map { request.setValue($1, forHTTPHeaderField: $0) }
   }
