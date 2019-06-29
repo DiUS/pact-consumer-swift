@@ -27,7 +27,7 @@ open class MockService: NSObject {
     provider: String,
     consumer: String,
     pactVerificationService: PactVerificationService
-    ) {
+  ) {
     self.provider = provider
     self.consumer = consumer
     self.pactVerificationService = pactVerificationService

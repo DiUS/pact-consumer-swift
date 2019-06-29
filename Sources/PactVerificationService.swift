@@ -21,7 +21,7 @@ open class PactVerificationService {
     port: Int = 1234,
     networkLogging: Bool = false,
     networkManager: NetworkManager? = nil
-    ) {
+  ) {
     PactMockServiceAPI.url = url
     PactMockServiceAPI.port = port
     PactMockServiceAPI.enableNetworkLogging = networkLogging
