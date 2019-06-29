@@ -49,18 +49,16 @@ open class PactVerificationService {
   ///
   /// Verifies the interactions between your Consumer and Provider
   ///
-  func verify(provider: String, consumer: String) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
-    self.verifyInteractions()
-      .onSuccess { _ in
-        promise.completeWith(self.write(provider: provider, consumer: consumer))
-      }
-      .onFailure { error in
-        promise.failure(error)
+  func verify(provider: String, consumer: String, completion: @escaping (PactResult<Void>) -> Void) {
+    self
+      .verifyInteractions { result in
+        switch result {
+        case .success:
+          completion(.success(()))
+        case .failure(let error):
+          completion(.failure(error))
+        }
     }
-
-    return promise.future
   }
 
   // MARK: - Fileprivate
@@ -88,6 +86,18 @@ open class PactVerificationService {
     }
 
     return promise.future
+  }
+
+  fileprivate func verifyInteractions(_ completion: @escaping (PactResult<Void>) -> Void) {
+    networkManager
+      .verify { result in
+        switch result {
+        case .success:
+          completion(.success(()))
+        case .failure(let error):
+          completion(.failure(error))
+        }
+    }
   }
 
   fileprivate func verifyInteractions() -> Future<String, NSError> {

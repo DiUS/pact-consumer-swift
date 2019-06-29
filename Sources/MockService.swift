@@ -145,25 +145,33 @@ open class MockService: NSObject {
     timeout: TimeInterval = 30,
     testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
   ) {
-    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.setup(self.interactions).onSuccess { _ in
-        testFunction { () in
-          done()
-        }
-        }.onFailure { error in
-          fail("Error setting up pact: \(error.localizedDescription)")
-      }
-    }
 
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.verify(provider: self.provider,
-                                          consumer: self.consumer).onSuccess { _ in
-                                            done()
-        }.onFailure { error in
-          self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
-            file: file,
-            line: line)
-      }
+      self.pactVerificationService
+        .setup(self.interactions)
+        .onSuccess { _ in
+          testFunction { () in
+            done()
+          }
+        }
+        .onFailure { error in
+          fail("Error setting up pact: \(error.localizedDescription)")
+        }
+    }
+
+    // No BrightFutures
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+      self
+        .pactVerificationService
+        .verify(provider: self.provider, consumer: self.consumer) { result in
+          switch result {
+          case .success:
+            done()
+          case .failure(let error):
+            //swiftlint:disable:next line_length
+            self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)", file: file, line: line)
+          }
+        }
     }
   }
 
