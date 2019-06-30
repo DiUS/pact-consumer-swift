@@ -2,6 +2,8 @@ import Foundation
 
 open class PactVerificationService {
 
+  typealias CompletionHandler = (PactResult<Void>) -> Void
+
   open var baseUrl: String {
     return "\(PactMockServiceAPI.url):\(PactMockServiceAPI.port)"
   }
@@ -31,12 +33,11 @@ open class PactVerificationService {
   ///
   /// Calls Pact-Mock-Service and sets the interactions between your Consumer and Provider
   ///
-  func setup(_ interactions: [Interaction], completion: @escaping (PactResult<Void>) -> Void) {
+  func setup(_ interactions: [Interaction], completion: @escaping CompletionHandler) {
     self
       .clean { result in
         switch result {
         case .success:
-
           self.setupInteractions(interactions) { result in
             switch result {
             case .success:
@@ -54,7 +55,7 @@ open class PactVerificationService {
   ///
   /// Verifies the interactions between your Consumer and Provider
   ///
-  func verify(provider: String, consumer: String, completion: @escaping (PactResult<Void>) -> Void) {
+  func verify(provider: String, consumer: String, completion: @escaping CompletionHandler) {
     self
       .verifyInteractions { result in
         switch result {
@@ -75,7 +76,7 @@ open class PactVerificationService {
 
   // MARK: - Fileprivate BrightFuture
 
-  fileprivate func clean(_ completion: @escaping (PactResult<Void>) -> Void) {
+  fileprivate func clean(_ completion: @escaping CompletionHandler) {
     networkManager
       .clean { result in
         switch result {
@@ -87,7 +88,7 @@ open class PactVerificationService {
       }
   }
 
-  fileprivate func setupInteractions(_ interactions: [Interaction], completion: @escaping (PactResult<Void>) -> Void) {
+  fileprivate func setupInteractions(_ interactions: [Interaction], completion: @escaping CompletionHandler) {
     let parameters: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
                                      "example_description": "description"]
 
@@ -102,7 +103,7 @@ open class PactVerificationService {
       }
   }
 
-  fileprivate func verifyInteractions(_ completion: @escaping (PactResult<Void>) -> Void) {
+  fileprivate func verifyInteractions(_ completion: @escaping CompletionHandler) {
     networkManager
       .verify { result in
         switch result {
@@ -114,7 +115,7 @@ open class PactVerificationService {
       }
   }
 
-  fileprivate func write(provider: String, consumer: String, completion: @escaping (PactResult<Void>) -> Void) {
+  fileprivate func write(provider: String, consumer: String, completion: @escaping CompletionHandler) {
     let parameters: [String: [String: String]] = ["consumer": [ "name": consumer ],
                                                   "provider": [ "name": provider ]]
 
@@ -127,5 +128,5 @@ open class PactVerificationService {
           completion(.failure(error))
         }
       }
-    }
+  }
 }
