@@ -33,7 +33,7 @@ open class PactVerificationService {
   ///
   /// Calls Pact-Mock-Service and sets the interactions between your Consumer and Provider
   ///
-  func setup(_ interactions: [Interaction], completion: @escaping CompletionHandler) {
+  func setup(_ interactions: [Interaction], done: @escaping CompletionHandler) {
     self
       .clean { result in
         switch result {
@@ -41,13 +41,13 @@ open class PactVerificationService {
           self.setupInteractions(interactions) { result in
             switch result {
             case .success:
-              completion(.success(()))
+              done(.success(()))
             case .failure(let error):
-              completion(.failure(error))
+              done(.failure(error))
             }
           }
         case .failure(let error):
-          completion(.failure(error))
+          done(.failure(error))
         }
       }
   }
@@ -55,7 +55,7 @@ open class PactVerificationService {
   ///
   /// Verifies the interactions between your Consumer and Provider
   ///
-  func verify(provider: String, consumer: String, completion: @escaping CompletionHandler) {
+  func verify(provider: String, consumer: String, verified: @escaping CompletionHandler) {
     self
       .verifyInteractions { result in
         switch result {
@@ -63,59 +63,59 @@ open class PactVerificationService {
           _ = self.write(provider: provider, consumer: consumer) { result in
             switch result {
             case .success:
-              completion(.success(()))
+              verified(.success(()))
             case .failure(let error):
-              completion(.failure(error))
+              verified(.failure(error))
             }
           }
         case .failure(let error):
-          completion(.failure(error))
+          verified(.failure(error))
         }
       }
   }
 
   // MARK: - Fileprivate BrightFuture
 
-  fileprivate func clean(_ completion: @escaping CompletionHandler) {
+  fileprivate func clean(_ done: @escaping CompletionHandler) {
     networkManager
       .clean { result in
         switch result {
         case .success:
-          completion(.success(()))
+          done(.success(()))
         case .failure(let error):
-          completion(.failure(error))
+          done(.failure(error))
         }
       }
   }
 
-  fileprivate func setupInteractions(_ interactions: [Interaction], completion: @escaping CompletionHandler) {
+  fileprivate func setupInteractions(_ interactions: [Interaction], done: @escaping CompletionHandler) {
     let parameters: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
                                      "example_description": "description"]
 
     networkManager
-      .setup(parameters) { setupResult in
-        switch setupResult {
+      .setup(parameters) { result in
+        switch result {
         case .success:
-          completion(.success(()))
+          done(.success(()))
         case .failure(let error):
-          completion(.failure(error))
+          done(.failure(error))
         }
       }
   }
 
-  fileprivate func verifyInteractions(_ completion: @escaping CompletionHandler) {
+  fileprivate func verifyInteractions(_ verified: @escaping CompletionHandler) {
     networkManager
       .verify { result in
         switch result {
         case .success:
-          completion(.success(()))
+          verified(.success(()))
         case .failure(let error):
-          completion(.failure(error))
+          verified(.failure(error))
         }
       }
   }
 
-  fileprivate func write(provider: String, consumer: String, completion: @escaping CompletionHandler) {
+  fileprivate func write(provider: String, consumer: String, done: @escaping CompletionHandler) {
     let parameters: [String: [String: String]] = ["consumer": [ "name": consumer ],
                                                   "provider": [ "name": provider ]]
 
@@ -123,9 +123,9 @@ open class PactVerificationService {
       .write(parameters) { result in
         switch result {
         case .success:
-          completion(.success(()))
+          done(.success(()))
         case .failure(let error):
-          completion(.failure(error))
+          done(.failure(error))
         }
       }
   }
