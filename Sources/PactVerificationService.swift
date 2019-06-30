@@ -3,11 +3,11 @@ import BrightFutures
 
 open class PactVerificationService {
 
-  open var baseUrl: String {
+  var baseUrl: String {
     return "\(PactMockServiceAPI.url):\(PactMockServiceAPI.port)"
   }
 
-  var networkManager: NetworkManager!
+  private var networkManager: NetworkManager!
 
   ///
   /// Networking service that talks to your Pact-Mock-Service (eg: pact-ruby-standalone)
@@ -21,7 +21,7 @@ open class PactVerificationService {
     port: Int = 1234,
     networkLogging: Bool = false,
     networkManager: NetworkManager? = nil
-    ) {
+  ) {
     PactMockServiceAPI.url = url
     PactMockServiceAPI.port = port
     PactMockServiceAPI.enableNetworkLogging = networkLogging
@@ -32,7 +32,7 @@ open class PactVerificationService {
   ///
   /// Calls Pact-Mock-Service and sets the interactions between your Consumer and Provider
   ///
-  func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
+  public func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     self.clean()
@@ -49,7 +49,7 @@ open class PactVerificationService {
   ///
   /// Verifies the interactions between your Consumer and Provider
   ///
-  func verify(provider: String, consumer: String) -> Future<String, NSError> {
+  public func verify(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     self.verifyInteractions()
@@ -65,7 +65,7 @@ open class PactVerificationService {
 
   // MARK: - Fileprivate
 
-  fileprivate func clean() -> Future<String, NSError> {
+  private func clean() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     networkManager
@@ -76,7 +76,7 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
+  private func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     let parameters: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
@@ -90,7 +90,7 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func verifyInteractions() -> Future<String, NSError> {
+  private func verifyInteractions() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     networkManager
@@ -101,7 +101,7 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
+  private func write(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     let parameters: [String: [String: String]] = ["consumer": [ "name": consumer ],
@@ -117,7 +117,7 @@ open class PactVerificationService {
 
   // MARK: - Helpers
 
-  fileprivate func failWithError(
+  private func failWithError(
     _ error: String,
     code: Int = 0,
     domain: String = "",
@@ -127,7 +127,7 @@ open class PactVerificationService {
     return NSError(domain: domain, code: code, userInfo: userInfo)
   }
 
-  fileprivate func handleResponse(_ promise: Promise<String, NSError>) -> NetworkCallResultCompletion {
+  private func handleResponse(_ promise: Promise<String, NSError>) -> NetworkCallResultCompletion {
     return { result in
       switch result {
       case .success(let resultString):

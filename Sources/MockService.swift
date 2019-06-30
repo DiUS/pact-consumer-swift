@@ -5,14 +5,14 @@ import Nimble
 
 @objc
 open class MockService: NSObject {
-  fileprivate let provider: String
-  fileprivate let consumer: String
-  fileprivate let pactVerificationService: PactVerificationService
-  fileprivate var interactions: [Interaction] = []
+  private let provider: String
+  private let consumer: String
+  private let pactVerificationService: PactVerificationService
+  private var interactions: [Interaction] = []
 
   /// The baseUrl of Pact Mock Service
   @objc
-  open var baseUrl: String {
+  public var baseUrl: String {
     return pactVerificationService.baseUrl
   }
 
@@ -27,7 +27,7 @@ open class MockService: NSObject {
     provider: String,
     consumer: String,
     pactVerificationService: PactVerificationService
-    ) {
+  ) {
     self.provider = provider
     self.consumer = consumer
     self.pactVerificationService = pactVerificationService
@@ -59,7 +59,7 @@ open class MockService: NSObject {
   /// - Returns: An `Interaction` object
   ///
   @objc
-  open func given(_ providerState: String) -> Interaction {
+  public func given(_ providerState: String) -> Interaction {
     let interaction = Interaction().given(providerState)
     interactions.append(interaction)
     return interaction
@@ -76,7 +76,7 @@ open class MockService: NSObject {
   /// - Returns: An `Interaction` object
   ///
   @objc(uponReceiving:)
-  open func uponReceiving(_ description: String) -> Interaction {
+  public func uponReceiving(_ description: String) -> Interaction {
     let interaction = Interaction().uponReceiving(description)
     interactions.append(interaction)
     return interaction
@@ -98,7 +98,7 @@ open class MockService: NSObject {
   /// - Parameter testFunction: The function making the network request you are testing
   ///
   @objc(run:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
+  public func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
     self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
@@ -119,8 +119,10 @@ open class MockService: NSObject {
   /// - Parameter timeout: Time to wait for the `testComplete()` else it fails the test
   ///
   @objc(run: withTimeout:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
-                    timeout: TimeInterval) {
+  public func objcRun(
+    _ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
+    timeout: TimeInterval
+  ) {
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
 
@@ -139,7 +141,7 @@ open class MockService: NSObject {
   /// - Parameter timeout: Number of seconds how long to wait for `testComplete()` before marking the test as failed.
   /// - Parameter testFunction: The function making the network request you are testing
   ///
-  open func run(
+  public func run(
     _ file: FileString? = #file,
     line: UInt? = #line,
     timeout: TimeInterval = 30,
@@ -169,7 +171,7 @@ open class MockService: NSObject {
 
   // MARK: - Helper methods
 
-  func failWithLocation(
+  private func failWithLocation(
     _ message: String,
     file: FileString?,
     line: UInt?
@@ -181,7 +183,7 @@ open class MockService: NSObject {
     }
   }
 
-  public func waitUntilWithLocation(
+  private func waitUntilWithLocation(
     timeout: TimeInterval,
     file: FileString?,
     line: UInt?,
