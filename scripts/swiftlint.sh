@@ -9,7 +9,7 @@ WARNING="warning"
 ERROR="error"
 
 throw_not_found() {
-  echo "$1: $2 - not found"
+  echo "$1: \"$2\" - not found. $3"
   if [ "$1" == "$WARNING" ]; then
     exit 0
   fi
@@ -43,7 +43,7 @@ done
 
 # Check whether Swiftlint binary exists
 if ! which $BINARYFILE &> /dev/null; then
-  throw_not_found $WARNING $BINARYFILE
+  throw_not_found $WARNING $BINARYFILE "See https://github.com/realm/SwiftLint"
 fi
 
 # Check whether Swiftlint Config file exists
