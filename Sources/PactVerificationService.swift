@@ -2,7 +2,12 @@ import Foundation
 
 open class PactVerificationService {
 
-  typealias CompletionHandler = (PactResult<Void>) -> Void
+  enum VerificationResult<Error> {
+    case success
+    case failure(Error)
+  }
+
+  typealias CompletionHandler = (VerificationResult<Error>) -> Void
 
   open var baseUrl: String {
     return "\(PactMockServiceAPI.url):\(PactMockServiceAPI.port)"
@@ -41,7 +46,7 @@ open class PactVerificationService {
           self.setupInteractions(interactions) { result in
             switch result {
             case .success:
-              done(.success(()))
+              done(.success)
             case .failure(let error):
               done(.failure(error))
             }
@@ -63,7 +68,7 @@ open class PactVerificationService {
           _ = self.write(provider: provider, consumer: consumer) { result in
             switch result {
             case .success:
-              verified(.success(()))
+              verified(.success)
             case .failure(let error):
               verified(.failure(error))
             }
@@ -81,7 +86,7 @@ open class PactVerificationService {
       .clean { result in
         switch result {
         case .success:
-          done(.success(()))
+          done(.success)
         case .failure(let error):
           done(.failure(error))
         }
@@ -96,7 +101,7 @@ open class PactVerificationService {
       .setup(parameters) { result in
         switch result {
         case .success:
-          done(.success(()))
+          done(.success)
         case .failure(let error):
           done(.failure(error))
         }
@@ -108,7 +113,7 @@ open class PactVerificationService {
       .verify { result in
         switch result {
         case .success:
-          verified(.success(()))
+          verified(.success)
         case .failure(let error):
           verified(.failure(error))
         }
@@ -123,7 +128,7 @@ open class PactVerificationService {
       .write(parameters) { result in
         switch result {
         case .success:
-          done(.success(()))
+          done(.success)
         case .failure(let error):
           done(.failure(error))
         }

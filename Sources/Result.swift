@@ -7,7 +7,6 @@ enum ResponseCode<String> {
 
 #if swift(>=5.0)
 public typealias NetworkResult<Success> = Swift.Result<Success, NetworkError>
-public typealias PactResult<Success> = Swift.Result<Success, Error>
 #else
 
 //===----------------------------------------------------------------------===//
@@ -176,5 +175,4 @@ extension Result: Equatable where Success: Equatable, Failure: Equatable { }
 extension Result: Hashable where Success: Hashable, Failure: Hashable { }
 
 public typealias NetworkResult<Success> = Result<Success, NetworkError>
-public typealias PactResult<Success> = Swift.Result<Success, Error>
 #endif
