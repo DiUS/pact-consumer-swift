@@ -1,5 +1,4 @@
 import Foundation
-import BrightFutures
 
 open class PactVerificationService {
 
@@ -32,18 +31,24 @@ open class PactVerificationService {
   ///
   /// Calls Pact-Mock-Service and sets the interactions between your Consumer and Provider
   ///
-  func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
+  func setup(_ interactions: [Interaction], completion: @escaping (PactResult<Void>) -> Void) {
+    self
+      .clean { result in
+        switch result {
+        case .success:
 
-    self.clean()
-      .onSuccess { _ in
-        promise.completeWith(self.setupInteractions(interactions))
+          self.setupInteractions(interactions) { result in
+            switch result {
+            case .success:
+              completion(.success(()))
+            case .failure(let error):
+              completion(.failure(error))
+            }
+          }
+        case .failure(let error):
+          completion(.failure(error))
+        }
       }
-      .onFailure { error in
-        promise.failure(error)
-    }
-
-    return promise.future
   }
 
   ///
@@ -65,34 +70,36 @@ open class PactVerificationService {
         case .failure(let error):
           completion(.failure(error))
         }
-    }
+      }
   }
 
-  // MARK: - Fileprivate
+  // MARK: - Fileprivate BrightFuture
 
-  fileprivate func clean() -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
+  fileprivate func clean(_ completion: @escaping (PactResult<Void>) -> Void) {
     networkManager
-      .clean { [unowned self] result in
-        self.handleResponse(promise)(result)
-    }
-
-    return promise.future
+      .clean { result in
+        switch result {
+        case .success:
+          completion(.success(()))
+        case .failure(let error):
+          completion(.failure(error))
+        }
+      }
   }
 
-  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
+  fileprivate func setupInteractions(_ interactions: [Interaction], completion: @escaping (PactResult<Void>) -> Void) {
     let parameters: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
                                      "example_description": "description"]
 
     networkManager
-      .setup(parameters) { [unowned self] result in
-        self.handleResponse(promise)(result)
-    }
-
-    return promise.future
+      .setup(parameters) { setupResult in
+        switch setupResult {
+        case .success:
+          completion(.success(()))
+        case .failure(let error):
+          completion(.failure(error))
+        }
+      }
   }
 
   fileprivate func verifyInteractions(_ completion: @escaping (PactResult<Void>) -> Void) {
@@ -104,7 +111,7 @@ open class PactVerificationService {
         case .failure(let error):
           completion(.failure(error))
         }
-    }
+      }
   }
 
   fileprivate func write(provider: String, consumer: String, completion: @escaping (PactResult<Void>) -> Void) {
@@ -120,28 +127,5 @@ open class PactVerificationService {
           completion(.failure(error))
         }
       }
-  }
-
-  // MARK: - Helpers
-
-  fileprivate func failWithError(
-    _ error: String,
-    code: Int = 0,
-    domain: String = "",
-    comment: String = ""
-    ) -> NSError {
-    let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: error, comment: comment)]
-    return NSError(domain: domain, code: code, userInfo: userInfo)
-  }
-
-  fileprivate func handleResponse(_ promise: Promise<String, NSError>) -> NetworkCallResultCompletion {
-    return { result in
-      switch result {
-      case .success(let resultString):
-        promise.success(resultString)
-      case .failure(let error):
-        promise.failure(self.failWithError(error.localizedDescription, code: 0, domain: "Verification Service", comment: ""))
-      }
     }
-  }
 }
