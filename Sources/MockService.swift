@@ -1,6 +1,4 @@
 import Foundation
-import BrightFutures
-import Result
 import Nimble
 
 @objc
@@ -147,31 +145,65 @@ open class MockService: NSObject {
     timeout: TimeInterval = 30,
     testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
   ) {
-    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.setup(self.interactions).onSuccess { _ in
-        testFunction { () in
-          done()
-        }
-        }.onFailure { error in
-          fail("Error setting up pact: \(error.localizedDescription)")
-      }
-    }
+    let group = DispatchGroup()
+    let queue = DispatchQueue.global()
 
-    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.verify(provider: self.provider,
-                                          consumer: self.consumer).onSuccess { _ in
-                                            done()
-        }.onFailure { error in
-          self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
-            file: file,
-            line: line)
+    group.enter()
+    queue.async(group: group) { self.setup(queue: queue, testFunction: testFunction) { group.leave() } }
+
+    group.notify(queue: queue) { self.verify(file: file, line: line) { () in } }
+
+    _ = group.wait(timeout: .now() + timeout)
+  }
+}
+
+private extension MockService {
+
+  func setup(
+    queue: DispatchQueue,
+    testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void,
+    done: @escaping () -> Void
+  ) {
+    self
+      .pactVerificationService
+      .setup(self.interactions) { result in
+        switch result {
+        case .success:
+          queue.async {
+            testFunction { () in
+              done()
+            }
+          }
+        case .failure(let error):
+        fail("Error setting up pact: \(error.localizedDescription)")
       }
     }
   }
 
+  func verify(
+    file: FileString? = #file,
+    line: UInt? = #line,
+    doneHandler: @escaping () -> Void
+  ) {
+    self
+      .pactVerificationService
+      .verify(provider: self.provider, consumer: self.consumer) { result in
+        switch result {
+        case .success:
+          doneHandler()
+        case .failure(let error):
+          self.failWithLocation(
+            "Verification error (check build log for mismatches): \(error.localizedDescription)",
+            file: file,
+            line: line
+          )
+        }
+      }
+  }
+
   // MARK: - Helper methods
 
-  private func failWithLocation(
+  func failWithLocation(
     _ message: String,
     file: FileString?,
     line: UInt?
@@ -180,19 +212,6 @@ open class MockService: NSObject {
       fail(message, file: fileName, line: lineNumber)
     } else {
       fail(message)
-    }
-  }
-
-  private func waitUntilWithLocation(
-    timeout: TimeInterval,
-    file: FileString?,
-    line: UInt?,
-    action: @escaping (@escaping () -> Void) -> Void
-  ) {
-    if let fileName = file, let lineNumber = line {
-      return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
-    } else {
-      return waitUntil(timeout: timeout, action: action)
     }
   }
 }
