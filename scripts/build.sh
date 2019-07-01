@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-swiftlint
-
 if [[ -z "${PROJECT_NAME}" ]]; then
   PROJECT_NAME="PactConsumerSwift.xcodeproj";
   DESTINATION="OS=12.2,name=iPhone Xs";
