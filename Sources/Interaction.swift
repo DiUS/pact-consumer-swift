@@ -65,10 +65,10 @@ public class Interaction: NSObject {
   @objc(withRequestHTTPMethod: path: query: headers: body:)
   @discardableResult
   public func withRequest(method: PactHTTPMethod,
-                        path: Any,
-                        query: Any? = nil,
-                        headers: [String: Any]? = nil,
-                        body: Any? = nil) -> Interaction {
+                          path: Any,
+                          query: Any? = nil,
+                          headers: [String: Any]? = nil,
+                          body: Any? = nil) -> Interaction {
     request = ["method": httpMethod(method), "path": path]
     if let headersValue = headers {
       request["headers"] = headersValue
@@ -102,8 +102,8 @@ public class Interaction: NSObject {
   @objc(willRespondWithHTTPStatus: headers: body:)
   @discardableResult
   public func willRespondWith(status: Int,
-                            headers: [String: Any]? = nil,
-                            body: Any? = nil) -> Interaction {
+                              headers: [String: Any]? = nil,
+                              body: Any? = nil) -> Interaction {
     response = ["status": status]
     if let headersValue = headers {
       response["headers"] = headersValue
