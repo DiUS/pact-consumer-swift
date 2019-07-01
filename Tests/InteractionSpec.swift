@@ -1,18 +1,11 @@
 import Quick
 import Nimble
-import PactConsumerSwift
+@testable import PactConsumerSwift
 
 class InteractionSpec: QuickSpec {
   override func spec() {
     var interaction: Interaction?
     beforeEach { interaction = Interaction() }
-
-    describe("interaction state setup") {
-      it("it initialises the provider state") {
-        expect(interaction?.given("some state").providerState).to(equal("some state"))
-      }
-      
-    }
 
     describe("json payload"){
       context("pact state") {

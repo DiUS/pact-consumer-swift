@@ -1,16 +1,18 @@
 import Foundation
+import BrightFutures
+import Result
 import Nimble
 
 @objc
 open class MockService: NSObject {
-  fileprivate let provider: String
-  fileprivate let consumer: String
-  fileprivate let pactVerificationService: PactVerificationService
-  fileprivate var interactions: [Interaction] = []
+  private let provider: String
+  private let consumer: String
+  private let pactVerificationService: PactVerificationService
+  private var interactions: [Interaction] = []
 
   /// The baseUrl of Pact Mock Service
   @objc
-  open var baseUrl: String {
+  public var baseUrl: String {
     return pactVerificationService.baseUrl
   }
 
@@ -57,7 +59,7 @@ open class MockService: NSObject {
   /// - Returns: An `Interaction` object
   ///
   @objc
-  open func given(_ providerState: String) -> Interaction {
+  public func given(_ providerState: String) -> Interaction {
     let interaction = Interaction().given(providerState)
     interactions.append(interaction)
     return interaction
@@ -74,7 +76,7 @@ open class MockService: NSObject {
   /// - Returns: An `Interaction` object
   ///
   @objc(uponReceiving:)
-  open func uponReceiving(_ description: String) -> Interaction {
+  public func uponReceiving(_ description: String) -> Interaction {
     let interaction = Interaction().uponReceiving(description)
     interactions.append(interaction)
     return interaction
@@ -96,7 +98,7 @@ open class MockService: NSObject {
   /// - Parameter testFunction: The function making the network request you are testing
   ///
   @objc(run:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
+  public func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
     self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
@@ -117,8 +119,10 @@ open class MockService: NSObject {
   /// - Parameter timeout: Time to wait for the `testComplete()` else it fails the test
   ///
   @objc(run: withTimeout:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
-                    timeout: TimeInterval) {
+  public func objcRun(
+    _ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
+    timeout: TimeInterval
+  ) {
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
 
@@ -137,79 +141,58 @@ open class MockService: NSObject {
   /// - Parameter timeout: Number of seconds how long to wait for `testComplete()` before marking the test as failed.
   /// - Parameter testFunction: The function making the network request you are testing
   ///
-  open func run(
+  public func run(
     _ file: FileString? = #file,
     line: UInt? = #line,
     timeout: TimeInterval = 30,
     testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
   ) {
-
-    let group = DispatchGroup()
-    let queue = DispatchQueue.global()
-
-    group.enter()
-    queue.async(group: group) { self.setup(queue: queue, testFunction: testFunction) { group.leave() } }
-
-    group.notify(queue: queue) { self.verify(file: file, line: line) { () in } }
-
-    _ = group.wait(timeout: .now() + timeout)
-  }
-
-  // MARK: - Private
-
-  private func setup(
-    queue: DispatchQueue,
-    testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void,
-    done: @escaping () -> Void
-  ) {
-    self
-      .pactVerificationService
-      .setup(self.interactions) { result in
-        switch result {
-        case .success:
-          queue.async {
-            testFunction { () in
-              done()
-            }
-          }
-        case .failure(let error):
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+      self.pactVerificationService.setup(self.interactions).onSuccess { _ in
+        testFunction { () in
+          done()
+        }
+        }.onFailure { error in
           fail("Error setting up pact: \(error.localizedDescription)")
-        }
       }
-  }
+    }
 
-  private func verify(
-    file: FileString? = #file,
-    line: UInt? = #line,
-    doneHandler: @escaping () -> Void
-  ) {
-    self
-      .pactVerificationService
-      .verify(provider: self.provider, consumer: self.consumer) { result in
-        switch result {
-        case .success:
-          doneHandler()
-        case .failure(let error):
-          self.failtAt(
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+      self.pactVerificationService.verify(provider: self.provider,
+                                          consumer: self.consumer).onSuccess { _ in
+                                            done()
+        }.onFailure { error in
+          self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
             file: file,
-            line: line,
-            with: "Verification error (check build log for mismatches): \(error.localizedDescription)"
-          )
-        }
+            line: line)
       }
+    }
   }
 
   // MARK: - Helper methods
 
-  private func failtAt(
+  private func failWithLocation(
+    _ message: String,
     file: FileString?,
-    line: UInt?,
-    with message: String
+    line: UInt?
   ) {
     if let fileName = file, let lineNumber = line {
       fail(message, file: fileName, line: lineNumber)
     } else {
       fail(message)
+    }
+  }
+
+  private func waitUntilWithLocation(
+    timeout: TimeInterval,
+    file: FileString?,
+    line: UInt?,
+    action: @escaping (@escaping () -> Void) -> Void
+  ) {
+    if let fileName = file, let lineNumber = line {
+      return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
+    } else {
+      return waitUntil(timeout: timeout, action: action)
     }
   }
 }
