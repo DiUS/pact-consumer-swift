@@ -9,6 +9,7 @@ open class MockService: NSObject {
   private let consumer: String
   private let pactVerificationService: PactVerificationService
   private var interactions: [Interaction] = []
+  private let errorReporter: ErrorReporter
 
   /// The baseUrl of Pact Mock Service
   @objc
@@ -26,11 +27,13 @@ open class MockService: NSObject {
   public init(
     provider: String,
     consumer: String,
-    pactVerificationService: PactVerificationService
+    pactVerificationService: PactVerificationService,
+    errorReporter: ErrorReporter
   ) {
     self.provider = provider
     self.consumer = consumer
     self.pactVerificationService = pactVerificationService
+    self.errorReporter = errorReporter
   }
 
   ///
@@ -45,7 +48,8 @@ open class MockService: NSObject {
   public convenience init(provider: String, consumer: String) {
     self.init(provider: provider,
               consumer: consumer,
-              pactVerificationService: PactVerificationService())
+              pactVerificationService: PactVerificationService(),
+              errorReporter: XCodeErrorReporter())
   }
 
   ///
@@ -186,9 +190,9 @@ open class MockService: NSObject {
     line: UInt?
   ) {
     if let fileName = file, let lineNumber = line {
-      fail(message, file: fileName, line: lineNumber)
+      self.errorReporter.reportFailure(message, file: fileName, line: lineNumber)
     } else {
-      fail(message)
+      self.errorReporter.reportFailure(message)
     }
   }
 
