@@ -72,8 +72,21 @@ public class NativeMockServerWrapper: MockServer {
         cleanup()
         complete(.failure(.missmatches(message)))
       } else {
-        writeFile()
+        let result = writeFile()
         cleanup()
+        if result > 0 {
+          switch result {
+          case 2:
+            complete(.failure(.writeError("The pact file was not able to be written")))
+          case 3:
+            complete(.failure(.writeError("A mock server with the provided port was not found")))
+          case 4:
+            complete(.success("Pact verified successfully but was not written!"))
+          default:
+            complete(.failure(.writeError("Writing file failed, result: \(result)")))
+          }
+          return
+        }
         complete(.success("Pact verified successfully!"))
       }
     }
@@ -102,10 +115,36 @@ public class NativeMockServerWrapper: MockServer {
     return mock_server_matched_ffi(port)
   }
 
-  private func writeFile() {
-    write_pact_file_ffi(port, pactDir)
+  private func writeFile() -> Int32 {
+    guard shouldWritePacts, checkForPath() else {
+        return 4
+    }
+    let result = write_pact_file_ffi(port, pactDir)
     print("notify: You can find the generated pact files here: \(self.pactDir)")
+    return result
   }
+
+    private func checkForPath() -> Bool {
+        guard !FileManager.default.fileExists(atPath: pactDir) else {
+            return true
+        }
+        print("notify: Path not found: \(self.pactDir)")
+        return couldCreatePath()
+    }
+
+    private func couldCreatePath() -> Bool {
+        var couldBeCreated = false
+        do {
+            try FileManager.default.createDirectory(atPath: self.pactDir,
+                                                    withIntermediateDirectories: false,
+                                                    attributes: nil)
+            couldBeCreated = true
+        } catch let error as NSError {
+            print("notify: Files not written. Path couldn't be created: \(self.pactDir)")
+            print(error.localizedDescription)
+        }
+        return couldBeCreated
+    }
 
   private func cleanup() {
     cleanup_mock_server_ffi(port)
