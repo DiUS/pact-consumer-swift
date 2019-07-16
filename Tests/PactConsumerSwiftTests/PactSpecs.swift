@@ -327,12 +327,12 @@ class PactSwiftSpec: QuickSpec {
                              body: [ ["name": "Mary", "type": "alligator"] ])
 
           let thisFile: String = #file
-          let thisLine: UInt = #line
+          let lineRunningTheTest: UInt = #line + 1
           animalMockService?.run() { (testComplete) -> Void in
             testComplete()
           }
           expect(errorCapturer.message?.file) == thisFile
-          expect(errorCapturer.message?.line) == thisLine + 1
+          expect(errorCapturer.message?.line) == lineRunningTheTest
         }
       }
     } // context
