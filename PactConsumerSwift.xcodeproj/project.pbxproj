@@ -39,6 +39,21 @@
 		AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64B1F74BA8A00219F39 /* Matcher.swift */; };
 		AD17A6711F74BB8400219F39 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64C1F74BA8A00219F39 /* MockService.swift */; };
 		AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64D1F74BA8A00219F39 /* PactVerificationService.swift */; };
+		AD3F40FF22DDB5F2000F905F /* XcodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F40FE22DDB5F2000F905F /* XcodeErrorReporter.swift */; };
+		AD3F410522DDB9CC000F905F /* ErrorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410122DDB77D000F905F /* ErrorCapture.swift */; };
+		AD3F410622DDB9CC000F905F /* ErrorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410122DDB77D000F905F /* ErrorCapture.swift */; };
+		AD3F410722DDB9CD000F905F /* ErrorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410122DDB77D000F905F /* ErrorCapture.swift */; };
+		AD3F410822DDB9E8000F905F /* XcodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F40FE22DDB5F2000F905F /* XcodeErrorReporter.swift */; };
+		AD3F410922DDB9E9000F905F /* XcodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F40FE22DDB5F2000F905F /* XcodeErrorReporter.swift */; };
+		AD3F410B22DDBA23000F905F /* ErrorReporter+protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410A22DDBA23000F905F /* ErrorReporter+protocol.swift */; };
+		AD3F410C22DDBA35000F905F /* ErrorReporter+protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410A22DDBA23000F905F /* ErrorReporter+protocol.swift */; };
+		AD3F410D22DDBA35000F905F /* ErrorReporter+protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410A22DDBA23000F905F /* ErrorReporter+protocol.swift */; };
+		AD3F411022DDBB62000F905F /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410E22DDBB3A000F905F /* MockServiceSpec.swift */; };
+		AD3F411122DDBB63000F905F /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410E22DDBB3A000F905F /* MockServiceSpec.swift */; };
+		AD3F411222DDBB64000F905F /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410E22DDBB3A000F905F /* MockServiceSpec.swift */; };
+		AD7A6C6A22DDBC2700E5F58C /* RubyPactMockServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410322DDB798000F905F /* RubyPactMockServiceStub.swift */; };
+		AD7A6C6B22DDBC2700E5F58C /* RubyPactMockServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410322DDB798000F905F /* RubyPactMockServiceStub.swift */; };
+		AD7A6C6C22DDBC2800E5F58C /* RubyPactMockServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F410322DDB798000F905F /* RubyPactMockServiceStub.swift */; };
 		ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
@@ -141,6 +156,11 @@
 		AD17A6521F74BAC600219F39 /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
 		AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
 		AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
+		AD3F40FE22DDB5F2000F905F /* XcodeErrorReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeErrorReporter.swift; sourceTree = "<group>"; };
+		AD3F410122DDB77D000F905F /* ErrorCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCapture.swift; sourceTree = "<group>"; };
+		AD3F410322DDB798000F905F /* RubyPactMockServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPactMockServiceStub.swift; sourceTree = "<group>"; };
+		AD3F410A22DDBA23000F905F /* ErrorReporter+protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ErrorReporter+protocol.swift"; sourceTree = "<group>"; };
+		AD3F410E22DDBB3A000F905F /* MockServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
 		ADC03E191F74C41B003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		ADC03E211F74C492003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		ADC03E241F74C64E003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -248,6 +268,7 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				AD3F40FD22DDB5E1000F905F /* XcodeReporting */,
 				ADD82FC922AF8E0E00FAADB6 /* Networking */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
@@ -261,10 +282,12 @@
 		AD17A5EA1F74B03500219F39 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				AD3F410022DDB76B000F905F /* Mocks */,
 				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
 				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
 				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
+				AD3F410E22DDBB3A000F905F /* MockServiceSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -303,6 +326,24 @@
 				AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */,
 			);
 			path = PactConsumerSwiftTests;
+			sourceTree = "<group>";
+		};
+		AD3F40FD22DDB5E1000F905F /* XcodeReporting */ = {
+			isa = PBXGroup;
+			children = (
+				AD3F40FE22DDB5F2000F905F /* XcodeErrorReporter.swift */,
+				AD3F410A22DDBA23000F905F /* ErrorReporter+protocol.swift */,
+			);
+			path = XcodeReporting;
+			sourceTree = "<group>";
+		};
+		AD3F410022DDB76B000F905F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				AD3F410122DDB77D000F905F /* ErrorCapture.swift */,
+				AD3F410322DDB798000F905F /* RubyPactMockServiceStub.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		ADC03E171F74C2C0003FCA6A /* Frameworks */ = {
@@ -726,6 +767,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -742,6 +784,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -758,6 +801,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -832,9 +876,11 @@
 				ADD82FD522AF900200FAADB6 /* ParameterEncoding.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
 				ADD82FDB22AF93EA00FAADB6 /* JSONParameterEncoder.swift in Sources */,
+				AD3F410B22DDBA23000F905F /* ErrorReporter+protocol.swift in Sources */,
 				ADD82FDD22AF94CC00FAADB6 /* NetworkRouter.swift in Sources */,
 				ADD82FE922B04CB500FAADB6 /* NetworkLogger.swift in Sources */,
 				ADD82FD922AF91D600FAADB6 /* URLParameterEncoding.swift in Sources */,
+				AD3F40FF22DDB5F2000F905F /* XcodeErrorReporter.swift in Sources */,
 				ADD82FD122AF8F3A00FAADB6 /* HTTPMethod.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
 				ADD82FE522AFB95E00FAADB6 /* NetworkResponse.swift in Sources */,
@@ -857,7 +903,10 @@
 				AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */,
 				AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */,
+				AD3F410522DDB9CC000F905F /* ErrorCapture.swift in Sources */,
+				AD3F411022DDBB62000F905F /* MockServiceSpec.swift in Sources */,
 				AD01EDB61F74BF4A00827C66 /* InteractionSpec.swift in Sources */,
+				AD7A6C6A22DDBC2700E5F58C /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,9 +919,11 @@
 				ADD82FEC22B1321E00FAADB6 /* NetworkManager.swift in Sources */,
 				ADD82FED22B1321E00FAADB6 /* NetworkResponse.swift in Sources */,
 				ADD82FEE22B1321E00FAADB6 /* Result.swift in Sources */,
+				AD3F410C22DDBA35000F905F /* ErrorReporter+protocol.swift in Sources */,
 				ADD82FEF22B1321E00FAADB6 /* HTTPMethod.swift in Sources */,
 				ADD82FF022B1321E00FAADB6 /* HTTPTask.swift in Sources */,
 				ADD82FF122B1321E00FAADB6 /* NetworkRouter.swift in Sources */,
+				AD3F410822DDB9E8000F905F /* XcodeErrorReporter.swift in Sources */,
 				ADD82FF222B1321E00FAADB6 /* Router.swift in Sources */,
 				ADD82FF322B1321E00FAADB6 /* NetworkLogger.swift in Sources */,
 				ADD82FF422B1321E00FAADB6 /* NetworkError.swift in Sources */,
@@ -895,7 +946,10 @@
 				AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */,
 				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
 				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
+				AD3F410622DDB9CC000F905F /* ErrorCapture.swift in Sources */,
+				AD3F411122DDBB63000F905F /* MockServiceSpec.swift in Sources */,
 				AD17A6601F74BB7E00219F39 /* InteractionSpec.swift in Sources */,
+				AD7A6C6B22DDBC2700E5F58C /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,9 +962,11 @@
 				ADD82FFA22B1324600FAADB6 /* NetworkManager.swift in Sources */,
 				ADD82FFB22B1324600FAADB6 /* NetworkResponse.swift in Sources */,
 				ADD82FFC22B1324600FAADB6 /* Result.swift in Sources */,
+				AD3F410D22DDBA35000F905F /* ErrorReporter+protocol.swift in Sources */,
 				ADD82FFD22B1324600FAADB6 /* HTTPMethod.swift in Sources */,
 				ADD82FFE22B1324600FAADB6 /* HTTPTask.swift in Sources */,
 				ADD82FFF22B1324600FAADB6 /* NetworkRouter.swift in Sources */,
+				AD3F410922DDB9E9000F905F /* XcodeErrorReporter.swift in Sources */,
 				ADD8300022B1324600FAADB6 /* Router.swift in Sources */,
 				ADD8300122B1324600FAADB6 /* NetworkLogger.swift in Sources */,
 				ADD8300222B1324600FAADB6 /* NetworkError.swift in Sources */,
@@ -933,7 +989,10 @@
 				AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */,
 				ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */,
 				ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */,
+				AD3F410722DDB9CD000F905F /* ErrorCapture.swift in Sources */,
+				AD3F411222DDBB64000F905F /* MockServiceSpec.swift in Sources */,
 				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
+				AD7A6C6C22DDBC2800E5F58C /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

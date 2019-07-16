@@ -104,6 +104,7 @@ fileprivate extension PactVerificationService {
   func verifyInteractions(_ done: @escaping CompletionHandler) {
     networkManager
       .verify { [unowned self] result in
+        debugPrint("networkManager.verify closure: \(result)")
         self.resultHandler(result, handler: done)
       }
   }
