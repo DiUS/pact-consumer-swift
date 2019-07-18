@@ -148,24 +148,33 @@ open class MockService: NSObject {
     testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
   ) {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.setup(self.interactions).onSuccess { _ in
-        testFunction { () in
+      self
+        .pactVerificationService
+        .setup(self.interactions)
+        .onSuccess { _ in
+          testFunction { () in
+            done()
+          }
+        }
+        .onFailure { error in
+          self.failWithLocation("Error setting up pact: \(error.localizedDescription)", file: file, line: line)
           done()
         }
-        }.onFailure { error in
-          fail("Error setting up pact: \(error.localizedDescription)")
-      }
     }
 
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
-      self.pactVerificationService.verify(provider: self.provider,
-                                          consumer: self.consumer).onSuccess { _ in
-                                            done()
-        }.onFailure { error in
+      self
+        .pactVerificationService
+        .verify(provider: self.provider, consumer: self.consumer)
+        .onSuccess { _ in
+          done()
+        }
+        .onFailure { error in
           self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
             file: file,
             line: line)
-      }
+          done()
+        }
     }
   }
 
