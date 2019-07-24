@@ -102,7 +102,7 @@ open class MockService: NSObject {
   /// - Parameter testFunction: The function making the network request you are testing
   ///
   @objc(run:)
-  public func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
+  public func objcRun(_ testFunction: @escaping (_ testComplete:@escaping () -> Void) -> Void) {
     self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
