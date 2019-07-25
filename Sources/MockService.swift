@@ -102,7 +102,7 @@ open class MockService: NSObject {
   /// - Parameter testFunction: The function making the network request you are testing
   ///
   @objc(run:)
-  public func objcRun(_ testFunction: @escaping (_ testComplete:@escaping () -> Void) -> Void) {
+  public func objcRun(_ testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) {
     self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
@@ -124,7 +124,7 @@ open class MockService: NSObject {
   ///
   @objc(run: withTimeout:)
   public func objcRun(
-    _ testFunction: @escaping (_ testComplete:@escaping () -> Void) -> Void,
+    _ testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void,
     timeout: TimeInterval
   ) {
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)

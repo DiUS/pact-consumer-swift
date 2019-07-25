@@ -137,4 +137,29 @@
   }];
 }
 
+- (void)testAsyncCall {
+    typedef void (^CompleteBlock)(void);
+    
+    [[[self.animalMockService uponReceiving:@"an async request"]
+      withRequestHTTPMethod:PactHTTPMethodGET
+      path:@"/path"
+      query:nil
+      headers:nil
+      body: nil]
+     willRespondWithHTTPStatus:200
+     headers:@{@"Content-Type": @"application/json"}
+     body: @{}];
+    
+    [self.animalMockService run:^(CompleteBlock testComplete) {
+        NSString *dataUrl = @"http://localhost:1234/path";
+        NSURL *url = [NSURL URLWithString:dataUrl];
+        NSURLSessionDataTask *asyncTask = [[NSURLSession sharedSession]
+                                           dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                               testComplete();
+                                           }];
+        [asyncTask resume];
+    }
+     ];
+}
+
 @end
