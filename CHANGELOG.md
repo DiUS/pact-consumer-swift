@@ -1,3 +1,16 @@
+-en # 0.6.1 - Bugfix Release
+
+
+* 57ccbd6 - fix(objc): add escaping modifier to allow for testComplete function to be called… (#71) (Matt Arturi, Sat Jul 27 09:43:09 2019 -0400)
+* a611dce - chore: Only run coverage report when tests pass (Andrew Spinks, Sat Jul 27 20:48:05 2019 +0900)
+* cacde03 - chore: Fix test failures not failing travis build. (Andrew Spinks, Sat Jul 27 20:47:52 2019 +0900)
+* cc66ee5 - test: Add test around pact mock service to make refactors easier. (Andrew Spinks, Wed Jul 3 19:29:27 2019 +0900)
+* 31fdfc7 - fix: Revert "Refactor pact mock server network calling code and upgrade to swift 5 (#53)" which introduced a bug where messages from the mock server were no longer being returned. (Andrew Spinks, Thu Jul 18 17:35:45 2019 +0900)
+* 8a42f89 - fix(lint): Parameter alignment (Marko Justinek, Tue Jul 2 06:29:45 2019 +1000)
+* 217b5e2 - chore(lint): moved linting into a portable script (#66) (Marko Justinek, Mon Jul 1 21:00:51 2019 +1000)
+* aa25c8f - Cleanup access controls on classes to hide internal concepts. (Andrew Spinks, Sat Jun 29 16:50:33 2019 +0900)
+* 1665942 - Remove unused .ruby-version file (#65) (Marko Justinek, Fri Jun 28 17:32:07 2019 +1000)
+* feaa5d5 - Removes watchOS target and scheme (#64) (Marko Justinek, Fri Jun 28 17:30:39 2019 +1000)
 
 
 # 0.6.0 - Maintenance Release
