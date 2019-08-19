@@ -6,7 +6,7 @@ open class PactVerificationService: NSObject {
   public let port: Int
   /// True if insecure certificates are allowed, otherwise false.
   /// Default value is false.
-  /// Set this to true this when you are using self signed SSL certifiates, or any invalid SSL certificates.
+  /// Set this to true when you are using self signed SSL certifiates, or any invalid SSL certificates.
   public var allowInsecureCertificates: Bool = false
   open var baseUrl: String {
     return "\(url):\(port)"
@@ -193,7 +193,6 @@ extension PactVerificationService: URLSessionDelegate {
   public func urlSession(_ session: URLSession,
                          didReceive challenge: URLAuthenticationChallenge,
                          completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-
     guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
         allowInsecureCertificates,
         let serverTrust = challenge.protectionSpace.serverTrust else {
