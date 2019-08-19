@@ -1,9 +1,13 @@
 import Foundation
 import BrightFutures
 
-open class PactVerificationService {
+open class PactVerificationService: NSObject {
   public let url: String
   public let port: Int
+  /// True if insecure certificates are allowed, otherwise false.
+  /// Default value is false.
+  /// Set this to true this when you are using self signed SSL certifiates, or any invalid SSL certificates.
+  public var allowInsecureCertificates: Bool = false
   open var baseUrl: String {
     return "\(url):\(port)"
   }
@@ -73,6 +77,7 @@ open class PactVerificationService {
   public init(url: String = "http://localhost", port: Int = 1234) {
     self.url = url
     self.port = port
+    super.init()
     Router.baseURLString = baseUrl
   }
 
@@ -142,7 +147,9 @@ open class PactVerificationService {
 
   // MARK: - Networking
 
-  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
+  private lazy var session = {
+    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+  }()
 
   private func performNetworkRequest(for router: Router, promise: Promise<String, NSError>) {
     let task: URLSessionDataTask?
@@ -179,5 +186,22 @@ open class PactVerificationService {
       let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: errorMessage, comment: "")]
       promise.failure(NSError(domain: "", code: 0, userInfo: userInfo))
     }
+  }
+}
+
+extension PactVerificationService: URLSessionDelegate {
+  public func urlSession(_ session: URLSession,
+                         didReceive challenge: URLAuthenticationChallenge,
+                         completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+
+    guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+        allowInsecureCertificates,
+        let serverTrust = challenge.protectionSpace.serverTrust else {
+            completionHandler(.performDefaultHandling, nil)
+            return
+    }
+
+    let proposedCredential = URLCredential(trust: serverTrust)
+    completionHandler(URLSession.AuthChallengeDisposition.useCredential, proposedCredential)
   }
 }
