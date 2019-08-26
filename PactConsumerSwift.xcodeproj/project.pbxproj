@@ -66,10 +66,8 @@
 		ADC03E271F74C64F003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E241F74C64E003FCA6A /* Nimble.framework */; };
 		ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E231F74C64E003FCA6A /* BrightFutures.framework */; };
 		ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E241F74C64E003FCA6A /* Nimble.framework */; };
-		ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2C1F74C68E003FCA6A /* Result.framework */; };
 		ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E2D1F74C68E003FCA6A /* Quick.framework */; };
 		ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E301F74C8A5003FCA6A /* Nimble.framework */; };
-		ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E311F74C8A5003FCA6A /* Result.framework */; };
 		ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */; };
 		ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
 		ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E321F74C8A5003FCA6A /* BrightFutures.framework */; };
@@ -78,7 +76,6 @@
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
 		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
-		ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E341F74C8A5003FCA6A /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,7 +186,6 @@
 				ADC03E2A1F74C68E003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E2B1F74C68E003FCA6A /* Nimble.framework in Frameworks */,
 				ADC03E2F1F74C68E003FCA6A /* Quick.framework in Frameworks */,
-				ADC03E2E1F74C68E003FCA6A /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +193,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADF13D671F7B7FAE009532F6 /* Quick.framework in Frameworks */,
 				ADC03E3B1F74C8EE003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E3C1F74C8EE003FCA6A /* Nimble.framework in Frameworks */,
 			);
@@ -212,7 +207,6 @@
 				ADC03E371F74C8A5003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E351F74C8A5003FCA6A /* Nimble.framework in Frameworks */,
 				ADC03E391F74C8A5003FCA6A /* Quick.framework in Frameworks */,
-				ADC03E361F74C8A5003FCA6A /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
