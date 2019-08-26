@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
   s.module_name  = "PactConsumerSwift"
-  s.version      = "0.6.1"
+  s.version      = "0.6.2"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
     'ENABLE_BITCODE' => 'NO'
   }
 
-  s.dependency 'BrightFutures', '~> 7.0'
+  s.dependency 'BrightFutures', '~> 8.0'
   s.dependency 'Nimble', '~> 8.0'
 end
