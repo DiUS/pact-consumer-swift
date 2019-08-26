@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
     'ENABLE_BITCODE' => 'NO'
   }
 
-  s.dependency 'BrightFutures', '~> 7.0'
+  s.dependency 'BrightFutures', '~> 8.0'
   s.dependency 'Nimble', '~> 8.0'
 end
