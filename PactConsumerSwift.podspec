@@ -32,4 +32,5 @@ Pod::Spec.new do |s|
 
   s.dependency 'BrightFutures', '~> 8.0'
   s.dependency 'Nimble', '~> 8.0'
+  s.swift_versions = ['4.2', '5.0']
 end

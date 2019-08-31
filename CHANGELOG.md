@@ -1,3 +1,11 @@
+# 0.7.0 - Bugfix Release
+
+
+* 16bbf44 - chore: Change minimum swift version to 4.2 due Nimble requirements. Also fix cocoapods configuration. (Andrew Spinks, Sat Aug 31 14:55:31 2019 +0900)
+* c91360d - Revert "chore: Bumping version to 0.6.2" due to cocoapods issues. (Andrew Spinks, Sat Aug 31 14:50:40 2019 +0900)
+* 58775a2 - chore: Bumping version to 0.6.2 (Andrew Spinks, Sat Aug 31 14:11:12 2019 +0900)
+* 8f2c76b - fix: Bump dependencies to support swift 5. Also removes obsolete references to Result.framework. (Marko Justinek, Tue Aug 27 00:50:46 2019 +0200)
+* 5b1e1bf - chore: convert release script to be a bash script #46 (Andrew Spinks, Sun Jul 28 10:32:30 2019 +0900)
 -en # 0.6.1 - Bugfix Release
 
 
