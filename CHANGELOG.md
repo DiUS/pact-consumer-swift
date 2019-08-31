@@ -1,8 +1,3 @@
--en # 0.6.2 - Bugfix Release
-
-
-* 8f2c76b - fix: Bump dependencies to support swift 5. Also removes obsolete references to Result.framework. (Marko Justinek, Tue Aug 27 00:50:46 2019 +0200)
-* 5b1e1bf - chore: convert release script to be a bash script #46 (Andrew Spinks, Sun Jul 28 10:32:30 2019 +0900)
 -en # 0.6.1 - Bugfix Release
 
 
