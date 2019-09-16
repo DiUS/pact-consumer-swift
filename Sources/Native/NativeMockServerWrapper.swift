@@ -55,7 +55,7 @@ public class NativeMockServerWrapper: MockServer {
   private func createServerOnUnusedPort(withJson sanitizedString: String) -> Int32 {
     var result = create_mock_server_ffi(sanitizedString, port)
     var count = 0
-    while result == -4 && count < 25 {
+    while result == -4 && count < 50 {
         print("Port: \(port) already in use")
         port = randomPort()
         print("Re-trying on: \(port)")
