@@ -61,6 +61,7 @@ public class NativeMockServerWrapper: MockServer {
         print("Re-trying on: \(port)")
         result = create_mock_server_ffi(sanitizedString, port)
         count += 1
+        sleep(1)
     }
     return result
   }
