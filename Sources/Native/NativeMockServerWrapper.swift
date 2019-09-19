@@ -26,7 +26,7 @@ public class NativeMockServerWrapper: MockServer {
     }
 
     private var randomPort: in_port_t {
-        return in_port_t(arc4random_uniform(1000) + 4000)
+        return in_port_t(arc4random_uniform(2000) + 4000)
     }
 
     public func getBaseUrl() -> String {
@@ -150,6 +150,8 @@ extension NativeMockServerWrapper {
     }
 
     private func cleanup() {
+        // NOTE: cleanup_mock_server_ffi doesn't work how it's supposed to. the port is still blocked afterwards
+        // I'll see if there's a way to fix that and also increased the random range for the ports to reduce collisions
         let result = cleanup_mock_server_ffi(port)
         debugPrint("Server closed on port \(port), result: \(result)")
         //    debugPrint(checkTcpPortForListen(port: in_port_t(port)))
