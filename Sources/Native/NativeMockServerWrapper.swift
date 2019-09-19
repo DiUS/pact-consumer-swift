@@ -3,17 +3,30 @@ import SwiftyJSON
 import BrightFutures
 
 public class NativeMockServerWrapper: MockServer {
-    var port: Int32 = -1
-    let pactDir: String = ProcessInfo.processInfo.environment["pact_dir"] ?? "/tmp/pacts"
-    let shouldWritePacts: Bool
+    private lazy var port: Int32 = {
+        return findUnusedPort()
+    }()
+    private let pactDir: String = ProcessInfo.processInfo.environment["pact_dir"] ?? "/tmp/pacts"
+    private let shouldWritePacts: Bool
 
     public init(shouldWritePacts: Bool = false) {
         self.shouldWritePacts = shouldWritePacts
-        port = randomPort()
     }
 
-    func randomPort() -> Int32 {
-        return Int32(arc4random_uniform(2000) + 4000)
+    private func findUnusedPort() -> Int32 {
+        var port = randomPort
+        var (unused, description) = checkTcpPortForListen(port: port)
+        while !unused {
+            debugPrint(description)
+            port = randomPort
+            (unused, description) = checkTcpPortForListen(port: port)
+        }
+        debugPrint(description)
+        return Int32(port)
+    }
+
+    private var randomPort: in_port_t {
+        return in_port_t(arc4random_uniform(1000) + 4000)
     }
 
     public func getBaseUrl() -> String {
@@ -30,7 +43,7 @@ public class NativeMockServerWrapper: MockServer {
                 // iOS json generation adds extra backslashes to "application/json" --> "application\\/json"
                 // causing the MockServer to fail to parse the file.
                 let sanitizedString = jsonString!.replacingOccurrences(of: "\\/", with: "/")
-                let result = createServerOnUnusedPort(withJson: sanitizedString)
+                let result = create_mock_server_ffi(sanitizedString, port)
                 if result < 0 {
                     switch result {
                     case -1:
@@ -44,30 +57,12 @@ public class NativeMockServerWrapper: MockServer {
                     }
                     return
                 }
-                print("Server started on port \(port)")
+                debugPrint("Server started on port \(port)")
                 complete(.success("Server started on port \(port)"))
             } catch let error as NSError {
                 complete(.failure(.setupError(error.localizedDescription)))
             }
         }
-    }
-
-    private var usedPorts: [Int32] = []
-    private func createServerOnUnusedPort(withJson sanitizedString: String) -> Int32 {
-        var result = create_mock_server_ffi(sanitizedString, port)
-        var count = 0
-        while result == -4 && count < 50 {
-            print("Port: \(port) already in use")
-            usedPorts.append(port)
-            while usedPorts.contains(port) {
-                port = randomPort()
-            }
-            print("Re-trying on: \(port)")
-            result = create_mock_server_ffi(sanitizedString, port)
-            count += 1
-            sleep(1)
-        }
-        return result
     }
 
     public func verify(_ pact: Pact) -> Future<String, PactError> {
@@ -125,15 +120,18 @@ public class NativeMockServerWrapper: MockServer {
             return 4
         }
         let result = write_pact_file_ffi(port, pactDir)
-        print("notify: You can find the generated pact files here: \(self.pactDir)")
+        debugPrint("notify: You can find the generated pact files here: \(self.pactDir)")
         return result
     }
+}
 
+// NOTE: split of filesystem checkings as extension
+extension NativeMockServerWrapper {
     private func checkForPath() -> Bool {
         guard !FileManager.default.fileExists(atPath: pactDir) else {
             return true
         }
-        print("notify: Path not found: \(self.pactDir)")
+        debugPrint("notify: Path not found: \(self.pactDir)")
         return couldCreatePath()
     }
 
@@ -145,15 +143,59 @@ public class NativeMockServerWrapper: MockServer {
                                                     attributes: nil)
             couldBeCreated = true
         } catch let error as NSError {
-            print("notify: Files not written. Path couldn't be created: \(self.pactDir)")
-            print(error.localizedDescription)
+            debugPrint("notify: Files not written. Path couldn't be created: \(self.pactDir)")
+            debugPrint(error.localizedDescription)
         }
         return couldBeCreated
     }
 
     private func cleanup() {
-        cleanup_mock_server_ffi(port)
-        print("Server closed on port \(port)")
+        let result = cleanup_mock_server_ffi(port)
+        debugPrint("Server closed on port \(port), result: \(result)")
+        //    debugPrint(checkTcpPortForListen(port: in_port_t(port)))
     }
 }
 
+// NOTE: split of network port checkings as extension
+// used code from: https://stackoverflow.com/a/49728137
+private extension NativeMockServerWrapper {
+    func checkTcpPortForListen(port: in_port_t) -> (Bool, descr: String) {
+
+        let socketFileDescriptor = socket(AF_INET, SOCK_STREAM, 0)
+        if socketFileDescriptor == -1 {
+            return (false, "SocketCreationFailed, \(descriptionOfLastError())")
+        }
+
+        var addr = sockaddr_in()
+        let sizeOfSockkAddr = MemoryLayout<sockaddr_in>.size
+        addr.sin_len = __uint8_t(sizeOfSockkAddr)
+        addr.sin_family = sa_family_t(AF_INET)
+        addr.sin_port = Int(OSHostByteOrder()) == OSLittleEndian ? _OSSwapInt16(port) : port
+        addr.sin_addr = in_addr(s_addr: inet_addr("0.0.0.0"))
+        addr.sin_zero = (0, 0, 0, 0, 0, 0, 0, 0)
+        var bind_addr = sockaddr()
+        memcpy(&bind_addr, &addr, Int(sizeOfSockkAddr))
+
+        if Darwin.bind(socketFileDescriptor, &bind_addr, socklen_t(sizeOfSockkAddr)) == -1 {
+            let details = descriptionOfLastError()
+            release(socket: socketFileDescriptor)
+            return (false, "\(port), BindFailed, \(details)")
+        }
+        if listen(socketFileDescriptor, SOMAXCONN ) == -1 {
+            let details = descriptionOfLastError()
+            release(socket: socketFileDescriptor)
+            return (false, "\(port), ListenFailed, \(details)")
+        }
+        release(socket: socketFileDescriptor)
+        return (true, "\(port) is free for use")
+    }
+
+    func release(socket: Int32) {
+        Darwin.shutdown(socket, SHUT_RDWR)
+        close(socket)
+    }
+
+    func descriptionOfLastError() -> String {
+        return String.init(cString: (UnsafePointer(strerror(errno))))
+    }
+}
