@@ -560,8 +560,8 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBFOLDER)/BrightFutures.framework",
+				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBFOLDER)/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
