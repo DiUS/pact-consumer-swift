@@ -103,7 +103,13 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func verifyInteractions() -> Future<String, NSError> {
+}
+
+// MARK: - Private
+
+fileprivate extension PactVerificationService {
+
+  func verifyInteractions() -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
 
     self.performNetworkRequest(for: Router.verify, promise: promise)
@@ -111,7 +117,7 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func write(provider: String, consumer: String) -> Future<String, NSError> {
+  func write(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
     let payload: [String: [String: String]] = ["consumer": ["name": consumer],
                                                "provider": ["name": provider]]
@@ -121,15 +127,18 @@ open class PactVerificationService {
     return promise.future
   }
 
-  fileprivate func clean() -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
-    self.performNetworkRequest(for: Router.clean, promise: promise)
-
-    return promise.future
+  func clean(completion: @escaping (Result<Void, NSError>) -> Void) {
+    performNetworkRequest(for: Router.clean, completion: { result in
+        switch result {
+        case .success:
+            completion(.success(()))
+        case .failure(let error):
+            completion(.failure(self.error(with: error.localizedDescription)))
+        }
+    })
   }
 
-  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
+  func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
     let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
                                   "example_description": "description"]
@@ -139,11 +148,13 @@ open class PactVerificationService {
     return promise.future
   }
 
-  // MARK: - Networking
+}
 
-  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
+// MARK: - Networking
 
-  private func performNetworkRequest(for router: Router, promise: Promise<String, NSError>) {
+private extension PactVerificationService {
+
+  func performNetworkRequest(for router: Router, promise: Promise<String, NSError>) {
     let task: URLSessionDataTask?
     do {
       task = try session.dataTask(with: router.asURLRequest()) { data, response, error in
@@ -159,7 +170,7 @@ open class PactVerificationService {
     }
   }
 
-  private func responseHandler(_ promise: Promise<String, NSError>) -> (Data?, URLResponse?, Error?) -> Void {
+  func responseHandler(_ promise: Promise<String, NSError>) -> (Data?, URLResponse?, Error?) -> Void {
     return { data, response, error in
       if let data = data,
          let response = response as? HTTPURLResponse,
