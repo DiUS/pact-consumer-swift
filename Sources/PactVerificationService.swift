@@ -31,9 +31,8 @@ open class PactVerificationService {
 
     var path: String {
       switch self {
-      case .clean:
-        return "/interactions"
-      case .setup:
+      case .clean,
+           .setup:
         return "/interactions"
       case .verify:
         return "/interactions/verification"
