@@ -180,3 +180,113 @@ open class PactVerificationService {
     }
   }
 }
+
+// MARK: - Networking without Promises
+
+private extension PactVerificationService {
+
+    private var session: URLSession {
+        URLSession(configuration: URLSessionConfiguration.ephemeral)
+    }
+
+    func error(with message: String) -> NSError {
+        NSError(
+            domain: "",
+            code: 0,
+            userInfo: [
+                NSLocalizedDescriptionKey: NSLocalizedString(
+                    "Error",
+                    value: message,
+                    comment: ""
+                )
+            ]
+        )
+    }
+
+    func error(from data: Data) -> NSError {
+        NSError(
+            domain: "",
+            code: 0,
+            userInfo: [
+                NSLocalizedDescriptionKey: NSLocalizedString(
+                    "Error",
+                    value: "\(String(data: data, encoding: .utf8) ?? "Failed to cast response Data into String")",
+                    comment: ""
+                )
+            ]
+        )
+    }
+
+    func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
+        do {
+            let dataTask = try session.dataTask(with: router.asURLRequest()) { result in
+                switch result {
+                case .success(let (response, data)):
+                    guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<299 ~= statusCode else {
+                        completion(.failure(.invalidResponse(self.error(from: data))))
+                        return
+                    }
+                    guard let responseString = String(data: data, encoding: .utf8) else {
+                        completion(.failure(.noData))
+                        return
+                    }
+                    completion(.success(responseString))
+
+                case .failure(let error):
+                    completion(.failure(.apiError(error)))
+                }
+            }
+            dataTask.resume()
+        } catch {
+            DispatchQueue.main.async {
+                completion(.failure(.invalidEndpoint))
+            }
+        }
+      }
+
+}
+
+// MARK: - Foundation Extensions
+
+extension URLSession {
+
+    public enum APIServiceError: Error {
+        case apiError(Error)
+        case invalidEndpoint
+        case invalidResponse(Error)
+        case noData
+        case decodeError
+    }
+
+    func dataTask(with url: URLRequest, result: @escaping (Result<(URLResponse, Data), Error>) -> Void) -> URLSessionDataTask {
+        return dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                result(.failure(error!))
+                return
+            }
+
+            guard let response = response, let data = data else {
+                let error = NSError(domain: "error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: "No response or missing expected data", comment: "")]) //swiftlint:disable:this line_length
+                result(.failure(error))
+                return
+            }
+
+            result(.success((response, data)))
+        }
+    }
+
+}
+
+extension URLSession.APIServiceError: LocalizedError {
+
+    public var localizedDescription: String {
+        switch self {
+        case .invalidResponse(let error),
+             .apiError(let error):
+            return error.localizedDescription
+        default:
+            return ""
+        }
+    }
+
+}
