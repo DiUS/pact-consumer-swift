@@ -75,16 +75,19 @@ open class PactVerificationService {
     Router.baseURLString = baseUrl
   }
 
+// MARK: - Interface
+
   func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    self
-      .clean()
-      .onSuccess { _ in
-        promise.completeWith(self.setupInteractions(interactions))
-      }
-      .onFailure { error in
-        promise.failure(error)
-      }
+
+    clean { result in
+        switch result {
+        case .success:
+            promise.completeWith(self.setupInteractions(interactions))
+        case .failure(let error):
+            promise.failure(error)
+        }
+    }
 
     return promise.future
   }
