@@ -157,66 +157,28 @@ fileprivate extension PactVerificationService {
 
         self.performNetworkRequest(for: Router.write(payload)) { result in
             switch result {
-            case .success(let value):
-                completion(.success(value))
+            case .success(let successString):
+                completion(.success(successString))
             case .failure(let error):
                 completion(.failure(self.error(with: error.localizedDescription)))
             }
         }
   }
 
-  func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
+  func setupInteractions (_ interactions: [Interaction], completion: @escaping (Result<String, NSError>) -> Void) {
     let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
                                   "example_description": "description"]
 
-    self.performNetworkRequest(for: Router.setup(payload), promise: promise)
-
-    return promise.future
-  }
-
-}
-
-// MARK: - Networking
-
-private extension PactVerificationService {
-
-  func performNetworkRequest(for router: Router, promise: Promise<String, NSError>) {
-    let task: URLSessionDataTask?
-    do {
-      task = try session.dataTask(with: router.asURLRequest()) { data, response, error in
-        self.responseHandler(promise)(data, response, error)
-      }
-
-      task?.resume()
-    } catch {
-      DispatchQueue.main.async {
-        // Make sure this promise fails in the future.
-        promise.failure(error as NSError)
-      }
+    self.performNetworkRequest(for: Router.setup(payload)) { result in
+        switch result {
+        case .success(let successString):
+            completion(.success(successString))
+        case .failure(let error):
+            completion(.failure(self.error(with: error.localizedDescription)))
+        }
     }
   }
 
-  func responseHandler(_ promise: Promise<String, NSError>) -> (Data?, URLResponse?, Error?) -> Void {
-    return { data, response, error in
-      if let data = data,
-         let response = response as? HTTPURLResponse,
-         let stringValue = String(data: data, encoding: .utf8),
-         (200..<300).contains(response.statusCode) {
-          promise.success(stringValue)
-          return
-      }
-
-      let errorMessage: String
-      if let errorBody = data {
-        errorMessage = "\(String(data: errorBody, encoding: String.Encoding.utf8)!)"
-      } else {
-        errorMessage = error?.localizedDescription ?? "Unknown error"
-      }
-      let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: errorMessage, comment: "")]
-      promise.failure(NSError(domain: "", code: 0, userInfo: userInfo))
-    }
-  }
 }
 
 // MARK: - Networking without Promises
