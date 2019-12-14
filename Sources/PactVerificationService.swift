@@ -83,7 +83,14 @@ open class PactVerificationService {
     clean { result in
         switch result {
         case .success:
-            promise.completeWith(self.setupInteractions(interactions))
+            self.setupInteractions(interactions) { result in
+                switch result {
+                case .success(let successString):
+                    promise.success(successString)
+                case .failure(let error):
+                    promise.failure(error)
+                }
+            }
         case .failure(let error):
             promise.failure(error)
         }
