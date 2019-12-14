@@ -1,6 +1,11 @@
 import Foundation
 
 open class PactVerificationService {
+
+  typealias VoidHandler = (Result<Void, NSError>) -> Void
+  typealias StringHandler = (Result<String, NSError>) -> Void
+  typealias StringResult = Result<String, URLSession.APIServiceError>
+
   public let url: String
   public let port: Int
   open var baseUrl: String {
@@ -76,17 +81,12 @@ open class PactVerificationService {
 
   // MARK: - Interface
 
-  func setup(_ interactions: [Interaction], completion: @escaping (Result<Void, NSError>) -> Void) {
+  func setup(_ interactions: [Interaction], completion: @escaping VoidHandler) {
     clean { result in
       switch result {
       case .success:
         self.setupInteractions(interactions) { result in
-          switch result {
-          case .success:
-            completion(.success(()))
-          case .failure(let error):
-            completion(.failure(error))
-          }
+          self.handle(result: result, completion: completion)
         }
       case .failure(let error):
         completion(.failure(error))
@@ -94,17 +94,12 @@ open class PactVerificationService {
     }
   }
 
-  func verify(provider: String, consumer: String, completion: @escaping (Result<Void, NSError>) -> Void) {
+  func verify(provider: String, consumer: String, completion: @escaping VoidHandler) {
     verifyInteractions { result in
       switch result {
       case .success:
         self.write(provider: provider, consumer: consumer) { result in
-          switch result {
-          case .success:
-            completion(.success(()))
-          case .failure(let error):
-            completion(.failure(error))
-          }
+          self.handle(result: result, completion: completion)
         }
       case .failure(let error):
         completion(.failure(error))
@@ -118,103 +113,90 @@ open class PactVerificationService {
 
 fileprivate extension PactVerificationService {
 
-  func clean(completion: @escaping (Result<Void, NSError>) -> Void) {
+  func clean(completion: @escaping VoidHandler) {
     performNetworkRequest(for: Router.clean) { result in
-      switch result {
-      case .success:
-        completion(.success(()))
-      case .failure(let error):
-        completion(.failure(self.error(with: error.localizedDescription)))
-      }
+      self.handle(result: result, completion: completion)
     }
   }
 
-  func verifyInteractions(completion: @escaping (Result<Void, NSError>) -> Void) {
-    self.performNetworkRequest(for: Router.verify) { result in
-      switch result {
-      case .success:
-        completion(.success(()))
-      case .failure(let error):
-        completion(.failure(self.error(with: error.localizedDescription)))
-      }
-    }
-  }
-
-  func write(provider: String, consumer: String, completion: @escaping (Result<String, NSError>) -> Void) {
-    let payload = [
-      "consumer": ["name": consumer],
-      "provider": ["name": provider]
+  func setupInteractions (_ interactions: [Interaction], completion: @escaping StringHandler) {
+    let payload: [String: Any] = [
+      "interactions": interactions.map({ $0.payload() }),
+      "example_description": "description"
     ]
 
-    self.performNetworkRequest(for: Router.write(payload)) { result in
-      switch result {
-      case .success(let successString):
-        completion(.success(successString))
-      case .failure(let error):
-        completion(.failure(self.error(with: error.localizedDescription)))
-      }
+    performNetworkRequest(for: Router.setup(payload)) { result in
+      self.handle(result: result, completion: completion)
     }
   }
 
-  func setupInteractions (_ interactions: [Interaction], completion: @escaping (Result<String, NSError>) -> Void) {
-    let payload: [String: Any] = ["interactions": interactions.map({ $0.payload() }),
-                                  "example_description": "description"]
+  func verifyInteractions(completion: @escaping VoidHandler) {
+    performNetworkRequest(for: Router.verify) { result in
+      self.handle(result: result, completion: completion)
+    }
+  }
 
-    self.performNetworkRequest(for: Router.setup(payload)) { result in
-      switch result {
-      case .success(let successString):
-        completion(.success(successString))
-      case .failure(let error):
-        completion(.failure(self.error(with: error.localizedDescription)))
-      }
+  func write(provider: String, consumer: String, completion: @escaping StringHandler) {
+     let payload = [
+       "consumer": ["name": consumer],
+       "provider": ["name": provider]
+     ]
+
+     performNetworkRequest(for: Router.write(payload)) { result in
+       self.handle(result: result, completion: completion)
+     }
+   }
+
+}
+
+// MARK: - Result handlers
+
+fileprivate extension PactVerificationService {
+
+  func handle(result: Result<String, NSError>, completion: @escaping VoidHandler) {
+    switch result {
+    case .success:
+      completion(.success(()))
+    case .failure(let error):
+      completion(.failure(error))
+    }
+  }
+
+  func handle(result: StringResult, completion: @escaping VoidHandler) {
+    switch result {
+    case .success:
+      completion(.success(()))
+    case .failure(let error):
+      completion(.failure(NSError.prepareWith(message: error.localizedDescription)))
+    }
+  }
+
+  func handle(result: StringResult, completion: @escaping StringHandler) {
+    switch result {
+    case .success(let resultString):
+      completion(.success(resultString))
+    case .failure(let error):
+      completion(.failure(NSError.prepareWith(message: error.localizedDescription)))
     }
   }
 
 }
 
-// MARK: - Networking without Promises
+// MARK: - Network request handler
 
-private extension PactVerificationService {
+fileprivate extension PactVerificationService {
 
-  private var session: URLSession {
+  var session: URLSession {
     URLSession(configuration: URLSessionConfiguration.ephemeral)
   }
 
-  func error(with message: String) -> NSError {
-    NSError(
-      domain: "",
-      code: 0,
-      userInfo: [
-        NSLocalizedDescriptionKey: NSLocalizedString(
-          "Error",
-          value: message,
-          comment: ""
-        )
-      ]
-    )
-  }
-
-  func error(from data: Data) -> NSError {
-    NSError(
-      domain: "",
-      code: 0,
-      userInfo: [
-        NSLocalizedDescriptionKey: NSLocalizedString(
-          "Error",
-          value: "\(String(data: data, encoding: .utf8) ?? "Failed to cast response Data into String")",
-          comment: ""
-        )
-      ]
-    )
-  }
-
-  func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
+  func performNetworkRequest(for router: Router, completion: @escaping (StringResult) -> Void) {
     do {
       let dataTask = try session.dataTask(with: router.asURLRequest()) { result in
         switch result {
         case .success(let (response, data)):
           guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<299 ~= statusCode else {
-            completion(.failure(.invalidResponse(self.error(from: data))))
+            completion(.failure(.invalidResponse(NSError.prepareWith(data: data))))
             return
           }
           guard let responseString = String(data: data, encoding: .utf8) else {
@@ -222,61 +204,13 @@ private extension PactVerificationService {
             return
           }
           completion(.success(responseString))
-
         case .failure(let error):
           completion(.failure(.apiError(error)))
         }
       }
       dataTask.resume()
     } catch {
-      DispatchQueue.main.async {
-        completion(.failure(.invalidEndpoint))
-      }
-    }
-  }
-
-}
-
-// MARK: - Foundation Extensions
-
-extension URLSession {
-
-  public enum APIServiceError: Error {
-    case apiError(Error)
-    case invalidEndpoint
-    case invalidResponse(Error)
-    case noData
-    case decodeError
-  }
-
-  func dataTask(with url: URLRequest, result: @escaping (Result<(URLResponse, Data), Error>) -> Void) -> URLSessionDataTask {
-    return dataTask(with: url) { (data, response, error) in
-      guard error == nil else {
-        result(.failure(error!))
-        return
-      }
-
-      guard let response = response, let data = data else {
-        let error = NSError(domain: "error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: "No response or missing expected data", comment: "")]) //swiftlint:disable:this line_length
-        result(.failure(error))
-        return
-      }
-
-      result(.success((response, data)))
-    }
-  }
-
-}
-
-extension URLSession.APIServiceError: LocalizedError {
-
-  public var localizedDescription: String {
-    switch self {
-    case .invalidResponse(let error),
-         .apiError(let error):
-      return error.localizedDescription
-    default:
-      return ""
+      completion(.failure(.invalidEndpoint))
     }
   }
 
