@@ -77,26 +77,22 @@ open class PactVerificationService {
 
   // MARK: - Interface
 
-  func setup(_ interactions: [Interaction]) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
+  func setup(_ interactions: [Interaction], completion: @escaping (Result<Void, NSError>) -> Void) {
     clean { result in
       switch result {
       case .success:
         self.setupInteractions(interactions) { result in
           switch result {
-          case .success(let successString):
-            promise.success(successString)
+          case .success:
+            completion(.success(()))
           case .failure(let error):
-            promise.failure(error)
+            completion(.failure(error))
           }
         }
       case .failure(let error):
-        promise.failure(error)
+        completion(.failure(error))
       }
     }
-
-    return promise.future
   }
 
   func verify(provider: String, consumer: String) -> Future<String, NSError> {

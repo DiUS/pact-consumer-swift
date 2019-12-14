@@ -170,15 +170,14 @@ open class MockService: NSObject {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
       self
         .pactVerificationService
-        .setup(self.interactions)
-        .onSuccess { _ in
-          testFunction { () in
+        .setup(self.interactions) { result in
+          switch result {
+          case .success:
+            testFunction { done() }
+          case .failure(let error):
+            self.failWithLocation("Error setting up pact: \(error.localizedDescription)", file: file, line: line)
             done()
           }
-        }
-        .onFailure { error in
-          self.failWithLocation("Error setting up pact: \(error.localizedDescription)", file: file, line: line)
-          done()
         }
     }
 
