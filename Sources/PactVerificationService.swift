@@ -1,5 +1,4 @@
 import Foundation
-import BrightFutures
 
 open class PactVerificationService {
   public let url: String
@@ -95,26 +94,22 @@ open class PactVerificationService {
     }
   }
 
-  func verify(provider: String, consumer: String) -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
+  func verify(provider: String, consumer: String, completion: @escaping (Result<Void, NSError>) -> Void) {
     verifyInteractions { result in
       switch result {
       case .success:
         self.write(provider: provider, consumer: consumer) { result in
           switch result {
-          case .success(let value):
-            promise.success(value)
+          case .success:
+            completion(.success(()))
           case .failure(let error):
-            promise.failure(error)
+            completion(.failure(error))
           }
         }
       case .failure(let error):
-        promise.failure(error)
+        completion(.failure(error))
       }
     }
-
-    return promise.future
   }
 
 }

@@ -1,5 +1,4 @@
 import Foundation
-import BrightFutures
 import Nimble
 
 @objc
@@ -184,15 +183,16 @@ open class MockService: NSObject {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
       self
         .pactVerificationService
-        .verify(provider: self.provider, consumer: self.consumer)
-        .onSuccess { _ in
-          done()
-        }
-        .onFailure { error in
-          self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
-            file: file,
-            line: line)
-          done()
+        .verify(provider: self.provider, consumer: self.consumer) { result in
+          switch result {
+          case .success:
+            done()
+          case .failure(let error):
+            self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
+              file: file,
+              line: line)
+            done()
+          }
         }
     }
   }
