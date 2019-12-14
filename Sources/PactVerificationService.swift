@@ -94,14 +94,15 @@ open class PactVerificationService {
 
   func verify(provider: String, consumer: String) -> Future<String, NSError> {
     let promise = Promise<String, NSError>()
-    self
-      .verifyInteractions()
-      .onSuccess { _ in
-        promise.completeWith(self.write(provider: provider, consumer: consumer))
-      }
-      .onFailure { error in
-        promise.failure(error)
-      }
+
+    verifyInteractions { result in
+        switch result {
+        case .success:
+            promise.completeWith(self.write(provider: provider, consumer: consumer))
+        case .failure(let error):
+            promise.failure(error)
+        }
+    }
 
     return promise.future
   }
@@ -112,12 +113,15 @@ open class PactVerificationService {
 
 fileprivate extension PactVerificationService {
 
-  func verifyInteractions() -> Future<String, NSError> {
-    let promise = Promise<String, NSError>()
-
-    self.performNetworkRequest(for: Router.verify, promise: promise)
-
-    return promise.future
+    func verifyInteractions(completion: @escaping (Result<Void, NSError>) -> Void) {
+        self.performNetworkRequest(for: Router.verify) { result in
+        switch result {
+        case .success:
+            completion(.success(()))
+        case .failure(let error):
+            completion(.failure(self.error(with: error.localizedDescription)))
+        }
+    }
   }
 
   func write(provider: String, consumer: String) -> Future<String, NSError> {
