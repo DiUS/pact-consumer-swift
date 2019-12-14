@@ -113,6 +113,17 @@ open class PactVerificationService {
 
 fileprivate extension PactVerificationService {
 
+    func clean(completion: @escaping (Result<Void, NSError>) -> Void) {
+      performNetworkRequest(for: Router.clean) { result in
+          switch result {
+          case .success:
+              completion(.success(()))
+          case .failure(let error):
+              completion(.failure(self.error(with: error.localizedDescription)))
+          }
+      }
+    }
+
     func verifyInteractions(completion: @escaping (Result<Void, NSError>) -> Void) {
         self.performNetworkRequest(for: Router.verify) { result in
         switch result {
@@ -132,17 +143,6 @@ fileprivate extension PactVerificationService {
     self.performNetworkRequest(for: Router.write(payload), promise: promise)
 
     return promise.future
-  }
-
-  func clean(completion: @escaping (Result<Void, NSError>) -> Void) {
-    performNetworkRequest(for: Router.clean, completion: { result in
-        switch result {
-        case .success:
-            completion(.success(()))
-        case .failure(let error):
-            completion(.failure(self.error(with: error.localizedDescription)))
-        }
-    })
   }
 
   func setupInteractions (_ interactions: [Interaction]) -> Future<String, NSError> {
