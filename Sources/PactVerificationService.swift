@@ -4,7 +4,6 @@ open class PactVerificationService {
 
   typealias VoidHandler = (Result<Void, NSError>) -> Void
   typealias StringHandler = (Result<String, NSError>) -> Void
-  typealias StringResult = Result<String, URLSession.APIServiceError>
 
   public let url: String
   public let port: Int
@@ -162,7 +161,7 @@ fileprivate extension PactVerificationService {
     }
   }
 
-  func handle(result: StringResult, completion: @escaping VoidHandler) {
+  func handle(result: Result<String, URLSession.APIServiceError>, completion: @escaping VoidHandler) {
     switch result {
     case .success:
       completion(.success(()))
@@ -171,7 +170,7 @@ fileprivate extension PactVerificationService {
     }
   }
 
-  func handle(result: StringResult, completion: @escaping StringHandler) {
+  func handle(result: Result<String, URLSession.APIServiceError>, completion: @escaping StringHandler) {
     switch result {
     case .success(let resultString):
       completion(.success(resultString))
@@ -190,7 +189,7 @@ fileprivate extension PactVerificationService {
     URLSession(configuration: URLSessionConfiguration.ephemeral)
   }
 
-  func performNetworkRequest(for router: Router, completion: @escaping (StringResult) -> Void) {
+  func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
     do {
       let dataTask = try session.dataTask(with: router.asURLRequest()) { result in
         switch result {
@@ -211,6 +210,66 @@ fileprivate extension PactVerificationService {
       dataTask.resume()
     } catch {
       completion(.failure(.invalidEndpoint))
+    }
+  }
+
+}
+
+// MARK: - Type Extensions
+
+private extension NSError {
+
+  static func prepareWith(userInfo: [String: Any]) -> NSError {
+    NSError(domain: "error", code: 0, userInfo: userInfo)
+  }
+
+  static func prepareWith(message: String) -> NSError {
+    NSError(domain: "error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: message, comment: "")]) //swiftlint:disable:this line_length
+  }
+
+  static func prepareWith(data: Data) -> NSError {
+    NSError(domain: "error", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: "\(String(data: data, encoding: .utf8) ?? "Failed to cast response Data into String")", comment: "")]) //swiftlint:disable:this line_length
+  }
+
+}
+
+private extension URLSession {
+
+  enum APIServiceError: Error {
+    case apiError(Error)
+    case invalidEndpoint
+    case invalidResponse(Error)
+    case noData
+    case decodeError
+  }
+
+  func dataTask(with url: URLRequest, result: @escaping (Result<(URLResponse, Data), Error>) -> Void) -> URLSessionDataTask {
+    return dataTask(with: url) { (data, response, error) in
+      guard error == nil else {
+        result(.failure(error!))
+        return
+      }
+
+      guard let response = response, let data = data else {
+        result(.failure(NSError.prepareWith(userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: "No response or missing expected data", comment: "")]))) //swiftlint:disable:this line_length
+        return
+      }
+
+      result(.success((response, data)))
+    }
+  }
+
+}
+
+extension URLSession.APIServiceError: LocalizedError {
+
+  public var localizedDescription: String {
+    switch self {
+    case .invalidResponse(let error),
+         .apiError(let error):
+      return error.localizedDescription
+    default:
+      return "Unknown error"
     }
   }
 

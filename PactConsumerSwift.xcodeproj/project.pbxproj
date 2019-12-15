@@ -54,8 +54,6 @@
 		AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64B1F74BA8A00219F39 /* Matcher.swift */; };
 		AD17A6711F74BB8400219F39 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64C1F74BA8A00219F39 /* MockService.swift */; };
 		AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64D1F74BA8A00219F39 /* PactVerificationService.swift */; };
-		AD6556AC23A4E23C004A7BB7 /* URLSession+pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6556AB23A4E23C004A7BB7 /* URLSession+pact.swift */; };
-		AD6556AE23A4E269004A7BB7 /* NSError+pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6556AD23A4E269004A7BB7 /* NSError+pact.swift */; };
 		ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
@@ -112,8 +110,6 @@
 		AD17A6521F74BAC600219F39 /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
 		AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
 		AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
-		AD6556AB23A4E23C004A7BB7 /* URLSession+pact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pact.swift"; sourceTree = "<group>"; };
-		AD6556AD23A4E269004A7BB7 /* NSError+pact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+pact.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +205,6 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AD6556AA23A4E229004A7BB7 /* Extensions */,
 				A109FBA622CB6A6C007B46F7 /* Reporting */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
@@ -267,15 +262,6 @@
 				AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */,
 			);
 			path = PactConsumerSwiftTests;
-			sourceTree = "<group>";
-		};
-		AD6556AA23A4E229004A7BB7 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AD6556AB23A4E23C004A7BB7 /* URLSession+pact.swift */,
-				AD6556AD23A4E269004A7BB7 /* NSError+pact.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -740,10 +726,8 @@
 				AD17A66A1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
-				AD6556AE23A4E269004A7BB7 /* NSError+pact.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
 				A109FBA922CB6A6C007B46F7 /* XCodeErrorReporter.swift in Sources */,
-				AD6556AC23A4E23C004A7BB7 /* URLSession+pact.swift in Sources */,
 				A109FBAA22CB6A6C007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
