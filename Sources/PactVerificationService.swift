@@ -4,10 +4,8 @@ import BrightFutures
 open class PactVerificationService: NSObject {
   public let url: String
   public let port: Int
-  /// True if insecure certificates are allowed, otherwise false.
-  /// Default value is false.
-  /// Set this to true when you are using self signed SSL certifiates, or any invalid SSL certificates.
-  public var allowInsecureCertificates: Bool = false
+  public let allowInsecureCertificates: Bool
+  
   open var baseUrl: String {
     return "\(url):\(port)"
   }
@@ -74,9 +72,11 @@ open class PactVerificationService: NSObject {
     }
   }
 
-  public init(url: String = "http://localhost", port: Int = 1234) {
+  public init(url: String = "http://localhost", port: Int = 1234, allowInsecureCertificates: Bool = false) {
     self.url = url
     self.port = port
+    self.allowInsecureCertificates = allowInsecureCertificates
+    
     super.init()
     Router.baseURLString = baseUrl
   }
@@ -201,6 +201,6 @@ extension PactVerificationService: URLSessionDelegate {
     }
 
     let proposedCredential = URLCredential(trust: serverTrust)
-    completionHandler(URLSession.AuthChallengeDisposition.useCredential, proposedCredential)
+    completionHandler(.useCredential, proposedCredential)
   }
 }
