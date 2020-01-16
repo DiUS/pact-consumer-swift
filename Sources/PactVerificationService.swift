@@ -5,7 +5,7 @@ open class PactVerificationService: NSObject {
   public let url: String
   public let port: Int
   public let allowInsecureCertificates: Bool
-  
+
   open var baseUrl: String {
     return "\(url):\(port)"
   }
@@ -76,7 +76,7 @@ open class PactVerificationService: NSObject {
     self.url = url
     self.port = port
     self.allowInsecureCertificates = allowInsecureCertificates
-    
+
     super.init()
     Router.baseURLString = baseUrl
   }
