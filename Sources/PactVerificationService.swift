@@ -110,7 +110,7 @@ open class PactVerificationService {
 
 // MARK: - Private
 
-fileprivate extension PactVerificationService {
+private extension PactVerificationService {
 
   func clean(completion: @escaping VoidHandler) {
     performNetworkRequest(for: Router.clean) { result in
@@ -150,7 +150,7 @@ fileprivate extension PactVerificationService {
 
 // MARK: - Result handlers
 
-fileprivate extension PactVerificationService {
+private extension PactVerificationService {
 
   func handleResponse(result: Result<String, NSError>, completion: @escaping VoidHandler) {
     switch result {
@@ -183,7 +183,7 @@ fileprivate extension PactVerificationService {
 
 // MARK: - Network request handler
 
-fileprivate extension PactVerificationService {
+private extension PactVerificationService {
 
   var session: URLSession {
     URLSession(configuration: URLSessionConfiguration.ephemeral)
