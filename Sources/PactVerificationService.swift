@@ -208,8 +208,8 @@ fileprivate extension PactVerificationService {
         }
       }
       dataTask.resume()
-    } catch {
-      completion(.failure(.invalidEndpoint))
+    } catch let error {
+      completion(.failure(.dataTaskError(error)))
     }
   }
 
@@ -237,10 +237,11 @@ private extension URLSession {
 
   enum APIServiceError: Error {
     case apiError(Error)
+    case dataTaskError(Error)
+    case decodeError
     case invalidEndpoint
     case invalidResponse(Error)
     case noData
-    case decodeError
   }
 
   func dataTask(with url: URLRequest, result: @escaping (Result<(URLResponse, Data), Error>) -> Void) -> URLSessionDataTask {
@@ -251,7 +252,8 @@ private extension URLSession {
       }
 
       guard let response = response, let data = data else {
-        result(.failure(NSError.prepareWith(userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: "No response or missing expected data", comment: "")]))) //swiftlint:disable:this line_length
+        let error = NSLocalizedString("Error", value: "No response or missing expected data", comment: "")
+        result(.failure(NSError.prepareWith(userInfo: [NSLocalizedDescriptionKey: error])))
         return
       }
 
@@ -265,11 +267,16 @@ extension URLSession.APIServiceError: LocalizedError {
 
   public var localizedDescription: String {
     switch self {
-    case .invalidResponse(let error),
-         .apiError(let error):
+    case .apiError(let error),
+         .dataTaskError(let error),
+         .invalidResponse(let error):
       return error.localizedDescription
-    default:
-      return "Unknown error"
+    case .decodeError:
+      return URLSession.APIServiceError.decodeError.localizedDescription
+    case .invalidEndpoint:
+      return URLSession.APIServiceError.invalidEndpoint.localizedDescription
+    case .noData:
+      return URLSession.APIServiceError.noData.localizedDescription
     }
   }
 
