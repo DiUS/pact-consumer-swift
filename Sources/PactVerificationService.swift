@@ -85,7 +85,7 @@ open class PactVerificationService {
       switch result {
       case .success:
         self.setupInteractions(interactions) { result in
-          self.handle(result: result, completion: completion)
+          self.handleResponse(result: result, completion: completion)
         }
       case .failure(let error):
         completion(.failure(error))
@@ -98,7 +98,7 @@ open class PactVerificationService {
       switch result {
       case .success:
         self.write(provider: provider, consumer: consumer) { result in
-          self.handle(result: result, completion: completion)
+          self.handleResponse(result: result, completion: completion)
         }
       case .failure(let error):
         completion(.failure(error))
@@ -114,7 +114,7 @@ fileprivate extension PactVerificationService {
 
   func clean(completion: @escaping VoidHandler) {
     performNetworkRequest(for: Router.clean) { result in
-      self.handle(result: result, completion: completion)
+      self.handleResponse(result: result, completion: completion)
     }
   }
 
@@ -125,13 +125,13 @@ fileprivate extension PactVerificationService {
     ]
 
     performNetworkRequest(for: Router.setup(payload)) { result in
-      self.handle(result: result, completion: completion)
+      self.handleResponse(result: result, completion: completion)
     }
   }
 
   func verifyInteractions(completion: @escaping VoidHandler) {
     performNetworkRequest(for: Router.verify) { result in
-      self.handle(result: result, completion: completion)
+      self.handleResponse(result: result, completion: completion)
     }
   }
 
@@ -142,7 +142,7 @@ fileprivate extension PactVerificationService {
      ]
 
      performNetworkRequest(for: Router.write(payload)) { result in
-       self.handle(result: result, completion: completion)
+       self.handleResponse(result: result, completion: completion)
      }
    }
 
@@ -152,7 +152,7 @@ fileprivate extension PactVerificationService {
 
 fileprivate extension PactVerificationService {
 
-  func handle(result: Result<String, NSError>, completion: @escaping VoidHandler) {
+  func handleResponse(result: Result<String, NSError>, completion: @escaping VoidHandler) {
     switch result {
     case .success:
       completion(.success(()))
@@ -161,7 +161,7 @@ fileprivate extension PactVerificationService {
     }
   }
 
-  func handle(result: Result<String, URLSession.APIServiceError>, completion: @escaping VoidHandler) {
+  func handleResponse(result: Result<String, URLSession.APIServiceError>, completion: @escaping VoidHandler) {
     switch result {
     case .success:
       completion(.success(()))
@@ -170,7 +170,7 @@ fileprivate extension PactVerificationService {
     }
   }
 
-  func handle(result: Result<String, URLSession.APIServiceError>, completion: @escaping StringHandler) {
+  func handleResponse(result: Result<String, URLSession.APIServiceError>, completion: @escaping StringHandler) {
     switch result {
     case .success(let resultString):
       completion(.success(resultString))
