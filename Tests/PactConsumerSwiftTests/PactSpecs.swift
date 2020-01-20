@@ -290,5 +290,51 @@ class PactSwiftSpec: QuickSpec {
         }
       }
     }
+
+    context("when defined interactions are not received") {
+      let errorCapturer = ErrorCapture()
+
+      beforeEach {
+        animalMockService = MockService(
+          provider: "Animal Service",
+          consumer: "Animal Consumer Swift",
+          pactVerificationService: PactVerificationService(),
+          errorReporter: errorCapturer
+        )
+      }
+
+      describe("but specified HTTP request was not received by mock service") {
+        it("returns error message from mock service") {
+          animalMockService?.given("an alligator exists")
+            .uponReceiving("a request for all alligators")
+            .withRequest(method:.GET, path: "/alligators")
+            .willRespondWith(status: 200,
+                             headers: ["Content-Type": "application/json"],
+                             body: [ ["name": "Mary", "type": "alligator"] ])
+
+          animalMockService?.run() { (testComplete) -> Void in
+            testComplete()
+          }
+          expect(errorCapturer.message?.message).to(contain("Actual interactions do not match expected interactions for mock"))
+        }
+
+        it("specifies origin of test error to line where .run() method is called") {
+          animalMockService?.given("an alligator exists")
+            .uponReceiving("a request for all alligators")
+            .withRequest(method:.GET, path: "/alligators")
+            .willRespondWith(status: 200,
+                             headers: ["Content-Type": "application/json"],
+                             body: [ ["name": "Mary", "type": "alligator"] ])
+
+          let thisFile: String = #file
+          let thisLine: UInt = #line
+          animalMockService?.run() { (testComplete) -> Void in
+            testComplete()
+          }
+          expect(errorCapturer.message?.file) == thisFile
+          expect(errorCapturer.message?.line) == thisLine + 1
+        }
+      }
+    }
   }
 }

@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "d82c7943d80785834da4693b92133012626c060b",
-          "version": "4.8.1"
-        }
-      },
-      {
         "package": "BrightFutures",
         "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
         "state": {
           "branch": null,
-          "revision": "f18744a3061d2302a3673aafdb6fbdbbfe9b4f6f",
-          "version": "5.2.0"
+          "revision": "9279defa6bdc21501ce740266e5a14d0119ddc63",
+          "version": "8.0.1"
         }
       },
       {
@@ -24,17 +15,8 @@
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
-          "revision": "43304bf2b1579fd555f2fdd51742771c1e4f2b98",
-          "version": "8.0.1"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "0b4ed6c706dd0cce923b5019a605a9bcc6b1b600",
-          "version": "2.0.0"
+          "revision": "f8657642dfdec9973efc79cc68bcef43a653a2bc",
+          "version": "8.0.2"
         }
       },
       {
@@ -42,8 +24,8 @@
         "repositoryURL": "https://github.com/antitypical/Result.git",
         "state": {
           "branch": null,
-          "revision": "7477584259bfce2560a19e06ad9f71db441fff11",
-          "version": "3.2.4"
+          "revision": "12920a5c2595926efab9274d6003e29f503dbb66",
+          "version": "5.0.0"
         }
       }
     ]
