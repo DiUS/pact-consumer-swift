@@ -23,7 +23,7 @@ open class RubyMatcher: NSObject, Matchers {
   }
 
   @objc
-  public func eachLike(_ value: Any, min: Int = 1) -> Any {
+  public func eachLike(_ value: [String: Any], min: Int) -> Any {
     return [
       "json_class": "Pact::ArrayLike",
       "contents": value,

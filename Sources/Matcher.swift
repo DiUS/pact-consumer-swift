@@ -10,7 +10,7 @@ public protocol Matchers {
   func somethingLike(_ value: Any) -> Any
 
   @objc
-  func eachLike(_ value: Any, min: Int) -> Any
+  func eachLike(_ value: [String: Any], min: Int) -> Any
 }
 
 @objc
@@ -29,7 +29,7 @@ public class Matcher: NSObject {
   }
 
   @objc
-  public class func eachLike(_ value: Any, min: Int = 1) -> Any {
+  public class func eachLike(_ value: [String: Any], min: Int) -> Any {
     return matchers.eachLike(value, min: min)
   }
 }

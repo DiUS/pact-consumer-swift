@@ -15,7 +15,7 @@ open class NativeMatcher: NSObject, Matchers {
   }
 
   @objc
-  public func eachLike(_ value: Any, min: Int = 1) -> Any {
+  public func eachLike(_ value: [String: Any], min: Int) -> Any {
     return MinTypeMatcher(value: value, min: min)
   }
 }
