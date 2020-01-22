@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": null,
-          "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
-          "version": "4.8.2"
-        }
-      },
-      {
         "package": "BrightFutures",
         "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
         "state": {
@@ -38,11 +29,11 @@
         }
       },
       {
-        "package": "SwiftyJSON",
-        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        "package": "Result",
+        "repositoryURL": "https://github.com/antitypical/Result.git",
         "state": {
           "branch": null,
-          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "revision": "12920a5c2595926efab9274d6003e29f503dbb66",
           "version": "5.0.0"
         }
       }

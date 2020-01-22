@@ -1,5 +1,4 @@
 import Foundation
-import SwiftyJSON
 import BrightFutures
 
 public class NativeMockServerWrapper: MockServer {
@@ -94,21 +93,28 @@ public class NativeMockServerWrapper: MockServer {
 
     private func mismatches() -> String {
         let mismatches = mock_server_mismatches_ffi(port)
+
+        // merge-todo adopt to codable
         if let mismatches = mismatches {
-            let json = JSON(parseJSON: String(cString: mismatches))
-            var mismatches = ""
-            for (_, pathMismatch):(String, JSON) in json {
-                mismatches = "\(mismatches)\(pathMismatch["method"]) \(pathMismatch["path"]): "
-                for (_, mismatch):(String, JSON) in pathMismatch["mismatches"] {
-                    mismatches = "\(mismatches){error: \(mismatch["mismatch"]), "
-                    mismatches = "\(mismatches)expected: \(mismatch["expected"]), "
-                    mismatches = "\(mismatches)actual: \(mismatch["actual"])}"
-                }
-            }
-            return mismatches
-        } else {
-            return "Nothing received"
+            let jsonString = String(cString: mismatches)
+            debugPrint(jsonString)
         }
+
+//        if let mismatches = mismatches {
+//            let json = JSON(parseJSON: String(cString: mismatches))
+//            var mismatches = ""
+//            for (_, pathMismatch):(String, JSON) in json {
+//                mismatches = "\(mismatches)\(pathMismatch["method"]) \(pathMismatch["path"]): "
+//                for (_, mismatch):(String, JSON) in pathMismatch["mismatches"] {
+//                    mismatches = "\(mismatches){error: \(mismatch["mismatch"]), "
+//                    mismatches = "\(mismatches)expected: \(mismatch["expected"]), "
+//                    mismatches = "\(mismatches)actual: \(mismatch["actual"])}"
+//                }
+//            }
+//            return mismatches
+//        } else {
+            return "Nothing received"
+//        }
     }
 
     private func matched() -> Bool {
@@ -175,10 +181,10 @@ private extension NativeMockServerWrapper {
         addr.sin_port = Int(OSHostByteOrder()) == OSLittleEndian ? _OSSwapInt16(port) : port
         addr.sin_addr = in_addr(s_addr: inet_addr("0.0.0.0"))
         addr.sin_zero = (0, 0, 0, 0, 0, 0, 0, 0)
-        var bind_addr = sockaddr()
-        memcpy(&bind_addr, &addr, Int(sizeOfSockkAddr))
+        var bindAddress = sockaddr()
+        memcpy(&bindAddress, &addr, Int(sizeOfSockkAddr))
 
-        if Darwin.bind(socketFileDescriptor, &bind_addr, socklen_t(sizeOfSockkAddr)) == -1 {
+        if Darwin.bind(socketFileDescriptor, &bindAddress, socklen_t(sizeOfSockkAddr)) == -1 {
             let details = descriptionOfLastError()
             release(socket: socketFileDescriptor)
             return (false, "\(port), BindFailed, \(details)")
