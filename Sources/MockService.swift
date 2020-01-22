@@ -114,7 +114,7 @@ open class MockService: NSObject {
      /// - Parameter testFunction: The function making the network request you are testing
      ///
   @objc(run:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
+  open func objcRun(_ testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) {
     self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
@@ -135,7 +135,7 @@ open class MockService: NSObject {
     /// - Parameter timeout: Time to wait for the `testComplete()` else it fails the test
     ///
   @objc(run: withTimeout:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
+  open func objcRun(_ testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void,
                     timeout: TimeInterval) {
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
@@ -164,7 +164,7 @@ open class MockService: NSObject {
           done()
         }
       }.onFailure { error in
-        self.failWithLocation("Error setting up pact: \(error.localizedDescription)", file: file, line: line)
+        self.failWithError(.setupError(error.message), file: file, line: line)
         done()
       }
     }
@@ -172,10 +172,8 @@ open class MockService: NSObject {
         self.mockServer.verify(self.pact).onSuccess { _ in
             done()
         }.onFailure { error in
-          self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
-          file: file,
-          line: line)
-          print("warning: Make sure the testComplete() fuction is called at the end of your test.")
+          self.failWithError(.missmatches(error.message), file: file, line: line)
+          debugPrint("warning: Make sure the testComplete() fuction is called at the end of your test.")
           done()
         }
     }
@@ -194,26 +192,10 @@ open class MockService: NSObject {
       }
     }
 
-    // merge-todo this might be up for deletion
   func failWithError(_ error: PactError, file: FileString?, line: UInt?) {
-    switch error {
-    case let .setupError(message):
-      self.failWithLocation("Error setting up pact: \(message)",
-        file: file,
-        line: line)
-    case let .executionError(message):
-      self.failWithLocation("Error executing pact: \(message)",
-        file: file,
-        line: line)
-    case let .missmatches(message):
-      self.failWithLocation("Error verifying pact. Missmatches: \(message)",
-        file: file,
-        line: line)
-    case .writeError(let message):
-      self.failWithLocation("Error writing pact: \(message)",
-        file: file,
-        line: line)
-    }
+    self.failWithLocation(error.localizedDescription,
+    file: file,
+    line: line)
   }
 
   public func waitUntilWithLocation(timeout: TimeInterval,

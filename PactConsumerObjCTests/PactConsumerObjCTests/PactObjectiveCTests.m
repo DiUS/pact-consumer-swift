@@ -24,7 +24,7 @@
 
 - (void)testGetAlligator {
   typedef void (^CompleteBlock)(void);
-  
+
   [[[[self.animalMockService given:@"an alligator exists"]
                              uponReceiving:@"ObjC - a request for an alligator"]
                              withRequestHTTPMethod:PactHTTPMethodGET
@@ -33,7 +33,7 @@
                              willRespondWithHTTPStatus:200
                                                headers:@{@"Content-Type": @"application/json"}
                                                   body: @"{ \"name\": \"Mary\"}" ];
-  
+
   [self.animalMockService run:^(CompleteBlock testComplete) {
       Animal *animal = [self.animalServiceClient getAlligator];
       XCTAssertEqualObjects(animal.name, @"Mary");
@@ -43,7 +43,7 @@
 
 - (void)testWithQueryParams {
   typedef void (^CompleteBlock)(void);
-  
+
   [[[[self.animalMockService given:@"an alligator exists"]
                              uponReceiving:@"ObjC - a request for animals living in water"]
                              withRequestHTTPMethod:PactHTTPMethodGET
@@ -52,8 +52,8 @@
                                            headers:nil body: nil]
                              willRespondWithHTTPStatus:200
                                                headers:@{@"Content-Type": @"application/json"}
-   body: @[ @{ @"name": [Matcher somethingLike:@"Mary"] } ] ];
-  
+   body: @[ @{ @"name": [[Matcher somethingLike:@"Mary"] rule ]} ] ];
+
   [self.animalMockService run:^(CompleteBlock testComplete) {
       NSArray *animals = [self.animalServiceClient findAnimalsLiving:@"water"];
 
@@ -68,7 +68,7 @@
 
 - (void)testMatchingRegex {
   typedef void (^CompleteBlock)(void);
-  
+
   [[[[self.animalMockService given:@"an alligator exists with a birthdate"]
                               uponReceiving:@"ObjC - a request for alligator with birthdate"]
                               withRequestHTTPMethod:PactHTTPMethodGET
@@ -78,9 +78,9 @@
                                 headers:@{@"Content-Type": @"application/json"}
                                 body: @{
                                         @"name": @"Mary",
-                                        @"dateOfBirth": [Matcher termWithMatcher:@"\\d{2}\\/\\d{2}\\/\\d{4}" generate:@"02/02/1999"]
+                                        @"dateOfBirth": [[Matcher termWithMatcher:@"\\d{2}\\/\\d{2}\\/\\d{4}" generate:@"02/02/1999"] rule]
                                       }];
-  
+
   [self.animalMockService run:^(CompleteBlock testComplete) {
     Animal *animal = [self.animalServiceClient getAlligator];
     XCTAssertEqualObjects(animal.name, @"Mary");
@@ -91,7 +91,7 @@
 
 - (void)testMatchingType {
   typedef void (^CompleteBlock)(void);
-  
+
   [[[[self.animalMockService given:@"an alligator exists with legs"]
                               uponReceiving:@"ObjC - a request for alligator with legs"]
                               withRequestHTTPMethod:PactHTTPMethodGET
@@ -101,9 +101,9 @@
                                 headers:@{@"Content-Type": @"application/json"}
                                 body: @{
                                          @"name": @"Mary",
-                                         @"legs": [Matcher somethingLike:@4]
+                                         @"legs": [[Matcher somethingLike:@4] rule]
                                        }];
-  
+
   [self.animalMockService run:^(CompleteBlock testComplete) {
     Animal *animal = [self.animalServiceClient getAlligator];
     XCTAssertEqualObjects(animal.name, @"Mary");
@@ -115,7 +115,7 @@
 
 - (void)testMatchingVariableLengthArray {
   typedef void (^CompleteBlock)(void);
-  
+
   [[[[self.animalMockService given:@"multiple land based animals exist"]
                               uponReceiving:@"ObjC - a request for animals living on land"]
                               withRequestHTTPMethod:PactHTTPMethodGET
@@ -124,11 +124,11 @@
                                 headers:nil body: nil]
                               willRespondWithHTTPStatus:200
                                 headers:@{@"Content-Type": @"application/json"}
-                                body: [Matcher eachLike:@{ @"name": @"Bruce", @"legs": @4 } min:1]];
-  
+                                body: [[Matcher eachLike:@{ @"name": @"Bruce", @"legs": @4 } min:1] rule]];
+
   [self.animalMockService run:^(CompleteBlock testComplete) {
     NSArray *animals = [self.animalServiceClient findAnimalsLiving:@"land"];
-    
+
     XCTAssertEqual(animals.count, 1);
     Animal *animal = animals[0];
     XCTAssertEqualObjects(animal.name, @"Bruce");
@@ -139,7 +139,7 @@
 
 - (void)testAsyncCall {
     typedef void (^CompleteBlock)(void);
-    
+
     [[[self.animalMockService uponReceiving:@"an async request"]
       withRequestHTTPMethod:PactHTTPMethodGET
       path:@"/path"
@@ -149,7 +149,7 @@
      willRespondWithHTTPStatus:200
      headers:@{@"Content-Type": @"application/json"}
      body: @{}];
-    
+
     [self.animalMockService run:^(CompleteBlock testComplete) {
         NSString *dataUrl = @"http://localhost:1234/path";
         NSURL *url = [NSURL URLWithString:dataUrl];
@@ -158,8 +158,7 @@
                                                testComplete();
                                            }];
         [asyncTask resume];
-    }
-     ];
+    }];
 }
 
 @end

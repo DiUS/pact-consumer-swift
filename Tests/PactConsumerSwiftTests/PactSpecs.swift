@@ -34,7 +34,7 @@ class PactSwiftSpec: QuickSpec {
 
       it("gets an alligator with path matcher") {
         let pathMatcher = Matcher.term(matcher: "^\\/alligators\\/[0-9]{4}",
-                                  generate: "/alligators/1234")
+            generate: "/alligators/1234").rule()
 
         animalMockService!.given("an alligator exists")
                 .uponReceiving("a request for an alligator with path matcher")
@@ -78,7 +78,7 @@ class PactSwiftSpec: QuickSpec {
         it("should return animals living in water using dictionary matcher") {
           animalMockService!.given("an alligator exists")
                             .uponReceiving("a request for animals living in water with dictionary matcher")
-                            .withRequest(method:.GET, path: "/animals", query: ["live": Matcher.somethingLike("water")])
+                            .withRequest(method:.GET, path: "/animals", query: ["live": Matcher.somethingLike("water").rule()])
                             .willRespondWith(status: 200,
                                              headers: ["Content-Type": "application/json"],
                                              body: [ ["name": "Mary", "type": "alligator"] ] )
@@ -96,7 +96,7 @@ class PactSwiftSpec: QuickSpec {
         }
 
         it("should return animals living in water using matcher") {
-          let queryMatcher = Matcher.term(matcher: "live=*", generate: "live=water")
+          let queryMatcher = Matcher.term(matcher: "live=*", generate: "live=water").rule()
 
           animalMockService!.given("an alligator exists")
                             .uponReceiving("a request for animals living in water with matcher")
@@ -124,10 +124,10 @@ class PactSwiftSpec: QuickSpec {
                   .uponReceiving("a request for an alligator with header matcher")
                   .withRequest(method: .GET,
                     path: "/alligators",
-                    headers: ["Authorization": Matcher.somethingLike("OIOIUOIU")])
+                    headers: ["Authorization": Matcher.somethingLike("OIOIUOIU").rule()])
                   .willRespondWith(status: 200,
-                    headers: ["Content-Type": "application/json", "Etag": Matcher.somethingLike("x234")],
-                    body: ["name": "Mary", "type": "alligator"])
+                                   headers: ["Content-Type": "application/json", "Etag": Matcher.somethingLike("x234").rule()],
+                                   body: ["name": "Mary", "type": "alligator"])
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
@@ -190,7 +190,7 @@ class PactSwiftSpec: QuickSpec {
                         .willRespondWith(status: 204, headers: ["Content-Type": "application/json"])
           animalMockService!.uponReceiving("what alligators eat")
                         .withRequest(method:.GET, path: "/alligator/eat")
-                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": Matcher.somethingLike("pidgeon")]])
+                        .willRespondWith(status:200, headers: ["Content-Type": "application/json"], body: [ ["name": "Joseph", "type": Matcher.somethingLike("pidgeon").rule()]])
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in
@@ -225,7 +225,7 @@ class PactSwiftSpec: QuickSpec {
                 "dateOfBirth": Matcher.term(
                     matcher: "\\d{2}\\/\\d{2}\\/\\d{4}", 
                     generate: "02/02/1999"
-                  )
+                ).rule()
               ])
           
           //Run the tests
@@ -251,7 +251,7 @@ class PactSwiftSpec: QuickSpec {
               body: [
                 "name": "Mary",
                 "type": "alligator",
-                "legs": Matcher.somethingLike(4)
+                "legs": Matcher.somethingLike(4).rule()
               ])
           
           //Run the tests
@@ -276,7 +276,7 @@ class PactSwiftSpec: QuickSpec {
                             .willRespondWith(
                               status: 200,
                               headers: ["Content-Type": "application/json"],
-                              body: Matcher.eachLike(["name": "Bruce", "type": "wombat"]))
+                              body: Matcher.eachLike(["name": "Bruce", "type": "wombat"]).rule())
 
           //Run the tests
           animalMockService!.run { (testComplete) -> Void in

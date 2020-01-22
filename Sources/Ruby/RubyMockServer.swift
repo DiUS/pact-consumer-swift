@@ -90,7 +90,7 @@ open class PactVerificationService: NSObject, MockServer {
     self.clean().onSuccess { _ in
         promise.completeWith(self.setupInteractions(pact.interactions))
     }.onFailure { error in
-      promise.failure(.setupError(error.localizedDescription))
+      promise.failure(error)
     }
     return promise.future
   }
@@ -100,12 +100,12 @@ open class PactVerificationService: NSObject, MockServer {
     self.verifyInteractions().onSuccess { _ in
       promise.completeWith(self.write(provider: pact.provider, consumer: pact.consumer))
     }.onFailure { error in
-      promise.failure(.missmatches(error.localizedDescription))
+      promise.failure(error)
     }
     return promise.future
   }
 
-  fileprivate func verifyInteractions() -> Future<String, PactError> {
+  private func verifyInteractions() -> Future<String, PactError> {
     let promise = Promise<String, PactError>()
 
     self.performNetworkRequest(for: Router.verify, promise: promise)
@@ -113,7 +113,7 @@ open class PactVerificationService: NSObject, MockServer {
     return promise.future
   }
 
-  fileprivate func write(provider: String, consumer: String) -> Future<String, PactError> {
+  private func write(provider: String, consumer: String) -> Future<String, PactError> {
     let promise = Promise<String, PactError>()
     let payload: [String: [String: String]] = ["consumer": ["name": consumer],
                                                "provider": ["name": provider]]
@@ -123,7 +123,7 @@ open class PactVerificationService: NSObject, MockServer {
     return promise.future
   }
 
-  fileprivate func clean() -> Future<String, PactError> {
+  private func clean() -> Future<String, PactError> {
     let promise = Promise<String, PactError>()
 
     self.performNetworkRequest(for: Router.clean, promise: promise)
@@ -131,7 +131,7 @@ open class PactVerificationService: NSObject, MockServer {
     return promise.future
   }
 
-  fileprivate func setupInteractions (_ interactions: [Interaction]) -> Future<String, PactError> {
+  private func setupInteractions (_ interactions: [Interaction]) -> Future<String, PactError> {
     let promise = Promise<String, PactError>()
     let payload: [String: Any] = ["interactions": interactions.map({ RubyInteractionAdapter($0).adapt() }),
                                   "example_description": "description"]
@@ -179,7 +179,10 @@ open class PactVerificationService: NSObject, MockServer {
       } else {
         errorMessage = error?.localizedDescription ?? "Unknown error"
       }
+        // this is problem!
+        // check again solution of existing project
       promise.failure(.executionError(errorMessage))
+
     }
   }
 }
