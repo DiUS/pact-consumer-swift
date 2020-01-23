@@ -36,13 +36,6 @@ class PactBodyBuilder {
     return result
   }
 
-  private func eachLikeMatchingRule(path: String, element: Any) -> PathWithMatchingRule? {
-    guard let eachLikeElement = element as? NativeMinTypeMatcher else {
-      return nil
-    }
-    return [path: eachLikeElement.rule()]
-  }
-
   func processArray(_ array: JSONArray, path: String) -> (Any, PathWithMatchingRule) {
     var matches: PathWithMatchingRule = [:]
     var processedArray: JSONArray = []
