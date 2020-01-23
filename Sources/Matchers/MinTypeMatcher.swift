@@ -1,7 +1,7 @@
 import Foundation
 
 @objc
-public class MinTypeMatcher: NSObject, MatchingRule {
+public class MinTypeMatcher: NSObject {
     let typeValue: [String: Any]
     let min: Int
 
@@ -10,14 +10,7 @@ public class MinTypeMatcher: NSObject, MatchingRule {
         self.min = min
     }
 
-    public func rule() -> [String: Any] {
-        return [
-            "match": "type",
-            "min": min
-        ]
-    }
-
-    public func value() -> Any {
+    @objc public func value() -> Any {
         return typeValue
     }
 }

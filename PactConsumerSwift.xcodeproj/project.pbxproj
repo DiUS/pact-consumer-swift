@@ -387,6 +387,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0801120423D9B064009215AF /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C761FE0CDC80080725A /* MatchingRule.swift */,
+				A1400C741FE0CDC80080725A /* TermMatcher.swift */,
+				A1400C771FE0CDC80080725A /* TypeMatcher.swift */,
+				08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
 		0893C03B22AAFE29001A6E27 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,21 +481,9 @@
 				A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */,
 				A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */,
 				A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */,
-				A1400C631FE0CBE10080725A /* Matchers */,
+				A11553651FE8D8A5008796C3 /* NativeMatcher.swift */,
 			);
 			path = Native;
-			sourceTree = "<group>";
-		};
-		A1400C631FE0CBE10080725A /* Matchers */ = {
-			isa = PBXGroup;
-			children = (
-				A11553651FE8D8A5008796C3 /* NativeMatcher.swift */,
-				A1400C761FE0CDC80080725A /* MatchingRule.swift */,
-				A1400C741FE0CDC80080725A /* TermMatcher.swift */,
-				A1400C771FE0CDC80080725A /* TypeMatcher.swift */,
-				08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */,
-			);
-			path = Matchers;
 			sourceTree = "<group>";
 		};
 		A1400C7D1FE0CDFF0080725A /* NativeTests */ = {
@@ -561,6 +560,7 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0801120423D9B064009215AF /* Matchers */,
 				0893C03B22AAFE29001A6E27 /* lib */,
 				A109FBA622CB6A6C007B46F7 /* Reporting */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,

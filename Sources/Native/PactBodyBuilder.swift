@@ -25,7 +25,7 @@ class PactBodyBuilder {
       result = processArray(array, path: path)
     case let dictionary as JSONEntry:
       result = processDictionary(dictionary, path: path)
-    case let matcher as MinTypeMatcher:
+    case let matcher as NativeMinTypeMatcher:
       result = processElement(path: "\(path)[*]", element: matcher.value())
     case let matcher as MatchingRule:
       result = (matcher.value(), [path: matcher.rule()])
@@ -37,7 +37,7 @@ class PactBodyBuilder {
   }
 
   private func eachLikeMatchingRule(path: String, element: Any) -> PathWithMatchingRule? {
-    guard let eachLikeElement = element as? MinTypeMatcher else {
+    guard let eachLikeElement = element as? NativeMinTypeMatcher else {
       return nil
     }
     return [path: eachLikeElement.rule()]
@@ -50,7 +50,7 @@ class PactBodyBuilder {
 
     for (index, arrayValue) in array.enumerated() {
       let processedSubElement = processElement(path: "\(path)[\(index)]", element: arrayValue)
-      if let eachLikeElement = arrayValue as? MinTypeMatcher {
+      if let eachLikeElement = arrayValue as? NativeMinTypeMatcher {
         matches = matches.merge(dictionary: [path: eachLikeElement.rule()])
         numberOfBodyElements = eachLikeElement.min
       }
