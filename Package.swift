@@ -20,7 +20,7 @@ let package = Package(
   targets: [
     .target(
       name: "PactConsumerSwift",
-      dependencies: ["BrightFutures", "Nimble", "Result"],
+      dependencies: ["BrightFutures", "Nimble", "Result", "SwiftyJSON"],
       path: "./Sources"
     ),
     .testTarget(

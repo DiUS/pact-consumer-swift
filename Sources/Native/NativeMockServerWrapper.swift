@@ -1,4 +1,5 @@
 import Foundation
+import SwiftyJSON
 import BrightFutures
 
 public class NativeMockServerWrapper: MockServer {
@@ -93,28 +94,21 @@ public class NativeMockServerWrapper: MockServer {
 
     private func mismatches() -> String {
         let mismatches = mock_server_mismatches_ffi(port)
-
-        // merge-todo adopt to codable
         if let mismatches = mismatches {
-            let jsonString = String(cString: mismatches)
-            debugPrint(jsonString)
-        }
-
-//        if let mismatches = mismatches {
-//            let json = JSON(parseJSON: String(cString: mismatches))
-//            var mismatches = ""
-//            for (_, pathMismatch):(String, JSON) in json {
-//                mismatches = "\(mismatches)\(pathMismatch["method"]) \(pathMismatch["path"]): "
-//                for (_, mismatch):(String, JSON) in pathMismatch["mismatches"] {
-//                    mismatches = "\(mismatches){error: \(mismatch["mismatch"]), "
-//                    mismatches = "\(mismatches)expected: \(mismatch["expected"]), "
-//                    mismatches = "\(mismatches)actual: \(mismatch["actual"])}"
-//                }
-//            }
-//            return mismatches
-//        } else {
+            let json = JSON(parseJSON: String(cString: mismatches))
+            var mismatches = ""
+            for (_, pathMismatch):(String, JSON) in json {
+                mismatches = "\(mismatches)\(pathMismatch["method"]) \(pathMismatch["path"]): "
+                for (_, mismatch):(String, JSON) in pathMismatch["mismatches"] {
+                    mismatches = "\(mismatches){error: \(mismatch["mismatch"]), "
+                    mismatches = "\(mismatches)expected: \(mismatch["expected"]), "
+                    mismatches = "\(mismatches)actual: \(mismatch["actual"])}"
+                }
+            }
+            return mismatches
+        } else {
             return "Nothing received"
-//        }
+        }
     }
 
     private func matched() -> Bool {
