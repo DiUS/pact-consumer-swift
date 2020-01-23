@@ -4,7 +4,7 @@ import Foundation
 open class NativeMatcher: NSObject, Matchers {
 
   @objc
-  public func term(matcher: String, generate: String) -> MatchingRule {
+  public func term(matcher: String, generate: Any) -> MatchingRule {
     let sanitizedString = matcher.replacingOccurrences(of: "\\/", with: "/")
     return NativeTermMatcher(regex: sanitizedString, value: generate)
   }

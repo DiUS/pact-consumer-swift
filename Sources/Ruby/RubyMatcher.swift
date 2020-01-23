@@ -3,7 +3,7 @@ import Foundation
 @objc
 open class RubyMatcher: NSObject, Matchers {
   @objc
-  public func term(matcher: String, generate: String) -> MatchingRule {
+  public func term(matcher: String, generate: Any) -> MatchingRule {
     return RubyTermMatcher(regex: matcher, value: generate)
   }
 

@@ -4,7 +4,7 @@ import Foundation
 public protocol Matchers {
 
   @objc
-  func term(matcher: String, generate: String) -> MatchingRule
+  func term(matcher: String, generate: Any) -> MatchingRule
 
   @objc
   func somethingLike(_ value: Any) -> MatchingRule
@@ -19,7 +19,7 @@ public class Matcher: NSObject {
   static var matchers: Matchers = RubyMatcher()
 
   @objc
-  public class func term(matcher: String, generate: String) -> MatchingRule {
+  public class func term(matcher: String, generate: Any) -> MatchingRule {
     return matchers.term(matcher: matcher, generate: generate)
   }
 
