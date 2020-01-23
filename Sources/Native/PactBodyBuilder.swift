@@ -25,32 +25,40 @@ class PactBodyBuilder {
       result = processArray(array, path: path)
     case let dictionary as JSONEntry:
       result = processDictionary(dictionary, path: path)
-    case let matcher as NativeMinTypeMatcher:
-      result = processElement(path: "\(path)[*]", element: matcher.value())
+    case let minType as NativeMinTypeMatcher:
+      result = processMinType(minType, path: path)
     case let matcher as MatchingRule:
       result = (matcher.value(), [path: matcher.rule()])
     default:
-      print(path, element)
+      debugPrint(path, element)
       result = (element, [:])
     }
     return result
   }
 
+    private func processMinType(_ matcher: NativeMinTypeMatcher, path: String) -> (Any, PathWithMatchingRule) {
+    var matches: PathWithMatchingRule = [:]
+    var processedArray: JSONArray = []
+
+    for index in 0..<matcher.min {
+        let indexPath = "\(path)[\(index)]"
+        let processedSubElement = processElement(path: "\(indexPath)[*]", element: matcher.value())
+        processedArray.append(processedSubElement.0)
+        matches = matches.merge(dictionary: processedSubElement.1)
+        matches = matches.merge(dictionary: [indexPath: matcher.rule()])
+    }
+
+    return (processedArray, matches)
+  }
+
   func processArray(_ array: JSONArray, path: String) -> (Any, PathWithMatchingRule) {
     var matches: PathWithMatchingRule = [:]
     var processedArray: JSONArray = []
-    var numberOfBodyElements = 1
 
     for (index, arrayValue) in array.enumerated() {
       let processedSubElement = processElement(path: "\(path)[\(index)]", element: arrayValue)
-      if let eachLikeElement = arrayValue as? NativeMinTypeMatcher {
-        matches = matches.merge(dictionary: [path: eachLikeElement.rule()])
-        numberOfBodyElements = eachLikeElement.min
-      }
-      for _ in 0..<numberOfBodyElements {
         processedArray.append(processedSubElement.0)
         matches = matches.merge(dictionary: processedSubElement.1)
-      }
     }
     return (processedArray, matches)
   }
