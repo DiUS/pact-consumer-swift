@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 @testable import PactConsumerSwift
+import SwiftyJSON
 
 class PactHeaderBuilderSpec: QuickSpec {
   override func spec() {
@@ -11,18 +12,17 @@ class PactHeaderBuilderSpec: QuickSpec {
         "Authorization": "alligator"]
         ).build()
 
-        // merge-todo this probably needs to get fixed
-//        it("builds matching rules") {
-//          let matchingRules = JSON(pactHeaders.matchingRules)
-//
-//          expect(matchingRules).to(equal([:]))
-//        }
-//
-//        it("builds headers") {
-//          let headers = JSON(pactHeaders.headers)
-//
-//          expect(headers).to(equal(["Content-Type": "application/json", "Authorization": "alligator"]))
-//        }
+        it("builds matching rules") {
+          let matchingRules = JSON(pactHeaders.matchingRules)
+
+          expect(matchingRules).to(equal([:]))
+        }
+
+        it("builds headers") {
+          let headers = JSON(pactHeaders.headers)
+
+          expect(headers).to(equal(["Content-Type": "application/json", "Authorization": "alligator"]))
+        }
     }
 
     context("matching rules") {
@@ -32,20 +32,19 @@ class PactHeaderBuilderSpec: QuickSpec {
         "Authorization": NativeMatcher().somethingLike("alligator")]
         ).build()
 
-        // merge-todo this probably needs to get fixed
-//        it("builds matching rules") {
-//          let matchingRules = JSON(pactHeaders.matchingRules)
-//
-//          expect(matchingRules).to(equal(["$.headers.Authorization": ["match": "type"], "$.headers.MyHeader": ["match": "type"]]))
-//        }
-//
-//        it("builds headers") {
-//          let headers = JSON(pactHeaders.headers)
-//
-//          expect(headers).to(equal(["Content-Type": "application/json",
-//            "MyHeader": 3,
-//            "Authorization": "alligator"]))
-//        }
+        it("builds matching rules") {
+          let matchingRules = JSON(pactHeaders.matchingRules)
+
+          expect(matchingRules).to(equal(["$.headers.Authorization": ["match": "type"], "$.headers.MyHeader": ["match": "type"]]))
+        }
+
+        it("builds headers") {
+          let headers = JSON(pactHeaders.headers)
+
+          expect(headers).to(equal(["Content-Type": "application/json",
+            "MyHeader": 3,
+            "Authorization": "alligator"]))
+        }
     }
   }
 }

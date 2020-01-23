@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 @testable import PactConsumerSwift
+import SwiftyJSON
 
 class PactQueryBuilderSpec: QuickSpec {
   override func spec() {
@@ -12,18 +13,17 @@ class PactQueryBuilderSpec: QuickSpec {
           "type": "alligator"]
           ).build()
 
-        // merge-todo this probably needs to get fixed
-//        it("builds matching rules") {
-//          let matchingRules = JSON(pactQuery.matchingRules)
-//
-//          expect(matchingRules).to(equal([:]))
-//        }
-//
-//        it("builds query") {
-//          let query = JSON(pactQuery.query)
-//
-//          expect(query).to(equal("name=Mary&type=alligator"))
-//        }
+        it("builds matching rules") {
+          let matchingRules = JSON(pactQuery.matchingRules)
+
+          expect(matchingRules).to(equal([:]))
+        }
+
+        it("builds query") {
+          let query = JSON(pactQuery.query)
+
+          expect(query).to(equal("name=Mary&type=alligator"))
+        }
       }
 
       context("matching rules") {
@@ -32,54 +32,51 @@ class PactQueryBuilderSpec: QuickSpec {
           "type": NativeMatcher().somethingLike("alligator")]
           ).build()
 
-        // merge-todo this probably needs to get fixed
-//        it("builds matching rules") {
-//          let matchingRules = JSON(pactQuery.matchingRules)
-//
-//          expect(matchingRules).to(equal(["$.query.name[0]": ["match": "type"], "$.query.type[0]": ["match": "type"]]))
-//        }
-//
-//        it("builds query") {
-//          let query = JSON(pactQuery.query)
-//
-//          expect(query).to(equal("name=3&type=alligator"))
-//        }
+        it("builds matching rules") {
+          let matchingRules = JSON(pactQuery.matchingRules)
+
+          expect(matchingRules).to(equal(["$.query.name[0]": ["match": "type"], "$.query.type[0]": ["match": "type"]]))
+        }
+
+        it("builds query") {
+          let query = JSON(pactQuery.query)
+
+          expect(query).to(equal("name=3&type=alligator"))
+        }
       }
     }
 
     context("string based query") {
       let pactQuery = PactQueryBuilder(query: "live=water").build()
 
-        // merge-todo this probably needs to get fixed
-//      it("builds matching rules") {
-//        let matchingRules = JSON(pactQuery.matchingRules)
-//
-//        expect(matchingRules).to(equal([:]))
-//      }
-//
-//      it("builds query") {
-//        let query = JSON(pactQuery.query)
-//
-//        expect(query).to(equal("live=water"))
-//      }
+      it("builds matching rules") {
+        let matchingRules = JSON(pactQuery.matchingRules)
+
+        expect(matchingRules).to(equal([:]))
+      }
+
+      it("builds query") {
+        let query = JSON(pactQuery.query)
+
+        expect(query).to(equal("live=water"))
+      }
     }
 
     context("matcher based query") {
       let matcher = NativeMatcher().term(matcher: "live=*", generate: "live=water")
       let pactQuery = PactQueryBuilder(query: matcher).build()
 
-        // merge-todo this probably needs to get fixed
-//      it("builds matching rules") {
-//        let matchingRules = JSON(pactQuery.matchingRules)
-//
-//        expect(matchingRules).to(equal(["$.query": ["match": "regex", "regex": "live=*"]]))
-//      }
-//
-//      it("builds query") {
-//        let query = JSON(pactQuery.query)
-//
-//        expect(query).to(equal("live=water"))
-//      }
+      it("builds matching rules") {
+        let matchingRules = JSON(pactQuery.matchingRules)
+
+        expect(matchingRules).to(equal(["$.query": ["match": "regex", "regex": "live=*"]]))
+      }
+
+      it("builds query") {
+        let query = JSON(pactQuery.query)
+
+        expect(query).to(equal("live=water"))
+      }
     }
   }
 }
