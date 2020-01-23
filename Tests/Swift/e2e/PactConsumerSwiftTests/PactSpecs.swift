@@ -300,8 +300,6 @@ class PactSwiftSpec: QuickSpec {
               }
             }
 
-            if(testSetup == TestSetup.Ruby) {
-              // TODO: Implement matcher in RUST
               it("Can match based on flexible length array") {
                 animalMockService!.given("multiple land based animals exist")
                   .uponReceiving("a request for animals living on land")
