@@ -44,7 +44,7 @@ class PactSwiftSpec: QuickSpec {
       describe("Test against \(testSetup.name)") {
         describe("tests fulfilling all expected interactions") {
           beforeEach {
-            animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", mockServer: testSetup.mockServer())
+            animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", mockServer: testSetup.mockServer(), matchers: testSetup.matcher)
             animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
           }
 
