@@ -14,10 +14,6 @@ public class Pact {
     self.interactions = interactions
   }
 
-  public func addInteractions(_ interaction: Interaction) {
-    self.interactions.append(interaction)
-  }
-
   public func payload() -> [String: Any] {
     return [ "provider": [ "name": provider],
       "consumer": [ "name": consumer],
