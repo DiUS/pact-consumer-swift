@@ -72,9 +72,6 @@
 		A115533C1FE3C4C5008796C3 /* RubyMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */; };
 		A115533F1FE793C1008796C3 /* RubyInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */; };
 		A11553411FE79751008796C3 /* PactInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553401FE79751008796C3 /* PactInteractionAdapter.swift */; };
-		A115534B1FE88A7F008796C3 /* RubyInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */; };
-		A115534C1FE88A81008796C3 /* RubyInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */; };
-		A115534D1FE88A82008796C3 /* RubyInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */; };
 		A115534E1FE88A88008796C3 /* PactInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */; };
 		A115534F1FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */; };
 		A11553501FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */; };
@@ -254,7 +251,6 @@
 		A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyMockServer.swift; sourceTree = "<group>"; };
 		A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyInteractionAdapter.swift; sourceTree = "<group>"; };
 		A11553401FE79751008796C3 /* PactInteractionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteractionAdapter.swift; sourceTree = "<group>"; };
-		A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyInteractionAdapterSpec.swift; sourceTree = "<group>"; };
 		A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteractionAdapterSpec.swift; sourceTree = "<group>"; };
 		A11553511FE8AB24008796C3 /* PactError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactError.swift; sourceTree = "<group>"; };
 		A11553651FE8D8A5008796C3 /* NativeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMatcher.swift; sourceTree = "<group>"; };
@@ -457,7 +453,6 @@
 			isa = PBXGroup;
 			children = (
 				A1400C7E1FE0CE590080725A /* Unit */,
-				A1400C7F1FE0CE6A0080725A /* e2e */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -489,7 +484,6 @@
 		A1400C7D1FE0CDFF0080725A /* NativeTests */ = {
 			isa = PBXGroup;
 			children = (
-				A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */,
 				A1400C8D1FE0CFF70080725A /* Matchers */,
 				A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */,
 				A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */,
@@ -502,18 +496,9 @@
 		A1400C7E1FE0CE590080725A /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				080111E623D8A0D1009215AF /* MatcherSpec.swift */,
-				A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */,
 				A1400C7D1FE0CDFF0080725A /* NativeTests */,
 			);
 			path = Unit;
-			sourceTree = "<group>";
-		};
-		A1400C7F1FE0CE6A0080725A /* e2e */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = e2e;
 			sourceTree = "<group>";
 		};
 		A1400C8D1FE0CFF70080725A /* Matchers */ = {
@@ -539,7 +524,6 @@
 				ADC03E171F74C2C0003FCA6A /* Frameworks */,
 				AD17A5E91F74B03000219F39 /* Sources */,
 				AD17A5EA1F74B03500219F39 /* Tests */,
-				A11553291FE21C91008796C3 /* PactConsumerObjCTests */,
 				AD17A5891F74AF5300219F39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -580,10 +564,13 @@
 			isa = PBXGroup;
 			children = (
 				A115532A1FE21C9C008796C3 /* Swift */,
+				A11553291FE21C91008796C3 /* PactConsumerObjCTests */,
 				A1B2BE9022D19924009B0837 /* Mocks */,
 				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
-				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
+				A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */,
+				080111E623D8A0D1009215AF /* MatcherSpec.swift */,
 				A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */,
+				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1188,7 +1175,6 @@
 				080111F023D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */,
 				A1400C961FE0DF120080725A /* PactBodyBuilderSpec.swift in Sources */,
 				080111ED23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */,
-				A115534B1FE88A7F008796C3 /* RubyInteractionAdapterSpec.swift in Sources */,
 				A115534E1FE88A88008796C3 /* PactInteractionAdapterSpec.swift in Sources */,
 				080111F423D8A49F009215AF /* AnimalServiceClient.swift in Sources */,
 				A1400C971FE0DF120080725A /* PactHeaderBuilderSpec.swift in Sources */,
@@ -1239,7 +1225,6 @@
 				080111F123D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */,
 				A1B2BE9322D19924009B0837 /* ErrorCapture.swift in Sources */,
 				A1400C9A1FE0DF130080725A /* PactBodyBuilderSpec.swift in Sources */,
-				A115534C1FE88A81008796C3 /* RubyInteractionAdapterSpec.swift in Sources */,
 				080111E823D8A0D1009215AF /* MatcherSpec.swift in Sources */,
 				080111F523D8A49F009215AF /* AnimalServiceClient.swift in Sources */,
 				A115534F1FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */,
@@ -1294,7 +1279,6 @@
 				080111EF23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */,
 				A1B2BE9822D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 				A1400C9E1FE0DF140080725A /* PactBodyBuilderSpec.swift in Sources */,
-				A115534D1FE88A82008796C3 /* RubyInteractionAdapterSpec.swift in Sources */,
 				080111E923D8A0D1009215AF /* MatcherSpec.swift in Sources */,
 				A11553501FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */,
 				A1400C9F1FE0DF140080725A /* PactHeaderBuilderSpec.swift in Sources */,
