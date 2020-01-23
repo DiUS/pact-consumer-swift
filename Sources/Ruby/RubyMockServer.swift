@@ -1,7 +1,7 @@
 import Foundation
 import BrightFutures
 
-open class PactVerificationService: NSObject, MockServer {
+open class RubyMockServer: NSObject, MockServer {
   public let url: String
   public let port: Int
   public let allowInsecureCertificates: Bool
@@ -187,7 +187,7 @@ open class PactVerificationService: NSObject, MockServer {
   }
 }
 
-extension PactVerificationService: URLSessionDelegate {
+extension RubyMockServer: URLSessionDelegate {
   public func urlSession(_ session: URLSession,
                          didReceive challenge: URLAuthenticationChallenge,
                          completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {

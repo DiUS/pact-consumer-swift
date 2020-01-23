@@ -87,7 +87,7 @@ open class MockService: NSObject {
                           consumer: String) {
     self.init(provider: provider,
               consumer: consumer,
-              mockServer: PactVerificationService(),
+              mockServer: RubyMockServer(),
               matchers: RubyMatcher(),
               errorReporter: XCodeErrorReporter())
   }

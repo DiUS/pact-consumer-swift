@@ -13,7 +13,7 @@ class MockServiceSpec: QuickSpec {
       errorCapturer = ErrorCapture()
       mockService = MockService(provider: "ABC Service",
                                 consumer: "unit tests",
-                                mockServer: PactVerificationService(),
+                                mockServer: RubyMockServer(),
                                 errorReporter: errorCapturer!)
 
       mockService!
