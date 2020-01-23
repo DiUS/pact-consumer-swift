@@ -21,7 +21,7 @@ public class Pact {
   public func payload() -> [String: Any] {
     return [ "provider": [ "name": provider],
       "consumer": [ "name": consumer],
-      "interactions": interactions.map({ PactInteractionAdapter($0).adapt() }),
+      "interactions": interactions.map({ $0.payload() }),
       "metadata": [ "pact-specification": [ "version": "2.0.0"] ]]
   }
 }
