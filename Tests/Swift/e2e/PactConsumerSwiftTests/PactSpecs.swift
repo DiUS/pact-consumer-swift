@@ -57,7 +57,7 @@ class PactSwiftSpec: QuickSpec {
                               body: [ ["name": "Mary", "type": "alligator"] ])
 
             //Run the tests
-            animalMockService!.run(timeout: 10000) { (testComplete) -> Void in
+            animalMockService!.run { (testComplete) -> Void in
               animalServiceClient!.getAlligators( { (alligators) in
                 expect(alligators[0].name).to(equal("Mary"))
                 testComplete()
