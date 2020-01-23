@@ -310,17 +310,16 @@ class PactSwiftSpec: QuickSpec {
                   .willRespondWith(
                     status: 200,
                     headers: ["Content-Type": "application/json"],
-                    body: testSetup.matcher.eachLike(["name": "Bruce", "type": "wombat"], min: 1))
+                    body: testSetup.matcher.eachLike(["name": "Bruce", "type": "wombat"], min: 5))
 
                 //Run the tests
                 animalMockService!.run { (testComplete) -> Void in
                   animalServiceClient!.findAnimals(live: "land", response: {
                     (response) in
-                    expect(response.count).to(equal(1))
+                    expect(response.count).to(equal(5))
                     expect(response[0].name).to(equal("Bruce"))
                     testComplete()
                   })
-                }
               }
             }
           }
