@@ -15,6 +15,33 @@ open class MockService: NSObject {
     return mockServer.getBaseUrl()
   }
 
+      ///
+      /// Initializer
+      ///
+      /// - parameter provider: Name of your provider (eg: Calculator API)
+      /// - parameter consumer: Name of your consumer (eg: Calculator.app)
+      /// - parameter mockServer: Your customised `MockServer` implementation
+      /// - parameter matchers: Instance of the selected `Matchers` implementation
+      ///
+    public convenience init(provider: String,
+                            consumer: String,
+                            mockServer: MockServer,
+                            matchers: Matchers) {
+          self.init(provider: provider,
+                    consumer: consumer,
+                    mockServer: mockServer,
+                    matchers: matchers,
+                    errorReporter: XCodeErrorReporter())
+    }
+
+    ///
+    /// Initializer
+    ///
+    /// - parameter provider: Name of your provider (eg: Calculator API)
+    /// - parameter consumer: Name of your consumer (eg: Calculator.app)
+    /// - parameter mockServer: Your customised `MockServer` implementation
+    /// - parameter errorReporter: Your customised `ErrorReporter`
+    ///
   public convenience init(provider: String,
                           consumer: String,
                           mockServer: MockServer,
@@ -32,6 +59,7 @@ open class MockService: NSObject {
     /// - parameter provider: Name of your provider (eg: Calculator API)
     /// - parameter consumer: Name of your consumer (eg: Calculator.app)
     /// - parameter mockServer: Your customised `MockServer` implementation
+    /// - parameter matchers: Instance of the selected `Matchers` implementation
     /// - parameter errorReporter: Your customised `ErrorReporter`
     ///
   public init(provider: String,
