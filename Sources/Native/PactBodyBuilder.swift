@@ -30,7 +30,6 @@ class PactBodyBuilder {
     case let matcher as MatchingRule:
       result = (matcher.value(), [path: matcher.rule()])
     default:
-      debugPrint(path, element)
       result = (element, [:])
     }
     return result
