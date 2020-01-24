@@ -1,3 +1,5 @@
+import Foundation
+
 @objc
 public class PactInteractionAdapter: NSObject {
   typealias HttpMessage = [String: Any]
