@@ -3,7 +3,7 @@ set -e
 
 if [[ -z "${PROJECT_NAME}" ]]; then
   PROJECT_NAME="PactConsumerSwift.xcodeproj";
-  DESTINATION="OS=13.2,name=iPhone Xʀ";
+  DESTINATION="OS=13.2.2,name=iPhone 11 Pro Max";
   SCHEME="PactConsumerSwift iOS";
   CARTHAGE_PLATFORM="iOS";
 fi
