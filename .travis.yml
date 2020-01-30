@@ -19,12 +19,11 @@ before_install:
   - gem install xcpretty
   - brew update && brew bundle
   - brew outdated carthage || brew upgrade carthage
-  - carthage bootstrap
 script:
   - set -o pipefail
   - scripts/build.sh
 after_failure:
-  - tail -n100 $TMPDIR/carthage-*.log
+  - tail -n25 $TMPDIR/carthage-*.log
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
   - scripts/build_children.sh
