@@ -20,11 +20,8 @@
 		080111F523D8A49F009215AF /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111F323D8A49F009215AF /* AnimalServiceClient.swift */; };
 		080111F623D8A49F009215AF /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111F323D8A49F009215AF /* AnimalServiceClient.swift */; };
 		080111F823D9A956009215AF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080111F723D9A956009215AF /* SwiftyJSON.framework */; };
-		080111F923D9A956009215AF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 080111F723D9A956009215AF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		080111FC23D9A96E009215AF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080111FB23D9A96E009215AF /* SwiftyJSON.framework */; };
-		080111FD23D9A96E009215AF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 080111FB23D9A96E009215AF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0801120023D9A985009215AF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080111FF23D9A985009215AF /* SwiftyJSON.framework */; };
-		0801120123D9A985009215AF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 080111FF23D9A985009215AF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0890578F23DA1C6700097D66 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890578E23DA1C6700097D66 /* PactSpecs.swift */; };
 		0890579023DA1C6700097D66 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890578E23DA1C6700097D66 /* PactSpecs.swift */; };
 		0890579123DA1C6700097D66 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890578E23DA1C6700097D66 /* PactSpecs.swift */; };
@@ -191,42 +188,6 @@
 			remoteInfo = "PactConsumerSwift tvOS";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		080111FA23D9A956009215AF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				080111F923D9A956009215AF /* SwiftyJSON.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		080111FE23D9A96F009215AF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				080111FD23D9A96E009215AF /* SwiftyJSON.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0801120223D9A985009215AF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0801120123D9A985009215AF /* SwiftyJSON.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		080111E623D8A0D1009215AF /* MatcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherSpec.swift; sourceTree = "<group>"; };
@@ -663,9 +624,7 @@
 				AD17A5831F74AF5300219F39 /* Sources */,
 				AD17A5841F74AF5300219F39 /* Frameworks */,
 				AD17A5851F74AF5300219F39 /* Headers */,
-				AD17A5861F74AF5300219F39 /* Resources */,
 				AD17A6251F74B59000219F39 /* Copy Carthage Frameworks */,
-				080111FA23D9A956009215AF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -705,9 +664,7 @@
 				AD17A5A31F74AFB000219F39 /* Sources */,
 				AD17A5A41F74AFB000219F39 /* Frameworks */,
 				AD17A5A51F74AFB000219F39 /* Headers */,
-				AD17A5A61F74AFB000219F39 /* Resources */,
 				AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */,
-				080111FE23D9A96F009215AF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -746,9 +703,7 @@
 				AD17A5BF1F74AFC900219F39 /* Sources */,
 				AD17A5C01F74AFC900219F39 /* Frameworks */,
 				AD17A5C11F74AFC900219F39 /* Headers */,
-				AD17A5C21F74AFC900219F39 /* Resources */,
 				AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */,
-				0801120223D9A985009215AF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -844,13 +799,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AD17A5861F74AF5300219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AD17A58F1F74AF5300219F39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -858,21 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD17A5A61F74AFB000219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AD17A5AE1F74AFB000219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD17A5C21F74AFC900219F39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -989,7 +923,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/iOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi\n";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
 		};
 		AD17A6261F74B59100219F39 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
