@@ -8,7 +8,6 @@ if [[ -z "${PROJECT_NAME}" ]]; then
   CARTHAGE_PLATFORM="iOS";
 fi
 
-carthage bootstrap
 carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
 
 # SwiftPM
