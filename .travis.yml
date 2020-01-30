@@ -19,6 +19,7 @@ before_install:
   - gem install xcpretty
   - brew update && brew bundle
   - brew outdated carthage || brew upgrade carthage
+  - carthage bootstrap
 script:
   - set -o pipefail
   - scripts/build.sh

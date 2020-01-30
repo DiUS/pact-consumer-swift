@@ -8,7 +8,8 @@ if [[ -z "${PROJECT_NAME}" ]]; then
   CARTHAGE_PLATFORM="iOS";
 fi
 
-carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
+# disabled because of carthage bootstrap in .travis.yml
+#carthage build --no-skip-current --platform $CARTHAGE_PLATFORM
 
 # SwiftPM
 echo "#### Testing DEBUG configuration for SwiftPM compatibility ####"
