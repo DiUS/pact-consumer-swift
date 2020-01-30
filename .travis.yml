@@ -1,5 +1,8 @@
 language: objective-c
 osx_image: xcode11.2
+cache:
+  directories:
+    - Carthage
 env:
   global:
     - IOS_FRAMEWORK_SCHEME="PactConsumerSwift iOS"
