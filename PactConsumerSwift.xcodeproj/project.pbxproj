@@ -162,7 +162,6 @@
 		ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
-		ADC03E3D1F74C920003FCA6A /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1208,7 +1207,6 @@
 				A1400CA11FE0DF140080725A /* PactSpec.swift in Sources */,
 				080111F623D8A49F009215AF /* AnimalServiceClient.swift in Sources */,
 				A1B2BE9422D19924009B0837 /* ErrorCapture.swift in Sources */,
-				ADC03E3D1F74C920003FCA6A /* (null) in Sources */,
 				A109FBC922CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
 				080111EF23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */,
 				A1B2BE9822D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
