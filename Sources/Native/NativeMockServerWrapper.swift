@@ -2,6 +2,10 @@ import Foundation
 import SwiftyJSON
 import BrightFutures
 
+#if SWIFT_PACKAGE
+    import SwiftPactServer
+#endif
+
 public class NativeMockServerWrapper: MockServer {
     private lazy var port: Int32 = {
         return findUnusedPort()

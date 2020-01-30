@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "SwiftPactServer",
+        "repositoryURL": "https://github.com/nonec/SwiftPactServer.git",
+        "state": {
+          "branch": null,
+          "revision": "35c6c36b39c9970533f68c22a26502c196baa907",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "SwiftyJSON",
         "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
         "state": {
