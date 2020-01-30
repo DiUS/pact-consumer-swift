@@ -24,7 +24,7 @@ script:
   - set -o pipefail
   - scripts/build.sh
 after_failure:
-  - cat $TMPDIR/carthage-*.log
+  - tail -n100 $TMPDIR/carthage-*.log
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
   - scripts/build_children.sh
