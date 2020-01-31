@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
   s.module_name  = "PactConsumerSwift"
-  s.version      = "0.5.5"
+  s.version      = "0.8.0"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
@@ -26,11 +26,14 @@ Pod::Spec.new do |s|
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/Sources/lib" }
   s.requires_arc = true
   s.frameworks   = 'XCTest'
-  s.swift_version = '5.0'
 
-  s.dependency 'Alamofire', '~> 4.8.2'
-  s.dependency 'BrightFutures', '~> 8.0.0'
-  s.dependency 'Nimble', '~> 8.0.1'
-  s.dependency 'SwiftyJSON', '~> 5.0.0'
+  s.pod_target_xcconfig = {
+    'ENABLE_BITCODE' => 'NO'
+  }
+
+  s.dependency 'BrightFutures', '~> 8.0'
+  s.dependency 'Nimble', '~> 8.0'
   s.dependency 'Quick', '~> 2.1.0'
+  s.dependency 'SwiftyJSON', '~> 5.0.0'
+  s.swift_versions = ['4.2', '5.0']
 end

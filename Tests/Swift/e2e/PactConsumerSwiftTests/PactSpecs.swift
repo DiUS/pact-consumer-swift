@@ -44,7 +44,7 @@ class PactSwiftSpec: QuickSpec {
       describe("Test against \(testSetup.name)") {
         describe("tests fulfilling all expected interactions") {
           beforeEach {
-            animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", mockServer: testSetup.mockServer())
+            animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift", mockServer: testSetup.mockServer(), matchers: testSetup.matcher)
             animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
           }
 
@@ -57,7 +57,7 @@ class PactSwiftSpec: QuickSpec {
                               body: [ ["name": "Mary", "type": "alligator"] ])
 
             //Run the tests
-            animalMockService!.run(timeout: 10000) { (testComplete) -> Void in
+            animalMockService!.run { (testComplete) -> Void in
               animalServiceClient!.getAlligators( { (alligators) in
                 expect(alligators[0].name).to(equal("Mary"))
                 testComplete()
@@ -141,7 +141,7 @@ class PactSwiftSpec: QuickSpec {
                                 body: [ ["name": "Mary", "type": "alligator"] ] )
 
               //Run the tests
-              animalMockService!.run(timeout: 5) { (testComplete) -> Void in
+              animalMockService!.run { (testComplete) -> Void in
                 animalServiceClient!.findAnimals(live: "water", response: {
                   (response) in
                   expect(response.count).to(equal(1))
@@ -300,8 +300,6 @@ class PactSwiftSpec: QuickSpec {
               }
             }
 
-            if(testSetup == TestSetup.Ruby) {
-              // TODO: Implement matcher in RUST
               it("Can match based on flexible length array") {
                 animalMockService!.given("multiple land based animals exist")
                   .uponReceiving("a request for animals living on land")
@@ -312,17 +310,16 @@ class PactSwiftSpec: QuickSpec {
                   .willRespondWith(
                     status: 200,
                     headers: ["Content-Type": "application/json"],
-                    body: testSetup.matcher.eachLike(["name": "Bruce", "type": "wombat"], min: 1))
+                    body: testSetup.matcher.eachLike(["name": "Bruce", "type": "wombat"], min: 5))
 
                 //Run the tests
                 animalMockService!.run { (testComplete) -> Void in
                   animalServiceClient!.findAnimals(live: "land", response: {
                     (response) in
-                    expect(response.count).to(equal(1))
+                    expect(response.count).to(equal(5))
                     expect(response[0].name).to(equal("Bruce"))
                     testComplete()
                   })
-                }
               }
             }
           }

@@ -1,5 +1,8 @@
 language: objective-c
-osx_image: xcode10.2
+osx_image: xcode11.2
+cache:
+  directories:
+    - Carthage
 env:
   global:
     - IOS_FRAMEWORK_SCHEME="PactConsumerSwift iOS"
@@ -13,17 +16,15 @@ env:
     - DESTINATION="OS=12.0,name=iPhone X"   SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
     - DESTINATION="OS=11.3,name=iPhone 8"   SCHEME="$IOS_FRAMEWORK_SCHEME"       CARTHAGE_PLATFORM="iOS"
 before_install:
-  - scripts/import_keychain.sh
-  - security find-identity -v -p codesigning
-  - gem update --system
-  - gem install bundler
-  - bundle install
+  - gem install xcpretty
   - brew update && brew bundle
-  - carthage checkout
+  - brew outdated carthage || brew upgrade carthage
+  - carthage bootstrap
 script:
   - set -o pipefail
   - scripts/build.sh
-  - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
-after_script: scripts/delete_keychain.sh
+after_failure:
+  - tail -n25 $TMPDIR/carthage-*.log
 after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
   - scripts/build_children.sh

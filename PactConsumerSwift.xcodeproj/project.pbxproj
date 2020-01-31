@@ -7,21 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080111E723D8A0D1009215AF /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111E623D8A0D1009215AF /* MatcherSpec.swift */; };
+		080111E823D8A0D1009215AF /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111E623D8A0D1009215AF /* MatcherSpec.swift */; };
+		080111E923D8A0D1009215AF /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111E623D8A0D1009215AF /* MatcherSpec.swift */; };
+		080111ED23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080111EB23D8A3F5009215AF /* PactObjectiveCTests.m */; };
+		080111EE23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080111EB23D8A3F5009215AF /* PactObjectiveCTests.m */; };
+		080111EF23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 080111EB23D8A3F5009215AF /* PactObjectiveCTests.m */; };
+		080111F023D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 080111EC23D8A3F5009215AF /* OCAnimalServiceClient.m */; };
+		080111F123D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 080111EC23D8A3F5009215AF /* OCAnimalServiceClient.m */; };
+		080111F223D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 080111EC23D8A3F5009215AF /* OCAnimalServiceClient.m */; };
+		080111F423D8A49F009215AF /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111F323D8A49F009215AF /* AnimalServiceClient.swift */; };
+		080111F523D8A49F009215AF /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111F323D8A49F009215AF /* AnimalServiceClient.swift */; };
+		080111F623D8A49F009215AF /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080111F323D8A49F009215AF /* AnimalServiceClient.swift */; };
+		080111F823D9A956009215AF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080111F723D9A956009215AF /* SwiftyJSON.framework */; };
+		080111FC23D9A96E009215AF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080111FB23D9A96E009215AF /* SwiftyJSON.framework */; };
+		0801120023D9A985009215AF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080111FF23D9A985009215AF /* SwiftyJSON.framework */; };
+		0890578F23DA1C6700097D66 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890578E23DA1C6700097D66 /* PactSpecs.swift */; };
+		0890579023DA1C6700097D66 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890578E23DA1C6700097D66 /* PactSpecs.swift */; };
+		0890579123DA1C6700097D66 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0890578E23DA1C6700097D66 /* PactSpecs.swift */; };
 		0893C04E22AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
 		0893C04F22AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
 		0893C05022AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
-		0893C05122AB0871001A6E27 /* libpact_mock_server.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0893C04D22AB0871001A6E27 /* libpact_mock_server.a */; };
 		0893C05222AB0935001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0893C05322AB0936001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0893C05422AB0937001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0893C05522AB0938001A6E27 /* pact_mock_server.h in Headers */ = {isa = PBXBuildFile; fileRef = 0893C03F22AB06FD001A6E27 /* pact_mock_server.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08C64A7322A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		08C64A7422A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		08C64A7522A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
-		08C64A7622A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */; };
 		A10985BA1FE0ED7A0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A10985BB1FE0ED7B0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
-		A10985BC1FE0ED7C0045F9FF /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A10985BD1FE0ED840045F9FF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */; };
 		A10985C01FE0ED840045F9FF /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
 		A10985C21FE0ED840045F9FF /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
@@ -30,39 +44,27 @@
 		A10985C71FE0ED850045F9FF /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
 		A10985C91FE0ED850045F9FF /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
 		A10985CA1FE0ED850045F9FF /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
-		A10985CB1FE0ED860045F9FF /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C691FE0CDBF0080725A /* DictionaryExtensions.swift */; };
-		A10985CE1FE0ED860045F9FF /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
-		A10985D01FE0ED860045F9FF /* PactBodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */; };
-		A10985D11FE0ED860045F9FF /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
 		A10985D31FE0ED8B0045F9FF /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
 		A10985D41FE0ED8B0045F9FF /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
 		A10985D51FE0ED8B0045F9FF /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
 		A10985D71FE0ED8C0045F9FF /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
 		A10985D81FE0ED8C0045F9FF /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
 		A10985D91FE0ED8C0045F9FF /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
-		A10985DB1FE0ED8D0045F9FF /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
-		A10985DC1FE0ED8D0045F9FF /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
-		A10985DD1FE0ED8D0045F9FF /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
-		A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10985E61FE0F2250045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10985EA1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */; };
-		A115530C1FE20B79008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
-		A115530D1FE20B79008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
-		A115530E1FE20B7A008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
-		A115530F1FE20B7A008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
-		A11553101FE20B7A008796C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
+		A109FBA922CB6A6C007B46F7 /* XCodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */; };
+		A109FBAA22CB6A6C007B46F7 /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */; };
+		A109FBAB22CB6A9A007B46F7 /* XCodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */; };
+		A109FBAC22CB6A9D007B46F7 /* XCodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */; };
+		A109FBAE22CB6AA5007B46F7 /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */; };
+		A109FBAF22CB6AA6007B46F7 /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */; };
+		A109FBC722CCBB55007B46F7 /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */; };
+		A109FBC822CCBB55007B46F7 /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */; };
+		A109FBC922CCBB55007B46F7 /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */; };
 		A11553111FE20BA1008796C3 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
 		A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
-		A11553131FE20BA3008796C3 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
 		A11553141FE20BB4008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		A11553151FE20BB4008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		A11553171FE20BB5008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
-		A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		A11553191FE20C1F008796C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
 		A115531A1FE20C20008796C3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
 		A11553331FE3C416008796C3 /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553311FE3C416008796C3 /* Pact.swift */; };
@@ -70,39 +72,28 @@
 		A115533C1FE3C4C5008796C3 /* RubyMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */; };
 		A115533F1FE793C1008796C3 /* RubyInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */; };
 		A11553411FE79751008796C3 /* PactInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553401FE79751008796C3 /* PactInteractionAdapter.swift */; };
-		A115534B1FE88A7F008796C3 /* RubyInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */; };
-		A115534C1FE88A81008796C3 /* RubyInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */; };
-		A115534D1FE88A82008796C3 /* RubyInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */; };
 		A115534E1FE88A88008796C3 /* PactInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */; };
 		A115534F1FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */; };
 		A11553501FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */; };
 		A11553521FE8AB24008796C3 /* PactError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553511FE8AB24008796C3 /* PactError.swift */; };
 		A11553531FE8AB27008796C3 /* PactError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553511FE8AB24008796C3 /* PactError.swift */; };
 		A11553541FE8AB28008796C3 /* PactError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553511FE8AB24008796C3 /* PactError.swift */; };
-		A11553551FE8AB2A008796C3 /* PactError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553511FE8AB24008796C3 /* PactError.swift */; };
 		A11553561FE8AD06008796C3 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553321FE3C416008796C3 /* MockServer.swift */; };
 		A11553571FE8AD07008796C3 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553321FE3C416008796C3 /* MockServer.swift */; };
-		A11553581FE8AD08008796C3 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553321FE3C416008796C3 /* MockServer.swift */; };
 		A11553591FE8AD0D008796C3 /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553311FE3C416008796C3 /* Pact.swift */; };
 		A115535A1FE8AD0E008796C3 /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553311FE3C416008796C3 /* Pact.swift */; };
-		A115535B1FE8AD0F008796C3 /* Pact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553311FE3C416008796C3 /* Pact.swift */; };
 		A115535C1FE8AD15008796C3 /* PactInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553401FE79751008796C3 /* PactInteractionAdapter.swift */; };
 		A115535D1FE8AD16008796C3 /* PactInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553401FE79751008796C3 /* PactInteractionAdapter.swift */; };
-		A115535E1FE8AD16008796C3 /* PactInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553401FE79751008796C3 /* PactInteractionAdapter.swift */; };
 		A115535F1FE8AD2B008796C3 /* RubyInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */; };
 		A11553601FE8AD2C008796C3 /* RubyInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */; };
-		A11553611FE8AD2D008796C3 /* RubyInteractionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */; };
 		A11553621FE8AD30008796C3 /* RubyMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */; };
 		A11553631FE8AD31008796C3 /* RubyMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */; };
-		A11553641FE8AD32008796C3 /* RubyMockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */; };
 		A11553661FE8D8A5008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
 		A11553671FE8D94B008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
 		A11553681FE8D94B008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
-		A11553691FE8D94C008796C3 /* NativeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553651FE8D8A5008796C3 /* NativeMatcher.swift */; };
 		A11553711FE9E11E008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
 		A11553721FE9E120008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
 		A11553731FE9E121008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
-		A11553741FE9E122008796C3 /* RubyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11553701FE9E11D008796C3 /* RubyMatcher.swift */; };
 		A11553861FEB4751008796C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553851FEB4751008796C3 /* libresolv.tbd */; };
 		A11553881FEB476B008796C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553871FEB476A008796C3 /* Security.framework */; };
 		A115538A1FEB4772008796C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553891FEB4772008796C3 /* Foundation.framework */; };
@@ -112,25 +103,18 @@
 		A11553921FEB47AC008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
 		A115539D1FEB508B008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
 		A115539E1FEB508D008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
-		A115539F1FEB508E008796C3 /* libobjc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553911FEB47AB008796C3 /* libobjc.tbd */; };
 		A11553A01FEB5091008796C3 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538F1FEB479F008796C3 /* libSystem.tbd */; };
 		A11553A11FEB5093008796C3 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538F1FEB479F008796C3 /* libSystem.tbd */; };
-		A11553A21FEB5093008796C3 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538F1FEB479F008796C3 /* libSystem.tbd */; };
 		A11553A31FEB5097008796C3 /* libm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538D1FEB478D008796C3 /* libm.tbd */; };
 		A11553A41FEB5097008796C3 /* libm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538D1FEB478D008796C3 /* libm.tbd */; };
-		A11553A51FEB5098008796C3 /* libm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538D1FEB478D008796C3 /* libm.tbd */; };
 		A11553A61FEB509C008796C3 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538B1FEB477E008796C3 /* libc.tbd */; };
 		A11553A71FEB509D008796C3 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538B1FEB477E008796C3 /* libc.tbd */; };
-		A11553A81FEB509E008796C3 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A115538B1FEB477E008796C3 /* libc.tbd */; };
 		A11553A91FEB50A2008796C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553891FEB4772008796C3 /* Foundation.framework */; };
 		A11553AA1FEB50A2008796C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553891FEB4772008796C3 /* Foundation.framework */; };
-		A11553AB1FEB50A3008796C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553891FEB4772008796C3 /* Foundation.framework */; };
 		A11553AC1FEB50A7008796C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553871FEB476A008796C3 /* Security.framework */; };
 		A11553AD1FEB50A7008796C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553871FEB476A008796C3 /* Security.framework */; };
-		A11553AE1FEB50A8008796C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553871FEB476A008796C3 /* Security.framework */; };
 		A11553AF1FEB50AC008796C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553851FEB4751008796C3 /* libresolv.tbd */; };
 		A11553B01FEB50AC008796C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553851FEB4751008796C3 /* libresolv.tbd */; };
-		A11553B11FEB50AD008796C3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A11553851FEB4751008796C3 /* libresolv.tbd */; };
 		A1400C6C1FE0CDC00080725A /* PactQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */; };
 		A1400C6D1FE0CDC00080725A /* PactHeaderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */; };
 		A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C661FE0CDBF0080725A /* NativeMockServerWrapper.swift */; };
@@ -139,7 +123,6 @@
 		A1400C781FE0CDC80080725A /* TermMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C741FE0CDC80080725A /* TermMatcher.swift */; };
 		A1400C7A1FE0CDC80080725A /* MatchingRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C761FE0CDC80080725A /* MatchingRule.swift */; };
 		A1400C7B1FE0CDC80080725A /* TypeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C771FE0CDC80080725A /* TypeMatcher.swift */; };
-		A1400C901FE0D02E0080725A /* MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */; };
 		A1400C911FE0D0300080725A /* MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */; };
 		A1400C921FE0D0310080725A /* MatchersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */; };
 		A1400C961FE0DF120080725A /* PactBodyBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */; };
@@ -154,25 +137,18 @@
 		A1400C9F1FE0DF140080725A /* PactHeaderBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */; };
 		A1400CA01FE0DF140080725A /* PactQueryBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */; };
 		A1400CA11FE0DF140080725A /* PactSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1400C801FE0CFAB0080725A /* PactSpec.swift */; };
+		A1B2BE9222D19924009B0837 /* ErrorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BE9122D19924009B0837 /* ErrorCapture.swift */; };
+		A1B2BE9322D19924009B0837 /* ErrorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BE9122D19924009B0837 /* ErrorCapture.swift */; };
+		A1B2BE9422D19924009B0837 /* ErrorCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BE9122D19924009B0837 /* ErrorCapture.swift */; };
+		A1B2BE9622D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BE9522D19949009B0837 /* RubyPactMockServiceStub.swift */; };
+		A1B2BE9722D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BE9522D19949009B0837 /* RubyPactMockServiceStub.swift */; };
+		A1B2BE9822D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BE9522D19949009B0837 /* RubyPactMockServiceStub.swift */; };
 		AD17A5921F74AF5300219F39 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD17A5881F74AF5300219F39 /* PactConsumerSwift.framework */; };
 		AD17A5991F74AF5300219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD17A5B11F74AFB000219F39 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD17A5A81F74AFB000219F39 /* PactConsumerSwift.framework */; };
 		AD17A5CD1F74AFC900219F39 /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD17A5C41F74AFC900219F39 /* PactConsumerSwift.framework */; };
 		AD17A6171F74B3C400219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD17A6181F74B3C400219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD17A6191F74B3C500219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
-		AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
-		AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
-		AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
-		AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */; };
-		AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
-		AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64E1F74BAA900219F39 /* PactSpecs.swift */; };
-		AD17A65F1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */; };
-		AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
-		AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64E1F74BAA900219F39 /* PactSpecs.swift */; };
-		AD17A6631F74BB7F00219F39 /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */; };
-		AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64E1F74BAA900219F39 /* PactSpecs.swift */; };
 		AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64A1F74BA8A00219F39 /* Interaction.swift */; };
 		AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64B1F74BA8A00219F39 /* Matcher.swift */; };
 		AD17A6691F74BB8300219F39 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64C1F74BA8A00219F39 /* MockService.swift */; };
@@ -182,18 +158,10 @@
 		AD17A66F1F74BB8400219F39 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64A1F74BA8A00219F39 /* Interaction.swift */; };
 		AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64B1F74BA8A00219F39 /* Matcher.swift */; };
 		AD17A6711F74BB8400219F39 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64C1F74BA8A00219F39 /* MockService.swift */; };
-		AD17A6731F74BB8400219F39 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64A1F74BA8A00219F39 /* Interaction.swift */; };
-		AD17A6741F74BB8400219F39 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64B1F74BA8A00219F39 /* Matcher.swift */; };
-		AD17A6751F74BB8400219F39 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64C1F74BA8A00219F39 /* MockService.swift */; };
 		ADC03E1B1F74C41B003FCA6A /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E181F74C41B003FCA6A /* BrightFutures.framework */; };
 		ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
-		ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
-		ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */; };
 		ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E191F74C41B003FCA6A /* Nimble.framework */; };
 		ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC03E211F74C492003FCA6A /* Quick.framework */; };
-		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
-		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
-		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,19 +189,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080111E623D8A0D1009215AF /* MatcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherSpec.swift; sourceTree = "<group>"; };
+		080111EA23D8A3F5009215AF /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCAnimalServiceClient.h; path = PactConsumerObjCTests/OCAnimalServiceClient.h; sourceTree = "<group>"; };
+		080111EB23D8A3F5009215AF /* PactObjectiveCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PactObjectiveCTests.m; path = PactConsumerObjCTests/PactObjectiveCTests.m; sourceTree = "<group>"; };
+		080111EC23D8A3F5009215AF /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCAnimalServiceClient.m; path = PactConsumerObjCTests/OCAnimalServiceClient.m; sourceTree = "<group>"; };
+		080111F323D8A49F009215AF /* AnimalServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalServiceClient.swift; sourceTree = "<group>"; };
+		080111F723D9A956009215AF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		080111FB23D9A96E009215AF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/Mac/SwiftyJSON.framework; sourceTree = "<group>"; };
+		080111FF23D9A985009215AF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/tvOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		0890578E23DA1C6700097D66 /* PactSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactSpecs.swift; sourceTree = "<group>"; };
 		0893C01522AAE26F001A6E27 /* libpact_mock_server_mac_os.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_mac_os.a; sourceTree = "<group>"; };
 		0893C02122AAF09E001A6E27 /* libpact_mock_server_ios_sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_ios_sim.a; sourceTree = "<group>"; };
 		0893C02222AAF09E001A6E27 /* libpact_mock_server_arm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server_arm.a; sourceTree = "<group>"; };
 		0893C03F22AB06FD001A6E27 /* pact_mock_server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pact_mock_server.h; sourceTree = "<group>"; };
 		0893C04D22AB0871001A6E27 /* libpact_mock_server.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpact_mock_server.a; sourceTree = "<group>"; };
 		08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinTypeMatcher.swift; sourceTree = "<group>"; };
-		A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCodeErrorReporter.swift; sourceTree = "<group>"; };
+		A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorReporter.swift; sourceTree = "<group>"; };
+		A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
 		A11553311FE3C416008796C3 /* Pact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pact.swift; sourceTree = "<group>"; };
 		A11553321FE3C416008796C3 /* MockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		A115533A1FE3C4C5008796C3 /* RubyMockServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyMockServer.swift; sourceTree = "<group>"; };
 		A115533E1FE793C1008796C3 /* RubyInteractionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyInteractionAdapter.swift; sourceTree = "<group>"; };
 		A11553401FE79751008796C3 /* PactInteractionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteractionAdapter.swift; sourceTree = "<group>"; };
-		A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyInteractionAdapterSpec.swift; sourceTree = "<group>"; };
 		A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactInteractionAdapterSpec.swift; sourceTree = "<group>"; };
 		A11553511FE8AB24008796C3 /* PactError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactError.swift; sourceTree = "<group>"; };
 		A11553651FE8D8A5008796C3 /* NativeMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMatcher.swift; sourceTree = "<group>"; };
@@ -258,6 +236,8 @@
 		A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactHeaderBuilderSpec.swift; sourceTree = "<group>"; };
 		A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PactBodyBuilderSpec.swift; sourceTree = "<group>"; };
 		A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchersSpec.swift; sourceTree = "<group>"; };
+		A1B2BE9122D19924009B0837 /* ErrorCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCapture.swift; sourceTree = "<group>"; };
+		A1B2BE9522D19949009B0837 /* RubyPactMockServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyPactMockServiceStub.swift; sourceTree = "<group>"; };
 		AD17A5881F74AF5300219F39 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PactConsumerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PactConsumerSwift.h; sourceTree = "<group>"; };
 		AD17A58C1F74AF5300219F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -267,19 +247,11 @@
 		AD17A5B01F74AFB000219F39 /* PactConsumerSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PactConsumerSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD17A5C41F74AFC900219F39 /* PactConsumerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PactConsumerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD17A5CC1F74AFC900219F39 /* PactConsumerSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PactConsumerSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD17A6031F74B2B600219F39 /* PactConsumerSwift_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PactConsumerSwift_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD17A64A1F74BA8A00219F39 /* Interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		AD17A64B1F74BA8A00219F39 /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
 		AD17A64C1F74BA8A00219F39 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
-		AD17A64E1F74BAA900219F39 /* PactSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactSpecs.swift; sourceTree = "<group>"; };
-		AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalServiceClient.swift; sourceTree = "<group>"; };
-		AD17A6501F74BAA900219F39 /* MatcherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherSpec.swift; sourceTree = "<group>"; };
-		AD17A6521F74BAC600219F39 /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
-		AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
-		AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
 		ADC03E181F74C41B003FCA6A /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
 		ADC03E191F74C41B003FCA6A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		ADC03E211F74C492003FCA6A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,10 +266,9 @@
 				A115538E1FEB478D008796C3 /* libm.tbd in Frameworks */,
 				A115538C1FEB477E008796C3 /* libc.tbd in Frameworks */,
 				A115538A1FEB4772008796C3 /* Foundation.framework in Frameworks */,
+				080111F823D9A956009215AF /* SwiftyJSON.framework in Frameworks */,
 				A11553881FEB476B008796C3 /* Security.framework in Frameworks */,
 				A11553861FEB4751008796C3 /* libresolv.tbd in Frameworks */,
-				A10985DF1FE0F1540045F9FF /* SwiftyJSON.framework in Frameworks */,
-				ADC03E1D1F74C41B003FCA6A /* Alamofire.framework in Frameworks */,
 				ADC03E1B1F74C41B003FCA6A /* BrightFutures.framework in Frameworks */,
 				ADC03E1C1F74C41B003FCA6A /* Nimble.framework in Frameworks */,
 			);
@@ -308,8 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5921F74AF5300219F39 /* PactConsumerSwift.framework in Frameworks */,
-				ADC03E1E1F74C492003FCA6A /* Alamofire.framework in Frameworks */,
-				A10985E61FE0F2250045F9FF /* SwiftyJSON.framework in Frameworks */,
 				ADC03E221F74C492003FCA6A /* Quick.framework in Frameworks */,
 				ADC03E201F74C492003FCA6A /* Nimble.framework in Frameworks */,
 			);
@@ -325,11 +294,10 @@
 				A11553111FE20BA1008796C3 /* BrightFutures.framework in Frameworks */,
 				A11553AC1FEB50A7008796C3 /* Security.framework in Frameworks */,
 				A11553A31FEB5097008796C3 /* libm.tbd in Frameworks */,
+				080111FC23D9A96E009215AF /* SwiftyJSON.framework in Frameworks */,
 				A11553A91FEB50A2008796C3 /* Foundation.framework in Frameworks */,
-				A115530C1FE20B79008796C3 /* Alamofire.framework in Frameworks */,
 				A115539D1FEB508B008796C3 /* libobjc.tbd in Frameworks */,
 				A11553A61FEB509C008796C3 /* libc.tbd in Frameworks */,
-				A10985E91FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553AF1FEB50AC008796C3 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,10 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5B11F74AFB000219F39 /* PactConsumerSwift.framework in Frameworks */,
-				A10985EA1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A11553191FE20C1F008796C3 /* Quick.framework in Frameworks */,
 				A11553151FE20BB4008796C3 /* Nimble.framework in Frameworks */,
-				A115530D1FE20B79008796C3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,16 +317,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11553A11FEB5093008796C3 /* libSystem.tbd in Frameworks */,
-				A10985EB1FE0F24B0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				0893C05022AB0871001A6E27 /* libpact_mock_server.a in Frameworks */,
 				A11553161FE20BB5008796C3 /* Nimble.framework in Frameworks */,
 				A11553AD1FEB50A7008796C3 /* Security.framework in Frameworks */,
 				A11553A41FEB5097008796C3 /* libm.tbd in Frameworks */,
 				A11553AA1FEB50A2008796C3 /* Foundation.framework in Frameworks */,
+				0801120023D9A985009215AF /* SwiftyJSON.framework in Frameworks */,
 				A11553121FE20BA2008796C3 /* BrightFutures.framework in Frameworks */,
 				A115539E1FEB508D008796C3 /* libobjc.tbd in Frameworks */,
 				A11553A71FEB509D008796C3 /* libc.tbd in Frameworks */,
-				A115530E1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
 				A11553B01FEB50AC008796C3 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,35 +335,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A5CD1F74AFC900219F39 /* PactConsumerSwift.framework in Frameworks */,
-				A10985EC1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
 				A115531A1FE20C20008796C3 /* Quick.framework in Frameworks */,
 				A11553171FE20BB5008796C3 /* Nimble.framework in Frameworks */,
-				A115530F1FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD17A5FF1F74B2B600219F39 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A11553A21FEB5093008796C3 /* libSystem.tbd in Frameworks */,
-				A11553181FE20BB6008796C3 /* Nimble.framework in Frameworks */,
-				0893C05122AB0871001A6E27 /* libpact_mock_server.a in Frameworks */,
-				A10985ED1FE0F24C0045F9FF /* SwiftyJSON.framework in Frameworks */,
-				A11553AE1FEB50A8008796C3 /* Security.framework in Frameworks */,
-				A11553A51FEB5098008796C3 /* libm.tbd in Frameworks */,
-				A11553AB1FEB50A3008796C3 /* Foundation.framework in Frameworks */,
-				A11553131FE20BA3008796C3 /* BrightFutures.framework in Frameworks */,
-				A115539F1FEB508E008796C3 /* libobjc.tbd in Frameworks */,
-				A11553A81FEB509E008796C3 /* libc.tbd in Frameworks */,
-				A11553101FE20B7A008796C3 /* Alamofire.framework in Frameworks */,
-				A11553B11FEB50AD008796C3 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0801120423D9B064009215AF /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				A1400C761FE0CDC80080725A /* MatchingRule.swift */,
+				A1400C741FE0CDC80080725A /* TermMatcher.swift */,
+				A1400C771FE0CDC80080725A /* TypeMatcher.swift */,
+				08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
+		083074A323E32BD000FD1811 /* RubyTests */ = {
+			isa = PBXGroup;
+			children = (
+				080111E623D8A0D1009215AF /* MatcherSpec.swift */,
+				A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */,
+			);
+			path = RubyTests;
+			sourceTree = "<group>";
+		};
+		0890579223DA1CA300097D66 /* e2e */ = {
+			isa = PBXGroup;
+			children = (
+				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
+			);
+			path = e2e;
+			sourceTree = "<group>";
+		};
 		0893C03B22AAFE29001A6E27 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,19 +407,30 @@
 			path = macos;
 			sourceTree = "<group>";
 		};
-		A11553291FE21C91008796C3 /* ObjectiveC */ = {
+		A109FBA622CB6A6C007B46F7 /* Reporting */ = {
 			isa = PBXGroup;
 			children = (
-				AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */,
+				A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */,
+				A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */,
 			);
-			path = ObjectiveC;
+			path = Reporting;
+			sourceTree = "<group>";
+		};
+		A11553291FE21C91008796C3 /* PactConsumerObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				080111EA23D8A3F5009215AF /* OCAnimalServiceClient.h */,
+				080111EC23D8A3F5009215AF /* OCAnimalServiceClient.m */,
+				080111EB23D8A3F5009215AF /* PactObjectiveCTests.m */,
+			);
+			path = PactConsumerObjCTests;
 			sourceTree = "<group>";
 		};
 		A115532A1FE21C9C008796C3 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				0890579223DA1CA300097D66 /* e2e */,
 				A1400C7E1FE0CE590080725A /* Unit */,
-				A1400C7F1FE0CE6A0080725A /* e2e */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -471,28 +454,15 @@
 				A1400C671FE0CDBF0080725A /* PactBodyBuilder.swift */,
 				A1400C651FE0CDBF0080725A /* PactHeaderBuilder.swift */,
 				A1400C641FE0CDBF0080725A /* PactQueryBuilder.swift */,
-				A1400C631FE0CBE10080725A /* Matchers */,
+				A11553651FE8D8A5008796C3 /* NativeMatcher.swift */,
 			);
 			path = Native;
-			sourceTree = "<group>";
-		};
-		A1400C631FE0CBE10080725A /* Matchers */ = {
-			isa = PBXGroup;
-			children = (
-				A11553651FE8D8A5008796C3 /* NativeMatcher.swift */,
-				A1400C761FE0CDC80080725A /* MatchingRule.swift */,
-				A1400C741FE0CDC80080725A /* TermMatcher.swift */,
-				A1400C771FE0CDC80080725A /* TypeMatcher.swift */,
-				08C64A7222A958B500E8DFC7 /* MinTypeMatcher.swift */,
-			);
-			path = Matchers;
 			sourceTree = "<group>";
 		};
 		A1400C7D1FE0CDFF0080725A /* NativeTests */ = {
 			isa = PBXGroup;
 			children = (
-				A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */,
-				A1400C8D1FE0CFF70080725A /* Matchers */,
+				A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */,
 				A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */,
 				A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */,
 				A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */,
@@ -504,36 +474,28 @@
 		A1400C7E1FE0CE590080725A /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				A11553471FE88918008796C3 /* RubyInteractionAdapterSpec.swift */,
-				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
+				083074A323E32BD000FD1811 /* RubyTests */,
 				A1400C7D1FE0CDFF0080725A /* NativeTests */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
 		};
-		A1400C7F1FE0CE6A0080725A /* e2e */ = {
+		A1B2BE9022D19924009B0837 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
+				A1B2BE9122D19924009B0837 /* ErrorCapture.swift */,
+				A1B2BE9522D19949009B0837 /* RubyPactMockServiceStub.swift */,
 			);
-			path = e2e;
-			sourceTree = "<group>";
-		};
-		A1400C8D1FE0CFF70080725A /* Matchers */ = {
-			isa = PBXGroup;
-			children = (
-				A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */,
-			);
-			path = Matchers;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		AD17A57C1F74AF1000219F39 = {
 			isa = PBXGroup;
 			children = (
 				ADC03E171F74C2C0003FCA6A /* Frameworks */,
-				AD17A5891F74AF5300219F39 /* Products */,
 				AD17A5E91F74B03000219F39 /* Sources */,
 				AD17A5EA1F74B03500219F39 /* Tests */,
+				AD17A5891F74AF5300219F39 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -546,7 +508,6 @@
 				AD17A5B01F74AFB000219F39 /* PactConsumerSwift macOSTests.xctest */,
 				AD17A5C41F74AFC900219F39 /* PactConsumerSwift.framework */,
 				AD17A5CC1F74AFC900219F39 /* PactConsumerSwift tvOSTests.xctest */,
-				AD17A6031F74B2B600219F39 /* PactConsumerSwift_watchOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -554,7 +515,9 @@
 		AD17A5E91F74B03000219F39 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0801120423D9B064009215AF /* Matchers */,
 				0893C03B22AAFE29001A6E27 /* lib */,
+				A109FBA622CB6A6C007B46F7 /* Reporting */,
 				AD17A64A1F74BA8A00219F39 /* Interaction.swift */,
 				AD17A64B1F74BA8A00219F39 /* Matcher.swift */,
 				A11553321FE3C416008796C3 /* MockServer.swift */,
@@ -572,20 +535,12 @@
 			isa = PBXGroup;
 			children = (
 				A115532A1FE21C9C008796C3 /* Swift */,
-				A11553291FE21C91008796C3 /* ObjectiveC */,
+				A11553291FE21C91008796C3 /* PactConsumerObjCTests */,
+				A1B2BE9022D19924009B0837 /* Mocks */,
+				A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */,
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */ = {
-			isa = PBXGroup;
-			children = (
-				AD17A6521F74BAC600219F39 /* OCAnimalServiceClient.h */,
-				AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */,
-				AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */,
-			);
-			path = PactConsumerObjCTests;
 			sourceTree = "<group>";
 		};
 		AD17A5ED1F74B07F00219F39 /* Supporting Files */ = {
@@ -608,8 +563,8 @@
 		AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD17A64E1F74BAA900219F39 /* PactSpecs.swift */,
-				AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */,
+				0890578E23DA1C6700097D66 /* PactSpecs.swift */,
+				080111F323D8A49F009215AF /* AnimalServiceClient.swift */,
 			);
 			path = PactConsumerSwiftTests;
 			sourceTree = "<group>";
@@ -617,6 +572,9 @@
 		ADC03E171F74C2C0003FCA6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				080111F723D9A956009215AF /* SwiftyJSON.framework */,
+				080111FB23D9A96E009215AF /* SwiftyJSON.framework */,
+				080111FF23D9A985009215AF /* SwiftyJSON.framework */,
 				A11553911FEB47AB008796C3 /* libobjc.tbd */,
 				A115538F1FEB479F008796C3 /* libSystem.tbd */,
 				A115538D1FEB478D008796C3 /* libm.tbd */,
@@ -624,11 +582,9 @@
 				A11553891FEB4772008796C3 /* Foundation.framework */,
 				A11553871FEB476A008796C3 /* Security.framework */,
 				A11553851FEB4751008796C3 /* libresolv.tbd */,
-				ADC03E1A1F74C41B003FCA6A /* Alamofire.framework */,
 				ADC03E181F74C41B003FCA6A /* BrightFutures.framework */,
 				ADC03E191F74C41B003FCA6A /* Nimble.framework */,
 				ADC03E211F74C492003FCA6A /* Quick.framework */,
-				A10985DE1FE0F1540045F9FF /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -663,15 +619,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD17A6001F74B2B600219F39 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AD17A6191F74B3C500219F39 /* PactConsumerSwift.h in Headers */,
-				0893C05522AB0938001A6E27 /* pact_mock_server.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -680,12 +627,11 @@
 			buildConfigurationList = AD17A59E1F74AF5300219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift iOS" */;
 			buildPhases = (
 				0893C05622AB0969001A6E27 /* Combine static libraries */,
+				AD17A6261F74B59100219F39 /* Run Swiftlint */,
 				AD17A5831F74AF5300219F39 /* Sources */,
 				AD17A5841F74AF5300219F39 /* Frameworks */,
 				AD17A5851F74AF5300219F39 /* Headers */,
-				AD17A5861F74AF5300219F39 /* Resources */,
 				AD17A6251F74B59000219F39 /* Copy Carthage Frameworks */,
-				AD17A6261F74B59100219F39 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -704,6 +650,7 @@
 				AD17A58E1F74AF5300219F39 /* Frameworks */,
 				AD17A58F1F74AF5300219F39 /* Resources */,
 				AD17A62B1F74B6DF00219F39 /* Copy Carthage Frameworks */,
+				ADB5B72A22C4EDB600301FB0 /* Check Dependencies */,
 			);
 			buildRules = (
 			);
@@ -720,12 +667,11 @@
 			buildConfigurationList = AD17A5B91F74AFB000219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift macOS" */;
 			buildPhases = (
 				0893C04C22AB07B0001A6E27 /* Copy static library */,
+				AD17A6231F74B56D00219F39 /* Run Swiftlint */,
 				AD17A5A31F74AFB000219F39 /* Sources */,
 				AD17A5A41F74AFB000219F39 /* Frameworks */,
 				AD17A5A51F74AFB000219F39 /* Headers */,
-				AD17A5A61F74AFB000219F39 /* Resources */,
 				AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */,
-				AD17A6231F74B56D00219F39 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -744,6 +690,7 @@
 				AD17A5AD1F74AFB000219F39 /* Frameworks */,
 				AD17A5AE1F74AFB000219F39 /* Resources */,
 				AD17A62C1F74B6EC00219F39 /* Copy Carthage Frameworks */,
+				ADB5B72B22C4EDC800301FB0 /* Check Dependencies */,
 			);
 			buildRules = (
 			);
@@ -763,9 +710,7 @@
 				AD17A5BF1F74AFC900219F39 /* Sources */,
 				AD17A5C01F74AFC900219F39 /* Frameworks */,
 				AD17A5C11F74AFC900219F39 /* Headers */,
-				AD17A5C21F74AFC900219F39 /* Resources */,
 				AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */,
-				AD17A6281F74B5A700219F39 /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -784,6 +729,7 @@
 				AD17A5C91F74AFC900219F39 /* Frameworks */,
 				AD17A5CA1F74AFC900219F39 /* Resources */,
 				AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks */,
+				ADB5B72C22C4EDDC00301FB0 /* Check Dependencies */,
 			);
 			buildRules = (
 			);
@@ -794,27 +740,6 @@
 			productName = "PactConsumerSwift tvOSTests";
 			productReference = AD17A5CC1F74AFC900219F39 /* PactConsumerSwift tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AD17A6021F74B2B600219F39 /* PactConsumerSwift watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AD17A6081F74B2B600219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift watchOS" */;
-			buildPhases = (
-				0893C05922AB0AC2001A6E27 /* Combine static libraries */,
-				AD17A5FE1F74B2B600219F39 /* Sources */,
-				AD17A5FF1F74B2B600219F39 /* Frameworks */,
-				AD17A6001F74B2B600219F39 /* Headers */,
-				AD17A6011F74B2B600219F39 /* Resources */,
-				AD17A6291F74B5BF00219F39 /* Copy Carthage Frameworks */,
-				AD17A62A1F74B5C000219F39 /* Run Swiftlint */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "PactConsumerSwift watchOS";
-			productName = "PactConsumerSwift watchOS";
-			productReference = AD17A6031F74B2B600219F39 /* PactConsumerSwift_watchOS.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -827,12 +752,12 @@
 				TargetAttributes = {
 					AD17A5871F74AF5300219F39 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					AD17A5901F74AF5300219F39 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					AD17A5A71F74AFB000219F39 = {
@@ -842,7 +767,7 @@
 					};
 					AD17A5AF1F74AFB000219F39 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					AD17A5C31F74AFC900219F39 = {
@@ -852,12 +777,7 @@
 					};
 					AD17A5CB1F74AFC900219F39 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
-					AD17A6021F74B2B600219F39 = {
-						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -868,6 +788,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = AD17A57C1F74AF1000219F39;
 			productRefGroup = AD17A5891F74AF5300219F39 /* Products */;
@@ -880,27 +801,12 @@
 				AD17A5AF1F74AFB000219F39 /* PactConsumerSwift macOSTests */,
 				AD17A5C31F74AFC900219F39 /* PactConsumerSwift tvOS */,
 				AD17A5CB1F74AFC900219F39 /* PactConsumerSwift tvOSTests */,
-				AD17A6021F74B2B600219F39 /* PactConsumerSwift watchOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AD17A5861F74AF5300219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AD17A58F1F74AF5300219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD17A5A61F74AFB000219F39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -914,21 +820,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD17A5C21F74AFC900219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AD17A5CA1F74AFC900219F39 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD17A6011F74B2B600219F39 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -992,24 +884,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nlibtool -static -o ${SRCROOT}/Sources/lib/libpact_mock_server.a ${SRCROOT}/Sources/lib/sim/libpact_mock_server_ios_sim.a\n";
 		};
-		0893C05922AB0AC2001A6E27 /* Combine static libraries */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Combine static libraries";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nlibtool -static -o ${SRCROOT}/Sources/lib/libpact_mock_server.a ${SRCROOT}/Sources/lib/sim/libpact_mock_server_ios_sim.a\n";
-		};
 		AD17A6231F74B56D00219F39 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1022,7 +896,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "$SRCROOT/scripts/swiftlint.sh\n";
 		};
 		AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1030,7 +904,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
@@ -1040,7 +913,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/Mac/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
 		};
 		AD17A6251F74B59000219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1048,17 +921,16 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/iOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi\n";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
 		};
 		AD17A6261F74B59100219F39 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1072,7 +944,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "$SRCROOT/scripts/swiftlint.sh\n";
 		};
 		AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1080,7 +952,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
@@ -1090,52 +961,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/tvOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi";
-		};
-		AD17A6281F74B5A700219F39 /* Run Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftlint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		AD17A6291F74B5BF00219F39 /* Copy Carthage Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/watchOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/watchOS/BrightFuture.framework",
-				"$(SRCROOT)/Carthage/Build/watchOS/SwiftyJSON.framework",
-			);
-			name = "Copy Carthage Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\n\nif [ -f $SRCROOT/Carthage/Build/watchOS/Alamofire.framework ];\nthen\n    carthage copy-frameworks\nfi";
-		};
-		AD17A62A1F74B5C000219F39 /* Run Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swiftlint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
 		};
 		AD17A62B1F74B6DF00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1143,10 +969,10 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -1162,10 +988,10 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/OHHTTPStubs.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -1181,10 +1007,10 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/tvOS/OHHTTPStubs.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/SwiftyJSON.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -1193,6 +1019,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
+		};
+		ADB5B72A22C4EDB600301FB0 /* Check Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
+		};
+		ADB5B72B22C4EDC800301FB0 /* Check Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
+		};
+		ADB5B72C22C4EDDC00301FB0 /* Check Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1221,6 +1101,8 @@
 				A1400C6E1FE0CDC00080725A /* NativeMockServerWrapper.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
 				A11553331FE3C416008796C3 /* Pact.swift in Sources */,
+				A109FBA922CB6A6C007B46F7 /* XCodeErrorReporter.swift in Sources */,
+				A109FBAA22CB6A6C007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1228,18 +1110,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1400C901FE0D02E0080725A /* MatchersSpec.swift in Sources */,
-				AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */,
 				A1400C981FE0DF120080725A /* PactQueryBuilderSpec.swift in Sources */,
-				AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
+				0890578F23DA1C6700097D66 /* PactSpecs.swift in Sources */,
 				A1400C991FE0DF120080725A /* PactSpec.swift in Sources */,
-				AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
-				AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */,
-				AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */,
+				A1B2BE9222D19924009B0837 /* ErrorCapture.swift in Sources */,
+				080111F023D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */,
 				A1400C961FE0DF120080725A /* PactBodyBuilderSpec.swift in Sources */,
-				A115534B1FE88A7F008796C3 /* RubyInteractionAdapterSpec.swift in Sources */,
+				080111ED23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */,
 				A115534E1FE88A88008796C3 /* PactInteractionAdapterSpec.swift in Sources */,
+				080111F423D8A49F009215AF /* AnimalServiceClient.swift in Sources */,
 				A1400C971FE0DF120080725A /* PactHeaderBuilderSpec.swift in Sources */,
+				A109FBC722CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
+				080111E723D8A0D1009215AF /* MatcherSpec.swift in Sources */,
+				A1B2BE9622D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1267,6 +1150,8 @@
 				A10985D41FE0ED8B0045F9FF /* TermMatcher.swift in Sources */,
 				A10985BD1FE0ED840045F9FF /* DictionaryExtensions.swift in Sources */,
 				A11553591FE8AD0D008796C3 /* Pact.swift in Sources */,
+				A109FBAB22CB6A9A007B46F7 /* XCodeErrorReporter.swift in Sources */,
+				A109FBAE22CB6AA5007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1275,17 +1160,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1400C911FE0D0300080725A /* MatchersSpec.swift in Sources */,
-				AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */,
 				A1400C9C1FE0DF130080725A /* PactQueryBuilderSpec.swift in Sources */,
-				AD17A65F1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
+				080111EE23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */,
 				A1400C9D1FE0DF130080725A /* PactSpec.swift in Sources */,
-				AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */,
-				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
-				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
+				080111F123D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */,
+				A1B2BE9322D19924009B0837 /* ErrorCapture.swift in Sources */,
+				0890579023DA1C6700097D66 /* PactSpecs.swift in Sources */,
 				A1400C9A1FE0DF130080725A /* PactBodyBuilderSpec.swift in Sources */,
-				A115534C1FE88A81008796C3 /* RubyInteractionAdapterSpec.swift in Sources */,
+				080111E823D8A0D1009215AF /* MatcherSpec.swift in Sources */,
+				080111F523D8A49F009215AF /* AnimalServiceClient.swift in Sources */,
 				A115534F1FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */,
 				A1400C9B1FE0DF130080725A /* PactHeaderBuilderSpec.swift in Sources */,
+				A109FBC822CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
+				A1B2BE9722D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1313,6 +1200,8 @@
 				A10985D81FE0ED8C0045F9FF /* TermMatcher.swift in Sources */,
 				A10985C41FE0ED850045F9FF /* DictionaryExtensions.swift in Sources */,
 				A115535A1FE8AD0E008796C3 /* Pact.swift in Sources */,
+				A109FBAC22CB6A9D007B46F7 /* XCodeErrorReporter.swift in Sources */,
+				A109FBAF22CB6AA6007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,45 +1209,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080111F223D8A3F5009215AF /* OCAnimalServiceClient.m in Sources */,
 				A1400C921FE0D0310080725A /* MatchersSpec.swift in Sources */,
-				ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */,
 				A1400CA01FE0DF140080725A /* PactQueryBuilderSpec.swift in Sources */,
-				AD17A6631F74BB7F00219F39 /* AnimalServiceClient.swift in Sources */,
 				A1400CA11FE0DF140080725A /* PactSpec.swift in Sources */,
-				AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */,
-				ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */,
-				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
+				080111F623D8A49F009215AF /* AnimalServiceClient.swift in Sources */,
+				A1B2BE9422D19924009B0837 /* ErrorCapture.swift in Sources */,
+				A109FBC922CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
+				080111EF23D8A3F5009215AF /* PactObjectiveCTests.m in Sources */,
+				A1B2BE9822D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 				A1400C9E1FE0DF140080725A /* PactBodyBuilderSpec.swift in Sources */,
-				A115534D1FE88A82008796C3 /* RubyInteractionAdapterSpec.swift in Sources */,
+				0890579123DA1C6700097D66 /* PactSpecs.swift in Sources */,
+				080111E923D8A0D1009215AF /* MatcherSpec.swift in Sources */,
 				A11553501FE88A8A008796C3 /* PactInteractionAdapterSpec.swift in Sources */,
 				A1400C9F1FE0DF140080725A /* PactHeaderBuilderSpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AD17A5FE1F74B2B600219F39 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A115535E1FE8AD16008796C3 /* PactInteractionAdapter.swift in Sources */,
-				A10985DD1FE0ED8D0045F9FF /* TypeMatcher.swift in Sources */,
-				A10985DB1FE0ED8D0045F9FF /* MatchingRule.swift in Sources */,
-				A11553581FE8AD08008796C3 /* MockServer.swift in Sources */,
-				A11553551FE8AB2A008796C3 /* PactError.swift in Sources */,
-				08C64A7622A958B500E8DFC7 /* MinTypeMatcher.swift in Sources */,
-				A10985D11FE0ED860045F9FF /* PactHeaderBuilder.swift in Sources */,
-				A11553611FE8AD2D008796C3 /* RubyInteractionAdapter.swift in Sources */,
-				A10985CE1FE0ED860045F9FF /* NativeMockServerWrapper.swift in Sources */,
-				A10985BC1FE0ED7C0045F9FF /* PactQueryBuilder.swift in Sources */,
-				AD17A6741F74BB8400219F39 /* Matcher.swift in Sources */,
-				AD17A6731F74BB8400219F39 /* Interaction.swift in Sources */,
-				AD17A6751F74BB8400219F39 /* MockService.swift in Sources */,
-				A10985D01FE0ED860045F9FF /* PactBodyBuilder.swift in Sources */,
-				A11553691FE8D94C008796C3 /* NativeMatcher.swift in Sources */,
-				A11553641FE8AD32008796C3 /* RubyMockServer.swift in Sources */,
-				A11553741FE9E122008796C3 /* RubyMatcher.swift in Sources */,
-				A10985DC1FE0ED8D0045F9FF /* TermMatcher.swift in Sources */,
-				A10985CB1FE0ED860045F9FF /* DictionaryExtensions.swift in Sources */,
-				A115535B1FE8AD0F008796C3 /* Pact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1412,6 +1276,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/lib";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1446,7 +1312,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/lib";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1455,6 +1324,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CARTHAGE_SUBFOLDER = iOS;
+				"CARTHAGE_SUBFOLDER[sdk=macosx*]" = macCatalyst;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1522,8 +1393,10 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1534,6 +1407,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CARTHAGE_SUBFOLDER = iOS;
+				"CARTHAGE_SUBFOLDER[sdk=macosx*]" = macCatalyst;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1593,8 +1468,10 @@
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1797,11 +1674,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/lib",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1810,7 +1684,9 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1872,18 +1748,17 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/lib",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1955,7 +1830,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2017,7 +1892,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2083,10 +1958,7 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
@@ -2094,7 +1966,9 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2158,16 +2032,15 @@
 				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources/lib";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				VALIDATE_PRODUCT = YES;
@@ -2240,7 +2113,7 @@
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -2309,161 +2182,6 @@
 			};
 			name = Release;
 		};
-		AD17A6091F74B2B600219F39 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/lib",
-				);
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Debug;
-		};
-		AD17A60A1F74B2B600219F39 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Sources/Supporting Files/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Sources/lib",
-				);
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "au.com.dius.pact.$(PROJECT_NAME)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2526,15 +2244,6 @@
 			buildConfigurations = (
 				AD17A5D91F74AFC900219F39 /* Debug */,
 				AD17A5DA1F74AFC900219F39 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AD17A6081F74B2B600219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AD17A6091F74B2B600219F39 /* Debug */,
-				AD17A60A1F74B2B600219F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

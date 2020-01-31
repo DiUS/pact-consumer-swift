@@ -7,7 +7,7 @@ class NativeMatcherSpec: QuickSpec {
     describe("regex matcher") {
       let regex = "\\d{16}"
       let placeholder = "1111222233334444"
-      let subject = NativeMatcher().term(matcher: regex, generate: placeholder) as! MatchingRule
+      let subject = NativeMatcher().term(matcher: regex, generate: placeholder)
       it("rule matches term and contains regex") {
         expect(subject.rule() as NSDictionary).to(equal(
             ["match": "regex",
@@ -22,7 +22,7 @@ class NativeMatcherSpec: QuickSpec {
     }
 
     describe("type matcher") {
-      let subject = NativeMatcher().somethingLike(1234) as! MatchingRule
+      let subject = NativeMatcher().somethingLike(1234)
 
       it("has a type rule") {
         expect(subject.rule() as NSDictionary).to(equal(
@@ -38,7 +38,7 @@ class NativeMatcherSpec: QuickSpec {
 
     describe("minType matcher") {
         let example: [String : Any] = ["key1": 5, "key2": "value"]
-        let subject = NativeMatcher().eachLike(example, min: 2) as! MatchingRule
+        let subject = NativeMatcher().eachLike(example, min: 2)
 
         it("has a minType rule") {
             expect(subject.rule() as NSDictionary).to(equal(

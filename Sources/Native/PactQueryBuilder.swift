@@ -23,9 +23,8 @@ class PactQueryBuilder {
     case let matcher as MatchingRule:
       return ("\(matcher.value())", [path: matcher.rule()])
     default:
-      print(path, path)
+      return (path, [:])
     }
-    return (path, [:])
   }
 
   func processDictionary(_ dictionary: JSONEntry, path: String) -> (String, PathWithMatchingRule) {

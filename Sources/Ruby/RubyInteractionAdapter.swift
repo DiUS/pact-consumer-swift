@@ -24,15 +24,15 @@ class RubyInteractionAdapter {
 
   private func adaptRequest(_ request: Request) -> [String: Any] {
     var transformedRequest: [String: Any] = [:]
-    transformedRequest = ["method": httpMethod(request.method), "path": request.path]
+    transformedRequest = ["method": httpMethod(request.method), "path": adapt(from: request.path)]
     if let headersValue = request.headers {
-      transformedRequest["headers"] = headersValue
+      transformedRequest["headers"] = adapt(from: headersValue)
     }
     if let bodyValue = request.body {
-      transformedRequest["body"] = bodyValue
+      transformedRequest["body"] = adapt(from: bodyValue)
     }
     if let queryValue = request.query {
-      transformedRequest["query"] = queryValue
+      transformedRequest["query"] = adapt(from: queryValue)
     }
     return transformedRequest
   }
@@ -41,12 +41,25 @@ class RubyInteractionAdapter {
     var transformedResponse: [String: Any] = [:]
     transformedResponse = ["status": response.status]
     if let headersValue = response.headers {
-      transformedResponse["headers"] = headersValue
+      transformedResponse["headers"] = adapt(from: headersValue)
     }
     if let bodyValue = response.body {
-      transformedResponse["body"] = bodyValue
+      transformedResponse["body"] = adapt(from: bodyValue)
     }
     return transformedResponse
+  }
+
+  private func adapt(from anything: Any) -> Any {
+    switch anything {
+    case let array as [Any]:
+        return array.map { adapt(from: $0) }
+    case let matchingRule as MatchingRule:
+        return matchingRule.rule()
+    case let dict as [String: Any]:
+        return Dictionary(uniqueKeysWithValues: dict.map { ($0, adapt(from: $1)) })
+    default:
+        return anything
+    }
   }
 
   private func httpMethod(_ method: PactHTTPMethod) -> String {

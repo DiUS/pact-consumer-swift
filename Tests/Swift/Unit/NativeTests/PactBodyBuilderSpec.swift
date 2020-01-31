@@ -67,6 +67,42 @@ class PactBodyBuilderSpec: QuickSpec {
       }
     }
 
+    context("only having friends like bob") {
+        let bob = ["name": NativeMatcher().somethingLike("Bob"),
+                   "age": NativeMatcher().term(matcher: "\\d{2}", generate: 30),
+                   "cool": NativeMatcher().somethingLike(true)
+        ]
+        let minType = 2
+        let pactBody = PactBodyBuilder(body: ["friends": NativeMatcher().eachLike(bob, min: minType)]).build()
+
+        it("builds matching rules") {
+          let matchingRules = JSON(pactBody.matchingRules)
+
+          expect(matchingRules).to(equal([
+            "$.body.friends[0][*].name": ["match": "type"],
+            "$.body.friends[0][*].age": [
+                "match": "regex",
+                "regex": "\\d{2}"
+            ],
+            "$.body.friends[0][*].cool": ["match": "type"],
+            "$.body.friends[0]": [
+                "match": "type",
+                "min": minType
+            ],
+          ]))
+        }
+
+        it("builds json body") {
+          let body = JSON(pactBody.body)
+          let bobBody: [String : Any] = [
+            "name": "Bob",
+            "age": 30,
+            "cool": true
+          ]
+          expect(body).to(equal(["friends": [bobBody, bobBody]]))
+        }
+    }
+
     context("with multiple matches") {
       let pactBody = PactBodyBuilder( body: [
         "name": "Mary",
