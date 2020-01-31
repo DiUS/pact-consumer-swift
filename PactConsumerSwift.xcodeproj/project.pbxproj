@@ -354,6 +354,15 @@
 			path = Matchers;
 			sourceTree = "<group>";
 		};
+		083074A323E32BD000FD1811 /* RubyTests */ = {
+			isa = PBXGroup;
+			children = (
+				080111E623D8A0D1009215AF /* MatcherSpec.swift */,
+				A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */,
+			);
+			path = RubyTests;
+			sourceTree = "<group>";
+		};
 		0890579223DA1CA300097D66 /* e2e */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +462,7 @@
 		A1400C7D1FE0CDFF0080725A /* NativeTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */,
 				A1400C851FE0CFAB0080725A /* PactBodyBuilderSpec.swift */,
 				A1400C841FE0CFAB0080725A /* PactHeaderBuilderSpec.swift */,
 				A1400C821FE0CFAB0080725A /* PactQueryBuilderSpec.swift */,
@@ -464,7 +474,7 @@
 		A1400C7E1FE0CE590080725A /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				A1400C8E1FE0D00D0080725A /* MatchersSpec.swift */,
+				083074A323E32BD000FD1811 /* RubyTests */,
 				A1400C7D1FE0CDFF0080725A /* NativeTests */,
 			);
 			path = Unit;
@@ -528,8 +538,6 @@
 				A11553291FE21C91008796C3 /* PactConsumerObjCTests */,
 				A1B2BE9022D19924009B0837 /* Mocks */,
 				A11553491FE88920008796C3 /* PactInteractionAdapterSpec.swift */,
-				080111E623D8A0D1009215AF /* MatcherSpec.swift */,
-				A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */,
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
 			);
 			path = Tests;
