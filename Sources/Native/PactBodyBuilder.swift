@@ -43,8 +43,11 @@ class PactBodyBuilder {
         let indexPath = "\(path)[\(index)]"
         let processedSubElement = processElement(path: "\(indexPath)[*]", element: matcher.value())
         processedArray.append(processedSubElement.0)
-        matches = matches.merge(dictionary: processedSubElement.1)
-        matches = matches.merge(dictionary: [indexPath: matcher.rule()])
+
+        if index == 0 {
+            matches = matches.merge(dictionary: processedSubElement.1)
+            matches = matches.merge(dictionary: [indexPath: matcher.rule()])
+        }
     }
 
     return (processedArray, matches)
