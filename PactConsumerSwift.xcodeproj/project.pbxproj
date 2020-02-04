@@ -544,7 +544,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -560,7 +559,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBFOLDER)/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBFOLDER)/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -590,7 +588,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
@@ -620,7 +617,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
@@ -638,7 +634,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/OHHTTPStubs.framework",
@@ -656,7 +651,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/BrightFutures.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/OHHTTPStubs.framework",
