@@ -1,2 +1,2 @@
 github "Quick/Quick" ~> 2.0
-github "AliSoftware/OHHTTPStubs"
+github "AliSoftware/OHHTTPStubs" ~> 8.0
