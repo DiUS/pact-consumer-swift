@@ -1,12 +1,14 @@
 import Foundation
 
-open class PactVerificationService {
+open class PactVerificationService: NSObject {
 
   typealias VoidHandler = (Result<Void, NSError>) -> Void
   typealias StringHandler = (Result<String, NSError>) -> Void
 
   public let url: String
   public let port: Int
+	public let allowInsecureCertificate: Bool
+
   open var baseUrl: String {
     return "\(url):\(port)"
   }
@@ -72,9 +74,13 @@ open class PactVerificationService {
     }
   }
 
-  public init(url: String = "http://localhost", port: Int = 1234) {
+	public init(url: String = "http://localhost", port: Int = 1234, allowInsecureCertificate: Bool = false) {
     self.url = url
     self.port = port
+		self.allowInsecureCertificate = allowInsecureCertificate
+
+		super.init()
+
     Router.baseURLString = baseUrl
   }
 
@@ -185,9 +191,9 @@ private extension PactVerificationService {
 
 private extension PactVerificationService {
 
-  var session: URLSession {
-    return URLSession(configuration: URLSessionConfiguration.ephemeral)
-  }
+  private lazy var session: URLSession {
+    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+  }()
 
   func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
     do {
@@ -280,4 +286,22 @@ extension URLSession.APIServiceError: LocalizedError {
     }
   }
 
+}
+
+extension PactVerificationService: URLSessionDelegate {
+	public func urlSession(
+		_ session: URLSession,
+		didReceive challenge: URLAuthenticationChallenge,
+		completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?
+	) -> Void) {
+		guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+			allowInsecureCertificates,
+			let serverTrust = challenge.protectionSpace.serverTrust else {
+				completionHandler(.performDefaultHandling, nil)
+				return
+		}
+
+		let proposedCredential = URLCredential(trust: serverTrust)
+		completionHandler(.useCredential, proposedCredential)
+	}
 }
