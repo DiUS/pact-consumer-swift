@@ -188,6 +188,7 @@
 				AD17A5891F74AF5300219F39 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		AD17A5891F74AF5300219F39 /* Products */ = {
 			isa = PBXGroup;
