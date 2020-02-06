@@ -7,7 +7,7 @@ open class PactVerificationService: NSObject {
 
   public let url: String
   public let port: Int
-	public let allowInsecureCertificate: Bool
+	public let allowInsecureCertificates: Bool
 
   open var baseUrl: String {
     return "\(url):\(port)"
@@ -74,10 +74,10 @@ open class PactVerificationService: NSObject {
     }
   }
 
-	public init(url: String = "http://localhost", port: Int = 1234, allowInsecureCertificate: Bool = false) {
+	public init(url: String = "http://localhost", port: Int = 1234, allowInsecureCertificates: Bool = false) {
     self.url = url
     self.port = port
-		self.allowInsecureCertificate = allowInsecureCertificate
+		self.allowInsecureCertificates = allowInsecureCertificates
 
 		super.init()
 
@@ -191,9 +191,9 @@ private extension PactVerificationService {
 
 private extension PactVerificationService {
 
-  private lazy var session: URLSession {
-    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
-  }()
+	private var session: URLSession {
+		return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+	}
 
   func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
     do {
@@ -289,11 +289,12 @@ extension URLSession.APIServiceError: LocalizedError {
 }
 
 extension PactVerificationService: URLSessionDelegate {
+
 	public func urlSession(
 		_ session: URLSession,
 		didReceive challenge: URLAuthenticationChallenge,
-		completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?
-	) -> Void) {
+		completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
+	) {
 		guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
 			allowInsecureCertificates,
 			let serverTrust = challenge.protectionSpace.serverTrust else {
@@ -304,4 +305,5 @@ extension PactVerificationService: URLSessionDelegate {
 		let proposedCredential = URLCredential(trust: serverTrust)
 		completionHandler(.useCredential, proposedCredential)
 	}
+
 }
