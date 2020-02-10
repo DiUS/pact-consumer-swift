@@ -14,7 +14,7 @@ open class PactVerificationService: NSObject {
   }
 
   private lazy var session = {
-    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: .main)
   }()
 
   enum Router {
@@ -193,9 +193,35 @@ private extension PactVerificationService {
 
 // MARK: - Network request handler
 
-private extension PactVerificationService {
+extension PactVerificationService: URLSessionDelegate {
 
-  func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
+  public func urlSession(
+    _ session: URLSession,
+    didReceive challenge: URLAuthenticationChallenge,
+    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
+  ) {
+    guard
+      allowInsecureCertificates,
+      challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+      challenge.protectionSpace.host.contains("localhost")
+       else {
+        completionHandler(.performDefaultHandling, nil)
+        return
+    }
+
+    guard let serverTrust = challenge.protectionSpace.serverTrust else {
+      completionHandler(.performDefaultHandling, nil)
+      return
+    }
+
+    let credential = URLCredential(trust: serverTrust)
+    completionHandler(.useCredential, credential)
+  }
+
+  fileprivate func performNetworkRequest(
+    for router: Router,
+    completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void
+  ) {
     do {
       let dataTask = try session.dataTask(with: router.asURLRequest()) { result in
         switch result {
@@ -284,26 +310,6 @@ extension URLSession.APIServiceError: LocalizedError {
     case .noData:
       return URLSession.APIServiceError.noData.localizedDescription
     }
-  }
-
-}
-
-extension PactVerificationService: URLSessionDelegate {
-
-  public func urlSession(
-    _ session: URLSession,
-    didReceive challenge: URLAuthenticationChallenge,
-    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
-  ) {
-    guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
-      allowInsecureCertificates,
-      let serverTrust = challenge.protectionSpace.serverTrust else {
-        completionHandler(.performDefaultHandling, nil)
-        return
-    }
-
-    let proposedCredential = URLCredential(trust: serverTrust)
-    completionHandler(.useCredential, proposedCredential)
   }
 
 }
