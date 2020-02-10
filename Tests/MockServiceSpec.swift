@@ -14,7 +14,7 @@ class MockServiceSpec: QuickSpec {
       mockService = MockService(provider: "ABC Service",
                                 consumer: "unit tests",
                                 pactVerificationService: PactVerificationService(
-                                  url: "http://localhost",
+                                  url: "https://localhost",
                                   port: 1234,
                                   allowInsecureCertificates: true
                                 ),

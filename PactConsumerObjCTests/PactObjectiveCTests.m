@@ -14,7 +14,7 @@
 - (void)setUp {
   [super setUp];
 
-  PactVerificationService *verificationService = [[PactVerificationService alloc] initWithUrl:@"http://localhost"
+  PactVerificationService *verificationService = [[PactVerificationService alloc] initWithUrl:@"https://localhost"
                                                                                          port:1234
                                                                      allowInsecureCertificate: TRUE];
 
