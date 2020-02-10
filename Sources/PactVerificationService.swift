@@ -13,6 +13,10 @@ open class PactVerificationService: NSObject {
     return "\(url):\(port)"
   }
 
+  private lazy var session = {
+    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+  }()
+
   enum Router {
     static var baseURLString = "http://example.com"
 
@@ -190,10 +194,6 @@ private extension PactVerificationService {
 // MARK: - Network request handler
 
 private extension PactVerificationService {
-
-  private var session: URLSession {
-    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
-  }
 
   func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
     do {
