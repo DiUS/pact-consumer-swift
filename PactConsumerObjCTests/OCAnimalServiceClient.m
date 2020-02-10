@@ -78,8 +78,10 @@
   NSData __block *data;
   BOOL __block reqProcessed = false;
   NSURLResponse __block *resp;
-  NSURLSession * sess = [NSURLSession sharedSession];
-  
+
+  NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+  NSURLSession *sess = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
+
   [[sess dataTaskWithRequest:request
            completionHandler:^(NSData * _Nullable _data, NSURLResponse * _Nullable _resp, NSError * _Nullable _err) {
              resp = _resp;
@@ -87,12 +89,21 @@
              data = _data;
              reqProcessed = true;
            }] resume];
-  
+
   while (!reqProcessed) { [NSThread sleepForTimeInterval: 0]; }
   
   *response = resp;
   *error = err;
   return data;
+}
+
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler{
+  if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]){
+    if([challenge.protectionSpace.host isEqualToString:@"localhost"]){
+      NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+      completionHandler(NSURLSessionAuthChallengeUseCredential,credential);
+    }
+  }
 }
 
 @end
