@@ -10,7 +10,7 @@ class PactSwiftSpec: QuickSpec {
     describe("tests fulfilling all expected interactions") {
       beforeEach {
         let pactVerificationService = PactVerificationService(
-          url: "https://localhost",
+          url: "http://localhost",
           port: 1234,
           allowInsecureCertificates: true
         )
