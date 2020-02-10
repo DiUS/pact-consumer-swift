@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10.2
+osx_image: xcode11.2
 env:
   global:
     - IOS_FRAMEWORK_SCHEME="PactConsumerSwift iOS"
@@ -18,6 +18,6 @@ before_install:
 script:
   - set -o pipefail
   - scripts/build.sh
-  - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
 after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
   - scripts/build_children.sh

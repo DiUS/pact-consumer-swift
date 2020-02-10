@@ -4,14 +4,14 @@
 [![Codecov](https://codecov.io/gh/DiUS/pact-consumer-swift/branch/master/graph/badge.svg)](https://codecov.io/gh/DiUS/pact-consumer-swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg)]()
-![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)
+![Swift](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)
 [![Badge w/ CocoaPod Version](https://cocoapod-badges.herokuapp.com/v/PactConsumerSwift/badge.png)](https://cocoadocs.org/docsets/PactConsumerSwift)
 [![Badge w/ Supported Platforms](https://cocoapod-badges.herokuapp.com/p/PactConsumerSwift/badge.svg)](https://cocoadocs.org/docsets/PactConsumerSwift) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Twitter](https://img.shields.io/badge/twitter-@pact__up-blue.svg?style=flat)](http://twitter.com/pact_up)
 
 This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io). It provides support for **[Consumer Driven Contract Testing][pact-microservices]** between dependent systems where the integration is based on HTTP (or message queues for some of the implementations).
 
-_But why?_ To test communication boundaries between your app and services.  
+_But why?_ To test communication boundaries between your app and services.
 You can view a presentation on how Pact can work in a mobile context here: [Yow! Connected 2016 Andrew Spinks - Increasing The Confidence In Your Service Integrations](https://www.youtube.com/watch?v=UQkMr4bKYp4).
 
 Implements [Pact Specification v2][pact-spec-v2],
@@ -38,7 +38,7 @@ This will install the following tools:
     pact-provider-verifier
     pact-publish
     pact-stub-service
-    
+
 #### Manually
 Alternatively you can download and install the [pact-ruby-standalone][pact-ruby-standalone-releases] archives for your platform and install as per installation instructions written in [Pact Ruby Standalone release notes][pact-mock-service-standalone-installation].
 

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "PactConsumerSwift"
   s.module_name  = "PactConsumerSwift"
-  s.version = "0.6.0"
+  s.version      = "0.7.1"
   s.summary      = "A Swift / ObjeciveC DSL for creating pacts."
   s.license      = { :type => 'MIT' }
 
@@ -31,4 +31,5 @@ Pod::Spec.new do |s|
   }
 
   s.dependency 'Nimble', '~> 8.0'
+  s.swift_versions = ['4.2', '5.0']
 end

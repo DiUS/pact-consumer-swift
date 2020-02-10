@@ -1,3 +1,33 @@
+# 0.7.1 - Bugfix Release
+
+
+* 01effee - style: add convenience init method to MockService which defaults error reporting but allows configuration of the verifier. (#77) (alan.nichols@outlook.com, Tue Nov 12 22:22:16 2019 +0000)
+* f5e34d5 - chore: Change minimum swift version to 4.2 due Nimble requirements. Also fix cocoapods configuration. (Andrew Spinks, Sat Aug 31 14:55:31 2019 +0900)
+* c91360d - Revert "chore: Bumping version to 0.6.2" due to cocoapods issues. (Andrew Spinks, Sat Aug 31 14:50:40 2019 +0900)
+* 58775a2 - chore: Bumping version to 0.6.2 (Andrew Spinks, Sat Aug 31 14:11:12 2019 +0900)
+* 8f2c76b - fix: Bump dependencies to support swift 5. Also removes obsolete references to Result.framework. (Marko Justinek, Tue Aug 27 00:50:46 2019 +0200)
+* 5b1e1bf - chore: convert release script to be a bash script #46 (Andrew Spinks, Sun Jul 28 10:32:30 2019 +0900)
+# 0.7.0 - Bugfix Release
+
+
+* 16bbf44 - chore: Change minimum swift version to 4.2 due Nimble requirements. Also fix cocoapods configuration. (Andrew Spinks, Sat Aug 31 14:55:31 2019 +0900)
+* c91360d - Revert "chore: Bumping version to 0.6.2" due to cocoapods issues. (Andrew Spinks, Sat Aug 31 14:50:40 2019 +0900)
+* 58775a2 - chore: Bumping version to 0.6.2 (Andrew Spinks, Sat Aug 31 14:11:12 2019 +0900)
+* 8f2c76b - fix: Bump dependencies to support swift 5. Also removes obsolete references to Result.framework. (Marko Justinek, Tue Aug 27 00:50:46 2019 +0200)
+* 5b1e1bf - chore: convert release script to be a bash script #46 (Andrew Spinks, Sun Jul 28 10:32:30 2019 +0900)
+-en # 0.6.1 - Bugfix Release
+
+
+* 57ccbd6 - fix(objc): add escaping modifier to allow for testComplete function to be called… (#71) (Matt Arturi, Sat Jul 27 09:43:09 2019 -0400)
+* a611dce - chore: Only run coverage report when tests pass (Andrew Spinks, Sat Jul 27 20:48:05 2019 +0900)
+* cacde03 - chore: Fix test failures not failing travis build. (Andrew Spinks, Sat Jul 27 20:47:52 2019 +0900)
+* cc66ee5 - test: Add test around pact mock service to make refactors easier. (Andrew Spinks, Wed Jul 3 19:29:27 2019 +0900)
+* 31fdfc7 - fix: Revert "Refactor pact mock server network calling code and upgrade to swift 5 (#53)" which introduced a bug where messages from the mock server were no longer being returned. (Andrew Spinks, Thu Jul 18 17:35:45 2019 +0900)
+* 8a42f89 - fix(lint): Parameter alignment (Marko Justinek, Tue Jul 2 06:29:45 2019 +1000)
+* 217b5e2 - chore(lint): moved linting into a portable script (#66) (Marko Justinek, Mon Jul 1 21:00:51 2019 +1000)
+* aa25c8f - Cleanup access controls on classes to hide internal concepts. (Andrew Spinks, Sat Jun 29 16:50:33 2019 +0900)
+* 1665942 - Remove unused .ruby-version file (#65) (Marko Justinek, Fri Jun 28 17:32:07 2019 +1000)
+* feaa5d5 - Removes watchOS target and scheme (#64) (Marko Justinek, Fri Jun 28 17:30:39 2019 +1000)
 
 
 # 0.6.0 - Maintenance Release

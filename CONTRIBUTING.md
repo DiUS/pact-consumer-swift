@@ -55,7 +55,7 @@ For more information, see the [.travis.yml](/.travis.yml) configuration.
 Builds on [Travis CI](https://travis-ci.org/DiUS/pact-consumer-swift/) with pipeline configuration in [.travis.yml](/.travis.yml).
 
 ### Release
-[release.groovy](/release.groovy) script helps with updating the Changelog, tagging the commit with a release version, and publish to Cocoapods.
+[release.sh](/scripts/release.sh) script helps with updating the Changelog, tagging the commit with a release version, and publish to Cocoapods.
 ```
-groovy release.groovy
+./scripts/release.sh 0.7.0 "Bugfix Release"
 ```

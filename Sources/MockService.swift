@@ -3,14 +3,15 @@ import Nimble
 
 @objc
 open class MockService: NSObject {
-  fileprivate let provider: String
-  fileprivate let consumer: String
-  fileprivate let pactVerificationService: PactVerificationService
-  fileprivate var interactions: [Interaction] = []
+  private let provider: String
+  private let consumer: String
+  private let pactVerificationService: PactVerificationService
+  private var interactions: [Interaction] = []
+  private let errorReporter: ErrorReporter
 
   /// The baseUrl of Pact Mock Service
   @objc
-  open var baseUrl: String {
+  public var baseUrl: String {
     return pactVerificationService.baseUrl
   }
 
@@ -20,15 +21,34 @@ open class MockService: NSObject {
   /// - parameter provider: Name of your provider (eg: Calculator API)
   /// - parameter consumer: Name of your consumer (eg: Calculator.app)
   /// - parameter pactVerificationService: Your customised `PactVerificationService`
+  /// - parameter errorReporter: Your customised `ErrorReporter`
   ///
   public init(
     provider: String,
     consumer: String,
-    pactVerificationService: PactVerificationService
+    pactVerificationService: PactVerificationService,
+    errorReporter: ErrorReporter
   ) {
     self.provider = provider
     self.consumer = consumer
     self.pactVerificationService = pactVerificationService
+    self.errorReporter = errorReporter
+  }
+
+  ///
+  /// Convenience Initializer
+  ///
+  /// - parameter provider: Name of your provider (eg: Calculator API)
+  /// - parameter consumer: Name of your consumer (eg: Calculator.app)
+  /// - parameter pactVerificationService: Your customised `PactVerificationService`
+  ///
+  /// Use this initialiser to use the default XCodeErrorReporter
+  ///
+  public convenience init(provider: String, consumer: String, pactVerificationService: PactVerificationService) {
+    self.init(provider: provider,
+              consumer: consumer,
+              pactVerificationService: pactVerificationService,
+              errorReporter: XCodeErrorReporter())
   }
 
   ///
@@ -37,13 +57,14 @@ open class MockService: NSObject {
   /// - parameter provider: Name of your provider (eg: Calculator API)
   /// - parameter consumer: Name of your consumer (eg: Calculator.app)
   ///
-  /// Use this initialiser to use the default PactVerificationService
+  /// Use this initialiser to use the default PactVerificationService and ErrorReporter
   ///
   @objc(initWithProvider: consumer:)
   public convenience init(provider: String, consumer: String) {
     self.init(provider: provider,
               consumer: consumer,
-              pactVerificationService: PactVerificationService())
+              pactVerificationService: PactVerificationService(),
+              errorReporter: XCodeErrorReporter())
   }
 
   ///
@@ -57,7 +78,7 @@ open class MockService: NSObject {
   /// - Returns: An `Interaction` object
   ///
   @objc
-  open func given(_ providerState: String) -> Interaction {
+  public func given(_ providerState: String) -> Interaction {
     let interaction = Interaction().given(providerState)
     interactions.append(interaction)
     return interaction
@@ -74,7 +95,7 @@ open class MockService: NSObject {
   /// - Returns: An `Interaction` object
   ///
   @objc(uponReceiving:)
-  open func uponReceiving(_ description: String) -> Interaction {
+  public func uponReceiving(_ description: String) -> Interaction {
     let interaction = Interaction().uponReceiving(description)
     interactions.append(interaction)
     return interaction
@@ -96,7 +117,7 @@ open class MockService: NSObject {
   /// - Parameter testFunction: The function making the network request you are testing
   ///
   @objc(run:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void) {
+  public func objcRun(_ testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void) {
     self.run(nil, line: nil, timeout: 30, testFunction: testFunction)
   }
 
@@ -117,8 +138,10 @@ open class MockService: NSObject {
   /// - Parameter timeout: Time to wait for the `testComplete()` else it fails the test
   ///
   @objc(run: withTimeout:)
-  open func objcRun(_ testFunction: @escaping (_ testComplete: () -> Void) -> Void,
-                    timeout: TimeInterval) {
+  public func objcRun(
+    _ testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void,
+    timeout: TimeInterval
+  ) {
     self.run(nil, line: nil, timeout: timeout, testFunction: testFunction)
   }
 
@@ -137,79 +160,67 @@ open class MockService: NSObject {
   /// - Parameter timeout: Number of seconds how long to wait for `testComplete()` before marking the test as failed.
   /// - Parameter testFunction: The function making the network request you are testing
   ///
-  open func run(
+  public func run(
     _ file: FileString? = #file,
     line: UInt? = #line,
     timeout: TimeInterval = 30,
     testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
   ) {
-
-    let group = DispatchGroup()
-    let queue = DispatchQueue.global()
-
-    group.enter()
-    queue.async(group: group) { self.setup(queue: queue, testFunction: testFunction) { group.leave() } }
-
-    group.notify(queue: queue) { self.verify(file: file, line: line) { () in } }
-
-    _ = group.wait(timeout: .now() + timeout)
-  }
-
-  // MARK: - Private
-
-  private func setup(
-    queue: DispatchQueue,
-    testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void,
-    done: @escaping () -> Void
-  ) {
-    self
-      .pactVerificationService
-      .setup(self.interactions) { result in
-        switch result {
-        case .success:
-          queue.async {
-            testFunction { () in
-              done()
-            }
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+      self
+        .pactVerificationService
+        .setup(self.interactions) { result in
+          switch result {
+          case .success:
+            testFunction { done() }
+          case .failure(let error):
+            self.failWithLocation("Error setting up pact: \(error.localizedDescription)", file: file, line: line)
+            done()
           }
-        case .failure(let error):
-          fail("Error setting up pact: \(error.localizedDescription)")
         }
-      }
-  }
+    }
 
-  private func verify(
-    file: FileString? = #file,
-    line: UInt? = #line,
-    doneHandler: @escaping () -> Void
-  ) {
-    self
-      .pactVerificationService
-      .verify(provider: self.provider, consumer: self.consumer) { result in
-        switch result {
-        case .success:
-          doneHandler()
-        case .failure(let error):
-          self.failtAt(
-            file: file,
-            line: line,
-            with: "Verification error (check build log for mismatches): \(error.localizedDescription)"
-          )
+    waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
+      self
+        .pactVerificationService
+        .verify(provider: self.provider, consumer: self.consumer) { result in
+          switch result {
+          case .success:
+            done()
+          case .failure(let error):
+            self.failWithLocation("Verification error (check build log for mismatches): \(error.localizedDescription)",
+              file: file,
+              line: line)
+            done()
+          }
         }
-      }
+    }
   }
 
   // MARK: - Helper methods
 
-  private func failtAt(
+  private func failWithLocation(
+    _ message: String,
     file: FileString?,
-    line: UInt?,
-    with message: String
+    line: UInt?
   ) {
     if let fileName = file, let lineNumber = line {
-      fail(message, file: fileName, line: lineNumber)
+      self.errorReporter.reportFailure(message, file: fileName, line: lineNumber)
     } else {
-      fail(message)
+      self.errorReporter.reportFailure(message)
+    }
+  }
+
+  private func waitUntilWithLocation(
+    timeout: TimeInterval,
+    file: FileString?,
+    line: UInt?,
+    action: @escaping (@escaping () -> Void) -> Void
+  ) {
+    if let fileName = file, let lineNumber = line {
+      return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
+    } else {
+      return waitUntil(timeout: timeout, action: action)
     }
   }
 }
