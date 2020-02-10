@@ -13,7 +13,11 @@ class MockServiceSpec: QuickSpec {
       errorCapturer = ErrorCapture()
       mockService = MockService(provider: "ABC Service",
                                 consumer: "unit tests",
-                                pactVerificationService: PactVerificationService(),
+                                pactVerificationService: PactVerificationService(
+                                  url: "http://localhost",
+                                  port: 1234,
+                                  allowInsecureCertificates: true
+                                ),
                                 errorReporter: errorCapturer!)
 
       mockService!

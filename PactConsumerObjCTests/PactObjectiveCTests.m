@@ -13,8 +13,15 @@
 
 - (void)setUp {
   [super setUp];
+
+  PactVerificationService *verificationService = [[PactVerificationService alloc] initWithUrl:@"http://localhost"
+                                                                                         port:1234
+                                                                     allowInsecureCertificate: TRUE];
+
   self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
-                                                  consumer:@"Animal Service Client Objective-C"];
+                                                  consumer:@"Animal Service Client Objective-C"
+                                          andVerificationService: verificationService];
+
   self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 

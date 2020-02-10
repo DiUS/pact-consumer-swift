@@ -9,7 +9,18 @@ class PactSwiftSpec: QuickSpec {
 
     describe("tests fulfilling all expected interactions") {
       beforeEach {
-        animalMockService = MockService(provider: "Animal Service", consumer: "Animal Consumer Swift")
+        let pactVerificationService = PactVerificationService(
+          url: "http://localhost",
+          port: 1234,
+          allowInsecureCertificates: true
+        )
+
+        animalMockService = MockService(
+          provider: "Animal Service",
+          consumer: "Animal Consumer Swift",
+          pactVerificationService: pactVerificationService
+        )
+        
         animalServiceClient = AnimalServiceClient(baseUrl: animalMockService!.baseUrl)
       }
 
