@@ -165,7 +165,7 @@ open class MockService: NSObject {
     _ file: FileString? = #file,
     line: UInt? = #line,
     timeout: TimeInterval = 30,
-    testFunction: @escaping (_ testComplete: @escaping () -> Void) -> Void
+    testFunction: @escaping (_ testComplete: @escaping () -> Void) throws -> Void
   ) {
     waitUntilWithLocation(timeout: timeout, file: file, line: line) { done in
       self
@@ -173,7 +173,12 @@ open class MockService: NSObject {
         .setup(self.interactions) { result in
           switch result {
           case .success:
-            testFunction { done() }
+            do {
+              try testFunction { done() }
+            } catch {
+              self.failWithLocation("Error thrown in test function (check build log): \(error.localizedDescription)", file: file, line: line)
+              done()
+            }
           case .failure(let error):
             self.failWithLocation("Error setting up pact: \(error.localizedDescription)", file: file, line: line)
             done()
