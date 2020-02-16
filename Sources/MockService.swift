@@ -44,6 +44,7 @@ open class MockService: NSObject {
   ///
   /// Use this initialiser to use the default XCodeErrorReporter
   ///
+  @objc(initWithProvider: consumer: andVerificationService:)
   public convenience init(provider: String, consumer: String, pactVerificationService: PactVerificationService) {
     self.init(provider: provider,
               consumer: consumer,

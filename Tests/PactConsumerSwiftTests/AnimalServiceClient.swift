@@ -14,12 +14,14 @@ public struct Animal: Decodable {
   }
 }
 
-open class AnimalServiceClient {
+open class AnimalServiceClient: NSObject, URLSessionDelegate {
   fileprivate let baseUrl: String
 
   public init(baseUrl : String) {
     self.baseUrl = baseUrl
   }
+
+  // MARK: -
 
   open func getAlligators(_ success: @escaping (Array<Animal>) -> Void, failure: @escaping (NSError?) -> Void) {
     self.performRequest("\(baseUrl)/alligators", decoder: decodeAnimals) { animals, nsError in
@@ -100,9 +102,31 @@ open class AnimalServiceClient {
     }
   }
 
+  // MARK: - URLSessionDelegate
+
+  public func urlSession(
+    _ session: URLSession,
+    didReceive challenge: URLAuthenticationChallenge,
+    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
+  ) {
+    guard
+      challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+      challenge.protectionSpace.host.contains("localhost"),
+      let serverTrust = challenge.protectionSpace.serverTrust
+       else {
+        completionHandler(.performDefaultHandling, nil)
+        return
+    }
+
+    let credential = URLCredential(trust: serverTrust)
+    completionHandler(.useCredential, credential)
+  }
+
   // MARK: - Networking and Decoding
 
-  private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
+  private lazy var session = {
+    URLSession(configuration: .ephemeral, delegate: self, delegateQueue: .main)
+  }()
 
   private func performRequest<T: Decodable>(_ urlString: String,
                               headers: [String: String]? = nil,

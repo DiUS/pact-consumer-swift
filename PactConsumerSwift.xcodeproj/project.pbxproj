@@ -54,6 +54,7 @@
 		AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64B1F74BA8A00219F39 /* Matcher.swift */; };
 		AD17A6711F74BB8400219F39 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64C1F74BA8A00219F39 /* MockService.swift */; };
 		AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64D1F74BA8A00219F39 /* PactVerificationService.swift */; };
+		AD96B6B423F1F21F00E1AA8F /* PactSSLSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD96B6B323F1F13200E1AA8F /* PactSSLSpecs.swift */; };
 		ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
@@ -110,6 +111,7 @@
 		AD17A6521F74BAC600219F39 /* OCAnimalServiceClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCAnimalServiceClient.h; sourceTree = "<group>"; };
 		AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
 		AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
+		AD96B6B323F1F13200E1AA8F /* PactSSLSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactSSLSpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,12 +221,12 @@
 		AD17A5EA1F74B03500219F39 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
+				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
 				A1B2BE9022D19924009B0837 /* Mocks */,
+				A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */,
 				AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */,
 				AD17A5EE1F74B09D00219F39 /* Supporting Files */,
-				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
-				A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */,
-				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -259,8 +261,9 @@
 		AD17A5F51F74B0CA00219F39 /* PactConsumerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD17A64E1F74BAA900219F39 /* PactSpecs.swift */,
 				AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */,
+				AD17A64E1F74BAA900219F39 /* PactSpecs.swift */,
+				AD96B6B323F1F13200E1AA8F /* PactSSLSpecs.swift */,
 			);
 			path = PactConsumerSwiftTests;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */,
+				AD96B6B423F1F21F00E1AA8F /* PactSSLSpecs.swift in Sources */,
 				AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				A1B2BE9222D19924009B0837 /* ErrorCapture.swift in Sources */,

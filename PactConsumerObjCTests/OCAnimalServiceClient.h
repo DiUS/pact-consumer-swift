@@ -6,7 +6,7 @@
 @property (nonatomic, strong) NSNumber* legs;
 @end
 
-@interface OCAnimalServiceClient : NSObject
+@interface OCAnimalServiceClient : NSObject <NSURLSessionDataDelegate>
 - (id)initWithBaseUrl:(NSString *)url;
 - (Animal *)getAlligator;
 - (NSArray *)findAnimalsLiving:(NSString *)living;

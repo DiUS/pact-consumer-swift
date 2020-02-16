@@ -1,17 +1,22 @@
 import Foundation
 
+@objc
 open class PactVerificationService: NSObject {
 
   typealias VoidHandler = (Result<Void, NSError>) -> Void
   typealias StringHandler = (Result<String, NSError>) -> Void
 
-  public let url: String
-  public let port: Int
-  public let allowInsecureCertificates: Bool
+  @objc public let url: String
+  @objc public let port: Int
+  @objc public let allowInsecureCertificates: Bool
 
   open var baseUrl: String {
     return "\(url):\(port)"
   }
+
+  private lazy var session = {
+    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: .main)
+  }()
 
   enum Router {
     static var baseURLString = "http://example.com"
@@ -74,7 +79,8 @@ open class PactVerificationService: NSObject {
     }
   }
 
-  public init(url: String = "http://localhost", port: Int = 1234, allowInsecureCertificates: Bool = false) {
+  @objc(initWithUrl: port: allowInsecureCertificate:)
+  public init(url: String, port: Int, allowInsecureCertificates: Bool) {
     self.url = url
     self.port = port
     self.allowInsecureCertificates = allowInsecureCertificates
@@ -82,6 +88,11 @@ open class PactVerificationService: NSObject {
     super.init()
 
     Router.baseURLString = baseUrl
+  }
+
+  @objc(initWithUrl: port:)
+  public convenience init(url: String = "http://localhost", port: Int = 1234) {
+    self.init(url: url, port: port, allowInsecureCertificates: false)
   }
 
   // MARK: - Interface
@@ -189,13 +200,30 @@ private extension PactVerificationService {
 
 // MARK: - Network request handler
 
-private extension PactVerificationService {
+extension PactVerificationService: URLSessionDelegate {
 
-  private var session: URLSession {
-    return URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+  public func urlSession(
+    _ session: URLSession,
+    didReceive challenge: URLAuthenticationChallenge,
+    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
+  ) {
+    guard
+      allowInsecureCertificates,
+      challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
+      challenge.protectionSpace.host.contains("localhost"),
+      let serverTrust = challenge.protectionSpace.serverTrust
+       else {
+        completionHandler(.performDefaultHandling, nil)
+        return
+    }
+    let credential = URLCredential(trust: serverTrust)
+    completionHandler(.useCredential, credential)
   }
 
-  func performNetworkRequest(for router: Router, completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void) {
+  fileprivate func performNetworkRequest(
+    for router: Router,
+    completion: @escaping (Result<String, URLSession.APIServiceError>) -> Void
+  ) {
     do {
       let dataTask = try session.dataTask(with: router.asURLRequest()) { result in
         switch result {
@@ -284,26 +312,6 @@ extension URLSession.APIServiceError: LocalizedError {
     case .noData:
       return URLSession.APIServiceError.noData.localizedDescription
     }
-  }
-
-}
-
-extension PactVerificationService: URLSessionDelegate {
-
-  public func urlSession(
-    _ session: URLSession,
-    didReceive challenge: URLAuthenticationChallenge,
-    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
-  ) {
-    guard challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
-      allowInsecureCertificates,
-      let serverTrust = challenge.protectionSpace.serverTrust else {
-        completionHandler(.performDefaultHandling, nil)
-        return
-    }
-
-    let proposedCredential = URLCredential(trust: serverTrust)
-    completionHandler(.useCredential, proposedCredential)
   }
 
 }
