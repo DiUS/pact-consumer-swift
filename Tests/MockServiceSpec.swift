@@ -212,27 +212,18 @@ class MockServiceSpec: QuickSpec {
       }
     }
 
-    describe("test function throws") {
+    describe("when test function throws error") {
       beforeEach {
         pactServicePactStub!
           .clean(responseCode: 200, response: "Cleaned OK")
           .setupInteractions(responseCode: 200, response: "Setup succeeded")
       }
 
-      it("calls test function") {
-        var calledTestFunction = false
-        mockService!.run() { (testComplete) -> Void in
-          calledTestFunction = true
-          testComplete()
-        }
-        expect(calledTestFunction).to(equal(true))
-      }
-
       enum MockError: Error {
         case problem
       }
 
-      it("returns error message from error thrown by test function") {
+      it("returns message from thrown error") {
         mockService!.run() { _ -> Void in
           throw MockError.problem
         }

@@ -176,7 +176,11 @@ open class MockService: NSObject {
             do {
               try testFunction { done() }
             } catch {
-              self.failWithLocation("Error thrown in test function (check build log): \(error.localizedDescription)", file: file, line: line)
+              self.failWithLocation(
+                "Error thrown in test function (check build log): \(error.localizedDescription)",
+                file: file,
+                line: line
+              )
               done()
             }
           case .failure(let error):
