@@ -211,5 +211,26 @@ class MockServiceSpec: QuickSpec {
         expect(pactServicePactStub!.writePactStub.requestExecuted).to(equal(true))
       }
     }
+
+    describe("when test function throws error") {
+      beforeEach {
+        pactServicePactStub!
+          .clean(responseCode: 200, response: "Cleaned OK")
+          .setupInteractions(responseCode: 200, response: "Setup succeeded")
+      }
+
+      enum MockError: Error {
+        case problem
+      }
+
+      it("returns message from thrown error") {
+        mockService!.run() { _ -> Void in
+          throw MockError.problem
+        }
+        expect(errorCapturer!.message!.message).to(contain(
+          "Error thrown in test function (check build log):"
+        ))
+      }
+    }
   }
 }
