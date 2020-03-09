@@ -1,5 +1,5 @@
 import Foundation
-import Nimble
+import XCTest
 
 @objc
 open class MockService: NSObject {
@@ -33,39 +33,6 @@ open class MockService: NSObject {
     self.consumer = consumer
     self.pactVerificationService = pactVerificationService
     self.errorReporter = errorReporter
-  }
-
-  ///
-  /// Convenience Initializer
-  ///
-  /// - parameter provider: Name of your provider (eg: Calculator API)
-  /// - parameter consumer: Name of your consumer (eg: Calculator.app)
-  /// - parameter pactVerificationService: Your customised `PactVerificationService`
-  ///
-  /// Use this initialiser to use the default XCodeErrorReporter
-  ///
-  @objc(initWithProvider: consumer: andVerificationService:)
-  public convenience init(provider: String, consumer: String, pactVerificationService: PactVerificationService) {
-    self.init(provider: provider,
-              consumer: consumer,
-              pactVerificationService: pactVerificationService,
-              errorReporter: XCodeErrorReporter())
-  }
-
-  ///
-  /// Convenience Initializer
-  ///
-  /// - parameter provider: Name of your provider (eg: Calculator API)
-  /// - parameter consumer: Name of your consumer (eg: Calculator.app)
-  ///
-  /// Use this initialiser to use the default PactVerificationService and ErrorReporter
-  ///
-  @objc(initWithProvider: consumer:)
-  public convenience init(provider: String, consumer: String) {
-    self.init(provider: provider,
-              consumer: consumer,
-              pactVerificationService: PactVerificationService(),
-              errorReporter: XCodeErrorReporter())
   }
 
   ///
@@ -227,10 +194,17 @@ open class MockService: NSObject {
     line: UInt?,
     action: @escaping (@escaping () -> Void) -> Void
   ) {
-    if let fileName = file, let lineNumber = line {
-      return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
-    } else {
-      return waitUntil(timeout: timeout, action: action)
+    let expectation = XCTestExpectation(description: "waitUntilWithLocation")
+    action { expectation.fulfill() }
+
+    let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
+    if result != .completed {
+        let message = "waitUntilWithLocation timed out"
+        if let fileName = file, let lineNumber = line {
+            errorReporter.reportFailure(message, file: fileName, line: lineNumber)
+        } else {
+            errorReporter.reportFailure(message)
+        }
     }
   }
 }

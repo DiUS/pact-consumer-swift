@@ -11,13 +11,22 @@ let package = Package(
     .library(name: "PactConsumerSwift", targets: ["PactConsumerSwift"])
   ],
   dependencies: [
-    .package(url: "https://github.com/Quick/Nimble.git", from: "8.0.0")
+    .package(url: "https://github.com/Quick/Nimble.git", from: "8.0.0"),
+    .package(url: "https://github.com/Quick/Quick.git", from: "2.2.0")
   ],
   targets: [
     .target(
       name: "PactConsumerSwift",
-      dependencies: ["Nimble"],
       path: "./Sources"
+    ),
+    .testTarget(
+      name: "PactConsumerSwiftTests",
+      dependencies: [
+        "PactConsumerSwift",
+        "Nimble",
+        "Quick"
+      ],
+      path: "./Tests"
     )
   ]
 )

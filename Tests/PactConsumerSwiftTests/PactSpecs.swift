@@ -331,7 +331,7 @@ class PactSwiftSpec: QuickSpec {
           animalMockService?.run() { (testComplete) -> Void in
             testComplete()
           }
-          expect(errorCapturer.message?.file) == thisFile
+          expect(errorCapturer.message?.file?.description) == thisFile
           expect(errorCapturer.message?.line) == thisLine + 1
         }
       }

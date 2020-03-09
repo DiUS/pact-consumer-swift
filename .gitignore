@@ -41,3 +41,5 @@ tmp
 
 #scan
 test_output
+/.swiftpm
+/Brewfile.lock.json
