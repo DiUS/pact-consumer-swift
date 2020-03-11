@@ -2,6 +2,14 @@
 #import <XCTest/XCTest.h>
 #import "OCAnimalServiceClient.h"
 
+#if TARGET_OS_IOS
+#import "PactConsumerSwift_iOSTests-Swift.h"
+#elif TARGET_OS_TV
+#import "PactConsumerSwift_tvOSTests-Swift.h"
+#elif TARGET_OS_MAC
+#import "PactConsumerSwift_macOSTests-Swift.h"
+#endif
+
 @import PactConsumerSwift;
 
 @interface PactObjectiveCTests : XCTestCase
@@ -14,7 +22,8 @@
 - (void)setUp {
   [super setUp];
   self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
-                                                  consumer:@"Animal Service Client Objective-C"];
+                                                consumer:@"Animal Service Client Objective-C"
+                            ];
   self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
