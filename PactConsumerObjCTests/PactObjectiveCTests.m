@@ -22,8 +22,7 @@
 - (void)setUp {
   [super setUp];
   self.animalMockService = [[MockService alloc] initWithProvider:@"Animal Provider"
-                                                consumer:@"Animal Service Client Objective-C"
-                            ];
+                                                  consumer:@"Animal Service Client Objective-C"];
   self.animalServiceClient = [[OCAnimalServiceClient alloc] initWithBaseUrl:self.animalMockService.baseUrl];
 }
 
