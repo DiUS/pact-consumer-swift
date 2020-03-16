@@ -101,13 +101,7 @@ struct RubyPactMockServiceStub {
         StubProtocol.stubs[.cleanInteractions] = .init(responseCode: responseCode, response: response)
         return self
     }
-    
-    @discardableResult
-    func cleanWithError(errorMessage: String) -> RubyPactMockServiceStub {
-        StubProtocol.stubs[.cleanInteractions] = .init(responseCode: 500, response: errorMessage)
-        return self
-    }
-    
+
     @discardableResult
     func setupInteractions(responseCode: Int,
                            response: String) -> RubyPactMockServiceStub {

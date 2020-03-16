@@ -1,10 +1,3 @@
-//
-//  XCTestErrorReporter.swift
-//  
-//
-//  Created by Ruben Cagnie on 3/9/20.
-//
-
 import Foundation
 import XCTest
 

@@ -199,7 +199,7 @@ open class MockService: NSObject {
 
     let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
     if result != .completed {
-        let message = "waitUntilWithLocation timed out"
+        let message = "test did not complete within \(timeout) second timeout"
         if let fileName = file, let lineNumber = line {
             errorReporter.reportFailure(message, file: fileName, line: lineNumber)
         } else {
