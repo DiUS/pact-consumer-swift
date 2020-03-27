@@ -47,12 +47,12 @@ if ! which $BINARYFILE &> /dev/null; then
 fi
 
 # Check whether Swiftlint Config file exists
-if [ ! -f $CONFIGFILE ]; then
-  throw_not_found $ERROR $CONFIGFILE
+if [ ! -f "${CONFIGFILE}" ]; then
+  throw_not_found $ERROR "${CONFIGFILE}" ""
 fi 
 
 # All hunky dory, run linting
-$BINARYFILE --config $CONFIGFILE --strict
+$BINARYFILE --config "${CONFIGFILE}" --strict
 
 # Finish the script
 exit 0
