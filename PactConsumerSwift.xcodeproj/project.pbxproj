@@ -540,7 +540,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/scripts/swiftlint.sh\n";
+			shellScript = "\"${SRCROOT}/scripts/swiftlint.sh\"";
 		};
 		AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -584,7 +584,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/scripts/swiftlint.sh\n";
+			shellScript = "\"${SRCROOT}/scripts/swiftlint.sh\"";
 		};
 		AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -613,7 +613,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/scripts/swiftlint.sh\n";
+			shellScript = "\"${SRCROOT}/scripts/swiftlint.sh\"";
 		};
 		AD17A62B1F74B6DF00219F39 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -682,7 +682,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
+			shellScript = "\"${SRCROOT}/scripts/check_dependencies.sh\"";
 		};
 		ADB5B72B22C4EDC800301FB0 /* Check Dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -700,7 +700,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
+			shellScript = "\"${SRCROOT}/scripts/check_dependencies.sh\"";
 		};
 		ADB5B72C22C4EDDC00301FB0 /* Check Dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -718,7 +718,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/scripts/check_dependencies.sh\n";
+			shellScript = "\"${SRCROOT}/scripts/check_dependencies.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
