@@ -1,3 +1,14 @@
+# 0.8.0 - Maintenance Release
+
+
+* e8b5e27 - build: fix building when path has spaces in it. (Michał Myśliwiec, Sun Mar 29 13:18:57 2020 +0200)
+* 82a8a72 - feat: make it so `testFunction` can throw errors (#86) (Huw Rowlands, Sat Feb 22 15:51:33 2020 +1100)
+* c4d86cf - (fix) Allow connecting to `pact-mock-service` with self signed cert using Swift and ObjC (#84) (Marko Justinek, Sun Feb 16 21:45:13 2020 +1100)
+* 6958928 - (fix) Re-add support for self signed certificates (#82) (Marko Justinek, Fri Feb 7 09:40:58 2020 +1100)
+* 21bba02 - (fix) Backwards compatibility with Xcode 10.2 and Swift 4.2 (#81) (Marko Justinek, Thu Feb 6 09:55:12 2020 +1100)
+* 99f830c - maintenance: Remove BrightFutures dependency (#80) (Marko Justinek, Tue Feb 4 18:00:15 2020 +1100)
+* 4279255 - feat: allow self signed ssl certificates (#74) (Mihai Georgescu, Fri Jan 17 10:20:45 2020 +0000)
+* d086a7a - feat: add support for macCatalyst (#78) (Tomáš Linhart, Wed Nov 27 21:18:41 2019 +1100)
 # 0.7.1 - Bugfix Release
 
 
