@@ -34,6 +34,39 @@ open class MockService: NSObject {
     self.pactVerificationService = pactVerificationService
     self.errorReporter = errorReporter
   }
+    
+  ///
+  /// Convenience Initializer
+  ///
+  /// - parameter provider: Name of your provider (eg: Calculator API)
+  /// - parameter consumer: Name of your consumer (eg: Calculator.app)
+  /// - parameter pactVerificationService: Your customised `PactVerificationService`
+  ///
+  /// Use this initialiser to use the default XCodeErrorReporter
+  ///
+  @objc(initWithProvider: consumer: andVerificationService:)
+  public convenience init(provider: String, consumer: String, pactVerificationService: PactVerificationService) {
+    self.init(provider: provider,
+              consumer: consumer,
+              pactVerificationService: pactVerificationService,
+              errorReporter: ErrorReporterXCTest())
+  }
+
+  ///
+  /// Convenience Initializer
+  ///
+  /// - parameter provider: Name of your provider (eg: Calculator API)
+  /// - parameter consumer: Name of your consumer (eg: Calculator.app)
+  ///
+  /// Use this initialiser to use the default PactVerificationService and ErrorReporter
+  ///
+  @objc(initWithProvider: consumer:)
+  public convenience init(provider: String, consumer: String) {
+    self.init(provider: provider,
+              consumer: consumer,
+              pactVerificationService: PactVerificationService(),
+              errorReporter: ErrorReporterXCTest())
+  }
 
   ///
   /// Define the providers state
