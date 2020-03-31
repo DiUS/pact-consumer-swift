@@ -34,7 +34,7 @@ open class MockService: NSObject {
     self.pactVerificationService = pactVerificationService
     self.errorReporter = errorReporter
   }
-    
+
   ///
   /// Convenience Initializer
   ///

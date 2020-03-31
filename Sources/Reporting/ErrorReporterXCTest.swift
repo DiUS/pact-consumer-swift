@@ -2,7 +2,7 @@ import Foundation
 import XCTest
 
 public class ErrorReporterXCTest: ErrorReporter {
-    
+
     public func reportFailure(_ message: String) {
         XCTFail(message, file: #file, line: #line)
     }
