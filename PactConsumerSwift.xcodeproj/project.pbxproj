@@ -7,18 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		932DE01F241874AD006FD2FF /* XCTestErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE01E241874AD006FD2FF /* XCTestErrorReporter.swift */; };
+		930F92632434C44A00C471E6 /* ErrorReporterXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */; };
+		930F92642434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */; };
+		930F92652434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */; };
 		93D5792A2418758800D480BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579292418758700D480BC /* XCTest.framework */; };
 		93D5792B2418758800D480BC /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579292418758700D480BC /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93D5792E2418759000D480BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5792D2418759000D480BC /* XCTest.framework */; };
 		93D5792F2418759000D480BC /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5792D2418759000D480BC /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93D579322418759A00D480BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579312418759900D480BC /* XCTest.framework */; };
 		93D579332418759A00D480BC /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579312418759900D480BC /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		93D579352418763100D480BC /* XCTestErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE01E241874AD006FD2FF /* XCTestErrorReporter.swift */; };
-		93D579362418763200D480BC /* XCTestErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DE01E241874AD006FD2FF /* XCTestErrorReporter.swift */; };
-		93D5793D24187D5700D480BC /* NimbleErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5793C24187D5700D480BC /* NimbleErrorReporter.swift */; };
-		93D5793E24187D5700D480BC /* NimbleErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5793C24187D5700D480BC /* NimbleErrorReporter.swift */; };
-		93D5793F24187D5700D480BC /* NimbleErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5793C24187D5700D480BC /* NimbleErrorReporter.swift */; };
 		93D579462418869100D480BC /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		93D579472418869100D480BC /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		93D579482418869200D480BC /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
@@ -131,11 +128,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		932DE01E241874AD006FD2FF /* XCTestErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestErrorReporter.swift; sourceTree = "<group>"; };
+		930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorReporterXCTest.swift; sourceTree = "<group>"; };
 		93D579292418758700D480BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93D5792D2418759000D480BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93D579312418759900D480BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/AppleTVOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		93D5793C24187D5700D480BC /* NimbleErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleErrorReporter.swift; sourceTree = "<group>"; };
 		A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorReporter.swift; sourceTree = "<group>"; };
 		A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
 		A1B2BE9122D19924009B0837 /* ErrorCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCapture.swift; sourceTree = "<group>"; };
@@ -225,18 +221,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		93D5793B24187D5700D480BC /* Nimble */ = {
-			isa = PBXGroup;
-			children = (
-				93D5793C24187D5700D480BC /* NimbleErrorReporter.swift */,
-			);
-			path = Nimble;
-			sourceTree = "<group>";
-		};
 		A109FBA622CB6A6C007B46F7 /* Reporting */ = {
 			isa = PBXGroup;
 			children = (
-				932DE01E241874AD006FD2FF /* XCTestErrorReporter.swift */,
+				930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */,
 				A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */,
 			);
 			path = Reporting;
@@ -292,7 +280,6 @@
 		AD17A5EA1F74B03500219F39 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				93D5793B24187D5700D480BC /* Nimble */,
 				AD17A6511F74BAA900219F39 /* InteractionSpec.swift */,
 				AD17A6501F74BAA900219F39 /* MatcherSpec.swift */,
 				A1B2BE9022D19924009B0837 /* Mocks */,
@@ -799,10 +786,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930F92632434C44A00C471E6 /* ErrorReporterXCTest.swift in Sources */,
 				AD17A66A1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
-				932DE01F241874AD006FD2FF /* XCTestErrorReporter.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
 				A109FBAA22CB6A6C007B46F7 /* ErrorReporter.swift in Sources */,
 			);
@@ -820,7 +807,6 @@
 				A1B2BE9222D19924009B0837 /* ErrorCapture.swift in Sources */,
 				AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */,
 				A109FBC722CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
-				93D5793D24187D5700D480BC /* NimbleErrorReporter.swift in Sources */,
 				AD01EDB61F74BF4A00827C66 /* InteractionSpec.swift in Sources */,
 				A1B2BE9622D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 			);
@@ -830,7 +816,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D579352418763100D480BC /* XCTestErrorReporter.swift in Sources */,
+				930F92642434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */,
 				AD17A66E1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A66C1F74BB8300219F39 /* Matcher.swift in Sources */,
 				AD17A66B1F74BB8300219F39 /* Interaction.swift in Sources */,
@@ -851,7 +837,6 @@
 				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				A109FBC822CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
 				AD17A6601F74BB7E00219F39 /* InteractionSpec.swift in Sources */,
-				93D5793E24187D5700D480BC /* NimbleErrorReporter.swift in Sources */,
 				A1B2BE9722D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -860,7 +845,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D579362418763200D480BC /* XCTestErrorReporter.swift in Sources */,
+				930F92652434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */,
 				AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */,
 				AD17A66F1F74BB8400219F39 /* Interaction.swift in Sources */,
@@ -881,7 +866,6 @@
 				ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */,
 				A109FBC922CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
 				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
-				93D5793F24187D5700D480BC /* NimbleErrorReporter.swift in Sources */,
 				A1B2BE9822D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
