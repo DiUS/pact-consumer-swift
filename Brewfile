@@ -1,4 +1,6 @@
-tap 'pact-foundation/pact-ruby-standalone'
+tap 'pact-foundation/pact-ruby-standalone', 'https://github.com/pact-foundation/homebrew-pact-ruby-standalone.git'
+tap 'thii/xcbeautify', 'https://github.com/thii/xcbeautify.git'
 brew 'carthage'
 brew 'swiftlint'
 brew 'pact-ruby-standalone'
+brew 'xcbeautify'
