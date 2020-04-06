@@ -52,7 +52,7 @@ if [ ! -f "${CONFIGFILE}" ]; then
 fi 
 
 # All hunky dory, run linting
-$BINARYFILE --config "${CONFIGFILE}" --strict
+$BINARYFILE --config "${CONFIGFILE}"
 
 # Finish the script
 exit 0
