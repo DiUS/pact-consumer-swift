@@ -1,3 +1,7 @@
+# 0.8.1 - Bugfix Release
+
+* 61191a6 - fix(build) Enable testing search path for Xcode 11.4 (#93) (Marko Justinek, Mon Apr 6 20:46:55 2020 +1000)
+
 # 0.8.0 - Maintenance Release
 
 * e8b5e27 - build: fix building when path has spaces in it. (Michał Myśliwiec, Sun Mar 29 13:18:57 2020 +0200)
@@ -10,10 +14,6 @@
 
 * 01effee - style: add convenience init method to MockService which defaults error reporting but allows configuration of the verifier. (#77) (alan.nichols@outlook.com, Tue Nov 12 22:22:16 2019 +0000)
 * f5e34d5 - chore: Change minimum swift version to 4.2 due Nimble requirements. Also fix cocoapods configuration. (Andrew Spinks, Sat Aug 31 14:55:31 2019 +0900)
-* c91360d - Revert "chore: Bumping version to 0.6.2" due to cocoapods issues. (Andrew Spinks, Sat Aug 31 14:50:40 2019 +0900)
-* 58775a2 - chore: Bumping version to 0.6.2 (Andrew Spinks, Sat Aug 31 14:11:12 2019 +0900)
-* 8f2c76b - fix: Bump dependencies to support swift 5. Also removes obsolete references to Result.framework. (Marko Justinek, Tue Aug 27 00:50:46 2019 +0200)
-* 5b1e1bf - chore: convert release script to be a bash script #46 (Andrew Spinks, Sun Jul 28 10:32:30 2019 +0900)
 
 # 0.7.0 - Bugfix Release
 
@@ -22,8 +22,8 @@
 * 58775a2 - chore: Bumping version to 0.6.2 (Andrew Spinks, Sat Aug 31 14:11:12 2019 +0900)
 * 8f2c76b - fix: Bump dependencies to support swift 5. Also removes obsolete references to Result.framework. (Marko Justinek, Tue Aug 27 00:50:46 2019 +0200)
 * 5b1e1bf - chore: convert release script to be a bash script #46 (Andrew Spinks, Sun Jul 28 10:32:30 2019 +0900)
--en # 0.6.1 - Bugfix Release
 
+# 0.6.1 - Bugfix Release
 
 * 57ccbd6 - fix(objc): add escaping modifier to allow for testComplete function to be called… (#71) (Matt Arturi, Sat Jul 27 09:43:09 2019 -0400)
 * a611dce - chore: Only run coverage report when tests pass (Andrew Spinks, Sat Jul 27 20:48:05 2019 +0900)
