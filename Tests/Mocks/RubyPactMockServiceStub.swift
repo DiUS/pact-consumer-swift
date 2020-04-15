@@ -1,108 +1,157 @@
-import OHHTTPStubs
+import Foundation
+@testable import PactConsumerSwift
 
 class VerifiableHttpStub {
-  public var requestExecuted = false
-  public var requestBody: String?
-  private var requestStub: RubyMockServiceRequest
-
-  public init(requestStub: RubyMockServiceRequest) {
-    self.requestStub = requestStub
-  }
-
-  func stubWithResponse(responseCode: Int32, response: String) {
-    stub(condition: isHost("localhost") && requestStub.path && requestStub.method) { request in
-      if let body = request.ohhttpStubs_httpBody {
-        self.requestBody = String(data: body, encoding: .utf8)
-      }
-      self.requestExecuted = true
-      let stubData: Data? = response.data(using: .utf8)
-      return OHHTTPStubsResponse(data: stubData!, statusCode:responseCode, headers:nil)
+    public var requestExecuted = false
+    public var requestBody: String?
+    
+    public var responseBody: Data = Data()
+    public var responseCode: Int = 0
+    
+    public init() { }
+    
+    public init(responseCode: Int, response: String) {
+        self.responseCode = responseCode
+        self.responseBody = response.data(using: .utf8) ?? Data()
     }
-  }
-
-  func stubWithError(errorMessage: String) {
-    let userInfo = [NSLocalizedDescriptionKey: NSLocalizedString("Error", value: errorMessage, comment: "")]
-    let error = NSError(domain: NSURLErrorDomain, code: URLError.notConnectedToInternet.rawValue, userInfo: userInfo)
-
-    stub(condition: isHost("localhost") && requestStub.path && requestStub.method) { request in
-      self.requestExecuted = true
-      return OHHTTPStubsResponse(error: error)
-    }
-  }
 }
 
-enum RubyMockServiceRequest {
-  case cleanInteractions
-  case setupInteractions
-  case verifyInteractions
-  case writePact
-
-  var method: OHHTTPStubsTestBlock {
-    switch self {
-    case .cleanInteractions:
-      return isMethodDELETE()
-    case .setupInteractions:
-      return isMethodPUT()
-    case .verifyInteractions:
-      return isMethodGET()
-    case .writePact:
-      return isMethodPOST()
+enum RubyMockServiceRequest: CaseIterable {
+    case cleanInteractions
+    case setupInteractions
+    case verifyInteractions
+    case writePact
+    
+    init?(request: URLRequest) {
+        guard let mockRequest = RubyMockServiceRequest.allCases.filter({
+            request.httpMethod?.uppercased() == $0.route.method.uppercased()
+                && request.url?.path == $0.route.path
+        }).first else {
+            return nil
+        }
+        self = mockRequest
     }
-  }
-
-  var path: OHHTTPStubsTestBlock {
-    switch self {
-    case .cleanInteractions:
-      return isPath("/interactions")
-    case .setupInteractions:
-      return isPath("/interactions")
-    case .verifyInteractions:
-      return isPath("/interactions/verification")
-    case .writePact:
-      return isPath("/pact")
+    
+    private var route: PactVerificationService.Router {
+        switch self {
+        case .cleanInteractions:
+            return .clean
+        case .setupInteractions:
+            return .setup([:])
+        case .verifyInteractions:
+            return .verify
+        case .writePact:
+            return .write([:])
+        }
     }
-  }
+}
+
+class StubProtocol: URLProtocol {
+    static var stubs: [RubyMockServiceRequest:VerifiableHttpStub] = [:]
+    
+    override class func canInit(with request: URLRequest) -> Bool {
+        return true
+    }
+    
+    override func startLoading() {
+        guard let url = request.url else { fatalError("A request should always have an URL") }
+
+        guard
+            let mockRequest = RubyMockServiceRequest(request: request),
+            let stub: VerifiableHttpStub = StubProtocol.stubs[mockRequest] else {
+                // Nothing registered, just return a 200
+                let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)!
+                client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+                client?.urlProtocolDidFinishLoading(self)
+                return
+        }
+        
+        StubProtocol.stubs[mockRequest]?.requestExecuted = true
+        StubProtocol.stubs[mockRequest]?.requestBody = request.body
+        
+        let response = HTTPURLResponse(url: url, statusCode: stub.responseCode, httpVersion: nil, headerFields: nil)!
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        client?.urlProtocol(self, didLoad: stub.responseBody)
+        client?.urlProtocolDidFinishLoading(self)
+    }
+    
+    override func stopLoading() { }
+    
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest { return request }
+    
 }
 
 struct RubyPactMockServiceStub {
-  var cleanStub: VerifiableHttpStub = VerifiableHttpStub(requestStub: RubyMockServiceRequest.cleanInteractions)
-  var setupInteractionsStub: VerifiableHttpStub = VerifiableHttpStub(requestStub: RubyMockServiceRequest.setupInteractions)
-  var verifyInteractionsStub: VerifiableHttpStub = VerifiableHttpStub(requestStub: RubyMockServiceRequest.verifyInteractions)
-  var writePactStub: VerifiableHttpStub = VerifiableHttpStub(requestStub: RubyMockServiceRequest.writePact)
+    var cleanStub: VerifiableHttpStub { StubProtocol.stubs[.cleanInteractions] ?? .init() }
+    var setupInteractionsStub: VerifiableHttpStub { StubProtocol.stubs[.setupInteractions] ?? .init() }
+    var verifyInteractionsStub: VerifiableHttpStub { StubProtocol.stubs[.verifyInteractions] ?? .init() }
+    var writePactStub: VerifiableHttpStub { StubProtocol.stubs[.writePact] ?? .init() }
+    
+    let session: URLSession
+    
+    init() {
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [StubProtocol.self]
+        self.session = URLSession.init(configuration: configuration)
+    }
+    
+    @discardableResult
+    func clean(responseCode: Int,
+               response: String) -> RubyPactMockServiceStub {
+        StubProtocol.stubs[.cleanInteractions] = .init(responseCode: responseCode, response: response)
+        return self
+    }
 
-  @discardableResult
-  func clean(responseCode: Int32,
-             response: String) -> RubyPactMockServiceStub {
-    self.cleanStub.stubWithResponse(responseCode: responseCode, response: response)
-    return self
-  }
+    @discardableResult
+    func setupInteractions(responseCode: Int,
+                           response: String) -> RubyPactMockServiceStub {
+        StubProtocol.stubs[.setupInteractions] = .init(responseCode: responseCode, response: response)
+        return self
+    }
+    
+    @discardableResult
+    func verifyInteractions(responseCode: Int,
+                            response: String) -> RubyPactMockServiceStub {
+        StubProtocol.stubs[.verifyInteractions] = .init(responseCode: responseCode, response: response)
+        return self
+    }
+    
+    @discardableResult
+    func writePact(responseCode: Int,
+                   response: String) -> RubyPactMockServiceStub {
+        StubProtocol.stubs[.writePact] = .init(responseCode: responseCode, response: response)
+        return self
+    }
+    
+    func reset() {
+        StubProtocol.stubs = [:]
+    }
+}
 
-  func cleanWithError(errorMessage: String) {
-    self.cleanStub.stubWithError(errorMessage: errorMessage)
-  }
-
-  @discardableResult
-  func setupInteractions(responseCode: Int32,
-                         response: String) -> RubyPactMockServiceStub {
-    self.setupInteractionsStub.stubWithResponse(responseCode: responseCode, response: response)
-    return self
-  }
-
-  @discardableResult
-  func verifyInteractions(responseCode: Int32,
-                          response: String) -> RubyPactMockServiceStub {
-    self.verifyInteractionsStub.stubWithResponse(responseCode: responseCode, response: response)
-    return self
-  }
-
-  @discardableResult
-  func writePact(responseCode: Int32,
-                 response: String) -> RubyPactMockServiceStub {
-    self.writePactStub.stubWithResponse(responseCode: responseCode, response: response)
-    return self
-  }
-
-  func reset() {
-    OHHTTPStubs.removeAllStubs()
-  }
+extension URLRequest {
+    var body: String? {
+        guard let input = httpBodyStream else { return nil }
+        
+        var data = Data()
+        
+        input.open()
+        defer {
+            input.close()
+        }
+        
+        let bufferSize = 1024
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
+        defer {
+            buffer.deallocate()
+        }
+        while input.hasBytesAvailable {
+            let read = input.read(buffer, maxLength: bufferSize)
+            if read <= 0 {
+                break
+            }
+            data.append(buffer, count: read)
+        }
+        
+        return String(data: data, encoding: .utf8)
+    }
 }

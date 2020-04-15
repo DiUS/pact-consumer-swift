@@ -95,6 +95,12 @@ open class PactVerificationService: NSObject {
     self.init(url: url, port: port, allowInsecureCertificates: false)
   }
 
+  @objc(initWithUrl: port: session:)
+  public convenience init(url: String = "http://localhost", port: Int = 1234, session: URLSession) {
+    self.init(url: url, port: port, allowInsecureCertificates: false)
+    self.session = session
+  }
+
   // MARK: - Interface
 
   func setup(_ interactions: [Interaction], completion: @escaping VoidHandler) {

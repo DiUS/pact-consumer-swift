@@ -1,5 +1,5 @@
 import Foundation
-import Nimble
+import XCTest
 
 @objc
 open class MockService: NSObject {
@@ -49,7 +49,7 @@ open class MockService: NSObject {
     self.init(provider: provider,
               consumer: consumer,
               pactVerificationService: pactVerificationService,
-              errorReporter: XCodeErrorReporter())
+              errorReporter: ErrorReporterXCTest())
   }
 
   ///
@@ -65,7 +65,7 @@ open class MockService: NSObject {
     self.init(provider: provider,
               consumer: consumer,
               pactVerificationService: PactVerificationService(),
-              errorReporter: XCodeErrorReporter())
+              errorReporter: ErrorReporterXCTest())
   }
 
   ///
@@ -227,10 +227,17 @@ open class MockService: NSObject {
     line: UInt?,
     action: @escaping (@escaping () -> Void) -> Void
   ) {
-    if let fileName = file, let lineNumber = line {
-      return waitUntil(timeout: timeout, file: fileName, line: lineNumber, action: action)
-    } else {
-      return waitUntil(timeout: timeout, action: action)
+    let expectation = XCTestExpectation(description: "waitUntilWithLocation")
+    action { expectation.fulfill() }
+
+    let result = XCTWaiter().wait(for: [expectation], timeout: timeout)
+    if result != .completed {
+        let message = "test did not complete within \(timeout) second timeout"
+        if let fileName = file, let lineNumber = line {
+            errorReporter.reportFailure(message, file: fileName, line: lineNumber)
+        } else {
+            errorReporter.reportFailure(message)
+        }
     }
   }
 }
