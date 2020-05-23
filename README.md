@@ -3,11 +3,15 @@
 [![Build Status](https://travis-ci.org/DiUS/pact-consumer-swift.svg?branch=master)](https://travis-ci.org/DiUS/pact-consumer-swift)
 [![Codecov](https://codecov.io/gh/DiUS/pact-consumer-swift/branch/master/graph/badge.svg)](https://codecov.io/gh/DiUS/pact-consumer-swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg)]()
-![Swift](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg)][swift-package-manager]
+[![Swift](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org/)
 [![Badge w/ CocoaPod Version](https://cocoapod-badges.herokuapp.com/v/PactConsumerSwift/badge.png)](https://cocoadocs.org/docsets/PactConsumerSwift)
-[![Badge w/ Supported Platforms](https://cocoapod-badges.herokuapp.com/p/PactConsumerSwift/badge.svg)](https://cocoadocs.org/docsets/PactConsumerSwift) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Badge w/ Supported Platforms](https://cocoapod-badges.herokuapp.com/p/PactConsumerSwift/badge.svg)](https://cocoadocs.org/docsets/PactConsumerSwift)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Twitter](https://img.shields.io/badge/twitter-@pact__up-blue.svg?style=flat)](http://twitter.com/pact_up)
+
+> ℹ  
+> A new version featuring [Pact Specification v3][pact-spec-v3], a simplified installation and better management of the mock server processes is in active development and can be found at [PactSwift][pact-swift]. We are currently looking for people to try it out and provide feedback.
 
 This library provides a Swift / Objective C DSL for creating Consumer [Pacts](http://pact.io). It provides support for **[Consumer Driven Contract Testing][pact-microservices]** between dependent systems where the integration is based on HTTP (or message queues for some of the implementations).
 
@@ -17,9 +21,10 @@ You can view a presentation on how Pact can work in a mobile context here: [Yow!
 Implements [Pact Specification v2][pact-spec-v2],
 including [flexible matching][pact-flexible-matching].
 
-This DSL relies on the Ruby [pact-ruby-standalone][pact-mock-service-standalone] to provide the mock service for the tests.
+This DSL relies on the Ruby [pact-ruby-standalone][pact-mock-service-standalone] ([brew tap][pact-ruby-standalone-homebrew]) to provide the mock service for the tests.
 
 ## Installation
+
 Note: see [Upgrading][upgrading] for notes on upgrading from 0.2 to 0.3
 
 ### Install Pact Mock Service
@@ -40,9 +45,11 @@ This will install the following tools:
     pact-stub-service
 
 #### Manually
+
 Alternatively you can download and install the [pact-ruby-standalone][pact-ruby-standalone-releases] archives for your platform and install as per installation instructions written in [Pact Ruby Standalone release notes][pact-mock-service-standalone-installation].
 
 #### Xcode Setup
+
 In Xcode, edit your scheme and add _pre-_ and _post-actions_ to `Test` to start and stop `pact-mock-service`. Make sure you select your target in _Provide build settings from_ the drop down menu.
 
 ```
@@ -61,18 +68,22 @@ Note: your generated Pact files will be dropped into `"${SRCROOT}/tmp/pacts"` fo
 ### Add the PactConsumerSwift library to your project
 
 #### Using [Carthage](https://github.com/Carthage/Carthage)
+
 - See the [PactSwiftExample][pact-carthage-ios-example] [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)][build-carthage-ios-example] for an example project using `pact-consumer-swift` with Carthage for an iOS target.
 - See the [PactMacOSExample][pact-carthage-macos-example] [![Build Status](https://travis-ci.org/surpher/PactMacOSExample.svg?branch=master)][build-carthage-macos-example] for an example project using `pact-consumer-swift` through Carthage for a macOS target.
 
 #### Using [CocoaPods](https://cocoapods.org/pods/PactConsumerSwift)
+
 - See the [PactObjectiveCExample][pact-objc-example] [![Build Status](https://travis-ci.org/andrewspinks/PactObjectiveCExample.svg?branch=master)][build-objc-example] for an example project using `pact-consumer-swift` with CocoaPods for an iOS target.
 
-#### Using [Swift Package Manager](https://swift.org/package-manager/)
+#### Using [Swift Package Manager][swift-package-manager]
+
 - See the [PactSwiftPMExample][pact-swiftpm-example] [![Build Status](https://travis-ci.org/surpher/PactSwiftPMExample.svg?branch=master)][build-swiftpm-example] for an example project using `pact-consumer-swift` library through Swift Package Manager for an executable that runs in terminal.
 
 ## Writing Pact Tests
 
 ### Testing with Swift
+
   Write a Unit test similar to the following (NB: this example is using the [Quick](https://github.com/Quick/Quick) test framework)
 
 ```swift
@@ -115,6 +126,7 @@ import PactConsumerSwift
 ```
 
 ### Testing with Objective-C
+
   Write a Unit test similar to the following
 
 ```objc
@@ -160,7 +172,9 @@ import PactConsumerSwift
 ```
 
 ### Testing with XCTest
+
 Write a Unit Test similar to the following:
+
 ```swift
 import PactConsumerSwift
 ...
@@ -229,26 +243,29 @@ See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect
 
 For more on request / response matching, see [Matching][matching].
 
-### Using in you CI
+### Using in your CI
+
 Xcode's _pre-actions_ and _post-actions_ do not honour non-zero script exits and therefore would not fail your build if publishing to a Pact Broker would fail. If you would like to upload your Pact files to a Pact Broker as part of your CI, we would suggest that you create a separate step in your CI workflow with that responsibility.
 
 See [pact-ruby-standalone][pact-ruby-standalone-releases] page for installation instructions and how to use `pact-broker` client.
 
 ### Verifying your client against the service you are integrating with
+
 If your setup is correct and your tests run against the pack mock server, then you should see a log file here:
 `$YOUR_PROJECT/tmp/pact.log`
 And the generated pacts here:
 `$YOUR_PROJECT/tmp/pacts/...`
 
-[Publish][pact-publish-to-broker] your generated pact file(s) to your [Pact Broker][pact-broker] or a [Hosted Pact Broker](http://pact.dius.com.au) so your _API provider_ can always retrieve them from one location, even when pacts change. Or even just by simply sending the pact file to your API provider devs so they can used them in their tests of their API responses. See [Verifying pacts][pact-verifying] for more information.
+[Publish][pact-publish-to-broker] your generated pact file(s) to your [Pact Broker][pact-broker] or a [Hosted Pact Broker][pactflow] so your _API provider_ can always retrieve them from one location, even when pacts change. Or even just by simply sending the pact file to your API provider devs so they can used them in their tests of their API responses. See [Verifying pacts][pact-verifying] for more information.
 For an end-to-end example with a ruby back end service, have a look at the [KatKit example][pact-katkit-example].
 
 Also, check out this article on [using a dockerized Node.js service][pact-dockerized-example] that uses provider states.
 
 ## More reading
-* The Pact website [Pact](http://pact.io)
-* The pact mock server that the Swift library uses under the hood [Pact mock service][pact-mock-service]
-* A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker][pact-broker]
+
+- The Pact website [Pact](http://pact.io)
+- The pact mock server that the Swift library uses under the hood [Pact mock service][pact-mock-service]
+- A pact broker for managing the generated pact files (so you don't have to manually copy them around!) [Pact broker][pact-broker]
 
 ## Contributing
 
@@ -257,15 +274,18 @@ Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 [upgrading]: https://github.com/DiUS/pact-consumer-swift/wiki/Upgrading
 [pact-broker]: https://github.com/pact-foundation/pact_broker
 [pact-readme]: https://github.com/realestate-com-au/pact
-[pact-verifying]: http://docs.pact.io/documentation/verifying_pacts.html
+[pact-verifying]: https://docs.pact.io/getting_started/verifying_pacts
 [pact-spec-v2]: https://github.com/pact-foundation/pact-specification/tree/version-2
-[pact-flexible-matching]: http://docs.pact.io/documentation/matching.html
+[pact-spec-v3]: https://github.com/pact-foundation/pact-specification/tree/version-3
+[pact-swift]: https://github.com/surpher/PactSwift
+[pact-flexible-matching]: https://docs.pact.io/getting_started/matching
 [pact-publish-to-broker]: https://github.com/pact-foundation/pact_broker/wiki/Publishing-and-retrieving-pacts
 [pact-katkit-example]: https://github.com/andrewspinks/pact-mobile-preso
 [pact-dockerized-example]: https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk
 [pact-mock-service]: https://github.com/bethesque/pact-mock_service
 [pact-mock-service-standalone]: https://github.com/pact-foundation/pact-ruby-standalone
 [pact-ruby-standalone-releases]: https://github.com/pact-foundation/pact-ruby-standalone/releases
+[pact-ruby-standalone-homebrew]: https://github.com/pact-foundation/homebrew-pact-ruby-standalone
 [pact-mock-service-without-ruby]: https://github.com/DiUS/pact-consumer-js-dsl/wiki/Using-the-Pact-Mock-Service-without-Ruby
 [regular-expressions]: http://ruby-doc.org/core-2.1.5/Regexp.html
 [matching]: http://docs.pact.io/documentation/matching.html
@@ -277,4 +297,6 @@ Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 [build-carthage-macos-example]: https://travis-ci.org/surpher/PactMacOSExample
 [pact-carthage-ios-example]: https://github.com/andrewspinks/PactSwiftExample
 [build-carthage-ios-example]: https://travis-ci.org/andrewspinks/PactSwiftExample
-[pact-microservices]: https://dius.com.au/2016/02/03/microservices-pact/
+[pact-microservices]: https://dius.com.au/2016/02/03/pact-101-getting-started-with-pact-and-consumer-driven-contract-testing/
+[swift-package-manager]: https://swift.org/package-manager/
+[pactflow]: https://pactflow.io
