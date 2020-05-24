@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A109FBA922CB6A6C007B46F7 /* XCodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */; };
+		930F92632434C44A00C471E6 /* ErrorReporterXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */; };
+		930F92642434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */; };
+		930F92652434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */; };
+		93D5792A2418758800D480BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579292418758700D480BC /* XCTest.framework */; };
+		93D5792B2418758800D480BC /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579292418758700D480BC /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93D5792E2418759000D480BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5792D2418759000D480BC /* XCTest.framework */; };
+		93D5792F2418759000D480BC /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5792D2418759000D480BC /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93D579322418759A00D480BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579312418759900D480BC /* XCTest.framework */; };
+		93D579332418759A00D480BC /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93D579312418759900D480BC /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93D579462418869100D480BC /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
+		93D579472418869100D480BC /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
+		93D579482418869200D480BC /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		A109FBAA22CB6A6C007B46F7 /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */; };
-		A109FBAB22CB6A9A007B46F7 /* XCodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */; };
-		A109FBAC22CB6A9D007B46F7 /* XCodeErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */; };
 		A109FBAE22CB6AA5007B46F7 /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */; };
 		A109FBAF22CB6AA6007B46F7 /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */; };
 		A109FBC722CCBB55007B46F7 /* MockServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */; };
@@ -30,9 +39,7 @@
 		AD17A6171F74B3C400219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD17A6181F74B3C400219F39 /* PactConsumerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = AD17A58B1F74AF5300219F39 /* PactConsumerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
-		AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
-		AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 		AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64F1F74BAA900219F39 /* AnimalServiceClient.swift */; };
 		AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A64E1F74BAA900219F39 /* PactSpecs.swift */; };
@@ -58,7 +65,6 @@
 		ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
-		ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +91,47 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		93D5792C2418758800D480BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93D5792B2418758800D480BC /* XCTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D579302418759000D480BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93D5792F2418759000D480BC /* XCTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D579342418759A00D480BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93D579332418759A00D480BC /* XCTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCodeErrorReporter.swift; sourceTree = "<group>"; };
+		930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorReporterXCTest.swift; sourceTree = "<group>"; };
+		93D579292418758700D480BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93D5792D2418759000D480BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93D579312418759900D480BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/AppleTVOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorReporter.swift; sourceTree = "<group>"; };
 		A109FBC622CCBB55007B46F7 /* MockServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockServiceSpec.swift; sourceTree = "<group>"; };
 		A1B2BE9122D19924009B0837 /* ErrorCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCapture.swift; sourceTree = "<group>"; };
@@ -119,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D5792A2418758800D480BC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D5792E2418759000D480BC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D579322418759A00D480BC /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,10 +211,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93D579282418758700D480BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93D579312418759900D480BC /* XCTest.framework */,
+				93D5792D2418759000D480BC /* XCTest.framework */,
+				93D579292418758700D480BC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A109FBA622CB6A6C007B46F7 /* Reporting */ = {
 			isa = PBXGroup;
 			children = (
-				A109FBA722CB6A6C007B46F7 /* XCodeErrorReporter.swift */,
+				930F92622434C44A00C471E6 /* ErrorReporterXCTest.swift */,
 				A109FBA822CB6A6C007B46F7 /* ErrorReporter.swift */,
 			);
 			path = Reporting;
@@ -188,6 +246,7 @@
 				AD17A5EA1F74B03500219F39 /* Tests */,
 				AD17A5EB1F74B03D00219F39 /* PactConsumerObjCTests */,
 				AD17A5891F74AF5300219F39 /* Products */,
+				93D579282418758700D480BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -308,6 +367,7 @@
 				AD17A5851F74AF5300219F39 /* Headers */,
 				AD17A5861F74AF5300219F39 /* Resources */,
 				AD17A6251F74B59000219F39 /* Copy Carthage Frameworks */,
+				93D5792C2418758800D480BC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +408,7 @@
 				AD17A5A51F74AFB000219F39 /* Headers */,
 				AD17A5A61F74AFB000219F39 /* Resources */,
 				AD17A6241F74B57A00219F39 /* Copy Carthage Frameworks */,
+				93D579302418759000D480BC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,6 +449,7 @@
 				AD17A5C11F74AFC900219F39 /* Headers */,
 				AD17A5C21F74AFC900219F39 /* Resources */,
 				AD17A6271F74B5A600219F39 /* Copy Carthage Frameworks */,
+				93D579342418759A00D480BC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -623,7 +685,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -640,7 +701,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/OHHTTPStubs.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -657,7 +717,6 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/tvOS/OHHTTPStubs.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -727,11 +786,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930F92632434C44A00C471E6 /* ErrorReporterXCTest.swift in Sources */,
 				AD17A66A1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6671F74BB8300219F39 /* Interaction.swift in Sources */,
 				AD17A6681F74BB8300219F39 /* Matcher.swift in Sources */,
 				AD17A6691F74BB8300219F39 /* MockService.swift in Sources */,
-				A109FBA922CB6A6C007B46F7 /* XCodeErrorReporter.swift in Sources */,
 				A109FBAA22CB6A6C007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,10 +802,10 @@
 				AD17A65E1F74BB7E00219F39 /* PactSpecs.swift in Sources */,
 				AD96B6B423F1F21F00E1AA8F /* PactSSLSpecs.swift in Sources */,
 				AD17A65B1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
+				93D579462418869100D480BC /* PactObjectiveCTests.m in Sources */,
 				AD17A65D1F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				A1B2BE9222D19924009B0837 /* ErrorCapture.swift in Sources */,
 				AD17A6551F74BB7300219F39 /* OCAnimalServiceClient.m in Sources */,
-				AD17A6561F74BB7300219F39 /* PactObjectiveCTests.m in Sources */,
 				A109FBC722CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
 				AD01EDB61F74BF4A00827C66 /* InteractionSpec.swift in Sources */,
 				A1B2BE9622D19949009B0837 /* RubyPactMockServiceStub.swift in Sources */,
@@ -757,11 +816,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930F92642434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */,
 				AD17A66E1F74BB8300219F39 /* PactVerificationService.swift in Sources */,
 				AD17A66C1F74BB8300219F39 /* Matcher.swift in Sources */,
 				AD17A66B1F74BB8300219F39 /* Interaction.swift in Sources */,
 				AD17A66D1F74BB8300219F39 /* MockService.swift in Sources */,
-				A109FBAB22CB6A9A007B46F7 /* XCodeErrorReporter.swift in Sources */,
 				A109FBAE22CB6AA5007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -773,8 +832,8 @@
 				AD17A6571F74BB7400219F39 /* OCAnimalServiceClient.m in Sources */,
 				AD17A65F1F74BB7E00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A6621F74BB7E00219F39 /* PactSpecs.swift in Sources */,
+				93D579472418869100D480BC /* PactObjectiveCTests.m in Sources */,
 				A1B2BE9322D19924009B0837 /* ErrorCapture.swift in Sources */,
-				AD17A6581F74BB7400219F39 /* PactObjectiveCTests.m in Sources */,
 				AD17A6611F74BB7E00219F39 /* MatcherSpec.swift in Sources */,
 				A109FBC822CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
 				AD17A6601F74BB7E00219F39 /* InteractionSpec.swift in Sources */,
@@ -786,11 +845,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930F92652434C44E00C471E6 /* ErrorReporterXCTest.swift in Sources */,
 				AD17A6721F74BB8400219F39 /* PactVerificationService.swift in Sources */,
 				AD17A6701F74BB8400219F39 /* Matcher.swift in Sources */,
 				AD17A66F1F74BB8400219F39 /* Interaction.swift in Sources */,
 				AD17A6711F74BB8400219F39 /* MockService.swift in Sources */,
-				A109FBAC22CB6A9D007B46F7 /* XCodeErrorReporter.swift in Sources */,
 				A109FBAF22CB6AA6007B46F7 /* ErrorReporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,8 +861,8 @@
 				ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */,
 				AD17A6631F74BB7F00219F39 /* AnimalServiceClient.swift in Sources */,
 				AD17A6661F74BB7F00219F39 /* PactSpecs.swift in Sources */,
+				93D579482418869200D480BC /* PactObjectiveCTests.m in Sources */,
 				A1B2BE9422D19924009B0837 /* ErrorCapture.swift in Sources */,
-				ADC03E401F74C989003FCA6A /* PactObjectiveCTests.m in Sources */,
 				ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */,
 				A109FBC922CCBB55007B46F7 /* MockServiceSpec.swift in Sources */,
 				ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */,
@@ -854,6 +913,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				ENABLE_TESTING_SEARCH_PATHS = Yes;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -889,6 +949,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				ENABLE_TESTING_SEARCH_PATHS = Yes;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

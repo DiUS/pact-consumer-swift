@@ -4,19 +4,19 @@ import Nimble
 
 class MockServiceSpec: QuickSpec {
   override func spec() {
-    var pactServicePactStub: RubyPactMockServiceStub?
-    var mockService: MockService?
-    var errorCapturer: ErrorCapture?
+    var pactServicePactStub: RubyPactMockServiceStub!
+    var mockService: MockService!
+    var errorCapturer: ErrorCapture!
 
     beforeEach {
       pactServicePactStub = RubyPactMockServiceStub()
       errorCapturer = ErrorCapture()
       mockService = MockService(provider: "ABC Service",
                                 consumer: "unit tests",
-                                pactVerificationService: PactVerificationService(),
+                                pactVerificationService: PactVerificationService(session: pactServicePactStub.session),
                                 errorReporter: errorCapturer!)
 
-      mockService!
+      mockService
         .uponReceiving("test request")
         .withRequest(method: .GET,
                      path: "/widgets")
@@ -26,12 +26,12 @@ class MockServiceSpec: QuickSpec {
     }
 
     afterEach {
-      pactServicePactStub!.reset()
+      pactServicePactStub.reset()
     }
 
     describe("pact verification succeeds") {
       beforeEach {
-        pactServicePactStub!
+        pactServicePactStub
           .clean(responseCode: 200, response: "Cleaned OK")
           .setupInteractions(responseCode: 200, response: "Setup succeeded")
           .verifyInteractions(responseCode: 200, response: "Verify succeeded")
@@ -39,18 +39,18 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("creates expected interactions in mock service") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
-        expect(pactServicePactStub!.setupInteractionsStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.setupInteractionsStub.requestBody).to(contain(
+        expect(pactServicePactStub.setupInteractionsStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.setupInteractionsStub.requestBody).to(contain(
           "\"description\":\"test request\""
         ))
       }
 
       it("calls test function") {
         var calledTestFunction = false
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           calledTestFunction = true
           testComplete()
         }
@@ -58,14 +58,14 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("writes pact for provider / consumer combination") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
-        expect(pactServicePactStub!.writePactStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.writePactStub.requestBody).to(contain(
+        expect(pactServicePactStub.writePactStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.writePactStub.requestBody).to(contain(
           "\"provider\":{\"name\":\"ABC Service\""
         ))
-        expect(pactServicePactStub!.writePactStub.requestBody).to(contain(
+        expect(pactServicePactStub.writePactStub.requestBody).to(contain(
           "\"consumer\":{\"name\":\"unit tests\""
         ))
       }
@@ -73,12 +73,12 @@ class MockServiceSpec: QuickSpec {
 
     context("when cleaning previous interactions fails") {
       beforeEach {
-        pactServicePactStub!.clean(responseCode: 500, response: "Error cleaning interactions")
+        pactServicePactStub.clean(responseCode: 500, response: "Error cleaning interactions")
       }
 
       it("does not call test function") {
         var calledTestFunction = false
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           calledTestFunction = true
           testComplete()
         }
@@ -86,33 +86,33 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("returns error message from mock service") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
         expect(errorCapturer!.message!.message).to(contain("Error setting up pact: Error cleaning interactions"))
       }
 
       it("does not attempt to setup interactions or write pact") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
-        expect(pactServicePactStub!.cleanStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.setupInteractionsStub.requestExecuted).to(equal(false))
-        expect(pactServicePactStub!.verifyInteractionsStub.requestExecuted).to(equal(false))
-        expect(pactServicePactStub!.writePactStub.requestExecuted).to(equal(false))
+        expect(pactServicePactStub.cleanStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.setupInteractionsStub.requestExecuted).to(equal(false))
+        expect(pactServicePactStub.verifyInteractionsStub.requestExecuted).to(equal(false))
+        expect(pactServicePactStub.writePactStub.requestExecuted).to(equal(false))
       }
     }
 
     describe("pact setup fails") {
       beforeEach {
-        pactServicePactStub!
+        pactServicePactStub
           .clean(responseCode: 200, response: "Cleaned OK")
           .setupInteractions(responseCode: 500, response: "Error setting up interactions")
       }
 
       it("does not call test function") {
         var calledTestFunction = false
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           calledTestFunction = true
           testComplete()
         }
@@ -120,26 +120,26 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("returns error message from mock service") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
         expect(errorCapturer!.message!.message).to(contain("Error setting up pact: Error setting up interactions"))
       }
 
       it("does not attempt to verify or write pact") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
-        expect(pactServicePactStub!.cleanStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.setupInteractionsStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.verifyInteractionsStub.requestExecuted).to(equal(false))
-        expect(pactServicePactStub!.writePactStub.requestExecuted).to(equal(false))
+        expect(pactServicePactStub.cleanStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.setupInteractionsStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.verifyInteractionsStub.requestExecuted).to(equal(false))
+        expect(pactServicePactStub.writePactStub.requestExecuted).to(equal(false))
       }
     }
 
     describe("pact verification fails") {
       beforeEach {
-        pactServicePactStub!
+        pactServicePactStub
           .clean(responseCode: 200, response: "Cleaned OK")
           .setupInteractions(responseCode: 200, response: "Setup succeeded")
           .verifyInteractions(responseCode: 500, response: "Error running verification")
@@ -147,7 +147,7 @@ class MockServiceSpec: QuickSpec {
 
       it("calls test function") {
         var calledTestFunction = false
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           calledTestFunction = true
           testComplete()
         }
@@ -155,7 +155,7 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("returns error message from mock service") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
         expect(errorCapturer!.message!.message).to(contain(
@@ -164,19 +164,19 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("does not attempt to write pact") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
-        expect(pactServicePactStub!.cleanStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.setupInteractionsStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.verifyInteractionsStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.writePactStub.requestExecuted).to(equal(false))
+        expect(pactServicePactStub.cleanStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.setupInteractionsStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.verifyInteractionsStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.writePactStub.requestExecuted).to(equal(false))
       }
     }
 
     describe("writing pact fails") {
       beforeEach {
-        pactServicePactStub!
+        pactServicePactStub
           .clean(responseCode: 200, response: "Cleaned OK")
           .setupInteractions(responseCode: 200, response: "Setup succeeded")
           .verifyInteractions(responseCode: 200, response: "Verify succeeded")
@@ -185,7 +185,7 @@ class MockServiceSpec: QuickSpec {
 
       it("calls test function") {
         var calledTestFunction = false
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           calledTestFunction = true
           testComplete()
         }
@@ -193,7 +193,7 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("returns error message from mock service") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
         expect(errorCapturer!.message!.message).to(contain(
@@ -202,19 +202,19 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("executes all expected requests") {
-        mockService!.run() { (testComplete) -> Void in
+        mockService.run() { (testComplete) -> Void in
           testComplete()
         }
-        expect(pactServicePactStub!.cleanStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.setupInteractionsStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.verifyInteractionsStub.requestExecuted).to(equal(true))
-        expect(pactServicePactStub!.writePactStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.cleanStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.setupInteractionsStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.verifyInteractionsStub.requestExecuted).to(equal(true))
+        expect(pactServicePactStub.writePactStub.requestExecuted).to(equal(true))
       }
     }
 
     describe("when test function throws error") {
       beforeEach {
-        pactServicePactStub!
+        pactServicePactStub
           .clean(responseCode: 200, response: "Cleaned OK")
           .setupInteractions(responseCode: 200, response: "Setup succeeded")
       }
@@ -224,7 +224,7 @@ class MockServiceSpec: QuickSpec {
       }
 
       it("returns message from thrown error") {
-        mockService!.run() { _ -> Void in
+        mockService.run() { _ -> Void in
           throw MockError.problem
         }
         expect(errorCapturer!.message!.message).to(contain(
