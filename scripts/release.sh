@@ -64,7 +64,7 @@ fi
 
 echo " > Generating release notes to $RELEASE_NOTES"
 cp $RELEASE_NOTES ${RELEASE_NOTES}.backup
-echo "# ${VERSION} - ${RELEASE_NAME}\n\n" > ${RELEASE_NOTES}.next
+echo "# ${VERSION} - ${RELEASE_NAME}\n" > ${RELEASE_NOTES}.next
 LATEST_TAG=`git describe --abbrev=0  --tags --match=v[0-9].[0-9].[0-9]`
 git log --pretty='* %h - %s (%an, %ad)' ${LATEST_TAG}..HEAD . >> ${RELEASE_NOTES}.next
 cat $RELEASE_NOTES.next | cat - ${RELEASE_NOTES}.backup > ${RELEASE_NOTES}
