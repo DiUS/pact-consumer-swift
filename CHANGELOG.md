@@ -1,3 +1,9 @@
+# 0.9.0 - Maintenance Release
+
+
+* 3459f6b - build: ensure lint errors are included in build output (Marko Justinek, Wed Jun 3 08:46:35 2020 +1000)
+* c02537f - maintenance: removed Nimble dependency (#87) (Ruben Cagnie, Sun May 24 00:30:41 2020 -0400)
+* 8ccd7d9 - doc: add details of new pact-swift project to readme. (Marko Justinek, Fri May 22 21:03:30 2020 +1000)
 # 0.8.1 - Bugfix Release
 
 * 61191a6 - fix(build) Enable testing search path for Xcode 11.4 (#93) (Marko Justinek, Mon Apr 6 20:46:55 2020 +1000)
