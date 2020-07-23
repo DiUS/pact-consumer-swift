@@ -241,7 +241,7 @@ be a valid JSON value: e.g. strings, numbers and objects.
 
 See the `PactSpecs.swift`, `PactObjectiveCTests.m` for examples on how to expect error responses, how to use query params, and Matchers.
 
-For more on request / response matching, see [Matching][matching].
+For more on request / response matching, see [Matching][getting_started/matching].
 
 ### Using in your CI
 
