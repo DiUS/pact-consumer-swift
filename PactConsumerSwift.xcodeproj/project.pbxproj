@@ -610,7 +610,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -625,7 +624,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/$(CARTHAGE_SUBFOLDER)/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -654,7 +652,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
