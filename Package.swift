@@ -10,23 +10,10 @@ let package = Package(
   products: [
     .library(name: "PactConsumerSwift", targets: ["PactConsumerSwift"])
   ],
-  dependencies: [
-    .package(url: "https://github.com/Quick/Nimble.git", from: "9.0.0"),
-    .package(url: "https://github.com/Quick/Quick.git", from: "3.0.0")
-  ],
   targets: [
     .target(
       name: "PactConsumerSwift",
       path: "./Sources"
-    ),
-    .testTarget(
-      name: "PactConsumerSwiftTests",
-      dependencies: [
-        "PactConsumerSwift",
-        "Nimble",
-        "Quick"
-      ],
-      path: "./Tests"
     )
   ]
 )
