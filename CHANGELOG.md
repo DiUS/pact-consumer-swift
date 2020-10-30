@@ -1,3 +1,10 @@
+# 0.10.0 - Bugfix Release
+
+* a3a1cae - fix: remove Nimble from cocoapods dependencies so it is not required by clients. (Andrew Spinks, Fri Oct 30 21:06:16 2020 +0900)
+* 229f35d - fix: Remove Nimble from Carthage / SPM dependencies so it is not required by clients. (Antoine Piellard, Thu Oct 29 02:57:09 2020 +0100)
+* 5f6479a - maintenance: Update Quick and Nimble versions (#102) (Marko Justinek, Wed Oct 21 09:54:39 2020 +1100)
+* a02f765 - Fixes the url for Request response matchers (#99) (Amitoj Duggal, Thu Jul 23 04:57:37 2020 +0200)
+
 # 0.9.0 - Maintenance Release
 
 * 3459f6b - build: ensure lint errors are included in build output (Marko Justinek, Wed Jun 3 08:46:35 2020 +1000)
