@@ -30,6 +30,5 @@ Pod::Spec.new do |s|
     'ENABLE_BITCODE' => 'NO'
   }
 
-  s.dependency 'Nimble', '~> 8.0'
   s.swift_versions = ['4.2', '5.0']
 end
