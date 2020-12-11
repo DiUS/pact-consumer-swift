@@ -21,7 +21,7 @@ You can view a presentation on how Pact can work in a mobile context here: [Yow!
 Implements [Pact Specification v2][pact-spec-v2],
 including [flexible matching][pact-flexible-matching].
 
-This DSL relies on the Ruby [pact-ruby-standalone][pact-mock-service-standalone] ([brew tap][pact-ruby-standalone-homebrew]) to provide the mock service for the tests.
+This DSL relies on the Ruby [pact-ruby-standalone][pact-ruby-standalone] ([brew tap][pact-ruby-standalone-homebrew]) to provide the mock service for the tests.
 
 ## Installation
 
@@ -46,7 +46,7 @@ This will install the following tools:
 
 #### Manually
 
-Alternatively you can download and install the [pact-ruby-standalone][pact-ruby-standalone-releases] archives for your platform and install as per installation instructions written in [Pact Ruby Standalone release notes][pact-mock-service-standalone-installation].
+Alternatively you can download and install the [pact-ruby-standalone][pact-ruby-standalone] archives for your platform and install as per installation instructions written in [Pact Ruby Standalone release notes][pact-ruby-standalone-releases].
 
 #### Xcode Setup
 
@@ -283,7 +283,7 @@ Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 [pact-katkit-example]: https://github.com/andrewspinks/pact-mobile-preso
 [pact-dockerized-example]: https://medium.com/@rajatvig/ios-docker-and-consumer-driven-contract-testing-with-pact-d99b6bf4b09e#.ozcbbktzk
 [pact-mock-service]: https://github.com/bethesque/pact-mock_service
-[pact-mock-service-standalone]: https://github.com/pact-foundation/pact-ruby-standalone
+[pact-ruby-standalone]: https://github.com/pact-foundation/pact-ruby-standalone
 [pact-ruby-standalone-releases]: https://github.com/pact-foundation/pact-ruby-standalone/releases
 [pact-ruby-standalone-homebrew]: https://github.com/pact-foundation/homebrew-pact-ruby-standalone
 [pact-mock-service-without-ruby]: https://github.com/DiUS/pact-consumer-js-dsl/wiki/Using-the-Pact-Mock-Service-without-Ruby
