@@ -12,7 +12,7 @@ if [[ -z "${PROJECT_NAME}" ]]; then
 		DESTINATION="OS=14.2,name=iPhone 12 Pro";
 		SCHEME="PactConsumerSwift iOS";
 		CARTHAGE_PLATFORM="iOS";
- fi
+ 	fi
 fi
 
 SCRIPTS_DIR="${BASH_SOURCE[0]%/*}"
