@@ -7,7 +7,7 @@ if [[ -z "${PROJECT_NAME}" ]]; then
 		DESTINATION="arch=x86_64";
 		SCHEME="PactConsumerSwift macOS";
 		CARTHAGE_PLATFORM="macos";
- else
+ 	else
 		PROJECT_NAME="PactConsumerSwift.xcodeproj";
 		DESTINATION="OS=14.2,name=iPhone 12 Pro";
 		SCHEME="PactConsumerSwift iOS";
