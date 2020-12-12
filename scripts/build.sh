@@ -8,8 +8,10 @@ if [[ -z "${PROJECT_NAME}" ]]; then
   CARTHAGE_PLATFORM="iOS";
 fi
 
+SCRIPTS_DIR="${BASH_SOURCE[0]%/*}"
+
 # Build Carthage dependencies
-carthage build --platform $CARTHAGE_PLATFORM
+$SCRIPTS_DIR/carthage_xcode12 build --platform $CARTHAGE_PLATFORM
 
 # Carthage - debug
 echo "#### Testing DEBUG configuration for scheme: $SCHEME, with destination: $DESTINATION ####"
