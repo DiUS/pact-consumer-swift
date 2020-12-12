@@ -21,7 +21,7 @@ jobs:
             destination: "arch=x86_64"
             carthage_platform: macos
           - scheme: "PactConsumerSwift tvOS"
-            destination: "OS=11.0,name=Apple TV 4K (at 1080p)"
+            destination: "OS=14.2,name=Apple TV 4K (at 1080p)"
             carthage_platform: tvos
 
     env:
