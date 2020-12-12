@@ -1,0 +1,139 @@
+name: Continuous Integration
+
+env:
+  PROJECT_NAME: "PactConsumerSwift.xcodeproj"
+
+on:
+  push:
+    branches: [master, release/*]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test_ios:
+    name: Run iOS tests
+    runs-on: macOS-latest
+
+    env:
+      SCHEME: "PactConsumerSwift iOS"
+      DESTINATION: "platform=iOS Simulator,name=iPhone 12 Pro"
+      CARTHAGE_PLATFORM: "ios"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 12.2
+        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
+
+      - name: "Cache dependencies"
+        uses: actions/cache@v2
+        with:
+          path: Carthage/build
+          key: ${{ runner.os }}-pact-${{ hashFiles('**/Cartfile.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-pact-
+            ${{ runner.os }}-
+
+      - name: Prepare the tools
+        run: |
+          scripts/install_deps.sh
+
+      - name: "Run tests"
+        run: |
+          scripts/build.sh
+
+      - name: "Upload code coverage"
+        run: |
+          bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
+
+  test_macos:
+    name: Run macOS tests
+    runs-on: macOS-latest
+
+    env:
+      SCHEME: "PactConsumerSwift macOS"
+      DESTINATION: "arch=x86_64"
+      CARTHAGE_PLATFORM: "macos"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 12.2
+        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
+
+      - name: "Cache dependencies"
+        uses: actions/cache@v2
+        with:
+          path: Carthage/build
+          key: ${{ runner.os }}-pact-${{ hashFiles('**/Cartfile.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-pact-
+            ${{ runner.os }}-
+
+      - name: Prepare the tools
+        run: |
+          scripts/install_deps.sh
+
+      - name: "Run tests"
+        run: |
+          scripts/build.sh
+
+  test_spm:
+    name: Test for SPM compatibility
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 12.2
+        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
+
+      - name: Swift build
+        run: |
+          swift build
+
+  test_carthage:
+    needs: [test_ios, test_macos]
+    name: "Test Carthage dependency"
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 12.2
+        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
+
+      - name: Prepare Tools
+        run: |
+          scripts/install_deps.sh
+
+      - name: Carthage build
+        run: |
+          carthage build --no-skip-current --platform=ios,macos,tvos
+
+  after_success:
+    needs: [test_ios, test_macos, test_spm, test_carthage]
+    name: "Build example projects"
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Trigger builds
+        run: |
+          scripts/build_children.sh
