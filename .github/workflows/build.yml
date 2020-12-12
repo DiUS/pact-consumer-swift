@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Build
 
 env:
   PROJECT_NAME: "PactConsumerSwift.xcodeproj"
@@ -75,6 +75,7 @@ jobs:
       - name: Swift build
         run: |
           swift build
+          echo "⚠️  Skipping \"swift test\" as no test target is defined in \"Package.swift\" (https://github.com/DiUS/pact-consumer-swift/commit/229f35d63a547f492c7ba9e177ac8d7b685e7a7f)"
 
   test_carthage:
     needs: [test_xcodebuild]
@@ -90,13 +91,22 @@ jobs:
       - name: Use Xcode 12.2
         run: sudo xcode-select -switch /Applications/Xcode_12.2.app
 
+      - name: "Cache dependencies"
+        uses: actions/cache@v2
+        with:
+          path: Carthage/build
+          key: ${{ runner.os }}-pact-${{ hashFiles('**/Cartfile.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-pact-
+            ${{ runner.os }}-
+
       - name: Prepare Tools
         run: |
           scripts/install_deps.sh
 
       - name: Carthage build
         run: |
-          scripts/carthage_xcode12 build --no-skip-current --platform=ios,macos,tvos
+          scripts/carthage_xcode12 build --no-skip-current --platform "ios,macos,tvos"
 
   after_success:
     needs: [test_xcodebuild, test_spm, test_carthage]
@@ -112,6 +122,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Trigger builds
+      - name: Trigger Demo Project builds
         run: |
           scripts/build_children.sh
