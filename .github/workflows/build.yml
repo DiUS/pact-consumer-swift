@@ -3,7 +3,7 @@ name: Build
 env:
   PROJECT_NAME: "PactConsumerSwift.xcodeproj"
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   test_xcodebuild:

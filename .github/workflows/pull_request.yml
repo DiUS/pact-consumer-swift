@@ -3,7 +3,7 @@ name: Build (Xcode 13.6)
 env:
   PROJECT_NAME: "PactConsumerSwift.xcodeproj"
 
-on: [pull_request]
+on: [pull_request, workflow_dispatch]
 
 jobs:
   test_xcodebuild:
@@ -48,14 +48,14 @@ jobs:
             ${{ runner.os }}-
 
       # Manually running install tools instead of scripts/install_deps.sh
-      # xcbeautify tool referenced in install_deps.sh script requires Xcode 12.2.
+      # Tools referenced in install_deps.sh script require Xcode 12.2 on macOS 10.15.
       - name: Prepare the tools
         run: |
           brew update && brew bundle
           carthage checkout
 
       # Manually running xcodebuild instead of scripts/build.sh
-      # xcbeautify tool referenced in build.sh script requires Xcode 12.2.
+      # Tools referenced in install_deps.sh script require Xcode 12.2 on macOS 10.15.
       - name: "Run tests"
         run: |
           ./scripts/carthage_xcode12 update --platform $CARTHAGE_PLATFORM
