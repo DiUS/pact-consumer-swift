@@ -1,6 +1,6 @@
 # Pact Consumer Swift
 
-[![Build Status](https://travis-ci.org/DiUS/pact-consumer-swift.svg?branch=master)](https://travis-ci.org/DiUS/pact-consumer-swift)
+[![Build](https://github.com/DiUS/pact-consumer-swift/workflows/Build/badge.svg)](https://github.com/DiUS/pact-consumer-swift/actions?query=workflow%3ABuild)
 [![Codecov](https://codecov.io/gh/DiUS/pact-consumer-swift/branch/master/graph/badge.svg)](https://codecov.io/gh/DiUS/pact-consumer-swift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg)][swift-package-manager]
