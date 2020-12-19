@@ -70,7 +70,7 @@ Note: your generated Pact files will be dropped into `"${SRCROOT}/tmp/pacts"` fo
 #### Using [Carthage](https://github.com/Carthage/Carthage)
 
 - See the [PactSwiftExample][pact-carthage-ios-example] [![Swift, Carthage Example - Build Status](https://travis-ci.org/andrewspinks/PactSwiftExample.svg?branch=master)][build-carthage-ios-example] for an example project using `pact-consumer-swift` with Carthage for an iOS target.
-- See the [PactMacOSExample][pact-carthage-macos-example] [![Build Status](https://travis-ci.org/surpher/PactMacOSExample.svg?branch=master)][build-carthage-macos-example] for an example project using `pact-consumer-swift` through Carthage for a macOS target.
+- See the [PactMacOSExample][pact-carthage-macos-example] [![Build](https://github.com/surpher/PactMacOSExample/workflows/Build/badge.svg)][build-carthage-macos-example] for an example project using `pact-consumer-swift` through Carthage for a macOS target.
 
 #### Using [CocoaPods](https://cocoapods.org/pods/PactConsumerSwift)
 
@@ -78,7 +78,7 @@ Note: your generated Pact files will be dropped into `"${SRCROOT}/tmp/pacts"` fo
 
 #### Using [Swift Package Manager][swift-package-manager]
 
-- See the [PactSwiftPMExample][pact-swiftpm-example] [![Build Status](https://travis-ci.org/surpher/PactSwiftPMExample.svg?branch=master)][build-swiftpm-example] for an example project using `pact-consumer-swift` library through Swift Package Manager for an executable that runs in terminal.
+- See the [PactSwiftPMExample][pact-swiftpm-example] [![Build](https://github.com/surpher/PactSwiftPMExample/workflows/Build/badge.svg)][build-swiftpm-example] for an example project using `pact-consumer-swift` library through Swift Package Manager for an executable that runs in terminal.
 
 ## Writing Pact Tests
 
@@ -222,6 +222,8 @@ An optional `timeout` (seconds) parameter can be included on the run function. D
     }
 ```
 
+For an example on how to test over `https` see [PactSSLSpec.swift][pact-ssl-spec].
+
 ### Matching
 
 In addition to verbatim value matching, you have 3 useful matching functions
@@ -287,14 +289,15 @@ Please read [CONTRIBUTING.md](/CONTRIBUTING.md)
 [pact-ruby-standalone-releases]: https://github.com/pact-foundation/pact-ruby-standalone/releases
 [pact-ruby-standalone-homebrew]: https://github.com/pact-foundation/homebrew-pact-ruby-standalone
 [pact-mock-service-without-ruby]: https://github.com/DiUS/pact-consumer-js-dsl/wiki/Using-the-Pact-Mock-Service-without-Ruby
+[pact-ssl-spec]: Tests/PactConsumerSwiftTests/PactSSLSpecs.swift
 [regular-expressions]: http://ruby-doc.org/core-2.1.5/Regexp.html
 [matching]: http://docs.pact.io/documentation/matching.html
 [pact-swiftpm-example]: http://github.com/surpher/PactSwiftPMExample
-[build-swiftpm-example]: https://travis-ci.org/surpher/PactSwiftPMExample
+[build-swiftpm-example]: https://github.com/surpher/PactSwiftPMExample/actions?query=workflow%3ABuild
 [pact-objc-example]: https://github.com/andrewspinks/PactObjectiveCExample
 [build-objc-example]: https://travis-ci.org/andrewspinks/PactObjectiveCExample
 [pact-carthage-macos-example]: https://github.com/surpher/PactMacOSExample
-[build-carthage-macos-example]: https://travis-ci.org/surpher/PactMacOSExample
+[build-carthage-macos-example]: https://github.com/surpher/PactMacOSExample/actions?query=workflow%3ABuild
 [pact-carthage-ios-example]: https://github.com/andrewspinks/PactSwiftExample
 [build-carthage-ios-example]: https://travis-ci.org/andrewspinks/PactSwiftExample
 [pact-microservices]: https://dius.com.au/2016/02/03/pact-101-getting-started-with-pact-and-consumer-driven-contract-testing/

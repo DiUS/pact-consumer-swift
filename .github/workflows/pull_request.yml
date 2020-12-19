@@ -1,0 +1,116 @@
+name: Build (Xcode 13.6)
+
+env:
+  PROJECT_NAME: "PactConsumerSwift.xcodeproj"
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  test_xcodebuild:
+    name: Run tests
+    runs-on: macOS-10.15
+
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - scheme: "PactConsumerSwift iOS"
+            destination: "platform=iOS Simulator,name=iPhone 8,OS=13.6"
+            carthage_platform: ios
+          - scheme: "PactConsumerSwift macOS"
+            destination: "arch=x86_64"
+            carthage_platform: macos
+          - scheme: "PactConsumerSwift tvOS"
+            destination: "OS=13.4,name=Apple TV 4K (at 1080p)"
+            carthage_platform: tvos
+
+    env:
+      SCHEME: ${{ matrix.scheme }}
+      DESTINATION: ${{ matrix.destination }}
+      CARTHAGE_PLATFORM: ${{ matrix.carthage_platform }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 11.6
+        run: sudo xcode-select -switch /Applications/Xcode_11.6.app
+
+      - name: "Cache dependencies"
+        uses: actions/cache@v2
+        with:
+          path: Carthage/build
+          key: ${{ runner.os }}-pact-${{ hashFiles('**/Cartfile.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-pact-
+            ${{ runner.os }}-
+
+      # Manually running install tools instead of scripts/install_deps.sh
+      # Tools referenced in install_deps.sh script require Xcode 12.2 on macOS 10.15.
+      - name: Prepare the tools
+        run: |
+          brew update && brew bundle
+          carthage checkout
+
+      # Manually running xcodebuild instead of scripts/build.sh
+      # Tools referenced in install_deps.sh script require Xcode 12.2 on macOS 10.15.
+      - name: "Run tests"
+        run: |
+          ./scripts/carthage_xcode12 update --platform $CARTHAGE_PLATFORM
+          set -o pipefail && xcodebuild clean test -project $PROJECT_NAME -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+
+      - name: "Upload code coverage"
+        run: |
+          bash <(curl -s https://codecov.io/bash) -J 'PactConsumerSwift'
+
+  test_spm:
+    name: Test for SPM compatibility
+    runs-on: macOS-10.15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 11.6
+        run: sudo xcode-select -switch /Applications/Xcode_11.6.app
+
+      - name: Swift build
+        run: |
+          swift build
+          echo "⚠️  Skipping \"swift test\" as no test target is defined in \"Package.swift\" (https://github.com/DiUS/pact-consumer-swift/commit/229f35d63a547f492c7ba9e177ac8d7b685e7a7f)"
+
+  test_carthage:
+    needs: [test_xcodebuild]
+    name: "Test Carthage dependency"
+    runs-on: macOS-10.15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Use Xcode 11.6
+        run: sudo xcode-select -switch /Applications/Xcode_11.6.app
+
+      - name: "Cache dependencies"
+        uses: actions/cache@v2
+        with:
+          path: Carthage/build
+          key: ${{ runner.os }}-pact-${{ hashFiles('**/Cartfile.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-pact-
+            ${{ runner.os }}-
+
+      - name: Prepare Tools
+        run: |
+          brew update && brew bundle
+          carthage checkout
+
+      - name: Carthage build
+        run: |
+          carthage build --no-skip-current --platform "ios,macos,tvos"
