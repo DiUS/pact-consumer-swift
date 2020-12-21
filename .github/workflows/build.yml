@@ -115,6 +115,8 @@ jobs:
 
     env:
       AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+      GH_BUILD_CHILDREN_TOKEN: ${{ secrets.GH_BUILD_CHILDREN_TOKEN }}
+      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
 
     steps:
       - name: Checkout repository
