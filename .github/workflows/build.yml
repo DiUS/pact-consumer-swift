@@ -78,7 +78,6 @@ jobs:
           echo "⚠️  Skipping \"swift test\" as no test target is defined in \"Package.swift\" (https://github.com/DiUS/pact-consumer-swift/commit/229f35d63a547f492c7ba9e177ac8d7b685e7a7f)"
 
   test_carthage:
-    needs: [test_xcodebuild]
     name: "Test Carthage dependency"
     runs-on: macOS-latest
 
