@@ -112,11 +112,6 @@ jobs:
     name: "Build example projects"
     runs-on: ubuntu-20.04
 
-    env:
-      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-      GH_BUILD_CHILDREN_TOKEN: ${{ secrets.GH_BUILD_CHILDREN_TOKEN }}
-      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -126,3 +121,7 @@ jobs:
       - name: Trigger Demo Project builds
         run: |
           scripts/build_children.sh
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          GH_BUILD_CHILDREN_TOKEN: ${{ secrets.GH_BUILD_CHILDREN_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}

@@ -23,7 +23,7 @@ function triggerGitHubActionsBuild {
 	-H "Accept: application/vnd.github.everest-preview+json" \
 	-H "Content-Type: application/json" \
 	-u ${GITHUB_AUTH_TOKEN} \
-	--data "{\"event_type\":\"pact-consumer-swift - ${COMMIT_MESSAGE}\"}"
+	--data '{"event_type":"triggered ${COMMIT_MESSAGE}"}'
 }
 
 # GitHub Actions
