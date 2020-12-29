@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xeu
+set -eu
 set -o pipefail
 
 TRAVISCI_AUTH_TOKEN=${AUTH_TOKEN:-"invalid_travis_ci_token"}
