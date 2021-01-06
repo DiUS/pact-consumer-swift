@@ -78,7 +78,6 @@ jobs:
           echo "⚠️  Skipping \"swift test\" as no test target is defined in \"Package.swift\" (https://github.com/DiUS/pact-consumer-swift/commit/229f35d63a547f492c7ba9e177ac8d7b685e7a7f)"
 
   test_carthage:
-    needs: [test_xcodebuild]
     name: "Test Carthage dependency"
     runs-on: macOS-latest
 
@@ -113,9 +112,6 @@ jobs:
     name: "Build example projects"
     runs-on: ubuntu-20.04
 
-    env:
-      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -125,3 +121,7 @@ jobs:
       - name: Trigger Demo Project builds
         run: |
           scripts/build_children.sh
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          GH_BUILD_CHILDREN_TOKEN: ${{ secrets.GH_BUILD_CHILDREN_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
