@@ -120,8 +120,10 @@ jobs:
 
       - name: Trigger Demo Project builds
         run: |
+          MSG=$(git log --format=%B -n 1 | head -1)
+          echo "::set-env name=COMMIT_MESSAGE::${MSG}"
           scripts/build_children.sh
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           GH_BUILD_CHILDREN_TOKEN: ${{ secrets.GH_BUILD_CHILDREN_TOKEN }}
-          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+
