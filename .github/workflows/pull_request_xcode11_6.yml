@@ -1,4 +1,4 @@
-name: Pull Request (Xcode 13.6)
+name: Pull Request (Xcode 11.6)
 
 env:
   PROJECT_NAME: "PactConsumerSwift.xcodeproj"
