@@ -3,12 +3,12 @@ name: Pull Request
 env:
   PROJECT_NAME: "PactConsumerSwift.xcodeproj"
 
-on: [pull_request]
+on: [pull_request, workflow_dispatch]
 
 jobs:
   test_xcodebuild:
     name: Run tests
-    runs-on: macOS-latest
+    runs-on: macOS-10.15
 
     strategy:
       fail-fast: true
@@ -35,9 +35,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Use Xcode 12.2
-        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
-
       - name: "Cache dependencies"
         uses: actions/cache@v2
         with:
@@ -57,16 +54,13 @@ jobs:
 
   test_spm:
     name: Test for SPM
-    runs-on: macOS-latest
+    runs-on: macOS-10.15
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-      - name: Use Xcode 12.2
-        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
 
       - name: Swift build
         run: |
@@ -75,16 +69,13 @@ jobs:
 
   test_carthage:
     name: "Test Carthage dependency"
-    runs-on: macOS-latest
+    runs-on: macOS-10.15
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-      - name: Use Xcode 12.2
-        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
 
       - name: "Cache dependencies"
         uses: actions/cache@v2
