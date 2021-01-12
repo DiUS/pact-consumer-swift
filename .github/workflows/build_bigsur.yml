@@ -13,7 +13,7 @@ on:
 jobs:
   test_xcodebuild:
     name: Run tests
-    runs-on: macOS-11
+    runs-on: macOS-11.0
 
     strategy:
       fail-fast: true
@@ -63,7 +63,7 @@ jobs:
 
   test_spm:
     name: Test for SPM
-    runs-on: macOS-11
+    runs-on: macOS-11.0
 
     steps:
       - name: Checkout repository
@@ -78,7 +78,7 @@ jobs:
 
   test_carthage:
     name: "Test Carthage dependency"
-    runs-on: macOS-11
+    runs-on: macOS-11.0
 
     steps:
       - name: Checkout repository
