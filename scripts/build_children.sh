@@ -5,8 +5,8 @@ set -o pipefail
 
 TRAVISCI_AUTH_TOKEN=${AUTH_TOKEN:-"invalid_travis_ci_token"}
 GITHUB_AUTH_TOKEN=${GH_BUILD_CHILDREN_TOKEN:-"invalid_github_token"}
-COMMIT_MESSAGE=${COMMIT_MESSAGE:="repository dispatched"} | head -1
-CLEAN_MESSAGE=$(echo "${COMMIT_MESSAGE[0]}" | sed -e 's/[^a-z^A-Z|^_^ ^:^-^.^,]//g')
+COMMIT_MESSAGE=${COMMIT_MESSAGE:="repository dispatched"}
+CLEAN_MESSAGE=`echo "${COMMIT_MESSAGE}" | head -1`
 
 function triggerTravisCIBuild {
   curl -s -X POST --silent --show-error --fail \
