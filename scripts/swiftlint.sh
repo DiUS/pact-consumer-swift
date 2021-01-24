@@ -24,7 +24,7 @@ display_usage() {
   echo "  -c, --config=PATH_TO_FILE\t# Path to Swiftlint configuration file (default: \${SRCROOT}/.swiftlint.yml)"
 }
 
-# Get arguments for binary and configuration file 
+# Get arguments for binary and configuration file
 while [ "$#" -gt 0 ]; do
   case "$1" in
     -b) BINARYFILE="$2"; shift 2;;
