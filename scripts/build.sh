@@ -19,6 +19,7 @@ SCRIPTS_DIR="${BASH_SOURCE[0]%/*}"
 
 # Build Carthage dependencies
 $SCRIPTS_DIR/carthage_xcode12 update --platform $CARTHAGE_PLATFORM
+# carthage update --platform $CARTHAGE_PLATFORM
 
 # Carthage - debug
 echo "#### Testing scheme: $SCHEME, with destination: $DESTINATION ####"

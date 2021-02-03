@@ -44,6 +44,9 @@ jobs:
             ${{ runner.os }}-pact-
             ${{ runner.os }}-
 
+      - name: Use Xcode 12.2
+        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
+
       - name: Prepare the tools
         run: |
           scripts/install_deps.sh
@@ -85,6 +88,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pact-
             ${{ runner.os }}-
+
+      - name: Use Xcode 12.2
+        run: sudo xcode-select -switch /Applications/Xcode_12.2.app
 
       - name: Prepare Tools
         run: |
