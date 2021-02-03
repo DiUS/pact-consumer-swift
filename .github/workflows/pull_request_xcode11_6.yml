@@ -107,8 +107,7 @@ jobs:
 
       - name: Prepare Tools
         run: |
-          brew update && brew bundle
-          carthage checkout
+          scripts/install_deps.sh
 
       - name: Carthage build
         run: |
