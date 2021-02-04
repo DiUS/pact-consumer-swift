@@ -47,15 +47,10 @@ jobs:
             ${{ runner.os }}-pact-
             ${{ runner.os }}-
 
-      # Manually running install tools instead of scripts/install_deps.sh
-      # Tools referenced in install_deps.sh script require Xcode 12.2 on macOS 10.15.
       - name: Prepare the tools
         run: |
-          brew update && brew bundle
-          carthage checkout
+          scripts/install_deps.sh
 
-      # Manually running xcodebuild instead of scripts/build.sh
-      # Tools referenced in install_deps.sh script require Xcode 12.2 on macOS 10.15.
       - name: "Run tests"
         run: |
           ./scripts/carthage_xcode12 update --platform $CARTHAGE_PLATFORM
@@ -107,8 +102,7 @@ jobs:
 
       - name: Prepare Tools
         run: |
-          brew update && brew bundle
-          carthage checkout
+          scripts/install_deps.sh
 
       - name: Carthage build
         run: |
