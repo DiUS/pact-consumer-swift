@@ -216,7 +216,7 @@ extension PactVerificationService: URLSessionDelegate {
     guard
       allowInsecureCertificates,
       challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
-      challenge.protectionSpace.host.contains("localhost"),
+      ["localhost", "127.0.0.1", "0.0.0.0"].contains(where: challenge.protectionSpace.host.contains),
       let serverTrust = challenge.protectionSpace.serverTrust
        else {
         completionHandler(.performDefaultHandling, nil)
