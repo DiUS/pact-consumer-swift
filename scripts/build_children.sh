@@ -3,6 +3,13 @@
 set -eu
 set -o pipefail
 
+REPO=${GITHUB_REPOSITORY:-""}
+
+if [[ "${REPO}" != "DiUS/pact-consumer-swift" ]]; then
+	echo "[INFO]: 👮 - Not the source repository DiUS/pact-consumer-swift... Skipping this step."
+	exit 0
+fi
+
 TRAVISCI_AUTH_TOKEN=${AUTH_TOKEN:-"invalid_travis_ci_token"}
 GITHUB_AUTH_TOKEN=${GH_BUILD_CHILDREN_TOKEN:-"invalid_github_token"}
 COMMIT_MESSAGE=${COMMIT_MESSAGE:="repository dispatched"}
