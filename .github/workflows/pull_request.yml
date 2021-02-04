@@ -21,7 +21,7 @@ jobs:
             destination: "arch=x86_64"
             carthage_platform: macos
           - scheme: "PactConsumerSwift tvOS"
-            destination: "OS=14.2,name=Apple TV 4K (at 1080p)"
+            destination: "OS=14.3,name=Apple TV 4K (at 1080p)"
             carthage_platform: tvos
 
     env:
@@ -43,6 +43,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pact-
             ${{ runner.os }}-
+
+      - name: Use Xcode 12.4
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
 
       - name: Prepare the tools
         run: |
@@ -85,6 +88,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pact-
             ${{ runner.os }}-
+
+      - name: Use Xcode 12.4
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
 
       - name: Prepare Tools
         run: |
