@@ -65,6 +65,10 @@
 		ADC03E3D1F74C920003FCA6A /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6511F74BAA900219F39 /* InteractionSpec.swift */; };
 		ADC03E3E1F74C920003FCA6A /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6501F74BAA900219F39 /* MatcherSpec.swift */; };
 		ADC03E3F1F74C987003FCA6A /* OCAnimalServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */; };
+		ADE1431125CB9D4E00607949 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE1430F25CB9D4E00607949 /* Quick.framework */; };
+		ADE1431225CB9D4E00607949 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE1431025CB9D4E00607949 /* Nimble.framework */; };
+		ADE1431425CB9D6E00607949 /* Nimble.framework in Copy Framework Files */ = {isa = PBXBuildFile; fileRef = ADE1431025CB9D4E00607949 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ADE1431525CB9D6E00607949 /* Quick.framework in Copy Framework Files */ = {isa = PBXBuildFile; fileRef = ADE1430F25CB9D4E00607949 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +129,18 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ADE1431325CB9D5600607949 /* Copy Framework Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ADE1431425CB9D6E00607949 /* Nimble.framework in Copy Framework Files */,
+				ADE1431525CB9D6E00607949 /* Quick.framework in Copy Framework Files */,
+			);
+			name = "Copy Framework Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +173,8 @@
 		AD17A6531F74BAC700219F39 /* PactObjectiveCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PactObjectiveCTests.m; sourceTree = "<group>"; };
 		AD17A6541F74BAC700219F39 /* OCAnimalServiceClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCAnimalServiceClient.m; sourceTree = "<group>"; };
 		AD96B6B323F1F13200E1AA8F /* PactSSLSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactSSLSpecs.swift; sourceTree = "<group>"; };
+		ADE1430F25CB9D4E00607949 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = "<group>"; };
+		ADE1431025CB9D4E00607949 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +222,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADE1431125CB9D4E00607949 /* Quick.framework in Frameworks */,
+				ADE1431225CB9D4E00607949 /* Nimble.framework in Frameworks */,
 				AD17A5CD1F74AFC900219F39 /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +234,8 @@
 		93D579282418758700D480BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADE1431025CB9D4E00607949 /* Nimble.framework */,
+				ADE1430F25CB9D4E00607949 /* Quick.framework */,
 				93D579312418759900D480BC /* XCTest.framework */,
 				93D5792D2418759000D480BC /* XCTest.framework */,
 				93D579292418758700D480BC /* XCTest.framework */,
@@ -461,9 +483,10 @@
 			buildConfigurationList = AD17A5D81F74AFC900219F39 /* Build configuration list for PBXNativeTarget "PactConsumerSwift tvOSTests" */;
 			buildPhases = (
 				AD17A5C81F74AFC900219F39 /* Sources */,
+				ADE1431325CB9D5600607949 /* Copy Framework Files */,
 				AD17A5C91F74AFC900219F39 /* Frameworks */,
 				AD17A5CA1F74AFC900219F39 /* Resources */,
-				AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks */,
+				AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks - NOT SUPPORTED */,
 				ADB5B72C22C4EDDC00301FB0 /* Check Dependencies */,
 			);
 			buildRules = (
@@ -644,7 +667,7 @@
 			shellPath = /bin/sh;
 			shellScript = "PATH=/usr/local/bin:$PATH\n\ncarthage copy-frameworks\n";
 		};
-		AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks */ = {
+		AD17A62D1F74B6F700219F39 /* Copy Carthage Frameworks - NOT SUPPORTED */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -653,12 +676,12 @@
 				"$(SRCROOT)/Carthage/Build/tvOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/tvOS/Quick.framework",
 			);
-			name = "Copy Carthage Frameworks";
+			name = "Copy Carthage Frameworks - NOT SUPPORTED";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=/usr/local/bin:$PATH\ncarthage copy-frameworks\n";
+			shellScript = "PATH=/usr/local/bin:$PATH\n# https://github.com/Carthage/Carthage#adding-frameworks-to-unit-tests-or-a-framework\n# carthage copy-frameworks\n";
 		};
 		ADB5B72A22C4EDB600301FB0 /* Check Dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
