@@ -7,9 +7,14 @@ if [[ -z "${PROJECT_NAME}" ]]; then
 		DESTINATION="arch=x86_64";
 		SCHEME="PactConsumerSwift macOS";
 		CARTHAGE_PLATFORM="macos";
+	elif [[ "$*" == "tvos" ]] || [[ "$*" == "tvos" ]]; then
+		PROJECT_NAME="PactConsumerSwift.xcodeproj";
+		DESTINATION="OS=14.3,name=Apple TV 4K (at 1080p)";
+		SCHEME="PactConsumerSwift tvOS";
+		CARTHAGE_PLATFORM="tvos";
  	else
 		PROJECT_NAME="PactConsumerSwift.xcodeproj";
-		DESTINATION="OS=14.2,name=iPhone 12 Pro";
+		DESTINATION="OS=14.4,name=iPhone 12 Pro";
 		SCHEME="PactConsumerSwift iOS";
 		CARTHAGE_PLATFORM="iOS";
  	fi
