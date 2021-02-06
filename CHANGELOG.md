@@ -1,3 +1,10 @@
+# 0.10.1 - Bugfix Release
+
+* c5e8324 - chore: Allow non-secure connections on 127.0.0.1 (Marko Justinek, Thu Feb 4 15:43:49 2021 +1100)
+* c1acc77 - fix(project): Reconfigure tvOS test target (Marko Justinek, Thu Feb 4 14:13:44 2021 +1100)
+* a10e546 - chore: Migrate CI pipeline to GitHub Actions (#105) (#107) (Marko Justinek, Sun Dec 20 00:03:33 2020 +1100)
+* cd18167 - doc: Fix links in README.md (#106) (Marko Justinek, Mon Dec 14 12:41:21 2020 +1100)
+
 # 0.10.0 - Bugfix Release
 
 * a3a1cae - fix: remove Nimble from cocoapods dependencies so it is not required by clients. (Andrew Spinks, Fri Oct 30 21:06:16 2020 +0900)
