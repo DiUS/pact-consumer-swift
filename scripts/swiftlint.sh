@@ -3,7 +3,7 @@ set -eu
 
 # Set default swiftlint command and config file
 BINARYFILE=swiftlint
-CONFIGFILE="${SRCROOT}/Configuration/swiftlint.yml"
+CONFIGFILE="${SRCROOT}/.swiftlint.yml"
 
 WARNING="warning"
 ERROR="error"
