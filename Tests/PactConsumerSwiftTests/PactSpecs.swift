@@ -55,17 +55,38 @@ class PactSwiftSpec: QuickSpec {
       }
 
       describe("With query params") {
-        it("should return animals living in water") {
+
+        it("as string should return animals living in water") {
           animalMockService!.given("an alligator exists")
-                            .uponReceiving("a request for animals living in water")
-                            .withRequest(method:.GET, path: "/animals", query: ["live": "water"])
+                            .uponReceiving("a request for animals living in water with query string")
+                            .withRequest(method:.GET, path: "/animals", query: "live=in bayou swamp")
                             .willRespondWith(status: 200,
                                              headers: ["Content-Type": "application/json"],
                                              body: [ ["name": "Mary", "type": "alligator"] ] )
 
           //Run the tests
-          animalMockService!.run { (testComplete) -> Void in
-            animalServiceClient!.findAnimals(live: "water", response: {
+          animalMockService!.run(timeout: 1) { (testComplete) -> Void in
+            animalServiceClient!.findAnimals(live: "in bayou swamp", response: {
+              (response) in
+              expect(response.count).to(equal(1))
+              let name = response[0].name
+              expect(name).to(equal("Mary"))
+              testComplete()
+            })
+          }
+        }
+
+        it("as dictionary should return animals living in water") {
+          animalMockService!.given("an alligator exists")
+                            .uponReceiving("a request for animals living in water")
+                            .withRequest(method:.GET, path: "/animals", query: ["live": "on land"])
+                            .willRespondWith(status: 200,
+                                             headers: ["Content-Type": "application/json"],
+                                             body: [ ["name": "Mary", "type": "alligator"] ] )
+
+          //Run the tests
+          animalMockService!.run(timeout: 1) { (testComplete) -> Void in
+            animalServiceClient!.findAnimals(live: "on land", response: {
               (response) in
               expect(response.count).to(equal(1))
               let name = response[0].name

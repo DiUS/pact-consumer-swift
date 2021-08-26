@@ -62,6 +62,14 @@ public class Interaction: NSObject {
   /// - Parameter body: An object representing the body of your network request
   /// - Returns: An `Interaction` object
   ///
+  /// - Warning:
+  ///  When `query` parameter is provided as a `String` it is **not** percentage encoded to present a valid URL.
+  ///  This allows you to prepare a valid URL query such as:
+  ///
+  ///      ?someKey=value%20with%20space&anotherKey=anotherValue
+  ///
+  ///  Only when providing a query parameter as a `Dictionary<String, String>` the keys and values are percentage encoded.
+  ///
   @objc(withRequestHTTPMethod: path: query: headers: body:)
   @discardableResult
   public func withRequest(method: PactHTTPMethod,
@@ -77,7 +85,14 @@ public class Interaction: NSObject {
       request["body"] = bodyValue
     }
     if let queryValue = query {
-      request["query"] = queryValue
+      if let queryValue = queryValue as? [String: String] {
+        request["query"] = queryValue
+          .map { "\($0.key.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")=\($0.value.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")" } // swiftlint:disable:this line_length
+          .joined(separator: "&")
+
+      } else {
+        request["query"] = queryValue
+      }
     }
     return self
   }
