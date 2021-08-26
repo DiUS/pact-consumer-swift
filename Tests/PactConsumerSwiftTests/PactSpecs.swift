@@ -59,14 +59,14 @@ class PactSwiftSpec: QuickSpec {
         it("as string should return animals living in water") {
           animalMockService!.given("an alligator exists")
                             .uponReceiving("a request for animals living in water with query string")
-                            .withRequest(method:.GET, path: "/animals", query: "live=in bayou swamp")
+                            .withRequest(method:.GET, path: "/animals", query: "live=in%20bayou swamp")
                             .willRespondWith(status: 200,
                                              headers: ["Content-Type": "application/json"],
                                              body: [ ["name": "Mary", "type": "alligator"] ] )
 
           //Run the tests
           animalMockService!.run(timeout: 1) { (testComplete) -> Void in
-            animalServiceClient!.findAnimals(live: "in bayou swamp", response: {
+            animalServiceClient!.findAnimals(live: "in bayou swamp", response: { // pact-consumer-swift's network request task percentage encodes the request being made
               (response) in
               expect(response.count).to(equal(1))
               let name = response[0].name

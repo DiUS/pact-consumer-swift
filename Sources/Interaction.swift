@@ -63,12 +63,8 @@ public class Interaction: NSObject {
   /// - Returns: An `Interaction` object
   ///
   /// - Warning:
-  ///  When `query` parameter is provided as a `String` it is **not** percentage encoded to present a valid URL.
-  ///  This allows you to prepare a valid URL query such as:
-  ///
-  ///      ?someKey=value%20with%20space&anotherKey=anotherValue
-  ///
-  ///  Only when providing a query parameter as a `Dictionary<String, String>` the keys and values are percentage encoded.
+  ///  Only spaces are percentage encoded if found in `query` parameters when
+  ///  provided as type `String` or `Dictionary<String, String>`.
   ///
   @objc(withRequestHTTPMethod: path: query: headers: body:)
   @discardableResult
@@ -85,9 +81,11 @@ public class Interaction: NSObject {
       request["body"] = bodyValue
     }
     if let queryValue = query {
-      if let queryValue = queryValue as? [String: String] {
+      if let queryValue = queryValue as? String {
+        request["query"] = queryValue.replacingOccurrences(of: " ", with: "%20")
+      } else if let queryValue = queryValue as? [String: String] {
         request["query"] = queryValue
-          .map { "\($0.key.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")=\($0.value.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")" } // swiftlint:disable:this line_length
+          .map { "\($0.key.replacingOccurrences(of: " ", with: "%20"))=\($0.value.replacingOccurrences(of: " ", with: "%20"))" }
           .joined(separator: "&")
 
       } else {
