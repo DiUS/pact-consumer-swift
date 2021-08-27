@@ -82,10 +82,10 @@ public class Interaction: NSObject {
     }
     if let queryValue = query {
       if let queryValue = queryValue as? String {
-        request["query"] = queryValue.replacingOccurrences(of: " ", with: "%20")
+        request["query"] = queryValue.withPercentageEncodedSpaces()
       } else if let queryValue = queryValue as? [String: String] {
         request["query"] = queryValue
-          .map { "\($0.key.replacingOccurrences(of: " ", with: "%20"))=\($0.value.replacingOccurrences(of: " ", with: "%20"))" }
+          .map { "\($0.key.withPercentageEncodedSpaces())=\($0.value.withPercentageEncodedSpaces())" }
           .joined(separator: "&")
 
       } else {
@@ -163,4 +163,12 @@ public class Interaction: NSObject {
       return "get"
     }
   }
+}
+
+private extension String {
+
+  func withPercentageEncodedSpaces() -> String {
+    self.replacingOccurrences(of: " ", with: "%20")
+  }
+
 }
