@@ -1,3 +1,13 @@
+# 0.10.2 - Bugfix Release
+
+* d750d5b - Fix changelog generation (Andrew Spinks, Mon Sep 6 13:45:00 2021 +0900)
+* 7aba867 - Update Package.swift to set minimum supported iOS version to 9 (alexbasson, Thu May 13 14:29:01 2021 -0400)
+* 3ab783c - Move swiftlint configuration to root (Seb Skuse, Wed Mar 31 16:57:49 2021 +0100)
+# 0.10.2 - Bugfix Release
+
+* d750d5b - Fix changelog generation (Andrew Spinks, Mon Sep 6 13:45:00 2021 +0900)
+* 7aba867 - Update Package.swift to set minimum supported iOS version to 9 (alexbasson, Thu May 13 14:29:01 2021 -0400)
+* 3ab783c - Move swiftlint configuration to root (Seb Skuse, Wed Mar 31 16:57:49 2021 +0100)
 # 0.10.1 - Bugfix Release
 
 * c5e8324 - chore: Allow non-secure connections on 127.0.0.1 (Marko Justinek, Thu Feb 4 15:43:49 2021 +1100)
